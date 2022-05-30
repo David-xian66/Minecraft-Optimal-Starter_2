@@ -27,7 +27,6 @@ class Ui_MOS(object):
 
 
 if __name__ == '__main__':
-    MOS_Json()
     print ("程序已开始运行！")
     app = QtWidgets.QApplication(sys.argv)
     print ("请稍等...")
