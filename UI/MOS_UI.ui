@@ -46,13 +46,15 @@
        <item row="2" column="0" colspan="2">
         <widget class="QPushButton" name="pushButton_lianji">
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/img/picture/home.png);
+          <string notr="true">height:23px;
+color: rgb(0, 150, 255);
 background-origin: content;
 background-position: left;
 background-repeat: no-repeat;
 text-align: left;
 padding-right:10px;
-font-size: 15px;</string>
+font-size: 15px;
+border-radius: 10px;</string>
          </property>
          <property name="text">
           <string>联机</string>
@@ -62,13 +64,15 @@ font-size: 15px;</string>
        <item row="6" column="0" colspan="2">
         <widget class="QPushButton" name="pushButton_music">
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/img/picture/home.png);
+          <string notr="true">height:23px;
+color: rgb(0, 150, 255);
 background-origin: content;
 background-position: left;
 background-repeat: no-repeat;
 text-align: left;
 padding-right:10px;
-font-size: 15px;</string>
+font-size: 15px;
+border-radius: 10px;</string>
          </property>
          <property name="text">
           <string>音乐</string>
@@ -78,13 +82,15 @@ font-size: 15px;</string>
        <item row="9" column="0" colspan="2">
         <widget class="QPushButton" name="pushButton_about">
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/img/picture/home.png);
+          <string notr="true">height:23px;
+color: rgb(0, 150, 255);
 background-origin: content;
 background-position: left;
 background-repeat: no-repeat;
 text-align: left;
 padding-right:10px;
-font-size: 15px;</string>
+font-size: 15px;
+border-radius: 10px;</string>
          </property>
          <property name="text">
           <string>关于</string>
@@ -94,13 +100,15 @@ font-size: 15px;</string>
        <item row="4" column="0" colspan="2">
         <widget class="QPushButton" name="pushButton_xiazai">
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/img/picture/home.png);
+          <string notr="true">height:23px;
+color: rgb(0, 150, 255);
 background-origin: content;
 background-position: left;
 background-repeat: no-repeat;
 text-align: left;
 padding-right:10px;
-font-size: 15px;</string>
+font-size: 15px;
+border-radius: 10px;</string>
          </property>
          <property name="text">
           <string>下载</string>
@@ -116,16 +124,28 @@ font-size: 15px;</string>
           <enum>Qt::LeftToRight</enum>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/img/picture/home.png);
+          <string notr="true">height:23px;
+color: rgb(0, 150, 255);
 background-origin: content;
 background-position: left;
 background-repeat: no-repeat;
 text-align: left;
 padding-right:10px;
-font-size: 15px;</string>
+font-size: 15px;
+border-radius: 10px;</string>
          </property>
          <property name="text">
-          <string>    Home</string>
+          <string>Home</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../picture/home.png</normaloff>../picture/home.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -144,7 +164,7 @@ font-size: 15px;</string>
             <property name="styleSheet">
              <string notr="true">width:50px;
 height:50px;
-border-image: url(:/img/picture/ico.png);</string>
+border-radius: 10px;</string>
             </property>
             <property name="text">
              <string/>
@@ -174,17 +194,28 @@ border-image: url(:/img/picture/ico.png);</string>
        <item row="8" column="0" colspan="2">
         <widget class="QPushButton" name="pushButton_shezhi">
          <property name="styleSheet">
-          <string notr="true">height:40px;
-background-image: url(:/img/picture/shape.png);
+          <string notr="true">height:23px;
+color: rgb(0, 150, 255);
 background-origin: content;
 background-position: left;
 background-repeat: no-repeat;
 text-align: left;
 padding-right:10px;
-font-size: 15px;</string>
+font-size: 15px;
+border-radius: 10px;</string>
          </property>
          <property name="text">
-          <string>        设置</string>
+          <string>设置</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../picture/settings.png</normaloff>../picture/settings.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
          </property>
         </widget>
        </item>
