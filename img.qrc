@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="img">
+    <file>picture/设置.png</file>
+    <file>picture/shape.png</file>
     <file>picture/home.png</file>
     <file>picture/ico.png</file>
   </qresource>
