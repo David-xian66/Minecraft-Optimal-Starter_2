@@ -14,6 +14,7 @@ class Ui_MOS(object):
         MOS.setWindowModality(QtCore.Qt.WindowModality.NonModal)
         MOS.resize(1000, 533)
         MOS.setMinimumSize(QtCore.QSize(1000, 533))
+        MOS.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MOS)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -94,80 +95,76 @@ class Ui_MOS(object):
         self.gridLayout.addWidget(self.stackedWidget, 0, 1, 1, 1)
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setAutoFillBackground(False)
-        self.widget.setStyleSheet("background-color: rgb(231, 230, 228);")
+        self.widget.setStyleSheet("QWidget\n"
+"{\n"
+"    background-color: rgb(231, 230, 228);\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"    color: blue;\n"
+"    height:23px;\n"
+"    color: rgb(0, 150, 255);\n"
+"    background-position: left;\n"
+"    text-align: left;\n"
+"    padding-right:10px;\n"
+"    font-size: 15px;\n"
+"    border-style:none;\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(192, 192, 192);\n"
+"}")
         self.widget.setObjectName("widget")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.widget)
         self.gridLayout_3.setObjectName("gridLayout_3")
         self.pushButton_lianji = QtWidgets.QPushButton(self.widget)
-        self.pushButton_lianji.setStyleSheet("height:23px;\n"
-"color: rgb(0, 150, 255);\n"
-"background-origin: content;\n"
-"background-position: left;\n"
-"background-repeat: no-repeat;\n"
-"text-align: left;\n"
-"padding-right:10px;\n"
-"font-size: 15px;\n"
-"border-radius: 10px;")
+        self.pushButton_lianji.setStyleSheet("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/online.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_lianji.setIcon(icon)
+        self.pushButton_lianji.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_lianji.setObjectName("pushButton_lianji")
         self.gridLayout_3.addWidget(self.pushButton_lianji, 2, 0, 1, 2)
         self.pushButton_music = QtWidgets.QPushButton(self.widget)
-        self.pushButton_music.setStyleSheet("height:23px;\n"
-"color: rgb(0, 150, 255);\n"
-"background-origin: content;\n"
-"background-position: left;\n"
-"background-repeat: no-repeat;\n"
-"text-align: left;\n"
-"padding-right:10px;\n"
-"font-size: 15px;\n"
-"border-radius: 10px;")
+        self.pushButton_music.setStyleSheet("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/music.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_music.setIcon(icon1)
+        self.pushButton_music.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_music.setObjectName("pushButton_music")
         self.gridLayout_3.addWidget(self.pushButton_music, 6, 0, 1, 2)
         self.pushButton_about = QtWidgets.QPushButton(self.widget)
-        self.pushButton_about.setStyleSheet("height:23px;\n"
-"color: rgb(0, 150, 255);\n"
-"background-origin: content;\n"
-"background-position: left;\n"
-"background-repeat: no-repeat;\n"
-"text-align: left;\n"
-"padding-right:10px;\n"
-"font-size: 15px;\n"
-"border-radius: 10px;")
+        self.pushButton_about.setStyleSheet("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/about.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_about.setIcon(icon2)
+        self.pushButton_about.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_about.setObjectName("pushButton_about")
         self.gridLayout_3.addWidget(self.pushButton_about, 9, 0, 1, 2)
         self.pushButton_xiazai = QtWidgets.QPushButton(self.widget)
-        self.pushButton_xiazai.setStyleSheet("height:23px;\n"
-"color: rgb(0, 150, 255);\n"
-"background-origin: content;\n"
-"background-position: left;\n"
-"background-repeat: no-repeat;\n"
-"text-align: left;\n"
-"padding-right:10px;\n"
-"font-size: 15px;\n"
-"border-radius: 10px;")
+        self.pushButton_xiazai.setStyleSheet("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/download.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_xiazai.setIcon(icon3)
+        self.pushButton_xiazai.setIconSize(QtCore.QSize(19, 19))
         self.pushButton_xiazai.setObjectName("pushButton_xiazai")
         self.gridLayout_3.addWidget(self.pushButton_xiazai, 4, 0, 1, 2)
         self.pushButton_home = QtWidgets.QPushButton(self.widget)
         self.pushButton_home.setFocusPolicy(QtCore.Qt.FocusPolicy.TabFocus)
         self.pushButton_home.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-        self.pushButton_home.setStyleSheet("height:23px;\n"
-"color: rgb(0, 150, 255);\n"
-"background-origin: content;\n"
-"background-position: left;\n"
-"background-repeat: no-repeat;\n"
-"text-align: left;\n"
-"padding-right:10px;\n"
-"font-size: 15px;\n"
-"border-radius: 10px;")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/home.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_home.setIcon(icon1)
+        self.pushButton_home.setStyleSheet("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/home.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_home.setIcon(icon4)
         self.pushButton_home.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_home.setObjectName("pushButton_home")
         self.gridLayout_3.addWidget(self.pushButton_home, 1, 0, 1, 2)
         self.widget_2 = QtWidgets.QWidget(self.widget)
+        self.widget_2.setStyleSheet("QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(231, 230, 228);\n"
+"    border:1.9px double rgb(0, 150, 255);\n"
+"}")
         self.widget_2.setObjectName("widget_2")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.widget_2)
         self.gridLayout_4.setObjectName("gridLayout_4")
@@ -175,13 +172,13 @@ class Ui_MOS(object):
         self.label.setObjectName("label")
         self.gridLayout_4.addWidget(self.label, 0, 1, 1, 1)
         self.pushButton_2 = QtWidgets.QPushButton(self.widget_2)
-        self.pushButton_2.setStyleSheet("width:50px;\n"
+        self.pushButton_2.setStyleSheet("width:43.5px;\n"
 "height:50px;\n"
-"border-radius: 10px;")
+"border-radius: 25px;")
         self.pushButton_2.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/ico.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_2.setIcon(icon2)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/ico.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_2.setIcon(icon5)
         self.pushButton_2.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_2.setObjectName("pushButton_2")
         self.gridLayout_4.addWidget(self.pushButton_2, 0, 0, 2, 1)
@@ -190,18 +187,10 @@ class Ui_MOS(object):
         self.gridLayout_4.addWidget(self.label_2, 1, 1, 1, 1)
         self.gridLayout_3.addWidget(self.widget_2, 0, 0, 1, 2)
         self.pushButton_shezhi = QtWidgets.QPushButton(self.widget)
-        self.pushButton_shezhi.setStyleSheet("height:23px;\n"
-"color: rgb(0, 150, 255);\n"
-"background-origin: content;\n"
-"background-position: left;\n"
-"background-repeat: no-repeat;\n"
-"text-align: left;\n"
-"padding-right:10px;\n"
-"font-size: 15px;\n"
-"border-radius: 10px;")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/settings.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_shezhi.setIcon(icon3)
+        self.pushButton_shezhi.setStyleSheet("")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/settings.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_shezhi.setIcon(icon6)
         self.pushButton_shezhi.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_shezhi.setObjectName("pushButton_shezhi")
         self.gridLayout_3.addWidget(self.pushButton_shezhi, 8, 0, 1, 2)
