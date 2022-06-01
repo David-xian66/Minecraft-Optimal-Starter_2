@@ -187,6 +187,12 @@ border-radius: 10px;</string>
           <iconset>
            <normaloff>../picture/online.png</normaloff>../picture/online.png</iconset>
          </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
         </widget>
        </item>
        <item row="6" column="0" colspan="2">
@@ -204,6 +210,16 @@ border-radius: 10px;</string>
          </property>
          <property name="text">
           <string>音乐</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../picture/music.png</normaloff>../picture/music.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -223,6 +239,16 @@ border-radius: 10px;</string>
          <property name="text">
           <string>关于</string>
          </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../picture/about.png</normaloff>../picture/about.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
         </widget>
        </item>
        <item row="4" column="0" colspan="2">
@@ -240,6 +266,16 @@ border-radius: 10px;</string>
          </property>
          <property name="text">
           <string>下载</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../picture/download.png</normaloff>../picture/download.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>19</width>
+           <height>19</height>
+          </size>
          </property>
         </widget>
        </item>
