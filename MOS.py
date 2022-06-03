@@ -2,7 +2,7 @@
 import sys,os, requests, json, datetime
 from os import path
 
-
+os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt5\Qt5\plugins'  #### 这一行是新增的。用的是相对路径。
 
 from PyQt6.QtCore import *
 
