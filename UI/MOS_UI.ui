@@ -25,6 +25,7 @@
   <property name="styleSheet">
    <string notr="true">QMainwindow{
 	border-radius:15px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -48,7 +49,7 @@
      <number>0</number>
     </property>
     <item row="0" column="0">
-     <widget class="QWidget" name="widget" native="true">
+     <widget class="QWidget" name="widget_mos_left" native="true">
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
@@ -71,7 +72,7 @@
 	font-size: 15px;
 	border-style:none;
 	border-radius:8px;
-	border:2px double rgb(229, 228, 226);
+	border:2px solid rgb(229, 228, 226);
 }
 #pushButton_about::hover
 {
@@ -79,7 +80,7 @@
 }
 #pushButton_about::pressed
 {
-	border:2px double rgb(0, 150, 255);
+	border:2px solid rgb(0, 150, 255);
 }
 
 
@@ -95,7 +96,7 @@
 	font-size: 15px;
 	border-style:none;
 	border-radius:8px;
-	border:2px double rgb(229, 228, 226);
+	border:2px solid rgb(229, 228, 226);
 }
 #pushButton_xiazai::hover
 {
@@ -103,7 +104,7 @@
 }
 #pushButton_xiazai::pressed
 {
-	border:2px double rgb(0, 150, 255);
+	border:2px solid rgb(0, 150, 255);
 }
 
 
@@ -119,7 +120,7 @@
 	font-size: 15px;
 	border-style:none;
 	border-radius:8px;
-	border:2px double rgb(229, 228, 226);
+	border:2px solid rgb(229, 228, 226);
 }
 #pushButton_shezhi::hover
 {
@@ -127,7 +128,7 @@
 }
 #pushButton_shezhi::pressed
 {
-	border:2px double rgb(0, 150, 255);
+	border:2px solid rgb(0, 150, 255);
 }
 
 
@@ -143,7 +144,7 @@
 	font-size: 15px;
 	border-style:none;
 	border-radius:8px;
-	border:2px double rgb(229, 228, 226);
+	border:2px solid rgb(229, 228, 226);
 }
 #pushButton_music::hover
 {
@@ -151,7 +152,7 @@
 }
 #pushButton_music::pressed
 {
-	border:2px double rgb(0, 150, 255);
+	border:2px solid rgb(0, 150, 255);
 }
 
 
@@ -167,7 +168,7 @@
 	font-size: 15px;
 	border-style:none;
 	border-radius:8px;
-	border:2px double rgb(229, 228, 226);
+	border:2px solid rgb(229, 228, 226);
 }
 #pushButton_lianji::hover
 {
@@ -175,7 +176,7 @@
 }
 #pushButton_lianji::pressed
 {
-	border:2px double rgb(0, 150, 255);
+	border:2px solid rgb(0, 150, 255);
 }
 
 
@@ -191,7 +192,7 @@
 	font-size: 15px;
 	border-style:none;
 	border-radius:8px;
-	border:2px double rgb(229, 228, 226);
+	border:2px solid rgb(229, 228, 226);
 }
 #pushButton_home::hover
 {
@@ -199,7 +200,7 @@
 }
 #pushButton_home::pressed
 {
-	border:2px double rgb(0, 150, 255);
+	border:2px solid rgb(0, 150, 255);
 }</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -207,7 +208,7 @@
         <number>2</number>
        </property>
        <item>
-        <widget class="QWidget" name="widget_2" native="true">
+        <widget class="QWidget" name="widget_mos_left_top" native="true">
          <property name="styleSheet">
           <string notr="true">QWidget
 {
@@ -227,7 +228,7 @@ QWidget::pressed
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="0" column="1">
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="label_mos_left_top_user">
             <property name="styleSheet">
              <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
             </property>
@@ -237,7 +238,7 @@ QWidget::pressed
            </widget>
           </item>
           <item row="0" column="0" rowspan="2">
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="pushButton_mos_left_top">
             <property name="styleSheet">
              <string notr="true">width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);</string>
             </property>
@@ -257,7 +258,7 @@ QWidget::pressed
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="label_mos_left_top_add">
             <property name="styleSheet">
              <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
             </property>
@@ -416,7 +417,7 @@ QWidget::pressed
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="label_mosll">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 150, 255);font-size: 17px;font: 75 17pt &quot;Yuanti SC&quot;;background-color: rgb(240, 239, 238,0);</string>
          </property>
@@ -432,17 +433,17 @@ QWidget::pressed
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="QStackedWidget" name="stackedWidget_mos_right">
       <property name="styleSheet">
        <string notr="true">background-color: rgba(255, 255, 255, 128);</string>
       </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="page">
+      <widget class="QWidget" name="page_gonggao">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QScrollArea" name="scrollArea">
+         <widget class="QScrollArea" name="scrollArea_page_gonggao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
@@ -472,20 +473,20 @@ QWidget::pressed
            </property>
            <layout class="QGridLayout" name="gridLayout_16">
             <item row="0" column="0">
-             <widget class="QWidget" name="widget_3" native="true">
+             <widget class="QWidget" name="widget_scrollArea_page_gonggao_left" native="true">
               <property name="styleSheet">
-               <string notr="true">border:2px double rgb(0, 150, 255);border-radius:15px;</string>
+               <string notr="true">border:2px solid rgb(0, 150, 255);border-radius:15px;</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_5">
                <item row="1" column="0">
-                <widget class="QTextBrowser" name="textBrowser">
+                <widget class="QTextBrowser" name="textBrowser_gonggao_left_txt">
                  <property name="styleSheet">
                   <string notr="true">border-style:none;</string>
                  </property>
                 </widget>
                </item>
                <item row="0" column="0">
-                <widget class="QLabel" name="label_4">
+                <widget class="QLabel" name="label_gonggao_left_txt">
                  <property name="styleSheet">
                   <string notr="true">border-style:none;</string>
                  </property>
@@ -501,13 +502,27 @@ QWidget::pressed
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QWidget" name="widget_4" native="true">
+             <widget class="QWidget" name="widget_scrollArea_page_gonggao_right" native="true">
               <property name="styleSheet">
-               <string notr="true">border:2px double rgb(0, 150, 255);border-radius:15px;</string>
+               <string notr="true">QWidget  {
+	border:2px solid rgb(0, 150, 255);border-radius:15px;
+}
+
+QComboBox {
+    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */
+    border-radius: 3px;
+	height:25px;
+	font-size: 14px;
+	background-color: rgba(0, 150, 255, 77);
+	border-radius:10px;
+}
+/*QComboBox::down-arrow
+是 右面那个 
+*/</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_6">
                <item row="1" column="0" colspan="2">
-                <widget class="QWidget" name="widget_6" native="true">
+                <widget class="QWidget" name="widget_scrollArea_page_gonggao_statring" native="true">
                  <property name="styleSheet">
                   <string notr="true">border-style:none;</string>
                  </property>
@@ -574,18 +589,28 @@ QWidget::pressed
                  </layout>
                 </widget>
                </item>
-               <item row="0" column="0" colspan="2">
-                <widget class="QLabel" name="label_5">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;</string>
+               <item row="3" column="1">
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
                  </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="2" column="1">
+                <widget class="QPushButton" name="pushButton__gonggao_start">
                  <property name="text">
-                  <string>选择要启动的游戏</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string>PushButton</string>
                  </property>
                 </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QComboBox" name="comboBox_gonggao_right"/>
                </item>
                <item row="3" column="0">
                 <spacer name="horizontalSpacer">
@@ -600,28 +625,18 @@ QWidget::pressed
                  </property>
                 </spacer>
                </item>
-               <item row="2" column="0">
-                <widget class="QComboBox" name="comboBox"/>
-               </item>
-               <item row="2" column="1">
-                <widget class="QPushButton" name="pushButton_3">
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="label__gonggao_right_txt">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;</string>
+                 </property>
                  <property name="text">
-                  <string>PushButton</string>
+                  <string>选择要启动的游戏</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
-               </item>
-               <item row="3" column="1">
-                <spacer name="horizontalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
                </item>
               </layout>
              </widget>
@@ -691,7 +706,7 @@ QWidget::pressed
         <item row="3" column="0" colspan="2">
          <widget class="QWidget" name="widget_5" native="true">
           <property name="styleSheet">
-           <string notr="true">border-radius:10px;border:2px double rgb(0, 150, 255);</string>
+           <string notr="true">border-radius:10px;border:2px solid rgb(0, 150, 255);</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_8">
            <property name="leftMargin">
@@ -727,6 +742,19 @@ QWidget::pressed
        </layout>
       </widget>
       <widget class="QWidget" name="page_3">
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */
+    border-radius: 3px;
+	height:25px;
+	font-size: 14px;
+	background-color: rgba(0, 150, 255, 77);
+	border-radius:10px;
+}
+/*QComboBox::down-arrow
+是 右面那个 
+*/</string>
+       </property>
        <layout class="QGridLayout" name="gridLayout">
         <property name="leftMargin">
          <number>0</number>
@@ -769,19 +797,6 @@ QWidget::pressed
           </item>
          </widget>
         </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_10">
-          <property name="styleSheet">
-           <string notr="true">border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);</string>
-          </property>
-          <property name="text">
-           <string>下载</string>
-          </property>
-          <property name="indent">
-           <number>10</number>
-          </property>
-         </widget>
-        </item>
         <item row="3" column="0" colspan="2">
          <widget class="Line" name="line_3">
           <property name="styleSheet">
@@ -817,12 +832,32 @@ QWidget::pressed
            <number>0</number>
           </property>
           <widget class="QWidget" name="page_9">
+           <property name="styleSheet">
+            <string notr="true">QAbstractItemView::item {
+    min-height: 110px;
+    min-width: 40px; 
+}</string>
+           </property>
            <layout class="QGridLayout" name="gridLayout_9">
             <item row="0" column="0">
              <widget class="QTreeWidget" name="treeWidget">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="uniformRowHeights">
+               <bool>false</bool>
+              </property>
               <column>
                <property name="text">
                 <string>版本列表</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>种类</string>
                </property>
               </column>
              </widget>
@@ -977,6 +1012,19 @@ QWidget::pressed
           </widget>
          </widget>
         </item>
+        <item row="1" column="0" rowspan="2">
+         <widget class="QLabel" name="label_10">
+          <property name="styleSheet">
+           <string notr="true">border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);</string>
+          </property>
+          <property name="text">
+           <string>下载</string>
+          </property>
+          <property name="indent">
+           <number>10</number>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="page_4">
@@ -1039,7 +1087,7 @@ QWidget::pressed
          <widget class="QWidget" name="widget_8" native="true">
           <property name="styleSheet">
            <string notr="true">border-radius:10px;
-border:2px double rgb(0, 150, 255);</string>
+border:2px solid rgb(0, 150, 255);</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_10">
            <property name="leftMargin">
@@ -1147,7 +1195,7 @@ border:2px double rgb(0, 150, 255);</string>
          <widget class="QWidget" name="widget_9" native="true">
           <property name="styleSheet">
            <string notr="true">border-radius:10px;
-border:2px double rgb(0, 150, 255);</string>
+border:2px solid rgb(0, 150, 255);</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_11">
            <property name="leftMargin">
@@ -1230,45 +1278,30 @@ border:2px double rgb(0, 150, 255);</string>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_18">
-           <item row="1" column="0">
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>796</width>
-               <height>368</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
+          <layout class="QGridLayout" name="gridLayout_19">
            <item row="0" column="0">
             <widget class="QWidget" name="widget_13" native="true">
              <property name="styleSheet">
-              <string notr="true">border-radius:15px;border:2px double rgba(0, 150, 255, 128);</string>
+              <string notr="true">border-radius:15px;border:2px solid rgba(0, 150, 255, 128);</string>
              </property>
-             <layout class="QGridLayout" name="gridLayout_19">
-              <item row="0" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="styleSheet">
+                 <string notr="true">border-style:none;</string>
+                </property>
+                <property name="text">
+                 <string>关于：</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QWidget" name="widget_11" native="true">
                 <property name="styleSheet">
                  <string notr="true">border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_12">
-                 <item row="0" column="1">
-                  <widget class="QLabel" name="label_16">
-                   <property name="styleSheet">
-                    <string notr="true">border-style:none;</string>
-                   </property>
-                   <property name="text">
-                    <string>MOS启动器
-版本V2.0.2-alpha-内部版本
-请勿泄漏！</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="0">
+                 <item row="1" column="0">
                   <widget class="QPushButton" name="pushButton">
                    <property name="styleSheet">
                     <string notr="true">border-style:none;</string>
@@ -1288,7 +1321,7 @@ border:2px double rgb(0, 150, 255);</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="0" column="2">
+                 <item row="1" column="2">
                   <spacer name="horizontalSpacer_8">
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
@@ -1301,10 +1334,22 @@ border:2px double rgb(0, 150, 255);</string>
                    </property>
                   </spacer>
                  </item>
+                 <item row="1" column="1">
+                  <widget class="QLabel" name="label_16">
+                   <property name="styleSheet">
+                    <string notr="true">border-style:none;</string>
+                   </property>
+                   <property name="text">
+                    <string>MOS启动器
+版本V2.0.2-alpha-内部版本
+请勿泄漏！</string>
+                   </property>
+                  </widget>
+                 </item>
                 </layout>
                </widget>
               </item>
-              <item row="1" column="0">
+              <item>
                <widget class="QWidget" name="widget_12" native="true">
                 <property name="styleSheet">
                  <string notr="true">border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;</string>
@@ -1356,8 +1401,73 @@ border:2px double rgb(0, 150, 255);</string>
                 </layout>
                </widget>
               </item>
+              <item>
+               <widget class="QWidget" name="widget_14" native="true">
+                <property name="styleSheet">
+                 <string notr="true">border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_18">
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="label_22">
+                   <property name="styleSheet">
+                    <string notr="true">border-style:none;</string>
+                   </property>
+                   <property name="text">
+                    <string>MOS网站支持、测试小组负责人：QHQQI</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QPushButton" name="pushButton_9">
+                   <property name="styleSheet">
+                    <string notr="true">border-style:none;</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>../picture/qhqqi.png</normaloff>../picture/qhqqi.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>40</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="2">
+                  <spacer name="horizontalSpacer_10">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>34</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
              </layout>
             </widget>
+           </item>
+           <item row="1" column="0">
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>796</width>
+               <height>368</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </widget>
