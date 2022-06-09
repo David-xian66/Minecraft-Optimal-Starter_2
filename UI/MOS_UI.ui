@@ -192,7 +192,7 @@
 	font-size: 15px;
 	border-style:none;
 	border-radius:8px;
-	border:2px solid rgb(229, 228, 226);
+	border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);
 }
 #pushButton_home::hover
 {
@@ -337,8 +337,8 @@ QWidget::pressed
          </property>
          <property name="iconSize">
           <size>
-           <width>19</width>
-           <height>19</height>
+           <width>20</width>
+           <height>20</height>
           </size>
          </property>
         </widget>
@@ -499,7 +499,8 @@ QWidget::pressed
                <item row="0" column="0">
                 <widget class="QLabel" name="label_gonggao_left_txt">
                  <property name="styleSheet">
-                  <string notr="true">border-style:none;</string>
+                  <string notr="true">border-style:none;
+font: 13pt &quot;PingFang SC&quot;;</string>
                  </property>
                  <property name="text">
                   <string>公告</string>
@@ -515,7 +516,7 @@ QWidget::pressed
                   <string notr="true">border-style:none;</string>
                  </property>
                  <property name="currentIndex">
-                  <number>0</number>
+                  <number>1</number>
                  </property>
                  <widget class="QWidget" name="page_gonggao_jiazai">
                   <layout class="QGridLayout" name="gridLayout_20">
@@ -568,9 +569,14 @@ QProgressBar::chunk{
                    </property>
                    <item row="1" column="0">
                     <widget class="QLabel" name="label_2">
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(0, 150, 255);</string>
+                     </property>
                      <property name="text">
                       <string>正在加载
-当前步骤：下载公告……请稍后</string>
+
+当前步骤：下载公告……请稍后
+</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -1563,7 +1569,7 @@ border:2px solid rgb(0, 150, 255);</string>
                     <string notr="true">border-style:none;</string>
                    </property>
                    <property name="text">
-                    <string>MOS网站支持、测试小组负责人：QHQQI</string>
+                    <string>MOS网站支持、测试小组负责人：HeimNad</string>
                    </property>
                   </widget>
                  </item>
@@ -1577,7 +1583,7 @@ border:2px solid rgb(0, 150, 255);</string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>../picture/qhqqi.png</normaloff>../picture/qhqqi.png</iconset>
+                     <normaloff>../picture/heimnad.png</normaloff>../picture/heimnad.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
