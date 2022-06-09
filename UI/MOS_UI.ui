@@ -23,7 +23,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainwindow{
+   <string notr="true">QMainWindow{
 	border-radius:15px;
 	background-color: rgba(255, 255, 255, 0);
 }</string>
@@ -441,6 +441,9 @@ QWidget::pressed
        <number>0</number>
       </property>
       <widget class="QWidget" name="page_gonggao">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QScrollArea" name="scrollArea_page_gonggao">
@@ -471,20 +474,28 @@ QWidget::pressed
              <height>509</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <layout class="QGridLayout" name="gridLayout_16">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item row="0" column="0">
              <widget class="QWidget" name="widget_scrollArea_page_gonggao_left" native="true">
               <property name="styleSheet">
                <string notr="true">border:2px solid rgb(0, 150, 255);border-radius:15px;</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_5">
-               <item row="1" column="0">
-                <widget class="QTextBrowser" name="textBrowser_gonggao_left_txt">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;</string>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="0">
                 <widget class="QLabel" name="label_gonggao_left_txt">
                  <property name="styleSheet">
@@ -496,6 +507,132 @@ QWidget::pressed
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QStackedWidget" name="stackedWidget_gonggao">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;</string>
+                 </property>
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <widget class="QWidget" name="page_gonggao_jiazai">
+                  <layout class="QGridLayout" name="gridLayout_20">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QTextBrowser" name="textBrowser_gonggao_left_txt">
+                     <property name="styleSheet">
+                      <string notr="true">border-style:none;</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="page_gonggao_jiazai_ing">
+                  <property name="styleSheet">
+                   <string notr="true">QProgressBar{
+	text-align: center;
+	border-style:none;
+	border-radius:7px;
+	color: rgb(33, 33, 33);
+}
+QProgressBar::chunk{
+	border-radius:7px;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(53, 244, 252, 255), stop:1 rgba(222, 255, 255, 255));
+}</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_21">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_2">
+                     <property name="text">
+                      <string>正在加载
+当前步骤：下载公告……请稍后</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <spacer name="verticalSpacer_6">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QProgressBar" name="progressBar_2">
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgba(0, 150, 255, 10);height:15px;</string>
+                     </property>
+                     <property name="minimum">
+                      <number>0</number>
+                     </property>
+                     <property name="maximum">
+                      <number>100</number>
+                     </property>
+                     <property name="value">
+                      <number>25</number>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="invertedAppearance">
+                      <bool>false</bool>
+                     </property>
+                     <property name="textDirection">
+                      <enum>QProgressBar::TopToBottom</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <spacer name="verticalSpacer_2">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </widget>
                 </widget>
                </item>
               </layout>
@@ -518,7 +655,17 @@ QComboBox {
 }
 /*QComboBox::down-arrow
 是 右面那个 
-*/</string>
+*/
+QProgressBar{
+	text-align: center;
+	border-style:none;
+	border-radius:7px;
+	color: rgb(33, 33, 33);
+}
+QProgressBar::chunk{
+	border-radius:7px;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 224, 249, 255), stop:1 rgba(212, 255, 255, 255));
+}</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_6">
                <item row="1" column="0" colspan="2">
@@ -543,7 +690,7 @@ QComboBox {
                   <item row="3" column="1" colspan="3">
                    <widget class="QLabel" name="label_7">
                     <property name="text">
-                     <string>TextLabel</string>
+                     <string>启动君：待命中……</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -579,10 +726,10 @@ QComboBox {
                   <item row="2" column="0" colspan="5">
                    <widget class="QProgressBar" name="progressBar">
                     <property name="styleSheet">
-                     <string notr="true">border-style:none;</string>
+                     <string notr="true">background-color: rgba(0, 150, 255, 10);height:15px;</string>
                     </property>
                     <property name="value">
-                     <number>24</number>
+                     <number>0</number>
                     </property>
                    </widget>
                   </item>
@@ -604,8 +751,11 @@ QComboBox {
                </item>
                <item row="2" column="1">
                 <widget class="QPushButton" name="pushButton__gonggao_start">
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:8px;</string>
+                 </property>
                  <property name="text">
-                  <string>PushButton</string>
+                  <string>启动游戏</string>
                  </property>
                 </widget>
                </item>
