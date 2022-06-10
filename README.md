@@ -2,8 +2,7 @@
 
 <a name="878a6390"></a>
 ## 介绍 📃
-
-🥳 MOS ll 全称[Minecraft-Optimal-Starter](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_issue) ll,中文名称为 MOS我的世界启动器，是由David ²⁰²² 发起，正在申请入驻 SWS 工作室，本人已是SWS工作室成员 可以让更多的玩家启动游戏，并且有简单启动、下载速度快、不需安装Java、跨平台，等等特点🥳
+![ico.png](https://cdn.nlark.com/yuque/0/2022/png/29245167/1654834352759-ec881727-e5d8-4113-abea-782cc8bbeba3.png#clientId=u557cdfc7-3a58-4&crop=0&crop=0&crop=1&crop=1&from=drop&id=u195450f1&margin=%5Bobject%20Object%5D&name=ico.png&originHeight=175&originWidth=175&originalType=binary&ratio=1&rotation=0&showTitle=false&size=28357&status=done&style=none&taskId=ued0b93df-c3e6-49af-ba83-33f09b7c2a3&title=)![david.jpg](https://cdn.nlark.com/yuque/0/2022/jpeg/29245167/1654834386007-81c7097a-38c0-4731-80bd-92525fa404b2.jpeg#clientId=u557cdfc7-3a58-4&crop=0&crop=0&crop=1&crop=1&from=drop&height=175&id=u9a58c4c6&margin=%5Bobject%20Object%5D&name=david.jpg&originHeight=1024&originWidth=1024&originalType=binary&ratio=1&rotation=0&showTitle=false&size=70273&status=done&style=none&taskId=ua112a451-0e7b-4836-bc7b-7592d5f3928&title=&width=175)<br />🥳 MOS ll 全称[Minecraft-Optimal-Starter](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_issue) ll,中文名称为 MOS我的世界启动器，是由David ²⁰²² 发起，正在申请入驻 SWS 工作室，本人已是SWS工作室成员 可以让更多的玩家启动游戏，并且有简单启动、下载速度快、不需安装Java、跨平台，等等特点🥳
 
 ---
 
@@ -12,11 +11,12 @@
 
 1. 🤖 [Python3](https://www.python.org)  🤖
 1. 🤖 PyQt5/6 环境(教程自己百度)，⚠️windows版请使用PyQt5，Mac版及其其他请使用PyQt6⚠️ 🤖
+1. 之后下载 “有环境版” 运行 即可（过段时间 会发布）
 
 ---
 
 <a name="8c8a93fa"></a>
-## 下载方法 ❤
+## 下载 ❤
 
 ⬇️ MSS目前分为 内部测试版 ~~内测版~~ ~~公测版~~ ⚠️ 目前不发布 公测/内侧版 因为，项目未公开，当然了 大家也可以去[下载内部测试版(Github)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_issue)/[内部测试版(Gitee)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_issue)
 
@@ -25,7 +25,7 @@
 <a name="f13ac3a1"></a>
 ## 功能 ⏫
 
-- ⏩ 傻瓜式开服：一键下载服务端，全自动配置，您只需要点击按钮，剩下的就交给MSS啦！⏩
+- ⏩ 傻瓜式开服：一键下载服务端，全自动配置，您只需要点击按钮，剩下的就交给MOS啦！⏩
 - 😋 优美的动画：使用MOS动画引擎制作出最流畅，丝滑的全新MOS！(⚠️ 目前正在开发中……)😋
 - ⚙️ 简单的启动：还怕不会安装Java？找不到Java安装包？没关系MOS会为您处理这些事情，并且不需要安装！避免Java增加系统的负担！⚙️
 - 🖨️ 更快的分析：MOS内置了独一无二的崩溃分析器，可以自动分析服务器崩溃的原因，迅速解决问题！⚠️正在开发中 🖨️
