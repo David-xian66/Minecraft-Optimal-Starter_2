@@ -1,10 +1,12 @@
 import sys, os, requests, json, datetime
+from traceback import print_tb
 from os import path
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt5\Qt5\plugins'  #### 这一行是新增的。用的是相对路径。
 
-from PyQt6.QtCore import *
-from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import QMessageBox,QPushButton,QVBoxLayout,QWidget,QApplication,QMainWindow
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MOS(object):
@@ -785,15 +787,14 @@ class Ui_MOS(object):
         QtCore.QMetaObject.connectSlotsByName(MOS)
 
         # =============================================================================#
-        self.stackedWidget_mos_right.setCurrentIndex(0)
-        # 启动线程
-        self.g = gonggao()
-        self.g.sinOut_gonggao_ok.connect(self.gonggao)
-        self.g.sinOut_gonggao_error.connect(self.gonggao_error)
-        self.g.start()
         self.progressBar_2.setMinimum(0)
         self.progressBar_2.setMaximum(99)
         self.progressBar_2.setValue(45)
+        self.stackedWidget_mos_right.setCurrentIndex(0)
+        # 启动线程
+        self.a = MOS_file()
+        self.a.sinOut.connect(self.MOS_file_return)
+        self.a.start()
         # =============================================================================#
 
     # =================================分割线===================================#
@@ -1724,6 +1725,18 @@ class Ui_MOS(object):
         self.progressBar_2.setMaximum(99)
         self.progressBar_2.setValue(0)
 
+    def MOS_file_return(self, str):
+        if str == "OK!":
+            self.g = gonggao()
+            self.g.sinOut_gonggao_ok.connect(self.gonggao)
+            self.g.sinOut_gonggao_error.connect(self.gonggao_error)
+            self.g.start()
+        elif str == "ERROR_PermissionError" :
+            a = QMessageBox.critical(None,"错误","初始化程序失败！请检查当前目录下是否有读写权限。即将退出程序", QMessageBox.Ok)
+            if a==QMessageBox.Ok: #检查是否点了OK按钮
+                quit()
+    
+    
     # =================================分割线===================================#
 
     def retranslateUi(self, MOS):
@@ -1791,6 +1804,7 @@ class Ui_MOS(object):
 
 
 class gonggao(QThread):
+    '''获取公告'''
     sinOut_gonggao_ok = pyqtSignal(str)
     sinOut_gonggao_error = pyqtSignal(str)
 
@@ -1802,11 +1816,18 @@ class gonggao(QThread):
         print("线程开始")
         url = 'https://api.skyworldstudio.top/d/SWS/MOS/announcement.html'
         try:
-            r = strhtml = requests.get(url, timeout=15)  # Get方式获取网页数据
+            r = requests.get(url, timeout=15)  # Get方式获取网页数据
+
             if r.status_code == 200:
-                goonggao_Html = strhtml.text
-                print(goonggao_Html)
-                self.sinOut_gonggao_ok.emit(goonggao_Html)
+                # 拼接路径
+                MOS_L=os.path.join(".MOS","Html","announcement.html")
+                #写入文件
+                MOS_Html_gonggao_ok = open(MOS_L, 'w+', encoding='utf-8')
+                a = r.text
+                MOS_Html_gonggao_ok.write(a)
+                MOS_Html_gonggao_ok.close
+                print(a)
+                self.sinOut_gonggao_ok.emit(a)
 
             elif r.status_code == 403:
                 print("公告请求失败，状态码为403")
@@ -1829,10 +1850,58 @@ class gonggao(QThread):
         except requests.exceptions.SSLError:
             self.sinOut_gonggao_error.emit("SSL错误")
         except requests.exceptions.ConnectionError:
-            self.sinOut_gonggao_error.emit("您尚未连接到互联网\n")
+            self.sinOut_gonggao_error.emit("连接错误\n")
+
+
+class MOS_file(QThread):
+    '''初始化文件/设置'''
+    sinOut = pyqtSignal(str)
+    def __init__(self):
+        super(MOS_file, self).__init__()
+
+    def run(self):
+        import os
+        print("文件初始化线程开始")
+
+        try:
+            MOS_file_1=os.path.join(".minecraft","mods")
+            os.makedirs(MOS_file_1, exist_ok=True)
+
+            MOS_file_1 =os.path.join(".minecraft","logs")
+            os.makedirs(MOS_file_1, exist_ok=True)
+
+            MOS_file_1 =os.path.join(".minecraft","versions")
+            os.makedirs(MOS_file_1, exist_ok=True)
+
+            MOS_file_1 =os.path.join(".MOS","Html")
+            os.makedirs(MOS_file_1, exist_ok=True)
+
+            MOS_file_1 =os.path.join(".MOS","Java")
+            os.makedirs(MOS_file_1, exist_ok=True)
+        
+            MOS_file_1 =os.path.join(".MOS","Music")
+            os.makedirs(MOS_file_1, exist_ok=True)
+
+            MOS_file_1 =os.path.join(".MOS","MOS.json")
+            if os.path.isfile(MOS_file_1)==True:
+                MOS_first_run = "NoFirst"
+                MOS_json=open(MOS_file_1,"w")
+                MOS_json.close()
+                print("程序不是第一次运行")
+            elif os.path.isfile(MOS_file_1)==False:
+                MOS_first_run = "First"
+                print("程序是第一次运行")
+            self.sinOut.emit("OK!")
+        except PermissionError:
+            print("初始化失败 没有权限，操作不被许可")
+            self.sinOut.emit("ERROR_PermissionError")
+
 
 
 if __name__ == '__main__':
+    import shutil
+    shutil.rmtree(".MOS")
+    shutil.rmtree(".minecraft")
     print("程序已开始运行！")
     app = QtWidgets.QApplication(sys.argv)
     print("请稍等...")
@@ -1844,4 +1913,4 @@ if __name__ == '__main__':
     print("初始化设置成功！")
     MainWindow.show()
     print("已成功显示窗体")
-    sys.exit(app.exec())
+    sys.exit(app.exec_())
