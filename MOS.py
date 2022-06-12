@@ -1718,6 +1718,10 @@ class Ui_MOS(object):
         self.progressBar_2.setValue(90)
         self.stackedWidget_gonggao.setCurrentIndex(0)
 
+    def gonggao_jindu(self, t):
+        t1 = int(t)
+        self.progressBar_2.setValue(t1)
+
     def gonggao_error(self, str):
         self.stackedWidget_gonggao.setCurrentIndex(1)
         self.label_2.setText("糟糕！请求出错 错误信息：" + str + "\n稍后会为您自动重试\n")
@@ -1729,6 +1733,7 @@ class Ui_MOS(object):
         if str == "OK!":
             self.g = gonggao()
             self.g.sinOut_gonggao_ok.connect(self.gonggao)
+            self.g.sinOut_gonggao_jindu.connect(self.gonggao_jindu)
             self.g.sinOut_gonggao_error.connect(self.gonggao_error)
             self.g.start()
         elif str == "ERROR_PermissionError" :
@@ -1806,6 +1811,7 @@ class Ui_MOS(object):
 class gonggao(QThread):
     '''获取公告'''
     sinOut_gonggao_ok = pyqtSignal(str)
+    sinOut_gonggao_jindu = pyqtSignal(str)
     sinOut_gonggao_error = pyqtSignal(str)
 
     def __init__(self):
@@ -1813,35 +1819,49 @@ class gonggao(QThread):
 
     def run(self):
         import requests
+        import time
+
+        self.sinOut_gonggao_jindu.emit('10')
         print("线程开始")
         url = 'https://api.skyworldstudio.top/d/SWS/MOS/announcement.html'
+        self.sinOut_gonggao_jindu.emit('20')
         try:
+            self.sinOut_gonggao_jindu.emit('30')
             r = requests.get(url, timeout=15)  # Get方式获取网页数据
-
             if r.status_code == 200:
                 # 拼接路径
+                self.sinOut_gonggao_jindu.emit('55')
+                time.sleep(1)
                 MOS_L=os.path.join(".MOS","Html","announcement.html")
+                self.sinOut_gonggao_jindu.emit('60')
+                time.sleep(2)
                 #写入文件
                 MOS_Html_gonggao_ok = open(MOS_L, 'w+', encoding='utf-8')
+                self.sinOut_gonggao_jindu.emit('70')
+                time.sleep(2)
                 a = r.text
                 MOS_Html_gonggao_ok.write(a)
+                self.sinOut_gonggao_jindu.emit('80')
                 MOS_Html_gonggao_ok.close
                 print(a)
                 self.sinOut_gonggao_ok.emit(a)
-
-            elif r.status_code == 403:
-                print("公告请求失败，状态码为403")
-                self.sinOut_gonggao_error.emit("403，无权限访问")
-
-            elif r.status_code == 404:
-                print("公告请求失败，状态码为404")
-                self.sinOut_gonggao_error.emit("404，找不到文件")
-
+                self.sinOut_gonggao_jindu.emit('90')
+                
             elif r.status_code != 200:
-                gonggao_r_status_code = r.status_code
-                googgao_111 = ("公告请求失败，状态码为" + gonggaor_status)
-                print(goonggao_111)
-                self.sinOut_gonggao_error.emit(goonggao_111)
+
+                if r.status_code == 404:
+                    print("公告请求失败，状态码为404")
+                    self.sinOut_gonggao_error.emit("404，找不到文件")
+                
+                elif r.status_code == 403:
+                    print("公告请求失败，状态码为403")
+                    self.sinOut_gonggao_error.emit("403，无权限访问")
+                
+                else:
+                    gonggao_r_status_code = r.status_code
+                    googgao_111 = ("公告请求失败，状态码为" + gonggaor_status)
+                    print(goonggao_111)
+                    self.sinOut_gonggao_error.emit(goonggao_111)
 
         except requests.exceptions.ConnectTimeout:
             self.sinOut_gonggao_error.emit("请求超时")
