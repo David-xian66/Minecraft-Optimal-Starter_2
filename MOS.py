@@ -1,4 +1,5 @@
 import sys, os, requests, json, datetime
+import time
 from traceback import print_tb
 from os import path
 
@@ -789,7 +790,7 @@ class Ui_MOS(object):
         # =============================================================================#
         self.progressBar_2.setMinimum(0)
         self.progressBar_2.setMaximum(99)
-        self.progressBar_2.setValue(45)
+        self.progressBar_2.setValue(0)
         self.stackedWidget_mos_right.setCurrentIndex(0)
         # 启动线程
         self.a = MOS_file()
@@ -1720,11 +1721,22 @@ class Ui_MOS(object):
 
     def gonggao_jindu(self, t):
         t1 = int(t)
-        self.progressBar_2.setValue(t1)
+        h=self.progressBar_2.value()
+        while t1 >= h:
+            h += 1
+            if h <= t1 :
+                self.progressBar_2.setValue(h)
+            else:
+                break
+    
+    def sinOut_gonggao_fanye(self, t):
+        t1 = int(t)
+        self.stackedWidget_gonggao.setCurrentIndex(t1)
+
 
     def gonggao_error(self, str):
         self.stackedWidget_gonggao.setCurrentIndex(1)
-        self.label_2.setText("糟糕！请求出错 错误信息：" + str + "\n稍后会为您自动重试\n")
+        self.label_2.setText("请求出错 错误信息：" + str)
         self.progressBar_2.setMinimum(0)
         self.progressBar_2.setMaximum(99)
         self.progressBar_2.setValue(0)
@@ -1813,6 +1825,7 @@ class gonggao(QThread):
     sinOut_gonggao_ok = pyqtSignal(str)
     sinOut_gonggao_jindu = pyqtSignal(str)
     sinOut_gonggao_error = pyqtSignal(str)
+    sinOut_gonggao_fanye = pyqtSignal(str)
 
     def __init__(self):
         super(gonggao, self).__init__()
@@ -1822,55 +1835,77 @@ class gonggao(QThread):
         import time
 
         self.sinOut_gonggao_jindu.emit('10')
-        print("线程开始")
+        print("开始获取公告")
         url = 'https://api.skyworldstudio.top/d/SWS/MOS/announcement.html'
-        self.sinOut_gonggao_jindu.emit('20')
+        self.sinOut_gonggao_jindu.emit('30')
         try:
-            self.sinOut_gonggao_jindu.emit('30')
+            self.sinOut_gonggao_fanye.emit('2')
             r = requests.get(url, timeout=15)  # Get方式获取网页数据
             if r.status_code == 200:
                 # 拼接路径
                 self.sinOut_gonggao_jindu.emit('55')
-                time.sleep(1)
                 MOS_L=os.path.join(".MOS","Html","announcement.html")
                 self.sinOut_gonggao_jindu.emit('60')
-                time.sleep(2)
                 #写入文件
                 MOS_Html_gonggao_ok = open(MOS_L, 'w+', encoding='utf-8')
-                self.sinOut_gonggao_jindu.emit('70')
-                time.sleep(2)
                 a = r.text
                 MOS_Html_gonggao_ok.write(a)
-                self.sinOut_gonggao_jindu.emit('80')
                 MOS_Html_gonggao_ok.close
                 print(a)
                 self.sinOut_gonggao_ok.emit(a)
                 self.sinOut_gonggao_jindu.emit('90')
-                
+                        
             elif r.status_code != 200:
-
                 if r.status_code == 404:
                     print("公告请求失败，状态码为404")
                     self.sinOut_gonggao_error.emit("404，找不到文件")
-                
                 elif r.status_code == 403:
                     print("公告请求失败，状态码为403")
                     self.sinOut_gonggao_error.emit("403，无权限访问")
-                
+
                 else:
                     gonggao_r_status_code = r.status_code
-                    googgao_111 = ("公告请求失败，状态码为" + gonggaor_status)
-                    print(goonggao_111)
-                    self.sinOut_gonggao_error.emit(goonggao_111)
+                    gonggao_111 = ("公告请求失败，状态码为" + gonggao_r_status_code)
+                    print(gonggao_111)
+                    self.sinOut_gonggao_error.emit(gonggao_111)
+                
+
 
         except requests.exceptions.ConnectTimeout:
-            self.sinOut_gonggao_error.emit("请求超时")
+            # self.sinOut_gonggao_error.emit("请求超时")
+            a = os.path.join(".MOS","Html","announcement.html")
+            if os.path.exists(a):
+                with open(a, 'r', encoding='utf-8') as file:
+                    c = file.readlines()
+                    c1 = str(c)
+                    self.sinOut_gonggao_ok.emit(c1)
+
         except requests.exceptions.ReadTimeout:
-            self.sinOut_gonggao_error.emit("读取超时")
+            # self.sinOut_gonggao_error.emit("读取超时")
+            a = os.path.join(".MOS","Html","announcement.html")
+            if os.path.exists(a):
+                with open(a, 'r', encoding='utf-8') as file:
+                    c = file.readlines()
+                    c1 = str(c)
+                    self.sinOut_gonggao_ok.emit(c1)
+
         except requests.exceptions.SSLError:
-            self.sinOut_gonggao_error.emit("SSL错误")
+            # self.sinOut_gonggao_error.emit("SSL错误")
+            a = os.path.join(".MOS","Html","announcement.html")
+            if os.path.exists(a):
+                with open(a, 'r', encoding='utf-8') as file:
+                    c = file.readlines()
+                    c1 = str(c)
+                    self.sinOut_gonggao_ok.emit(c1)
+
         except requests.exceptions.ConnectionError:
-            self.sinOut_gonggao_error.emit("连接错误\n")
+            # self.sinOut_gonggao_error.emit("连接错误\n")
+            a = os.path.join(".MOS","Html","announcement.html")
+            if os.path.exists(a):
+                with open(a, 'r', encoding='utf-8') as file:
+                    c = file.readlines()
+                    c1 = str(c)
+                    self.sinOut_gonggao_ok.emit(c1)
 
 
 class MOS_file(QThread):
@@ -1919,9 +1954,11 @@ class MOS_file(QThread):
 
 
 if __name__ == '__main__':
-    import shutil
-    shutil.rmtree(".MOS")
-    shutil.rmtree(".minecraft")
+
+    # import shutil
+    # shutil.rmtree(".MOS")
+    # shutil.rmtree(".minecraft")
+
     print("程序已开始运行！")
     app = QtWidgets.QApplication(sys.argv)
     print("请稍等...")
