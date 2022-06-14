@@ -1,7 +1,5 @@
 import sys, os, requests, json, datetime
 import time
-from traceback import print_tb
-from os import path
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt5\Qt5\plugins'  #### 这一行是新增的。用的是相对路径。
 
@@ -1729,9 +1727,6 @@ class Ui_MOS(object):
             else:
                 break
     
-    def sinOut_gonggao_fanye(self, t):
-        t1 = int(t)
-        self.stackedWidget_gonggao.setCurrentIndex(t1)
 
 
     def gonggao_error(self, str):
@@ -1833,6 +1828,7 @@ class gonggao(QThread):
     def run(self):
         import requests
         import time
+        import linecache
 
         self.sinOut_gonggao_jindu.emit('10')
         print("开始获取公告")
@@ -1840,7 +1836,8 @@ class gonggao(QThread):
         self.sinOut_gonggao_jindu.emit('30')
         try:
             self.sinOut_gonggao_fanye.emit('2')
-            r = requests.get(url, timeout=15)  # Get方式获取网页数据
+            header = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
+            r = requests.get(url, timeout=(5,50), headers = header)  # Get方式获取网页数据
             if r.status_code == 200:
                 # 拼接路径
                 self.sinOut_gonggao_jindu.emit('55')
@@ -1854,6 +1851,7 @@ class gonggao(QThread):
                 print(a)
                 self.sinOut_gonggao_ok.emit(a)
                 self.sinOut_gonggao_jindu.emit('90')
+                print("请求成功")
                         
             elif r.status_code != 200:
                 if r.status_code == 404:
@@ -1874,38 +1872,62 @@ class gonggao(QThread):
         except requests.exceptions.ConnectTimeout:
             # self.sinOut_gonggao_error.emit("请求超时")
             a = os.path.join(".MOS","Html","announcement.html")
-            if os.path.exists(a):
-                with open(a, 'r', encoding='utf-8') as file:
-                    c = file.readlines()
-                    c1 = str(c)
-                    self.sinOut_gonggao_ok.emit(c1)
+            gangshu = len(linecache.getlines(a))    # 统计行数
+            gangshu1 = 0
+            gonggao = ''
+            while gangshu1 <= gangshu:
+                g = linecache.getline(a,gangshu1)
+                gonggao = gonggao + g
+                gangshu1 += 1
+            print("请求失败 请求超时")
+            print(gonggao)
+            gonggao = str(gonggao)
+            self.sinOut_gonggao_ok.emit(gonggao)
 
         except requests.exceptions.ReadTimeout:
             # self.sinOut_gonggao_error.emit("读取超时")
             a = os.path.join(".MOS","Html","announcement.html")
-            if os.path.exists(a):
-                with open(a, 'r', encoding='utf-8') as file:
-                    c = file.readlines()
-                    c1 = str(c)
-                    self.sinOut_gonggao_ok.emit(c1)
+            gangshu = len(linecache.getlines(a))    # 统计行数
+            gangshu1 = 0
+            gonggao = ''
+            while gangshu1 <= gangshu:
+                g = linecache.getline(a,gangshu1)
+                gonggao = gonggao + g
+                gangshu1 += 1
+            print("请求失败 读取超时")
+            print(gonggao)
+            gonggao = str(gonggao)
+            self.sinOut_gonggao_ok.emit(gonggao)
 
         except requests.exceptions.SSLError:
             # self.sinOut_gonggao_error.emit("SSL错误")
             a = os.path.join(".MOS","Html","announcement.html")
-            if os.path.exists(a):
-                with open(a, 'r', encoding='utf-8') as file:
-                    c = file.readlines()
-                    c1 = str(c)
-                    self.sinOut_gonggao_ok.emit(c1)
+            gangshu = len(linecache.getlines(a))    # 统计行数
+            gangshu1 = 0
+            gonggao = ''
+            while gangshu1 <= gangshu:
+                g = linecache.getline(a,gangshu1)
+                gonggao = gonggao + g
+                gangshu1 += 1
+            print("请求失败 SSL证书错误")
+            print(gonggao)
+            gonggao = str(gonggao)
+            self.sinOut_gonggao_ok.emit(gonggao)
 
         except requests.exceptions.ConnectionError:
             # self.sinOut_gonggao_error.emit("连接错误\n")
             a = os.path.join(".MOS","Html","announcement.html")
-            if os.path.exists(a):
-                with open(a, 'r', encoding='utf-8') as file:
-                    c = file.readlines()
-                    c1 = str(c)
-                    self.sinOut_gonggao_ok.emit(c1)
+            gangshu = len(linecache.getlines(a))    # 统计行数
+            gangshu1 = 0
+            gonggao = ''
+            while gangshu1 <= gangshu:
+                g = linecache.getline(a,gangshu1)
+                gonggao = gonggao + g
+                gangshu1 += 1
+            print("请求失败 连接错误")
+            print(gonggao)
+            gonggao = str(gonggao)
+            self.sinOut_gonggao_ok.emit(gonggao)
 
 
 class MOS_file(QThread):
@@ -1952,22 +1974,24 @@ class MOS_file(QThread):
             self.sinOut.emit("ERROR_PermissionError")
 
 
+try:
+    if __name__ == '__main__':
 
-if __name__ == '__main__':
+        # import shutil
+        # shutil.rmtree(".MOS")
+        # shutil.rmtree(".minecraft")
 
-    # import shutil
-    # shutil.rmtree(".MOS")
-    # shutil.rmtree(".minecraft")
-
-    print("程序已开始运行！")
-    app = QtWidgets.QApplication(sys.argv)
-    print("请稍等...")
-    MainWindow = QtWidgets.QMainWindow()
-    print("创建窗口对象成功！")
-    ui = Ui_MOS()
-    print("创建PyQt窗口对象成功！")
-    ui.setupUi(MainWindow)
-    print("初始化设置成功！")
-    MainWindow.show()
-    print("已成功显示窗体")
-    sys.exit(app.exec_())
+        print("程序已开始运行！")
+        app = QtWidgets.QApplication(sys.argv)
+        print("请稍等...")
+        MainWindow = QtWidgets.QMainWindow()
+        print("创建窗口对象成功！")
+        ui = Ui_MOS()
+        print("创建PyQt窗口对象成功！")
+        ui.setupUi(MainWindow)
+        print("初始化设置成功！")
+        MainWindow.show()
+        print("已成功显示窗体")
+        sys.exit(app.exec_())
+except KeyboardInterrupt:
+    print("程序以强行退出")
