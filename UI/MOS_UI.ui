@@ -32,7 +32,10 @@
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255,100);</string>
    </property>
-   <layout class="QGridLayout" name="gridLayout_13">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -45,10 +48,7 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <property name="horizontalSpacing">
-     <number>0</number>
-    </property>
-    <item row="0" column="0">
+    <item>
      <widget class="QWidget" name="widget_mos_left" native="true">
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -158,13 +158,13 @@ QPushButton
 </string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
-          <item row="0" column="1">
-           <widget class="QLabel" name="label_mos_left_top_user">
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_mos_left_top_add">
             <property name="styleSheet">
              <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
             </property>
             <property name="text">
-             <string>无用户</string>
+             <string>点击添加</string>
             </property>
            </widget>
           </item>
@@ -188,13 +188,13 @@ QPushButton
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="label_mos_left_top_add">
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_mos_left_top_user">
             <property name="styleSheet">
              <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
             </property>
             <property name="text">
-             <string>点击添加</string>
+             <string>无用户</string>
             </property>
            </widget>
           </item>
@@ -399,13 +399,13 @@ QPushButton
       </layout>
      </widget>
     </item>
-    <item row="0" column="1">
+    <item>
      <widget class="QStackedWidget" name="stackedWidget_mos_right">
       <property name="styleSheet">
        <string notr="true">font: 13pt &quot;PingFang SC&quot;;background-color: rgba(255, 255, 255, 128);</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="page_gonggao">
        <property name="styleSheet">
@@ -1314,6 +1314,19 @@ border:2px solid rgb(0, 150, 255);</string>
        </layout>
       </widget>
       <widget class="QWidget" name="page_5">
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */
+    border-radius: 3px;
+	height:25px;
+	font-size: 14px;
+	background-color: rgba(0, 150, 255, 77);
+	border-radius:10px;
+}
+/*QComboBox::down-arrow
+是 右面那个 
+*/</string>
+       </property>
        <layout class="QGridLayout" name="gridLayout_15">
         <property name="leftMargin">
          <number>0</number>
@@ -1327,20 +1340,18 @@ border:2px solid rgb(0, 150, 255);</string>
         <property name="bottomMargin">
          <number>0</number>
         </property>
-        <item row="2" column="0" rowspan="2" colspan="2">
-         <widget class="Line" name="line_5">
-          <property name="styleSheet">
-           <string notr="true">color:rgb(214, 214, 214)</string>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
-          </property>
-          <property name="midLineWidth">
-           <number>1</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="comboBox">
+          <item>
+           <property name="text">
+            <string>启动器设置</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>游戏设置</string>
+           </property>
+          </item>
          </widget>
         </item>
         <item row="0" column="0" colspan="2">
@@ -1356,20 +1367,23 @@ border:2px solid rgb(0, 150, 255);</string>
           </property>
          </spacer>
         </item>
-        <item row="5" column="1">
-         <spacer name="verticalSpacer_8">
+        <item row="3" column="0" rowspan="2" colspan="2">
+         <widget class="Line" name="line_5">
+          <property name="styleSheet">
+           <string notr="true">color:rgb(214, 214, 214)</string>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="midLineWidth">
+           <number>1</number>
+          </property>
           <property name="orientation">
-           <enum>Qt::Vertical</enum>
+           <enum>Qt::Horizontal</enum>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>796</width>
-            <height>368</height>
-           </size>
-          </property>
-         </spacer>
+         </widget>
         </item>
-        <item row="1" column="0" colspan="2">
+        <item row="1" column="0">
          <widget class="QLabel" name="label_15">
           <property name="styleSheet">
            <string notr="true">border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);</string>
@@ -1382,28 +1396,169 @@ border:2px solid rgb(0, 150, 255);</string>
           </property>
          </widget>
         </item>
-        <item row="4" column="0" colspan="2">
-         <widget class="QWidget" name="widget_9" native="true">
-          <property name="styleSheet">
-           <string notr="true">border-radius:10px;
-border:2px solid rgb(0, 150, 255);</string>
+        <item row="5" column="0" colspan="2">
+         <widget class="QStackedWidget" name="stackedWidget">
+          <property name="currentIndex">
+           <number>0</number>
           </property>
-          <layout class="QGridLayout" name="gridLayout_11">
-           <property name="leftMargin">
-            <number>12</number>
-           </property>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_14">
-             <property name="styleSheet">
-              <string notr="true">border-style:none;color:rgb(0, 150, 255);</string>
-             </property>
-             <property name="text">
-              <string>设置 正在开发中……
-不要着急啦 你的赞助就是我更新的动力！嘻嘻～</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QWidget" name="page">
+           <layout class="QGridLayout" name="gridLayout_11">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QScrollArea" name="scrollArea">
+              <property name="styleSheet">
+               <string notr="true">border-style:none;</string>
+              </property>
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <widget class="QWidget" name="scrollAreaWidgetContents_2">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>832</width>
+                 <height>456</height>
+                </rect>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_23">
+                <property name="leftMargin">
+                 <number>5</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>5</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item row="6" column="0" colspan="2">
+                 <spacer name="verticalSpacer_8">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="3" column="0" colspan="2">
+                 <widget class="QWidget" name="widget" native="true">
+                  <layout class="QGridLayout" name="gridLayout_24">
+                   <item row="1" column="0" colspan="2">
+                    <widget class="Line" name="line_10">
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(169, 169, 169);border:none;</string>
+                     </property>
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_4">
+                     <property name="styleSheet">
+                      <string notr="true">font: 14pt &quot;PingFang SC&quot;;</string>
+                     </property>
+                     <property name="text">
+                      <string>启动器字体：</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QFontComboBox" name="fontComboBox"/>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_6">
+                     <property name="text">
+                      <string>常规设置</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QLabel" name="label_5">
+                     <property name="text">
+                      <string>我的世界MOS启动器</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_14">
+                     <property name="text">
+                      <string>预览：  </string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_7">
+           <layout class="QGridLayout" name="gridLayout_22">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QScrollArea" name="scrollArea_2">
+              <property name="styleSheet">
+               <string notr="true">border-style:none;</string>
+              </property>
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <widget class="QWidget" name="scrollAreaWidgetContents_3">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>100</width>
+                 <height>30</height>
+                </rect>
+               </property>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
        </layout>
