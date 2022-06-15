@@ -59,7 +59,7 @@
 	background-color: rgba(231, 230, 228,100);
 	border-bottom-left-radius:15px;
 	border-top-left-radius:15px;
-	font: 13pt &quot;PingFang SC&quot;;
+	font-size: 13px;
 }
 #widget_mos_left_top
 {
@@ -405,7 +405,7 @@ QPushButton
        <string notr="true">font: 13pt &quot;PingFang SC&quot;;background-color: rgba(255, 255, 255, 128);</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_gonggao">
        <property name="styleSheet">
@@ -571,7 +571,7 @@ QProgressBar::chunk{
                <item row="0" column="0" colspan="2">
                 <widget class="QLabel" name="label__gonggao_right_txt">
                  <property name="styleSheet">
-                  <string notr="true">border-style:none;font: 14pt &quot;PingFang SC&quot;;border-style:none;</string>
+                  <string notr="true">border-style:none;font-size: 14px;</string>
                  </property>
                  <property name="text">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;启动游戏 &lt;span style=&quot; color:#0096ff;&quot;&gt;•等待启动&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -644,7 +644,7 @@ QProgressBar::chunk{
                <item row="0" column="0">
                 <widget class="QLabel" name="label_gonggao_left_txt">
                  <property name="styleSheet">
-                  <string notr="true">border-style:none;font: 14pt &quot;PingFang SC&quot;;</string>
+                  <string notr="true">font-size: 14px;border-style:none;</string>
                  </property>
                  <property name="text">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;官方公告 &lt;span style=&quot; color:#55f976;&quot;&gt;•正在加载中&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -746,7 +746,7 @@ QProgressBar::chunk{
                    <item row="1" column="0">
                     <widget class="QLabel" name="label_2">
                      <property name="styleSheet">
-                      <string notr="true">font: 13pt &quot;PingFang SC&quot;;color: rgb(0, 150, 255);</string>
+                      <string notr="true">font-size: 13px;color: rgb(0, 150, 255);</string>
                      </property>
                      <property name="text">
                       <string>正在加载
@@ -1020,7 +1020,7 @@ QProgressBar::chunk{
         <item row="4" column="0" colspan="2">
          <widget class="QStackedWidget" name="stackedWidget_2">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page_9">
            <property name="styleSheet">
@@ -1342,6 +1342,9 @@ border:2px solid rgb(0, 150, 255);</string>
         </property>
         <item row="1" column="1">
          <widget class="QComboBox" name="comboBox">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <item>
            <property name="text">
             <string>启动器设置</string>
@@ -1460,6 +1463,20 @@ border:2px solid rgb(0, 150, 255);</string>
                 </item>
                 <item row="3" column="0" colspan="2">
                  <widget class="QWidget" name="widget" native="true">
+                  <property name="styleSheet">
+                   <string notr="true">QWidget{background-color: rgba(255, 255, 255, 0);}
+QComboBox {
+    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */
+    border-radius: 3px;
+	height:25px;
+	font-size: 14px;
+	background-color: rgba(0, 150, 255, 77);
+	border-radius:10px;
+}
+/*QComboBox::down-arrow
+是 右面那个 
+*/</string>
+                  </property>
                   <layout class="QGridLayout" name="gridLayout_24">
                    <item row="1" column="0" colspan="2">
                     <widget class="Line" name="line_10">
@@ -1468,19 +1485,6 @@ border:2px solid rgb(0, 150, 255);</string>
                      </property>
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_4">
-                     <property name="styleSheet">
-                      <string notr="true">font: 14pt &quot;PingFang SC&quot;;</string>
-                     </property>
-                     <property name="text">
-                      <string>启动器字体：</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
@@ -1494,23 +1498,16 @@ border:2px solid rgb(0, 150, 255);</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="3" column="1">
-                    <widget class="QLabel" name="label_5">
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_4">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 14px;</string>
+                     </property>
                      <property name="text">
-                      <string>我的世界MOS启动器</string>
+                      <string>启动器字体：</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="0">
-                    <widget class="QLabel" name="label_14">
-                     <property name="text">
-                      <string>预览：  </string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
