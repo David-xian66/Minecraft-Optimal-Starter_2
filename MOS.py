@@ -173,7 +173,7 @@ class Ui_MOS(object):
         self.pushButton_lianji.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_lianji.setStyleSheet("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_picture_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_online_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_lianji.setIcon(icon2)
         self.pushButton_lianji.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_lianji.setObjectName("pushButton_lianji")
@@ -802,586 +802,48 @@ class Ui_MOS(object):
     def click_pushButton_home(self):
         self.stackedWidget_mos_right.setCurrentIndex(0)
         pushButton_home_true = ("QWidget\n"
-                                "{\n"
-                                "    background-color: rgba(231, 230, 228,100);\n"
-                                "    border-bottom-left-radius:15px;\n"
-                                "    border-top-left-radius:15px;\n"
-                                "}\n"
-                                "#pushButton_about\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                "}\n"
-                                "#pushButton_about::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_about::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}\n"
-                                "\n"
-                                "\n"
-                                "#pushButton_xiazai\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                "}\n"
-                                "#pushButton_xiazai::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_xiazai::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}\n"
-                                "\n"
-                                "\n"
-                                "#pushButton_shezhi\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                "}\n"
-                                "#pushButton_shezhi::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_shezhi::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}\n"
-                                "\n"
-                                "\n"
-                                "#pushButton_music\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                "}\n"
-                                "#pushButton_music::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_music::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}\n"
-                                "\n"
-                                "\n"
-                                "#pushButton_lianji\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                "}\n"
-                                "#pushButton_lianji::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_lianji::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}\n"
-                                "\n"
-                                "\n"
-                                "#pushButton_home\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_home::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_home::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}")
-        self.widget_mos_left.setStyleSheet(pushButton_home_true)
-
-    def click_pushButton_lianji(self):
-        self.stackedWidget_mos_right.setCurrentIndex(1)
-        pushButton_lianji_true = ("QWidget\n"
-                                  "{\n"
-                                  "    background-color: rgba(231, 230, 228,100);\n"
-                                  "    border-bottom-left-radius:15px;\n"
-                                  "    border-top-left-radius:15px;\n"
-                                  "}\n"
-                                  "#pushButton_about\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_about::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_about::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_xiazai\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192, 0);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_shezhi\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_music\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_music::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_music::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_lianji\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_home\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192 ,0);\n"
-                                  "}\n"
-                                  "#pushButton_home::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_home::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}")
-        self.widget_mos_left.setStyleSheet(pushButton_lianji_true)
-
-    def click_pushButton_xiazai(self):
-        self.stackedWidget_mos_right.setCurrentIndex(2)
-        pushButton_xiazai_true = ("QWidget\n"
-                                  "{\n"
-                                  "    background-color: rgba(231, 230, 228,100);\n"
-                                  "    border-bottom-left-radius:15px;\n"
-                                  "    border-top-left-radius:15px;\n"
-                                  "}\n"
-                                  "#pushButton_about\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_about::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_about::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_xiazai\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_shezhi\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_music\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_music::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_music::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_lianji\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_home\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192 ,0);\n"
-                                  "}\n"
-                                  "#pushButton_home::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_home::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}")
-        self.widget_mos_left.setStyleSheet(pushButton_xiazai_true)
-
-    def click_pushButton_music(self):
-        self.stackedWidget_mos_right.setCurrentIndex(3)
-        pushButton_music_true = ("QWidget\n"
                                  "{\n"
                                  "    background-color: rgba(231, 230, 228,100);\n"
                                  "    border-bottom-left-radius:15px;\n"
                                  "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
                                  "}\n"
-                                 "#pushButton_about\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
                                  "{\n"
                                  "    color: blue;\n"
                                  "    height:35px;\n"
                                  "    color: rgb(0, 150, 255);\n"
                                  "    background-position: left;\n"
                                  "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
                                  "    font-size: 15px;\n"
                                  "    border-style:none;\n"
                                  "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);\n"
                                  "}\n"
-                                 "#pushButton_about::hover\n"
+                                 "QPushButton::hover\n"
                                  "{\n"
                                  "    background-color: rgb(192, 192, 192);\n"
                                  "}\n"
-                                 "#pushButton_about::pressed\n"
+                                 "QPushButton::pressed\n"
                                  "{\n"
                                  "    border:2px solid rgb(0, 150, 255);\n"
                                  "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_xiazai\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192, 0);\n"
-                                 "}\n"
-                                 "#pushButton_xiazai::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_xiazai::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_shezhi\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                 "}\n"
-                                 "#pushButton_shezhi::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_shezhi::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_music\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_music::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_music::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_lianji\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                 "}\n"
-                                 "#pushButton_lianji::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_lianji::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
                                  "\n"
                                  "#pushButton_home\n"
                                  "{\n"
@@ -1390,12 +852,12 @@ class Ui_MOS(object):
                                  "    color: rgb(0, 150, 255);\n"
                                  "    background-position: left;\n"
                                  "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
                                  "    font-size: 15px;\n"
                                  "    border-style:none;\n"
                                  "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192 ,0);\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
                                  "}\n"
                                  "#pushButton_home::hover\n"
                                  "{\n"
@@ -1405,158 +867,286 @@ class Ui_MOS(object):
                                  "{\n"
                                  "    border:2px solid rgb(0, 150, 255);\n"
                                  "}")
+        self.widget_mos_left.setStyleSheet(pushButton_home_true)
+
+    def click_pushButton_lianji(self):
+        self.stackedWidget_mos_right.setCurrentIndex(1)
+        pushButton_lianji_true = ("QWidget\n"
+                                 "{\n"
+                                 "    background-color: rgba(231, 230, 228,100);\n"
+                                 "    border-bottom-left-radius:15px;\n"
+                                 "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);\n"
+                                 "}\n"
+                                 "QPushButton::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "QPushButton::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#pushButton_lianji\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_lianji::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_lianji::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}")
+        self.widget_mos_left.setStyleSheet(pushButton_lianji_true)
+
+    def click_pushButton_xiazai(self):
+        self.stackedWidget_mos_right.setCurrentIndex(2)
+        pushButton_xiazai_true = ("QWidget\n"
+                                 "{\n"
+                                 "    background-color: rgba(231, 230, 228,100);\n"
+                                 "    border-bottom-left-radius:15px;\n"
+                                 "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);\n"
+                                 "}\n"
+                                 "QPushButton::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "QPushButton::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#pushButton_xiazai\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_xiazai::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_xiazai::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}")
+        self.widget_mos_left.setStyleSheet(pushButton_xiazai_true)
+
+    def click_pushButton_music(self):
+        self.stackedWidget_mos_right.setCurrentIndex(3)
+        pushButton_music_true = ("QWidget\n"
+                                 "{\n"
+                                 "    background-color: rgba(231, 230, 228,100);\n"
+                                 "    border-bottom-left-radius:15px;\n"
+                                 "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);\n"
+                                 "}\n"
+                                 "QPushButton::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "QPushButton::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#pushButton_music\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_music::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_music::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}")
         self.widget_mos_left.setStyleSheet(pushButton_music_true)
 
     def click_pushButton_shezhi(self):
         self.stackedWidget_mos_right.setCurrentIndex(4)
         pushButton_shezhi_true = ("QWidget\n"
-                                  "{\n"
-                                  "    background-color: rgba(231, 230, 228,100);\n"
-                                  "    border-bottom-left-radius:15px;\n"
-                                  "    border-top-left-radius:15px;\n"
-                                  "}\n"
-                                  "#pushButton_about\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_about::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_about::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_xiazai\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192, 0);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_shezhi\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_music\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_music::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_music::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_lianji\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_home\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192 ,0);\n"
-                                  "}\n"
-                                  "#pushButton_home::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_home::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}")
+                                 "{\n"
+                                 "    background-color: rgba(231, 230, 228,100);\n"
+                                 "    border-bottom-left-radius:15px;\n"
+                                 "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);\n"
+                                 "}\n"
+                                 "QPushButton::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "QPushButton::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#pushButton_shezhi\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_shezhi::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_shezhi::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}")
         self.widget_mos_left.setStyleSheet(pushButton_shezhi_true)
 
     def click_pushButton_about(self):
@@ -1566,7 +1156,45 @@ class Ui_MOS(object):
                                  "    background-color: rgba(231, 230, 228,100);\n"
                                  "    border-bottom-left-radius:15px;\n"
                                  "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
                                  "}\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);\n"
+                                 "}\n"
+                                 "QPushButton::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "QPushButton::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}\n"
+                                 "\n"
                                  "#pushButton_about\n"
                                  "{\n"
                                  "    color: blue;\n"
@@ -1574,138 +1202,18 @@ class Ui_MOS(object):
                                  "    color: rgb(0, 150, 255);\n"
                                  "    background-position: left;\n"
                                  "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
                                  "    font-size: 15px;\n"
                                  "    border-style:none;\n"
                                  "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
+                                 "    border:2px solid rgb(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
                                  "}\n"
                                  "#pushButton_about::hover\n"
                                  "{\n"
                                  "    background-color: rgb(192, 192, 192);\n"
                                  "}\n"
                                  "#pushButton_about::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_xiazai\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192, 0);\n"
-                                 "}\n"
-                                 "#pushButton_xiazai::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_xiazai::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_shezhi\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                 "}\n"
-                                 "#pushButton_shezhi::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_shezhi::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_music\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                 "}\n"
-                                 "#pushButton_music::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_music::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_lianji\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                 "}\n"
-                                 "#pushButton_lianji::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_lianji::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_home\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192 ,0);\n"
-                                 "}\n"
-                                 "#pushButton_home::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_home::pressed\n"
                                  "{\n"
                                  "    border:2px solid rgb(0, 150, 255);\n"
                                  "}")
@@ -1717,6 +1225,8 @@ class Ui_MOS(object):
         self.progressBar_2.setMaximum(99)
         self.progressBar_2.setValue(90)
         self.stackedWidget_gonggao.setCurrentIndex(0)
+
+        
 
     def gonggao_jindu(self, t):
         t1 = int(t)
@@ -1731,11 +1241,15 @@ class Ui_MOS(object):
 
 
     def gonggao_error(self, str):
-        self.stackedWidget_gonggao.setCurrentIndex(1)
-        self.label_2.setText("请求出错 错误信息：" + str)
+        self.textBrowser_gonggao_left_txt.setHtml(str)
+        self.stackedWidget_gonggao.setCurrentIndex(0)
         self.progressBar_2.setMinimum(0)
         self.progressBar_2.setMaximum(99)
         self.progressBar_2.setValue(0)
+
+    def gonggao_text(self, text1, text2):
+        _translate = QtCore.QCoreApplication.translate
+        self.label_gonggao_left_txt.setText(_translate(text1,text2))
 
     def setfont(self):
         print(self.fontComboBox.currentText())
@@ -1797,13 +1311,13 @@ class Ui_MOS(object):
         
 
 
-
     def MOS_file_return(self, str):
         if str == "OK!":
             self.g = gonggao()
             self.g.sinOut_gonggao_ok.connect(self.gonggao)
             self.g.sinOut_gonggao_jindu.connect(self.gonggao_jindu)
             self.g.sinOut_gonggao_error.connect(self.gonggao_error)
+            self.g.sinOut_gonggao_text.connect(self.gonggao_text)
             self.g.start()
         elif str == "ERROR_PermissionError" :
             a = QMessageBox.critical(None,"错误","初始化程序失败！请检查当前目录下是否有读写权限。即将退出程序", QMessageBox.Ok)
@@ -1889,7 +1403,7 @@ class gonggao(QThread):
     sinOut_gonggao_ok = pyqtSignal(str)
     sinOut_gonggao_jindu = pyqtSignal(str)
     sinOut_gonggao_error = pyqtSignal(str)
-    sinOut_gonggao_fanye = pyqtSignal(str)
+    sinOut_gonggao_text = pyqtSignal(str,str)
 
     def __init__(self):
         super(gonggao, self).__init__()
@@ -1901,10 +1415,9 @@ class gonggao(QThread):
 
         self.sinOut_gonggao_jindu.emit('10')
         print("开始获取公告")
-        url = 'https://api.skyworldstudio.top/d/SWS/MOS/announcement.html'
+        url = 'https://api.skyworldstudio.top/d/AlphaRelease/MOS/announcement.html'
         self.sinOut_gonggao_jindu.emit('30')
         try:
-            self.sinOut_gonggao_fanye.emit('2')
             header = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
             r = requests.get(url, timeout=(5,50), headers = header)  # Get方式获取网页数据
             if r.status_code == 200:
@@ -1920,83 +1433,143 @@ class gonggao(QThread):
                 print(a)
                 self.sinOut_gonggao_ok.emit(a)
                 self.sinOut_gonggao_jindu.emit('90')
+                self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:#55f976;\">•公告获取成功！✓</span></p></body></html>")
                 print("请求成功")
                         
             elif r.status_code != 200:
                 if r.status_code == 404:
                     print("公告请求失败，状态码为404")
-                    self.sinOut_gonggao_error.emit("404，找不到文件")
+                    if os.path.isfile(a)==True:
+                        gangshu = len(linecache.getlines(a))    # 统计行数
+                        gangshu1 = 0
+                        gonggao = ''
+                        while gangshu1 <= gangshu:
+                            g = linecache.getline(a,gangshu1)
+                            gonggao = gonggao + g
+                            gangshu1 += 1
+                        print(gonggao)
+                        gonggao = str(gonggao)
+                        self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 404找不到文件 以为您自动显示上次获取到的内容</span></p></body></html>")
+                        self.sinOut_gonggao_error.emit(gonggao) 
+                    else:
+                        self.sinOut_gonggao_error.emit("404，找不到文件")
                 elif r.status_code == 403:
                     print("公告请求失败，状态码为403")
-                    self.sinOut_gonggao_error.emit("403，无权限访问")
+                    if os.path.isfile(a)==True:
+                        gangshu = len(linecache.getlines(a))    # 统计行数
+                        gangshu1 = 0
+                        gonggao = ''
+                        while gangshu1 <= gangshu:
+                            g = linecache.getline(a,gangshu1)
+                            gonggao = gonggao + g
+                            gangshu1 += 1
+                        print(gonggao)
+                        gonggao = str(gonggao)
+                        self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 403无权访问 以为您自动显示上次获取到的内容</span></p></body></html>")
+                        self.sinOut_gonggao_error.emit(gonggao) 
+                    else:
+                        self.sinOut_gonggao_error.emit("403，无权限访问")
 
                 else:
                     gonggao_r_status_code = r.status_code
                     gonggao_111 = ("公告请求失败，状态码为" + gonggao_r_status_code)
                     print(gonggao_111)
-                    self.sinOut_gonggao_error.emit(gonggao_111)
+                    if os.path.isfile(a)==True:
+                        gangshu = len(linecache.getlines(a))    # 统计行数
+                        gangshu1 = 0
+                        gonggao = ''
+                        while gangshu1 <= gangshu:
+                            g = linecache.getline(a,gangshu1)
+                            gonggao = gonggao + g
+                            gangshu1 += 1
+                        print(gonggao)
+                        gonggao = str(gonggao)
+                        self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 403无权访问 以为您自动显示上次获取到的内容</span></p></body></html>")
+                        self.sinOut_gonggao_error.emit(gonggao) 
+                    else:
+                        self.sinOut_gonggao_error.emit(gonggao_111)
                 
 
 
         except requests.exceptions.ConnectTimeout:
             # self.sinOut_gonggao_error.emit("请求超时")
             a = os.path.join(".MOS","Html","announcement.html")
-            gangshu = len(linecache.getlines(a))    # 统计行数
-            gangshu1 = 0
-            gonggao = ''
-            while gangshu1 <= gangshu:
-                g = linecache.getline(a,gangshu1)
-                gonggao = gonggao + g
-                gangshu1 += 1
-            print("请求失败 请求超时")
-            print(gonggao)
-            gonggao = str(gonggao)
-            self.sinOut_gonggao_ok.emit(gonggao)
+            if os.path.isfile(a)==True:
+                gangshu = len(linecache.getlines(a))    # 统计行数
+                gangshu1 = 0
+                gonggao = ''
+                while gangshu1 <= gangshu:
+                    g = linecache.getline(a,gangshu1)
+                    gonggao = gonggao + g
+                    gangshu1 += 1
+                print("请求失败 请求超时")
+                print(gonggao)
+                gonggao = str(gonggao)
+                self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 请求超时 以为您自动显示上次获取到的内容</span></p></body></html>")
+                self.sinOut_gonggao_error.emit(gonggao)
+
+            else:
+                self.sinOut_gonggao_error.emit("请求超时")
 
         except requests.exceptions.ReadTimeout:
             # self.sinOut_gonggao_error.emit("读取超时")
             a = os.path.join(".MOS","Html","announcement.html")
-            gangshu = len(linecache.getlines(a))    # 统计行数
-            gangshu1 = 0
-            gonggao = ''
-            while gangshu1 <= gangshu:
-                g = linecache.getline(a,gangshu1)
-                gonggao = gonggao + g
-                gangshu1 += 1
-            print("请求失败 读取超时")
-            print(gonggao)
-            gonggao = str(gonggao)
-            self.sinOut_gonggao_ok.emit(gonggao)
+            if os.path.isfile(a)==True:
+                gangshu = len(linecache.getlines(a))    # 统计行数
+                gangshu1 = 0
+                gonggao = ''
+                while gangshu1 <= gangshu:
+                    g = linecache.getline(a,gangshu1)
+                    gonggao = gonggao + g
+                    gangshu1 += 1
+                print("请求失败 读取超时")
+                print(gonggao)
+                gonggao = str(gonggao)
+                self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 读取超时 以为您自动显示上次获取到的内容</span></p></body></html>")
+                self.sinOut_gonggao_error.emit(gonggao)
+
+            else:
+                self.sinOut_gonggao_error.emit("读取超时")
 
         except requests.exceptions.SSLError:
             # self.sinOut_gonggao_error.emit("SSL错误")
             a = os.path.join(".MOS","Html","announcement.html")
-            gangshu = len(linecache.getlines(a))    # 统计行数
-            gangshu1 = 0
-            gonggao = ''
-            while gangshu1 <= gangshu:
-                g = linecache.getline(a,gangshu1)
-                gonggao = gonggao + g
-                gangshu1 += 1
-            print("请求失败 SSL证书错误")
-            print(gonggao)
-            gonggao = str(gonggao)
-            self.sinOut_gonggao_ok.emit(gonggao)
+            if os.path.isfile(a)==True:
+                gangshu = len(linecache.getlines(a))    # 统计行数
+                gangshu1 = 0
+                gonggao = ''
+                while gangshu1 <= gangshu:
+                    g = linecache.getline(a,gangshu1)
+                    gonggao = gonggao + g
+                    gangshu1 += 1
+                print("请求失败 SSL证书错误")
+                print(gonggao)
+                gonggao = str(gonggao)
+                self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ SSL证书错误 以为您自动显示上次获取到的内容</span></p></body></html>")
+                self.sinOut_gonggao_error.emit(gonggao)
+
+            else:
+                self.sinOut_gonggao_error.emit("SSL证书错误")
 
         except requests.exceptions.ConnectionError:
-            # self.sinOut_gonggao_error.emit("连接错误\n")
+            # self.sinOut_gonggao_error.emit("连接错误\n")            
             a = os.path.join(".MOS","Html","announcement.html")
-            gangshu = len(linecache.getlines(a))    # 统计行数
-            gangshu1 = 0
-            gonggao = ''
-            while gangshu1 <= gangshu:
-                g = linecache.getline(a,gangshu1)
-                gonggao = gonggao + g
-                gangshu1 += 1
-            print("请求失败 连接错误")
-            print(gonggao)
-            gonggao = str(gonggao)
-            self.sinOut_gonggao_ok.emit(gonggao)
+            if os.path.isfile(a)==True:
+                gangshu = len(linecache.getlines(a))    # 统计行数
+                gangshu1 = 0
+                gonggao = ''
+                while gangshu1 <= gangshu:
+                    g = linecache.getline(a,gangshu1)
+                    gonggao = gonggao + g
+                    gangshu1 += 1
+                print("请求失败 连接错误")
+                print(gonggao)
+                gonggao = str(gonggao)
+                self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 连接错误 以为您自动显示上次获取到的内容</span></p></body></html>")
+                self.sinOut_gonggao_error.emit(gonggao)
+
+            else:
+                self.sinOut_gonggao_error.emit("连接错误")
 
 
 class MOS_file(QThread):
