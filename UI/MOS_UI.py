@@ -1,5 +1,4 @@
-import sys, os, requests, json, datetime
-import time
+import sys, os, requests, json, datetime, time
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt5\Qt5\plugins'  #### 这一行是新增的。用的是相对路径。
 
@@ -10,10 +9,31 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MOS(object):
     def setupUi(self, MOS):
+
+
+        MOS_catalogue_picture_ico_png = os.path.join("picture", "ico.png")
+        MOS_catalogue_picture_home_png = os.path.join("picture", "home.png")
+        MOS_catalogue_picture_online_png = os.path.join("picture", "online.png")
+        MOS_catalogue_picture_download_png = os.path.join("picture", "download.png")
+        MOS_catalogue_picture_music_png = os.path.join("picture", "music.png")
+        MOS_catalogue_picture_settings_png = os.path.join("picture", "settings.png")
+        MOS_catalogue_picture_about_png = os.path.join("picture", "about.png")
+        MOS_catalogue_picture_david_png = os.path.join("picture", "david.png")
+        MOS_catalogue_picture_heimnad_png = os.path.join("picture", "heimnad.png")
+        MOS_catalogue_picture_fabric_png = os.path.join("picture", "fabric.png")
+        MOS_catalogue_picture_forge_png = os.path.join("picture", "forge.png")
+        MOS_catalogue_picture_loading_png = os.path.join("picture", "loading.gif")
+        MOS_catalogue_picture_quilt_png = os.path.join("picture", "quilt.png")
+        MOS_catalogue_picture_optifine_png = os.path.join("picture", "optifine.png")
+
+
         MOS.setObjectName("MOS")
         MOS.setWindowModality(QtCore.Qt.NonModal)
         MOS.resize(1000, 533)
         MOS.setMinimumSize(QtCore.QSize(1000, 533))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_ico_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MOS.setWindowIcon(icon)
         MOS.setStyleSheet("QMainWindow{\n"
 "    border-radius:15px;\n"
 "    background-color: rgba(255, 255, 255, 0);\n"
@@ -21,15 +41,20 @@ class Ui_MOS(object):
         self.centralwidget = QtWidgets.QWidget(MOS)
         self.centralwidget.setStyleSheet("background-color: rgba(255, 255, 255,100);")
         self.centralwidget.setObjectName("centralwidget")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.centralwidget)
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_2.setSpacing(0)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.gridLayout_13 = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_13.setHorizontalSpacing(0)
+        self.gridLayout_13.setObjectName("gridLayout_13")
         self.widget_mos_left = QtWidgets.QWidget(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_mos_left.sizePolicy().hasHeightForWidth())
+        self.widget_mos_left.setSizePolicy(sizePolicy)
         self.widget_mos_left.setAutoFillBackground(False)
         self.widget_mos_left.setStyleSheet("QWidget\n"
 "{\n"
-"    background-color: rgba(231, 230, 228,100);\n"
+"    background-color: rgba(231, 230, 228, 100);\n"
 "    border-bottom-left-radius:15px;\n"
 "    border-top-left-radius:15px;\n"
 "    font-size: 13px;\n"
@@ -60,7 +85,7 @@ class Ui_MOS(object):
 "    font-size: 15px;\n"
 "    border-style:none;\n"
 "    border-radius:8px;\n"
-"    border:2px solid rgb(229, 228, 226,0);\n"
+"    border:2px solid rgba(229, 228, 226, 0);\n"
 "}\n"
 "QPushButton::hover\n"
 "{\n"
@@ -83,7 +108,7 @@ class Ui_MOS(object):
 "    font-size: 15px;\n"
 "    border-style:none;\n"
 "    border-radius:8px;\n"
-"    border:2px solid rgb(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
+"    border:2px solid rgba(229, 228, 226, 0);background-color: rgb(192, 192, 192);\n"
 "}\n"
 "#pushButton_home::hover\n"
 "{\n"
@@ -101,7 +126,7 @@ class Ui_MOS(object):
         self.widget_mos_left_top = QtWidgets.QWidget(self.widget_mos_left)
         self.widget_mos_left_top.setStyleSheet("QWidget\n"
 "{\n"
-"    background-color: rgba(231, 230, 228);\n"
+"    background-color: rgb(231, 230, 228);\n"
 "    border-style:none;\n"
 "    border-radius:15px;\n"
 "}\n"
@@ -131,8 +156,6 @@ class Ui_MOS(object):
         self.pushButton_mos_left_top = QtWidgets.QPushButton(self.widget_mos_left_top)
         self.pushButton_mos_left_top.setStyleSheet("width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);")
         self.pushButton_mos_left_top.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/ico.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_mos_left_top.setIcon(icon)
         self.pushButton_mos_left_top.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_mos_left_top.setObjectName("pushButton_mos_left_top")
@@ -153,7 +176,7 @@ class Ui_MOS(object):
         self.pushButton_home.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.pushButton_home.setStyleSheet("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/home.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_home_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_home.setIcon(icon1)
         self.pushButton_home.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_home.setObjectName("pushButton_home")
@@ -162,7 +185,7 @@ class Ui_MOS(object):
         self.pushButton_lianji.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_lianji.setStyleSheet("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/online.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_online_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_lianji.setIcon(icon2)
         self.pushButton_lianji.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_lianji.setObjectName("pushButton_lianji")
@@ -171,7 +194,7 @@ class Ui_MOS(object):
         self.pushButton_xiazai.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_xiazai.setStyleSheet("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/download.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_download_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_xiazai.setIcon(icon3)
         self.pushButton_xiazai.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_xiazai.setObjectName("pushButton_xiazai")
@@ -180,7 +203,7 @@ class Ui_MOS(object):
         self.pushButton_music.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_music.setStyleSheet("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/music.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_music_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_music.setIcon(icon4)
         self.pushButton_music.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_music.setObjectName("pushButton_music")
@@ -189,7 +212,7 @@ class Ui_MOS(object):
         self.pushButton_shezhi.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_shezhi.setStyleSheet("")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/settings.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_settings_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_shezhi.setIcon(icon5)
         self.pushButton_shezhi.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_shezhi.setObjectName("pushButton_shezhi")
@@ -198,7 +221,7 @@ class Ui_MOS(object):
         self.pushButton_about.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_about.setStyleSheet("")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/about.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_about_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_about.setIcon(icon6)
         self.pushButton_about.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_about.setObjectName("pushButton_about")
@@ -206,18 +229,19 @@ class Ui_MOS(object):
         spacerItem = QtWidgets.QSpacerItem(20, 184, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem)
         self.label_mosll = QtWidgets.QLabel(self.widget_mos_left)
-        self.label_mosll.setStyleSheet("color: rgb(0, 150, 255);font-size: 17px;font: 75 17pt \"Yuanti SC\";background-color: rgb(240, 239, 238,0);")
+        self.label_mosll.setStyleSheet("color: rgb(0, 150, 255);font-size: 17px;font: 75 17pt \"Yuanti SC\";background-color: rgba(240, 239, 238,0);")
         self.label_mosll.setAlignment(QtCore.Qt.AlignCenter)
         self.label_mosll.setObjectName("label_mosll")
         self.verticalLayout_2.addWidget(self.label_mosll)
-        self.horizontalLayout_2.addWidget(self.widget_mos_left)
+        self.gridLayout_13.addWidget(self.widget_mos_left, 0, 0, 1, 1)
         self.stackedWidget_mos_right = QtWidgets.QStackedWidget(self.centralwidget)
-        self.stackedWidget_mos_right.setStyleSheet("font: 13pt \"PingFang SC\";background-color: rgba(255, 255, 255, 128);")
+        self.stackedWidget_mos_right.setStyleSheet("background-color: rgba(255, 255, 255, 128);")
         self.stackedWidget_mos_right.setObjectName("stackedWidget_mos_right")
         self.page_gonggao = QtWidgets.QWidget()
         self.page_gonggao.setStyleSheet("")
         self.page_gonggao.setObjectName("page_gonggao")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.page_gonggao)
+        self.horizontalLayout.setContentsMargins(12, -1, -1, -1)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.scrollArea_page_gonggao = QtWidgets.QScrollArea(self.page_gonggao)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -246,7 +270,7 @@ class Ui_MOS(object):
 "    border-radius: 3px;\n"
 "    height:25px;\n"
 "    font-size: 14px;\n"
-"    background-color: rgba(0, 150, 255, 77);\n"
+"    background-color: rgba(0, 150, 255, 150);\n"
 "    border-radius:10px;\n"
 "}\n"
 "/*QComboBox::down-arrow\n"
@@ -396,7 +420,7 @@ class Ui_MOS(object):
         self.page_2 = QtWidgets.QWidget()
         self.page_2.setObjectName("page_2")
         self.gridLayout_7 = QtWidgets.QGridLayout(self.page_2)
-        self.gridLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_7.setContentsMargins(5, 0, 5, 0)
         self.gridLayout_7.setObjectName("gridLayout_7")
         spacerItem8 = QtWidgets.QSpacerItem(49, 13, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_7.addItem(spacerItem8, 0, 0, 1, 1)
@@ -432,7 +456,7 @@ class Ui_MOS(object):
 "    border-radius: 3px;\n"
 "    height:25px;\n"
 "    font-size: 14px;\n"
-"    background-color: rgba(0, 150, 255, 77);\n"
+"    background-color: rgba(0, 150, 255, 150);\n"
 "    border-radius:10px;\n"
 "}\n"
 "/*QComboBox::down-arrow\n"
@@ -442,6 +466,18 @@ class Ui_MOS(object):
         self.gridLayout = QtWidgets.QGridLayout(self.page_3)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
+        self.line_3 = QtWidgets.QFrame(self.page_3)
+        self.line_3.setStyleSheet("color:rgb(214, 214, 214)")
+        self.line_3.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.line_3.setMidLineWidth(1)
+        self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_3.setObjectName("line_3")
+        self.gridLayout.addWidget(self.line_3, 3, 0, 1, 2)
+        self.label_10 = QtWidgets.QLabel(self.page_3)
+        self.label_10.setStyleSheet("border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);")
+        self.label_10.setIndent(10)
+        self.label_10.setObjectName("label_10")
+        self.gridLayout.addWidget(self.label_10, 1, 0, 2, 1)
         self.comboBox_2 = QtWidgets.QComboBox(self.page_3)
         self.comboBox_2.setObjectName("comboBox_2")
         self.comboBox_2.addItem("")
@@ -450,85 +486,191 @@ class Ui_MOS(object):
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
         self.gridLayout.addWidget(self.comboBox_2, 1, 1, 2, 1)
-        self.line_3 = QtWidgets.QFrame(self.page_3)
-        self.line_3.setStyleSheet("color:rgb(214, 214, 214)")
-        self.line_3.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.line_3.setMidLineWidth(1)
-        self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_3.setObjectName("line_3")
-        self.gridLayout.addWidget(self.line_3, 3, 0, 1, 2)
         spacerItem10 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem10, 0, 0, 1, 2)
         self.stackedWidget_2 = QtWidgets.QStackedWidget(self.page_3)
+        self.stackedWidget_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.stackedWidget_2.setObjectName("stackedWidget_2")
         self.page_9 = QtWidgets.QWidget()
         self.page_9.setStyleSheet("QAbstractItemView::item {\n"
 "    min-height: 110px;\n"
 "    min-width: 40px; \n"
-"}")
+"}\n"
+"")
         self.page_9.setObjectName("page_9")
         self.gridLayout_9 = QtWidgets.QGridLayout(self.page_9)
         self.gridLayout_9.setObjectName("gridLayout_9")
         self.treeWidget = QtWidgets.QTreeWidget(self.page_9)
         self.treeWidget.setStyleSheet("")
+        self.treeWidget.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.treeWidget.setDragDropOverwriteMode(False)
         self.treeWidget.setAlternatingRowColors(True)
-        self.treeWidget.setUniformRowHeights(False)
+        self.treeWidget.setUniformRowHeights(True)
+        self.treeWidget.setAnimated(True)
+        self.treeWidget.setAllColumnsShowFocus(False)
+        self.treeWidget.setWordWrap(False)
+        self.treeWidget.setHeaderHidden(False)
+        self.treeWidget.setColumnCount(2)
         self.treeWidget.setObjectName("treeWidget")
         self.gridLayout_9.addWidget(self.treeWidget, 0, 0, 1, 1)
         self.stackedWidget_2.addWidget(self.page_9)
         self.page_10 = QtWidgets.QWidget()
+        self.page_10.setStyleSheet("")
         self.page_10.setObjectName("page_10")
-        self.pushButton_5 = QtWidgets.QPushButton(self.page_10)
-        self.pushButton_5.setGeometry(QtCore.QRect(40, 50, 113, 32))
+        self.gridLayout_26 = QtWidgets.QGridLayout(self.page_10)
+        self.gridLayout_26.setObjectName("gridLayout_26")
+        self.widget_2 = QtWidgets.QWidget(self.page_10)
+        self.widget_2.setStyleSheet("QWidget{border-radius: 23px;border:2px solid rgb(0, 150, 255);}\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */\n"
+"    border-radius: 3px;\n"
+"    height:25px;\n"
+"    font-size: 14px;\n"
+"    background-color: rgba(0, 150, 255, 77);\n"
+"    border-radius:10px;\n"
+"}\n"
+"/*QComboBox::down-arrow\n"
+"是 右面那个 \n"
+"*/")
+        self.widget_2.setObjectName("widget_2")
+        self.gridLayout_25 = QtWidgets.QGridLayout(self.widget_2)
+        self.gridLayout_25.setObjectName("gridLayout_25")
+        self.pushButton_5 = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton_5.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_5.setText("")
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_forge_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_5.setIcon(icon7)
+        self.pushButton_5.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_5.setObjectName("pushButton_5")
-        self.label_11 = QtWidgets.QLabel(self.page_10)
-        self.label_11.setGeometry(QtCore.QRect(200, 70, 171, 16))
+        self.gridLayout_25.addWidget(self.pushButton_5, 0, 0, 1, 1)
+        self.label_11 = QtWidgets.QLabel(self.widget_2)
+        self.label_11.setStyleSheet("border-style:none;font-size: 15px;")
         self.label_11.setObjectName("label_11")
-        self.comboBox_3 = QtWidgets.QComboBox(self.page_10)
-        self.comboBox_3.setGeometry(QtCore.QRect(410, 50, 91, 32))
+        self.gridLayout_25.addWidget(self.label_11, 0, 1, 1, 1)
+        self.comboBox_3 = QtWidgets.QComboBox(self.widget_2)
+        self.comboBox_3.setMinimumSize(QtCore.QSize(210, 25))
+        self.comboBox_3.setStyleSheet("border: 2px solid rgb(235, 235, 235);")
         self.comboBox_3.setObjectName("comboBox_3")
-        self.comboBox_4 = QtWidgets.QComboBox(self.page_10)
-        self.comboBox_4.setGeometry(QtCore.QRect(450, 180, 91, 32))
-        self.comboBox_4.setObjectName("comboBox_4")
-        self.label_19 = QtWidgets.QLabel(self.page_10)
-        self.label_19.setGeometry(QtCore.QRect(240, 200, 171, 16))
-        self.label_19.setObjectName("label_19")
-        self.pushButton_6 = QtWidgets.QPushButton(self.page_10)
-        self.pushButton_6.setGeometry(QtCore.QRect(80, 180, 113, 32))
+        self.gridLayout_25.addWidget(self.comboBox_3, 0, 6, 1, 1)
+        self.pushButton_6 = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton_6.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_6.setText("")
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_fabric_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_6.setIcon(icon8)
+        self.pushButton_6.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_6.setObjectName("pushButton_6")
-        self.comboBox_5 = QtWidgets.QComboBox(self.page_10)
-        self.comboBox_5.setGeometry(QtCore.QRect(440, 280, 91, 32))
-        self.comboBox_5.setObjectName("comboBox_5")
-        self.label_20 = QtWidgets.QLabel(self.page_10)
-        self.label_20.setGeometry(QtCore.QRect(230, 300, 171, 16))
-        self.label_20.setObjectName("label_20")
-        self.pushButton_7 = QtWidgets.QPushButton(self.page_10)
-        self.pushButton_7.setGeometry(QtCore.QRect(70, 280, 113, 32))
+        self.gridLayout_25.addWidget(self.pushButton_6, 1, 0, 1, 1)
+        self.label_19 = QtWidgets.QLabel(self.widget_2)
+        self.label_19.setStyleSheet("border-style:none;font-size: 14px;")
+        self.label_19.setObjectName("label_19")
+        self.gridLayout_25.addWidget(self.label_19, 1, 1, 1, 1)
+        self.comboBox_4 = QtWidgets.QComboBox(self.widget_2)
+        self.comboBox_4.setMinimumSize(QtCore.QSize(120, 25))
+        self.comboBox_4.setStyleSheet("border: 2px solid rgb(235, 235, 235);")
+        self.comboBox_4.setObjectName("comboBox_4")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.gridLayout_25.addWidget(self.comboBox_4, 1, 6, 1, 1)
+        self.pushButton_7 = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton_7.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_7.setText("")
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_optifine_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_7.setIcon(icon9)
+        self.pushButton_7.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_7.setObjectName("pushButton_7")
-        self.comboBox_6 = QtWidgets.QComboBox(self.page_10)
-        self.comboBox_6.setGeometry(QtCore.QRect(460, 360, 91, 32))
-        self.comboBox_6.setObjectName("comboBox_6")
-        self.label_21 = QtWidgets.QLabel(self.page_10)
-        self.label_21.setGeometry(QtCore.QRect(250, 380, 171, 16))
-        self.label_21.setObjectName("label_21")
-        self.pushButton_8 = QtWidgets.QPushButton(self.page_10)
-        self.pushButton_8.setGeometry(QtCore.QRect(90, 360, 113, 32))
+        self.gridLayout_25.addWidget(self.pushButton_7, 2, 0, 1, 1)
+        self.label_20 = QtWidgets.QLabel(self.widget_2)
+        self.label_20.setStyleSheet("border-style:none;font-size: 14px;")
+        self.label_20.setObjectName("label_20")
+        self.gridLayout_25.addWidget(self.label_20, 2, 1, 1, 1)
+        self.comboBox_5 = QtWidgets.QComboBox(self.widget_2)
+        self.comboBox_5.setMinimumSize(QtCore.QSize(120, 25))
+        self.comboBox_5.setStyleSheet("border: 2px solid rgb(235, 235, 235);")
+        self.comboBox_5.setObjectName("comboBox_5")
+        self.gridLayout_25.addWidget(self.comboBox_5, 2, 6, 1, 1)
+        self.pushButton_8 = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton_8.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_8.setText("")
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_quilt_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_8.setIcon(icon10)
+        self.pushButton_8.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_8.setObjectName("pushButton_8")
+        self.gridLayout_25.addWidget(self.pushButton_8, 3, 0, 1, 1)
+        self.label_21 = QtWidgets.QLabel(self.widget_2)
+        self.label_21.setStyleSheet("border-style:none;font-size: 14px;")
+        self.label_21.setObjectName("label_21")
+        self.gridLayout_25.addWidget(self.label_21, 3, 1, 1, 1)
+        self.comboBox_6 = QtWidgets.QComboBox(self.widget_2)
+        self.comboBox_6.setMinimumSize(QtCore.QSize(120, 25))
+        self.comboBox_6.setStyleSheet("border: 2px solid rgb(235, 235, 235);")
+        self.comboBox_6.setObjectName("comboBox_6")
+        self.gridLayout_25.addWidget(self.comboBox_6, 3, 6, 1, 1)
+        self.pushButton_13 = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton_13.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_13.setText("")
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_loading_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_13.setIcon(icon11)
+        self.pushButton_13.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_13.setObjectName("pushButton_13")
+        self.gridLayout_25.addWidget(self.pushButton_13, 1, 5, 1, 1)
+        self.pushButton_14 = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton_14.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_14.setText("")
+        self.pushButton_14.setIcon(icon11)
+        self.pushButton_14.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_14.setObjectName("pushButton_14")
+        self.gridLayout_25.addWidget(self.pushButton_14, 2, 5, 1, 1)
+        self.pushButton_15 = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton_15.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_15.setText("")
+        self.pushButton_15.setIcon(icon11)
+        self.pushButton_15.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_15.setObjectName("pushButton_15")
+        self.gridLayout_25.addWidget(self.pushButton_15, 3, 5, 1, 1)
+        self.pushButton_12 = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton_12.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_12.setText("")
+        self.pushButton_12.setIcon(icon11)
+        self.pushButton_12.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_12.setObjectName("pushButton_12")
+        self.gridLayout_25.addWidget(self.pushButton_12, 0, 5, 1, 1)
+        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_25.addItem(spacerItem11, 1, 2, 1, 2)
+        spacerItem12 = QtWidgets.QSpacerItem(199, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_25.addItem(spacerItem12, 0, 2, 1, 2)
+        spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_25.addItem(spacerItem13, 2, 2, 1, 2)
+        spacerItem14 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_25.addItem(spacerItem14, 3, 2, 1, 1)
+        self.gridLayout_26.addWidget(self.widget_2, 0, 0, 1, 3)
+        spacerItem15 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_26.addItem(spacerItem15, 1, 0, 1, 1)
+        self.lineEdit = QtWidgets.QLineEdit(self.page_10)
+        self.lineEdit.setStyleSheet("height:25px;border-radius: 5px;border:2px solid rgb(169, 169, 169);color: rgb(0, 0, 0);")
+        self.lineEdit.setInputMask("")
+        self.lineEdit.setText("")
+        self.lineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.lineEdit.setObjectName("lineEdit")
+        self.gridLayout_26.addWidget(self.lineEdit, 1, 1, 1, 1)
+        self.pushButton_2 = QtWidgets.QPushButton(self.page_10)
+        self.pushButton_2.setStyleSheet("height:25px;border-radius: 5px;width:70px;border:2px solid rgb(169, 169, 169);")
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.gridLayout_26.addWidget(self.pushButton_2, 1, 2, 1, 1)
         self.stackedWidget_2.addWidget(self.page_10)
         self.gridLayout.addWidget(self.stackedWidget_2, 4, 0, 1, 2)
-        self.label_10 = QtWidgets.QLabel(self.page_3)
-        self.label_10.setStyleSheet("border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);")
-        self.label_10.setIndent(10)
-        self.label_10.setObjectName("label_10")
-        self.gridLayout.addWidget(self.label_10, 1, 0, 2, 1)
         self.stackedWidget_mos_right.addWidget(self.page_3)
         self.page_4 = QtWidgets.QWidget()
         self.page_4.setObjectName("page_4")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.page_4)
-        self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_3.setContentsMargins(5, 0, 5, 0)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        spacerItem11 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem11, 0, 0, 1, 1)
+        spacerItem16 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem16, 0, 0, 1, 1)
         self.label_12 = QtWidgets.QLabel(self.page_4)
         self.label_12.setStyleSheet("border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);")
         self.label_12.setIndent(10)
@@ -553,8 +695,8 @@ class Ui_MOS(object):
         self.label_13.setObjectName("label_13")
         self.gridLayout_10.addWidget(self.label_13, 1, 0, 1, 1)
         self.gridLayout_3.addWidget(self.widget_8, 3, 0, 1, 1)
-        spacerItem12 = QtWidgets.QSpacerItem(832, 393, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem12, 4, 0, 1, 1)
+        spacerItem17 = QtWidgets.QSpacerItem(832, 393, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem17, 4, 0, 1, 1)
         self.stackedWidget_mos_right.addWidget(self.page_4)
         self.page_5 = QtWidgets.QWidget()
         self.page_5.setStyleSheet("QComboBox {\n"
@@ -562,7 +704,7 @@ class Ui_MOS(object):
 "    border-radius: 3px;\n"
 "    height:25px;\n"
 "    font-size: 14px;\n"
-"    background-color: rgba(0, 150, 255, 77);\n"
+"    background-color: rgba(0, 150, 255, 150);\n"
 "    border-radius:10px;\n"
 "}\n"
 "/*QComboBox::down-arrow\n"
@@ -570,7 +712,7 @@ class Ui_MOS(object):
 "*/")
         self.page_5.setObjectName("page_5")
         self.gridLayout_15 = QtWidgets.QGridLayout(self.page_5)
-        self.gridLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_15.setContentsMargins(5, 0, 5, 0)
         self.gridLayout_15.setObjectName("gridLayout_15")
         self.comboBox = QtWidgets.QComboBox(self.page_5)
         self.comboBox.setStyleSheet("")
@@ -578,72 +720,122 @@ class Ui_MOS(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.gridLayout_15.addWidget(self.comboBox, 1, 1, 1, 1)
-        spacerItem13 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_15.addItem(spacerItem13, 0, 0, 1, 2)
-        self.line_5 = QtWidgets.QFrame(self.page_5)
-        self.line_5.setStyleSheet("color:rgb(214, 214, 214)")
-        self.line_5.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.line_5.setMidLineWidth(1)
-        self.line_5.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_5.setObjectName("line_5")
-        self.gridLayout_15.addWidget(self.line_5, 3, 0, 2, 2)
-        self.label_15 = QtWidgets.QLabel(self.page_5)
-        self.label_15.setStyleSheet("border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);")
-        self.label_15.setIndent(10)
-        self.label_15.setObjectName("label_15")
-        self.gridLayout_15.addWidget(self.label_15, 1, 0, 1, 1)
         self.stackedWidget = QtWidgets.QStackedWidget(self.page_5)
+        self.stackedWidget.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.stackedWidget.setObjectName("stackedWidget")
         self.page = QtWidgets.QWidget()
+        self.page.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.page.setObjectName("page")
         self.gridLayout_11 = QtWidgets.QGridLayout(self.page)
         self.gridLayout_11.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_11.setObjectName("gridLayout_11")
         self.scrollArea = QtWidgets.QScrollArea(self.page)
-        self.scrollArea.setStyleSheet("border-style:none;")
+        self.scrollArea.setStyleSheet("border-style:none;background-color: rgba(255, 255, 255, 0);")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 832, 456))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 373, 627))
+        self.scrollAreaWidgetContents_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.gridLayout_23 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_23.setContentsMargins(5, 0, 5, 0)
         self.gridLayout_23.setObjectName("gridLayout_23")
-        spacerItem14 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_23.addItem(spacerItem14, 6, 0, 1, 2)
+        spacerItem18 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_23.addItem(spacerItem18, 6, 0, 1, 2)
         self.widget = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
-        self.widget.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);}\n"
+        self.widget.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
 "QComboBox {\n"
 "    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */\n"
-"    border-radius: 3px;\n"
 "    height:25px;\n"
 "    font-size: 14px;\n"
-"    background-color: rgba(0, 150, 255, 77);\n"
+"    background-color: rgba(0, 150, 255, 150);\n"
 "    border-radius:10px;\n"
+"}\n"
+"\n"
+"/*下拉框的样式*/\n"
+"QComboBox QAbstractItemView \n"
+"{\n"
+"    outline: 0px solid gray;  /*取消选中虚线*/\n"
+"    border: 1px solid rgb(31, 156, 255);\n"
+"    color: rgb(66, 66, 66);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    selection-background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"    height:50px;\n"
+"}\n"
+" /*选中每一项高度*/\n"
+"QComboBox QAbstractItemView::item\n"
+"{ \n"
+"    height: 25px;\n"
+"    border-radius:5px;\n"
+" }\n"
+"/*选中每一项的字体颜色和背景颜色*/\n"
+"QComboBox QAbstractItemView::item:selected \n"
+"{\n"
+"    color: rgb(31,163,246);\n"
+"    background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
 "}\n"
 "/*QComboBox::down-arrow\n"
 "是 右面那个 \n"
-"*/")
+"*/\n"
+"\n"
+"\n"
+"\n"
+"/* QComboBox中的垂直滚动条 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 13px;\n"
+"    height: 5px;\n"
+"    background-color: #d0d2d4;   /* 空白区域的背景色*/\n"
+"    border-style:none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* 圆角 */\n"
+"    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
+"}\n"
+"\n"
+"QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);font-size: 13.5px;}\n"
+"QPushButton::hover{color: rgb(255, 59, 0)}\n"
+"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}")
         self.widget.setObjectName("widget")
         self.gridLayout_24 = QtWidgets.QGridLayout(self.widget)
         self.gridLayout_24.setObjectName("gridLayout_24")
-        self.line_10 = QtWidgets.QFrame(self.widget)
-        self.line_10.setStyleSheet("background-color: rgb(169, 169, 169);border:none;")
-        self.line_10.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_10.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_10.setObjectName("line_10")
-        self.gridLayout_24.addWidget(self.line_10, 1, 0, 1, 2)
-        self.fontComboBox = QtWidgets.QFontComboBox(self.widget)
-        self.fontComboBox.setObjectName("fontComboBox")
-        self.gridLayout_24.addWidget(self.fontComboBox, 2, 1, 1, 1)
-        self.label_6 = QtWidgets.QLabel(self.widget)
-        self.label_6.setObjectName("label_6")
-        self.gridLayout_24.addWidget(self.label_6, 0, 0, 1, 1)
         self.label_4 = QtWidgets.QLabel(self.widget)
-        self.label_4.setStyleSheet("font-size: 14px;")
-        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setStyleSheet("border-style:none;")
+        self.label_4.setScaledContents(False)
+        self.label_4.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_4.setWordWrap(True)
+        self.label_4.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByMouse)
         self.label_4.setObjectName("label_4")
-        self.gridLayout_24.addWidget(self.label_4, 2, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.label_4, 0, 0, 2, 1)
+        self.fontComboBox = QtWidgets.QFontComboBox(self.widget)
+        self.fontComboBox.setMaxVisibleItems(15)
+        self.fontComboBox.setDuplicatesEnabled(False)
+        self.fontComboBox.setObjectName("fontComboBox")
+        self.gridLayout_24.addWidget(self.fontComboBox, 0, 1, 1, 3)
+        self.pushButton_11 = QtWidgets.QPushButton(self.widget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_11.sizePolicy().hasHeightForWidth())
+        self.pushButton_11.setSizePolicy(sizePolicy)
+        self.pushButton_11.setMinimumSize(QtCore.QSize(0, 0))
+        self.pushButton_11.setSizeIncrement(QtCore.QSize(0, 0))
+        self.pushButton_11.setBaseSize(QtCore.QSize(0, 0))
+        self.pushButton_11.setStyleSheet("")
+        self.pushButton_11.setIconSize(QtCore.QSize(16, 16))
+        self.pushButton_11.setObjectName("pushButton_11")
+        self.gridLayout_24.addWidget(self.pushButton_11, 1, 3, 1, 1)
+        self.label_6 = QtWidgets.QLabel(self.widget)
+        self.label_6.setStyleSheet("font-size: 14px;border-style:none;")
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_6.setObjectName("label_6")
+        self.gridLayout_24.addWidget(self.label_6, 1, 1, 1, 2)
         self.gridLayout_23.addWidget(self.widget, 3, 0, 1, 2)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents_2)
         self.gridLayout_11.addWidget(self.scrollArea, 0, 0, 1, 1)
@@ -663,34 +855,34 @@ class Ui_MOS(object):
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_3)
         self.gridLayout_22.addWidget(self.scrollArea_2, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.page_7)
-        self.gridLayout_15.addWidget(self.stackedWidget, 5, 0, 1, 2)
+        self.gridLayout_15.addWidget(self.stackedWidget, 6, 0, 1, 2)
+        self.label_15 = QtWidgets.QLabel(self.page_5)
+        self.label_15.setStyleSheet("border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);")
+        self.label_15.setIndent(10)
+        self.label_15.setObjectName("label_15")
+        self.gridLayout_15.addWidget(self.label_15, 1, 0, 1, 1)
+        self.line_5 = QtWidgets.QFrame(self.page_5)
+        self.line_5.setStyleSheet("color:rgb(214, 214, 214)")
+        self.line_5.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.line_5.setMidLineWidth(1)
+        self.line_5.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_5.setObjectName("line_5")
+        self.gridLayout_15.addWidget(self.line_5, 3, 0, 2, 2)
+        spacerItem19 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_15.addItem(spacerItem19, 0, 0, 1, 2)
         self.stackedWidget_mos_right.addWidget(self.page_5)
         self.page_6 = QtWidgets.QWidget()
         self.page_6.setObjectName("page_6")
         self.gridLayout_14 = QtWidgets.QGridLayout(self.page_6)
         self.gridLayout_14.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_14.setObjectName("gridLayout_14")
-        spacerItem15 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem15, 0, 0, 1, 2)
-        self.label_17 = QtWidgets.QLabel(self.page_6)
-        self.label_17.setStyleSheet("border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);")
-        self.label_17.setIndent(10)
-        self.label_17.setObjectName("label_17")
-        self.gridLayout_14.addWidget(self.label_17, 1, 0, 1, 1)
-        self.line_6 = QtWidgets.QFrame(self.page_6)
-        self.line_6.setStyleSheet("color:rgb(214, 214, 214)")
-        self.line_6.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.line_6.setMidLineWidth(1)
-        self.line_6.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_6.setObjectName("line_6")
-        self.gridLayout_14.addWidget(self.line_6, 2, 0, 1, 2)
         self.widget_10 = QtWidgets.QWidget(self.page_6)
         self.widget_10.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.widget_10.setObjectName("widget_10")
         self.gridLayout_19 = QtWidgets.QGridLayout(self.widget_10)
         self.gridLayout_19.setObjectName("gridLayout_19")
         self.widget_13 = QtWidgets.QWidget(self.widget_10)
-        self.widget_13.setStyleSheet("border-radius:15px;border:2px solid rgba(0, 150, 255, 128);")
+        self.widget_13.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}")
         self.widget_13.setObjectName("widget_13")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.widget_13)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -702,6 +894,7 @@ class Ui_MOS(object):
         self.widget_11.setStyleSheet("border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;")
         self.widget_11.setObjectName("widget_11")
         self.gridLayout_12 = QtWidgets.QGridLayout(self.widget_11)
+        self.gridLayout_12.setHorizontalSpacing(7)
         self.gridLayout_12.setObjectName("gridLayout_12")
         self.pushButton = QtWidgets.QPushButton(self.widget_11)
         self.pushButton.setStyleSheet("border-style:none;")
@@ -710,68 +903,103 @@ class Ui_MOS(object):
         self.pushButton.setIconSize(QtCore.QSize(40, 40))
         self.pushButton.setObjectName("pushButton")
         self.gridLayout_12.addWidget(self.pushButton, 1, 0, 1, 1)
-        spacerItem16 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_12.addItem(spacerItem16, 1, 2, 1, 1)
+        spacerItem20 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_12.addItem(spacerItem20, 1, 2, 1, 1)
         self.label_16 = QtWidgets.QLabel(self.widget_11)
-        self.label_16.setStyleSheet("border-style:none;")
+        self.label_16.setStyleSheet("font-size: 13px;border-style:none;")
         self.label_16.setObjectName("label_16")
         self.gridLayout_12.addWidget(self.label_16, 1, 1, 1, 1)
         self.verticalLayout_3.addWidget(self.widget_11)
         self.widget_12 = QtWidgets.QWidget(self.widget_13)
-        self.widget_12.setStyleSheet("border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;")
+        self.widget_12.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_3{width:120px;height:30px;background-color: rgba(255, 255, 255,0);}\n"
+"#pushButton_3::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_3::pressed{background-color: rgba(0, 150, 255, 51);}")
         self.widget_12.setObjectName("widget_12")
         self.gridLayout_17 = QtWidgets.QGridLayout(self.widget_12)
+        self.gridLayout_17.setHorizontalSpacing(7)
         self.gridLayout_17.setObjectName("gridLayout_17")
         self.label_18 = QtWidgets.QLabel(self.widget_12)
-        self.label_18.setStyleSheet("border-style:none;")
+        self.label_18.setStyleSheet("font-size: 13px;border-style:none;")
         self.label_18.setObjectName("label_18")
         self.gridLayout_17.addWidget(self.label_18, 0, 1, 1, 1)
+        spacerItem21 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_17.addItem(spacerItem21, 0, 2, 1, 1)
         self.pushButton_4 = QtWidgets.QPushButton(self.widget_12)
         self.pushButton_4.setStyleSheet("border-style:none;")
         self.pushButton_4.setText("")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/david.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_4.setIcon(icon7)
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_david_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_4.setIcon(icon12)
         self.pushButton_4.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_4.setObjectName("pushButton_4")
         self.gridLayout_17.addWidget(self.pushButton_4, 0, 0, 1, 1)
-        spacerItem17 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_17.addItem(spacerItem17, 0, 2, 1, 1)
+        self.pushButton_3 = QtWidgets.QPushButton(self.widget_12)
+        self.pushButton_3.setStyleSheet("border-radius:7px;border:2px solid rgb(0, 150, 255);")
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.gridLayout_17.addWidget(self.pushButton_3, 0, 3, 1, 1)
         self.verticalLayout_3.addWidget(self.widget_12)
         self.widget_14 = QtWidgets.QWidget(self.widget_13)
-        self.widget_14.setStyleSheet("border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;")
+        self.widget_14.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_10{width:120px;height:30px;background-color: rgba(255, 255, 255,0);}\n"
+"#pushButton_10::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_10::pressed{background-color: rgba(0, 150, 255, 51);}")
         self.widget_14.setObjectName("widget_14")
         self.gridLayout_18 = QtWidgets.QGridLayout(self.widget_14)
+        self.gridLayout_18.setHorizontalSpacing(2)
         self.gridLayout_18.setObjectName("gridLayout_18")
-        self.label_22 = QtWidgets.QLabel(self.widget_14)
-        self.label_22.setStyleSheet("border-style:none;")
-        self.label_22.setObjectName("label_22")
-        self.gridLayout_18.addWidget(self.label_22, 0, 1, 1, 1)
+        spacerItem22 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_18.addItem(spacerItem22, 0, 3, 1, 1)
+        self.label_25 = QtWidgets.QLabel(self.widget_14)
+        self.label_25.setText("")
+        self.label_25.setObjectName("label_25")
+        self.gridLayout_18.addWidget(self.label_25, 0, 1, 1, 1)
         self.pushButton_9 = QtWidgets.QPushButton(self.widget_14)
         self.pushButton_9.setStyleSheet("border-style:none;")
         self.pushButton_9.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/heimnad.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_9.setIcon(icon8)
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_heimnad_png), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_9.setIcon(icon13)
         self.pushButton_9.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_9.setObjectName("pushButton_9")
         self.gridLayout_18.addWidget(self.pushButton_9, 0, 0, 1, 1)
-        spacerItem18 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_18.addItem(spacerItem18, 0, 2, 1, 1)
+        self.label_22 = QtWidgets.QLabel(self.widget_14)
+        self.label_22.setStyleSheet("font-size: 13px;border-style:none;")
+        self.label_22.setObjectName("label_22")
+        self.gridLayout_18.addWidget(self.label_22, 0, 2, 1, 1)
+        self.pushButton_10 = QtWidgets.QPushButton(self.widget_14)
+        self.pushButton_10.setStyleSheet("border-radius:7px;border:2px solid rgb(0, 150, 255);")
+        self.pushButton_10.setObjectName("pushButton_10")
+        self.gridLayout_18.addWidget(self.pushButton_10, 0, 4, 1, 1)
         self.verticalLayout_3.addWidget(self.widget_14)
         self.gridLayout_19.addWidget(self.widget_13, 0, 0, 1, 1)
-        spacerItem19 = QtWidgets.QSpacerItem(796, 368, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_19.addItem(spacerItem19, 1, 0, 1, 1)
+        spacerItem23 = QtWidgets.QSpacerItem(796, 368, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_19.addItem(spacerItem23, 1, 0, 1, 1)
         self.gridLayout_14.addWidget(self.widget_10, 3, 0, 1, 2)
+        self.line_6 = QtWidgets.QFrame(self.page_6)
+        self.line_6.setStyleSheet("color:rgb(214, 214, 214)")
+        self.line_6.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.line_6.setMidLineWidth(1)
+        self.line_6.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_6.setObjectName("line_6")
+        self.gridLayout_14.addWidget(self.line_6, 2, 0, 1, 2)
+        spacerItem24 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem24, 0, 0, 1, 2)
+        self.label_17 = QtWidgets.QLabel(self.page_6)
+        self.label_17.setStyleSheet("border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);")
+        self.label_17.setIndent(10)
+        self.label_17.setObjectName("label_17")
+        self.gridLayout_14.addWidget(self.label_17, 1, 0, 1, 2)
         self.stackedWidget_mos_right.addWidget(self.page_6)
-        self.horizontalLayout_2.addWidget(self.stackedWidget_mos_right)
+        self.gridLayout_13.addWidget(self.stackedWidget_mos_right, 0, 1, 1, 1)
         MOS.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MOS)
         self.stackedWidget_mos_right.setCurrentIndex(0)
         self.stackedWidget_gonggao.setCurrentIndex(1)
-        self.stackedWidget_2.setCurrentIndex(1)
+        self.stackedWidget_2.setCurrentIndex(0)
         self.stackedWidget.setCurrentIndex(0)
+        self.fontComboBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MOS)
 
 
@@ -791,586 +1019,48 @@ class Ui_MOS(object):
     def click_pushButton_home(self):
         self.stackedWidget_mos_right.setCurrentIndex(0)
         pushButton_home_true = ("QWidget\n"
-                                "{\n"
-                                "    background-color: rgba(231, 230, 228,100);\n"
-                                "    border-bottom-left-radius:15px;\n"
-                                "    border-top-left-radius:15px;\n"
-                                "}\n"
-                                "#pushButton_about\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                "}\n"
-                                "#pushButton_about::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_about::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}\n"
-                                "\n"
-                                "\n"
-                                "#pushButton_xiazai\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                "}\n"
-                                "#pushButton_xiazai::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_xiazai::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}\n"
-                                "\n"
-                                "\n"
-                                "#pushButton_shezhi\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                "}\n"
-                                "#pushButton_shezhi::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_shezhi::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}\n"
-                                "\n"
-                                "\n"
-                                "#pushButton_music\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                "}\n"
-                                "#pushButton_music::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_music::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}\n"
-                                "\n"
-                                "\n"
-                                "#pushButton_lianji\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                "}\n"
-                                "#pushButton_lianji::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_lianji::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}\n"
-                                "\n"
-                                "\n"
-                                "#pushButton_home\n"
-                                "{\n"
-                                "    color: blue;\n"
-                                "    height:35px;\n"
-                                "    color: rgb(0, 150, 255);\n"
-                                "    background-position: left;\n"
-                                "    text-align: left;\n"
-                                "    padding-right:10px;\n"
-                                "    padding-left:3px;\n"
-                                "    font-size: 15px;\n"
-                                "    border-style:none;\n"
-                                "    border-radius:8px;\n"
-                                "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_home::hover\n"
-                                "{\n"
-                                "    background-color: rgb(192, 192, 192);\n"
-                                "}\n"
-                                "#pushButton_home::pressed\n"
-                                "{\n"
-                                "    border:2px solid rgb(0, 150, 255);\n"
-                                "}")
-        self.widget_mos_left.setStyleSheet(pushButton_home_true)
-
-    def click_pushButton_lianji(self):
-        self.stackedWidget_mos_right.setCurrentIndex(1)
-        pushButton_lianji_true = ("QWidget\n"
-                                  "{\n"
-                                  "    background-color: rgba(231, 230, 228,100);\n"
-                                  "    border-bottom-left-radius:15px;\n"
-                                  "    border-top-left-radius:15px;\n"
-                                  "}\n"
-                                  "#pushButton_about\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_about::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_about::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_xiazai\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192, 0);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_shezhi\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_music\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_music::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_music::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_lianji\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_home\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192 ,0);\n"
-                                  "}\n"
-                                  "#pushButton_home::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_home::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}")
-        self.widget_mos_left.setStyleSheet(pushButton_lianji_true)
-
-    def click_pushButton_xiazai(self):
-        self.stackedWidget_mos_right.setCurrentIndex(2)
-        pushButton_xiazai_true = ("QWidget\n"
-                                  "{\n"
-                                  "    background-color: rgba(231, 230, 228,100);\n"
-                                  "    border-bottom-left-radius:15px;\n"
-                                  "    border-top-left-radius:15px;\n"
-                                  "}\n"
-                                  "#pushButton_about\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_about::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_about::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_xiazai\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_shezhi\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_music\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_music::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_music::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_lianji\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_home\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192 ,0);\n"
-                                  "}\n"
-                                  "#pushButton_home::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_home::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}")
-        self.widget_mos_left.setStyleSheet(pushButton_xiazai_true)
-
-    def click_pushButton_music(self):
-        self.stackedWidget_mos_right.setCurrentIndex(3)
-        pushButton_music_true = ("QWidget\n"
                                  "{\n"
-                                 "    background-color: rgba(231, 230, 228,100);\n"
+                                 "    background-color: rgba(231, 230, 228, 100);\n"
                                  "    border-bottom-left-radius:15px;\n"
                                  "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
                                  "}\n"
-                                 "#pushButton_about\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
                                  "{\n"
                                  "    color: blue;\n"
                                  "    height:35px;\n"
                                  "    color: rgb(0, 150, 255);\n"
                                  "    background-position: left;\n"
                                  "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
                                  "    font-size: 15px;\n"
                                  "    border-style:none;\n"
                                  "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);\n"
                                  "}\n"
-                                 "#pushButton_about::hover\n"
+                                 "QPushButton::hover\n"
                                  "{\n"
                                  "    background-color: rgb(192, 192, 192);\n"
                                  "}\n"
-                                 "#pushButton_about::pressed\n"
+                                 "QPushButton::pressed\n"
                                  "{\n"
                                  "    border:2px solid rgb(0, 150, 255);\n"
                                  "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_xiazai\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192, 0);\n"
-                                 "}\n"
-                                 "#pushButton_xiazai::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_xiazai::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_shezhi\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                 "}\n"
-                                 "#pushButton_shezhi::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_shezhi::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_music\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_music::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_music::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_lianji\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                 "}\n"
-                                 "#pushButton_lianji::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_lianji::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
                                  "\n"
                                  "#pushButton_home\n"
                                  "{\n"
@@ -1379,18 +1069,228 @@ class Ui_MOS(object):
                                  "    color: rgb(0, 150, 255);\n"
                                  "    background-position: left;\n"
                                  "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
                                  "    font-size: 15px;\n"
                                  "    border-style:none;\n"
                                  "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192 ,0);\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);background-color: rgb(192, 192, 192);\n"
                                  "}\n"
                                  "#pushButton_home::hover\n"
                                  "{\n"
                                  "    background-color: rgb(192, 192, 192);\n"
                                  "}\n"
                                  "#pushButton_home::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}")
+        self.widget_mos_left.setStyleSheet(pushButton_home_true)
+
+    def click_pushButton_lianji(self):
+        self.stackedWidget_mos_right.setCurrentIndex(1)
+        pushButton_lianji_true = ("QWidget\n"
+                                 "{\n"
+                                 "    background-color: rgba(231, 230, 228, 100);\n"
+                                 "    border-bottom-left-radius:15px;\n"
+                                 "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);\n"
+                                 "}\n"
+                                 "QPushButton::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "QPushButton::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#pushButton_lianji\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_lianji::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_lianji::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}")
+        self.widget_mos_left.setStyleSheet(pushButton_lianji_true)
+
+    def click_pushButton_xiazai(self):
+        self.stackedWidget_mos_right.setCurrentIndex(2)
+        pushButton_xiazai_true = ("QWidget\n"
+                                 "{\n"
+                                 "    background-color: rgba(231, 230, 228, 100);\n"
+                                 "    border-bottom-left-radius:15px;\n"
+                                 "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);\n"
+                                 "}\n"
+                                 "QPushButton::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "QPushButton::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#pushButton_xiazai\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_xiazai::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_xiazai::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}")
+        self.widget_mos_left.setStyleSheet(pushButton_xiazai_true)
+
+    def click_pushButton_music(self):
+        self.stackedWidget_mos_right.setCurrentIndex(3)
+        pushButton_music_true = ("QWidget\n"
+                                 "{\n"
+                                 "    background-color: rgba(231, 230, 228, 100);\n"
+                                 "    border-bottom-left-radius:15px;\n"
+                                 "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);\n"
+                                 "}\n"
+                                 "QPushButton::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "QPushButton::pressed\n"
+                                 "{\n"
+                                 "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#pushButton_music\n"
+                                 "{\n"
+                                 "    color: blue;\n"
+                                 "    height:35px;\n"
+                                 "    color: rgb(0, 150, 255);\n"
+                                 "    background-position: left;\n"
+                                 "    text-align: left;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
+                                 "    font-size: 15px;\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:8px;\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_music::hover\n"
+                                 "{\n"
+                                 "    background-color: rgb(192, 192, 192);\n"
+                                 "}\n"
+                                 "#pushButton_music::pressed\n"
                                  "{\n"
                                  "    border:2px solid rgb(0, 150, 255);\n"
                                  "}")
@@ -1399,210 +1299,48 @@ class Ui_MOS(object):
     def click_pushButton_shezhi(self):
         self.stackedWidget_mos_right.setCurrentIndex(4)
         pushButton_shezhi_true = ("QWidget\n"
-                                  "{\n"
-                                  "    background-color: rgba(231, 230, 228,100);\n"
-                                  "    border-bottom-left-radius:15px;\n"
-                                  "    border-top-left-radius:15px;\n"
-                                  "}\n"
-                                  "#pushButton_about\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_about::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_about::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_xiazai\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192, 0);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_xiazai::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_shezhi\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_shezhi::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_music\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_music::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_music::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_lianji\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_lianji::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}\n"
-                                  "\n"
-                                  "\n"
-                                  "#pushButton_home\n"
-                                  "{\n"
-                                  "    color: blue;\n"
-                                  "    height:35px;\n"
-                                  "    color: rgb(0, 150, 255);\n"
-                                  "    background-position: left;\n"
-                                  "    text-align: left;\n"
-                                  "    padding-right:10px;\n"
-                                  "    padding-left:3px;\n"
-                                  "    font-size: 15px;\n"
-                                  "    border-style:none;\n"
-                                  "    border-radius:8px;\n"
-                                  "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192 ,0);\n"
-                                  "}\n"
-                                  "#pushButton_home::hover\n"
-                                  "{\n"
-                                  "    background-color: rgb(192, 192, 192);\n"
-                                  "}\n"
-                                  "#pushButton_home::pressed\n"
-                                  "{\n"
-                                  "    border:2px solid rgb(0, 150, 255);\n"
-                                  "}")
-        self.widget_mos_left.setStyleSheet(pushButton_shezhi_true)
-
-    def click_pushButton_about(self):
-        self.stackedWidget_mos_right.setCurrentIndex(5)
-        pushButton_about_true = ("QWidget\n"
                                  "{\n"
-                                 "    background-color: rgba(231, 230, 228,100);\n"
+                                 "    background-color: rgba(231, 230, 228, 100);\n"
                                  "    border-bottom-left-radius:15px;\n"
                                  "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
                                  "}\n"
-                                 "#pushButton_about\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
                                  "{\n"
                                  "    color: blue;\n"
                                  "    height:35px;\n"
                                  "    color: rgb(0, 150, 255);\n"
                                  "    background-position: left;\n"
                                  "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
                                  "    font-size: 15px;\n"
                                  "    border-style:none;\n"
                                  "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgb(192, 192, 192);\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);\n"
                                  "}\n"
-                                 "#pushButton_about::hover\n"
+                                 "QPushButton::hover\n"
                                  "{\n"
                                  "    background-color: rgb(192, 192, 192);\n"
                                  "}\n"
-                                 "#pushButton_about::pressed\n"
+                                 "QPushButton::pressed\n"
                                  "{\n"
                                  "    border:2px solid rgb(0, 150, 255);\n"
                                  "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_xiazai\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192, 0);\n"
-                                 "}\n"
-                                 "#pushButton_xiazai::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_xiazai::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
                                  "\n"
                                  "#pushButton_shezhi\n"
                                  "{\n"
@@ -1611,12 +1349,12 @@ class Ui_MOS(object):
                                  "    color: rgb(0, 150, 255);\n"
                                  "    background-position: left;\n"
                                  "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
                                  "    font-size: 15px;\n"
                                  "    border-style:none;\n"
                                  "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);background-color: rgb(192, 192, 192);\n"
                                  "}\n"
                                  "#pushButton_shezhi::hover\n"
                                  "{\n"
@@ -1625,80 +1363,79 @@ class Ui_MOS(object):
                                  "#pushButton_shezhi::pressed\n"
                                  "{\n"
                                  "    border:2px solid rgb(0, 150, 255);\n"
+                                 "}")
+        self.widget_mos_left.setStyleSheet(pushButton_shezhi_true)
+
+    def click_pushButton_about(self):
+        self.stackedWidget_mos_right.setCurrentIndex(5)
+        pushButton_about_true = ("QWidget\n"
+                                 "{\n"
+                                 "    background-color: rgba(231, 230, 228, 100);\n"
+                                 "    border-bottom-left-radius:15px;\n"
+                                 "    border-top-left-radius:15px;\n"
+                                 "    font-size: 13px;\n"
                                  "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_music\n"
+                                 "#widget_mos_left_top\n"
+                                 "{\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
+                                 "    border-style:none;\n"
+                                 "    border-radius:15px;\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::hover\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "#widget_mos_left_top::pressed\n"
+                                 "{\n"
+                                 "    background-color: rgba(0, 150, 255, 51);\n"
+                                 "}\n"
+                                 "QPushButton\n"
                                  "{\n"
                                  "    color: blue;\n"
                                  "    height:35px;\n"
                                  "    color: rgb(0, 150, 255);\n"
                                  "    background-position: left;\n"
                                  "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
                                  "    font-size: 15px;\n"
                                  "    border-style:none;\n"
                                  "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);\n"
                                  "}\n"
-                                 "#pushButton_music::hover\n"
+                                 "QPushButton::hover\n"
                                  "{\n"
                                  "    background-color: rgb(192, 192, 192);\n"
                                  "}\n"
-                                 "#pushButton_music::pressed\n"
+                                 "QPushButton::pressed\n"
                                  "{\n"
                                  "    border:2px solid rgb(0, 150, 255);\n"
                                  "}\n"
                                  "\n"
-                                 "\n"
-                                 "#pushButton_lianji\n"
+                                 "#pushButton_about\n"
                                  "{\n"
                                  "    color: blue;\n"
                                  "    height:35px;\n"
                                  "    color: rgb(0, 150, 255);\n"
                                  "    background-position: left;\n"
                                  "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
+                                 "    padding-right:15px;\n"
+                                 "    padding-left:5px;\n"
                                  "    font-size: 15px;\n"
                                  "    border-style:none;\n"
                                  "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192,0);\n"
+                                 "    border:2px solid rgba(229, 228, 226, 0);background-color: rgb(192, 192, 192);\n"
                                  "}\n"
-                                 "#pushButton_lianji::hover\n"
+                                 "#pushButton_about::hover\n"
                                  "{\n"
                                  "    background-color: rgb(192, 192, 192);\n"
                                  "}\n"
-                                 "#pushButton_lianji::pressed\n"
-                                 "{\n"
-                                 "    border:2px solid rgb(0, 150, 255);\n"
-                                 "}\n"
-                                 "\n"
-                                 "\n"
-                                 "#pushButton_home\n"
-                                 "{\n"
-                                 "    color: blue;\n"
-                                 "    height:35px;\n"
-                                 "    color: rgb(0, 150, 255);\n"
-                                 "    background-position: left;\n"
-                                 "    text-align: left;\n"
-                                 "    padding-right:10px;\n"
-                                 "    padding-left:3px;\n"
-                                 "    font-size: 15px;\n"
-                                 "    border-style:none;\n"
-                                 "    border-radius:8px;\n"
-                                 "    border:2px solid rgb(229, 228, 226);background-color: rgba(192, 192, 192 ,0);\n"
-                                 "}\n"
-                                 "#pushButton_home::hover\n"
-                                 "{\n"
-                                 "    background-color: rgb(192, 192, 192);\n"
-                                 "}\n"
-                                 "#pushButton_home::pressed\n"
+                                 "#pushButton_about::pressed\n"
                                  "{\n"
                                  "    border:2px solid rgb(0, 150, 255);\n"
                                  "}")
         self.widget_mos_left.setStyleSheet(pushButton_about_true)
+
 
     def gonggao(self, str):
         self.textBrowser_gonggao_left_txt.setHtml(str)
@@ -1706,6 +1443,8 @@ class Ui_MOS(object):
         self.progressBar_2.setMaximum(99)
         self.progressBar_2.setValue(90)
         self.stackedWidget_gonggao.setCurrentIndex(0)
+
+        
 
     def gonggao_jindu(self, t):
         t1 = int(t)
@@ -1720,11 +1459,78 @@ class Ui_MOS(object):
 
 
     def gonggao_error(self, str):
-        self.stackedWidget_gonggao.setCurrentIndex(1)
-        self.label_2.setText("请求出错 错误信息：" + str)
+        self.textBrowser_gonggao_left_txt.setHtml(str)
+        self.stackedWidget_gonggao.setCurrentIndex(0)
         self.progressBar_2.setMinimum(0)
         self.progressBar_2.setMaximum(99)
         self.progressBar_2.setValue(0)
+
+    def gonggao_text(self, text1, text2):
+        _translate = QtCore.QCoreApplication.translate
+        self.label_gonggao_left_txt.setText(_translate(text1,text2))
+
+    def setfont(self):
+        print(self.fontComboBox.currentText())
+        self.label_4.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_6.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_mos_left_top_user.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_mos_left_top_add.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_gonggao_left_txt.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_2.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.progressBar_2.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label__gonggao_right_txt.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_3.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.progressBar.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_7.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_9.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_8.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_10.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_11.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_19.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_20.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_21.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_12.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_13.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_15.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_17.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_16.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_18.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_22.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.label_gonggao_left_txt.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+
+
+
+        self.pushButton_home.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton_lianji.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton_music.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton_shezhi.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton_xiazai.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton_about.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton__gonggao_start.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton_5.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton_6.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton_7.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton_8.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.pushButton_11.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+
+
+        self.comboBox_gonggao_right.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.comboBox_2.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.comboBox_3.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.comboBox_4.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.comboBox_5.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.comboBox_6.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.comboBox.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        self.fontComboBox.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+
+
+        self.progressBar.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+
+
+        
+        
+
 
     def MOS_file_return(self, str):
         if str == "OK!":
@@ -1732,6 +1538,7 @@ class Ui_MOS(object):
             self.g.sinOut_gonggao_ok.connect(self.gonggao)
             self.g.sinOut_gonggao_jindu.connect(self.gonggao_jindu)
             self.g.sinOut_gonggao_error.connect(self.gonggao_error)
+            self.g.sinOut_gonggao_text.connect(self.gonggao_text)
             self.g.start()
         elif str == "ERROR_PermissionError" :
             a = QMessageBox.critical(None,"错误","初始化程序失败！请检查当前目录下是否有读写权限。即将退出程序", QMessageBox.Ok)
@@ -1742,12 +1549,16 @@ class Ui_MOS(object):
     # =================================分割线===================================#
 
 
+    
+
+
+
     def retranslateUi(self, MOS):
         _translate = QtCore.QCoreApplication.translate
-        MOS.setWindowTitle(_translate("MOS", "MainWindow"))
+        MOS.setWindowTitle(_translate("MOS", "MOS ll 启动器"))
         self.label_mos_left_top_add.setText(_translate("MOS", "点击添加"))
         self.label_mos_left_top_user.setText(_translate("MOS", "无用户"))
-        self.pushButton_home.setText(_translate("MOS", "Home"))
+        self.pushButton_home.setText(_translate("MOS", "主页"))
         self.pushButton_lianji.setText(_translate("MOS", "联机"))
         self.pushButton_xiazai.setText(_translate("MOS", "下载"))
         self.pushButton_music.setText(_translate("MOS", "音乐"))
@@ -1766,38 +1577,47 @@ class Ui_MOS(object):
         self.label_9.setText(_translate("MOS", "联机模块"))
         self.label_8.setText(_translate("MOS", "联机模块正在开发中……\n"
 "不要着急啦 你的赞助就是我更新的动力！嘻嘻～"))
+        self.label_10.setText(_translate("MOS", "下载"))
         self.comboBox_2.setItemText(0, _translate("MOS", "游戏下载"))
         self.comboBox_2.setItemText(1, _translate("MOS", "Mod下载"))
         self.comboBox_2.setItemText(2, _translate("MOS", "整合包下载"))
         self.comboBox_2.setItemText(3, _translate("MOS", "世界下载"))
         self.comboBox_2.setItemText(4, _translate("MOS", "下载/安装/已完成"))
+        self.treeWidget.setSortingEnabled(False)
         self.treeWidget.headerItem().setText(0, _translate("MOS", "版本列表"))
         self.treeWidget.headerItem().setText(1, _translate("MOS", "种类"))
-        self.pushButton_5.setText(_translate("MOS", "（图片）"))
-        self.label_11.setText(_translate("MOS", "模组加载器（forge"))
-        self.label_19.setText(_translate("MOS", "模组加载器（fabric"))
-        self.pushButton_6.setText(_translate("MOS", "（图片）"))
-        self.label_20.setText(_translate("MOS", "高清修复optifine"))
-        self.pushButton_7.setText(_translate("MOS", "（图片）"))
-        self.label_21.setText(_translate("MOS", "模组加载器（quilt"))
-        self.pushButton_8.setText(_translate("MOS", "（图片）"))
-        self.label_10.setText(_translate("MOS", "下载"))
+        self.label_11.setText(_translate("MOS", "Forge\n"
+"模组加载器"))
+        self.label_19.setText(_translate("MOS", "Fabric\n"
+"模组加载器"))
+        self.comboBox_4.setItemText(0, _translate("MOS", "1.0.1"))
+        self.comboBox_4.setItemText(1, _translate("MOS", "2.0.2"))
+        self.label_20.setText(_translate("MOS", "Optifine\n"
+"高清修复"))
+        self.label_21.setText(_translate("MOS", "Quilt\n"
+"模组加载器"))
+        self.lineEdit.setPlaceholderText(_translate("MOS", "版本名"))
+        self.pushButton_2.setText(_translate("MOS", "安装"))
         self.label_12.setText(_translate("MOS", "音乐"))
         self.label_13.setText(_translate("MOS", "音乐 正在开发中……\n"
 "不要着急啦 你的赞助就是我更新的动力！嘻嘻～"))
         self.comboBox.setItemText(0, _translate("MOS", "启动器设置"))
         self.comboBox.setItemText(1, _translate("MOS", "游戏设置"))
+        self.label_4.setText(_translate("MOS", "<html><head/><body style=\"line-height:1px;\"><p style=\"line-height:1px;\"><span style=\" font-size:20pt;\">启动器字体</span></p><p  style=\"line-height:1px;\">在这里 你可以自定义启动器字体 有的字体相差很小，导致有人可能认为<span style=\" font-style:italic;line-height:1px;\">字体没有更改</span>，其实不是的</p></body></html>"))
+        self.pushButton_11.setText(_translate("MOS", "恢复默认"))
+        self.label_6.setText(_translate("MOS", "Hello Minecraft Optimal Starter 2 !"))
         self.label_15.setText(_translate("MOS", "设置"))
-        self.label_6.setText(_translate("MOS", "常规设置"))
-        self.label_4.setText(_translate("MOS", "启动器字体："))
-        self.label_17.setText(_translate("MOS", "关于"))
         self.label.setText(_translate("MOS", "关于："))
         self.label_16.setText(_translate("MOS", "MOS启动器\n"
-"版本V2.0.2-alpha-内部版本\n"
-"请勿泄漏！"))
-        self.label_18.setText(_translate("MOS", "MOS唯一开发者：David"))
-        self.label_22.setText(_translate("MOS", "MOS网站支持、测试小组负责人：HeimNad"))
+"版本V2.0.3-alpha"))
+        self.label_18.setText(_translate("MOS", "MOS唯一开发者 David"))
+        self.pushButton_3.setText(_translate("MOS", "赞助作者"))
+        self.label_22.setText(_translate("MOS", "MOS网站支持、测试小组负责人 HeimNad"))
+        self.pushButton_10.setText(_translate("MOS", "打开博客"))
+        self.label_17.setText(_translate("MOS", "关于"))
 
+
+        
         # =================================分割线===================================#
 
         self.pushButton_home.clicked.connect(self.click_pushButton_home)
@@ -1806,6 +1626,10 @@ class Ui_MOS(object):
         self.pushButton_music.clicked.connect(self.click_pushButton_music)
         self.pushButton_shezhi.clicked.connect(self.click_pushButton_shezhi)
         self.pushButton_about.clicked.connect(self.click_pushButton_about)
+        # 在‘……………………’里显示所有
+        self.fontComboBox.setFontFilters(QtWidgets.QFontComboBox.AllFonts)
+        # 为字体选择控件 连接槽
+        self.fontComboBox.currentIndexChanged.connect(self.setfont)
 
 
 class gonggao(QThread):
@@ -1813,7 +1637,7 @@ class gonggao(QThread):
     sinOut_gonggao_ok = pyqtSignal(str)
     sinOut_gonggao_jindu = pyqtSignal(str)
     sinOut_gonggao_error = pyqtSignal(str)
-    sinOut_gonggao_fanye = pyqtSignal(str)
+    sinOut_gonggao_text = pyqtSignal(str,str)
 
     def __init__(self):
         super(gonggao, self).__init__()
@@ -1825,10 +1649,9 @@ class gonggao(QThread):
 
         self.sinOut_gonggao_jindu.emit('10')
         print("开始获取公告")
-        url = 'https://api.skyworldstudio.top/d/SWS/MOS/announcement.html'
+        url = 'https://file.skyworldstudio.top/d/SoftwareRelease/MOS/announcement.html'
         self.sinOut_gonggao_jindu.emit('30')
         try:
-            self.sinOut_gonggao_fanye.emit('2')
             header = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
             r = requests.get(url, timeout=(5,50), headers = header)  # Get方式获取网页数据
             if r.status_code == 200:
@@ -1844,83 +1667,144 @@ class gonggao(QThread):
                 print(a)
                 self.sinOut_gonggao_ok.emit(a)
                 self.sinOut_gonggao_jindu.emit('90')
+                self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:#55f976;\">•公告获取成功！✓</span></p></body></html>")
                 print("请求成功")
                         
             elif r.status_code != 200:
                 if r.status_code == 404:
                     print("公告请求失败，状态码为404")
-                    self.sinOut_gonggao_error.emit("404，找不到文件")
+                    if os.path.isfile(a)==True:
+                        gangshu = len(linecache.getlines(a))    # 统计行数
+                        gangshu1 = 0
+                        gonggao = ''
+                        while gangshu1 <= gangshu:
+                            g = linecache.getline(a,gangshu1)
+                            gonggao = gonggao + g
+                            gangshu1 += 1
+                        print(gonggao)
+                        gonggao = str(gonggao)
+                        self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 404找不到文件 以为您自动显示上次获取到的内容</span></p></body></html>")
+                        self.sinOut_gonggao_error.emit(gonggao) 
+                    else:
+                        self.sinOut_gonggao_error.emit("404，找不到文件")
                 elif r.status_code == 403:
                     print("公告请求失败，状态码为403")
-                    self.sinOut_gonggao_error.emit("403，无权限访问")
+                    if os.path.isfile(a)==True:
+                        gangshu = len(linecache.getlines(a))    # 统计行数
+                        gangshu1 = 0
+                        gonggao = ''
+                        while gangshu1 <= gangshu:
+                            g = linecache.getline(a,gangshu1)
+                            gonggao = gonggao + g
+                            gangshu1 += 1
+                        print(gonggao)
+                        gonggao = str(gonggao)
+                        self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 403无权访问 以为您自动显示上次获取到的内容</span></p></body></html>")
+                        self.sinOut_gonggao_error.emit(gonggao) 
+                    else:
+                        self.sinOut_gonggao_error.emit("403，无权限访问")
 
                 else:
                     gonggao_r_status_code = r.status_code
-                    gonggao_111 = ("公告请求失败，状态码为" + gonggao_r_status_code)
+                    gonggao_r_status_code1 = str(gonggao_r_status_code)
+                    gonggao_111 = ("公告请求失败，状态码为" + gonggao_r_status_code1)
                     print(gonggao_111)
-                    self.sinOut_gonggao_error.emit(gonggao_111)
+                    if os.path.isfile(a)==True:
+                        gangshu = len(linecache.getlines(a))    # 统计行数
+                        gangshu1 = 0
+                        gonggao = ''
+                        while gangshu1 <= gangshu:
+                            g = linecache.getline(a,gangshu1)
+                            gonggao = gonggao + g
+                            gangshu1 += 1
+                        print(gonggao)
+                        gonggao = str(gonggao)
+                        self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 403无权访问 以为您自动显示上次获取到的内容</span></p></body></html>")
+                        self.sinOut_gonggao_error.emit(gonggao) 
+                    else:
+                        self.sinOut_gonggao_error.emit(gonggao_111)
                 
 
 
         except requests.exceptions.ConnectTimeout:
             # self.sinOut_gonggao_error.emit("请求超时")
             a = os.path.join(".MOS","Html","announcement.html")
-            gangshu = len(linecache.getlines(a))    # 统计行数
-            gangshu1 = 0
-            gonggao = ''
-            while gangshu1 <= gangshu:
-                g = linecache.getline(a,gangshu1)
-                gonggao = gonggao + g
-                gangshu1 += 1
-            print("请求失败 请求超时")
-            print(gonggao)
-            gonggao = str(gonggao)
-            self.sinOut_gonggao_ok.emit(gonggao)
+            if os.path.isfile(a)==True:
+                gangshu = len(linecache.getlines(a))    # 统计行数
+                gangshu1 = 0
+                gonggao = ''
+                while gangshu1 <= gangshu:
+                    g = linecache.getline(a,gangshu1)
+                    gonggao = gonggao + g
+                    gangshu1 += 1
+                print("请求失败 请求超时")
+                print(gonggao)
+                gonggao = str(gonggao)
+                self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 请求超时 以为您自动显示上次获取到的内容</span></p></body></html>")
+                self.sinOut_gonggao_error.emit(gonggao)
+
+            else:
+                self.sinOut_gonggao_error.emit("请求超时")
 
         except requests.exceptions.ReadTimeout:
             # self.sinOut_gonggao_error.emit("读取超时")
             a = os.path.join(".MOS","Html","announcement.html")
-            gangshu = len(linecache.getlines(a))    # 统计行数
-            gangshu1 = 0
-            gonggao = ''
-            while gangshu1 <= gangshu:
-                g = linecache.getline(a,gangshu1)
-                gonggao = gonggao + g
-                gangshu1 += 1
-            print("请求失败 读取超时")
-            print(gonggao)
-            gonggao = str(gonggao)
-            self.sinOut_gonggao_ok.emit(gonggao)
+            if os.path.isfile(a)==True:
+                gangshu = len(linecache.getlines(a))    # 统计行数
+                gangshu1 = 0
+                gonggao = ''
+                while gangshu1 <= gangshu:
+                    g = linecache.getline(a,gangshu1)
+                    gonggao = gonggao + g
+                    gangshu1 += 1
+                print("请求失败 读取超时")
+                print(gonggao)
+                gonggao = str(gonggao)
+                self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 读取超时 以为您自动显示上次获取到的内容</span></p></body></html>")
+                self.sinOut_gonggao_error.emit(gonggao)
+
+            else:
+                self.sinOut_gonggao_error.emit("读取超时")
 
         except requests.exceptions.SSLError:
             # self.sinOut_gonggao_error.emit("SSL错误")
             a = os.path.join(".MOS","Html","announcement.html")
-            gangshu = len(linecache.getlines(a))    # 统计行数
-            gangshu1 = 0
-            gonggao = ''
-            while gangshu1 <= gangshu:
-                g = linecache.getline(a,gangshu1)
-                gonggao = gonggao + g
-                gangshu1 += 1
-            print("请求失败 SSL证书错误")
-            print(gonggao)
-            gonggao = str(gonggao)
-            self.sinOut_gonggao_ok.emit(gonggao)
+            if os.path.isfile(a)==True:
+                gangshu = len(linecache.getlines(a))    # 统计行数
+                gangshu1 = 0
+                gonggao = ''
+                while gangshu1 <= gangshu:
+                    g = linecache.getline(a,gangshu1)
+                    gonggao = gonggao + g
+                    gangshu1 += 1
+                print("请求失败 SSL证书错误")
+                print(gonggao)
+                gonggao = str(gonggao)
+                self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ SSL证书错误 以为您自动显示上次获取到的内容</span></p></body></html>")
+                self.sinOut_gonggao_error.emit(gonggao)
+
+            else:
+                self.sinOut_gonggao_error.emit("SSL证书错误")
 
         except requests.exceptions.ConnectionError:
-            # self.sinOut_gonggao_error.emit("连接错误\n")
+            # self.sinOut_gonggao_error.emit("连接错误\n")            
             a = os.path.join(".MOS","Html","announcement.html")
-            gangshu = len(linecache.getlines(a))    # 统计行数
-            gangshu1 = 0
-            gonggao = ''
-            while gangshu1 <= gangshu:
-                g = linecache.getline(a,gangshu1)
-                gonggao = gonggao + g
-                gangshu1 += 1
-            print("请求失败 连接错误")
-            print(gonggao)
-            gonggao = str(gonggao)
-            self.sinOut_gonggao_ok.emit(gonggao)
+            if os.path.isfile(a)==True:
+                gangshu = len(linecache.getlines(a))    # 统计行数
+                gangshu1 = 0
+                gonggao = ''
+                while gangshu1 <= gangshu:
+                    g = linecache.getline(a,gangshu1)
+                    gonggao = gonggao + g
+                    gangshu1 += 1
+                print("请求失败 连接错误")
+                print(gonggao)
+                gonggao = str(gonggao)
+                self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 连接错误 以为您自动显示上次获取到的内容</span></p></body></html>")
+                self.sinOut_gonggao_error.emit(gonggao)
+
+            else:
+                self.sinOut_gonggao_error.emit("连接错误")
 
 
 class MOS_file(QThread):

@@ -1,7 +1,5 @@
 <RCC>
-  <qresource prefix="img">
-    <file>picture/shape.png</file>
-    <file>picture/home.png</file>
-    <file>picture/ico.png</file>
+  <qresource prefix="picture">
+    <file>picture/export_loading@2x.gif</file>
   </qresource>
 </RCC>
