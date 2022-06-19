@@ -1011,6 +1011,7 @@ class Ui_MOS(object):
         # 启动线程
         self.a = MOS_file()
         self.a.sinOut.connect(self.MOS_file_return)
+        self.a.sinOut_font.connect(self.MOS_file_return_font)
         self.a.start()
         # =============================================================================#
 
@@ -1469,6 +1470,8 @@ class Ui_MOS(object):
         _translate = QtCore.QCoreApplication.translate
         self.label_gonggao_left_txt.setText(_translate(text1,text2))
 
+
+
     def setfont(self):
         print(self.fontComboBox.currentText())
         self.label_4.setFont(QtGui.QFont(self.fontComboBox.currentText()))
@@ -1529,7 +1532,59 @@ class Ui_MOS(object):
 
 
         
-        
+    def MOS_file_return_font(self, a):
+        print(str)
+        str1 = str(a)
+        self.label_4.setFont(QtGui.QFont(str1))
+        self.label_6.setFont(QtGui.QFont(str1))
+        self.label_mos_left_top_user.setFont(QtGui.QFont(str1))
+        self.label_mos_left_top_add.setFont(QtGui.QFont(str1))
+        self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
+        self.label_2.setFont(QtGui.QFont(str1))
+        self.progressBar_2.setFont(QtGui.QFont(str1))
+        self.label__gonggao_right_txt.setFont(QtGui.QFont(str1))
+        self.label_3.setFont(QtGui.QFont(str1))
+        self.progressBar.setFont(QtGui.QFont(str1))
+        self.label_7.setFont(QtGui.QFont(str1))
+        self.label_9.setFont(QtGui.QFont(str1))
+        self.label_8.setFont(QtGui.QFont(str1))
+        self.label_10.setFont(QtGui.QFont(str1))
+        self.label_11.setFont(QtGui.QFont(str1))
+        self.label_19.setFont(QtGui.QFont(str1))
+        self.label_20.setFont(QtGui.QFont(str1))
+        self.label_21.setFont(QtGui.QFont(str1))
+        self.label_12.setFont(QtGui.QFont(str1))
+        self.label_13.setFont(QtGui.QFont(str1))
+        self.label_15.setFont(QtGui.QFont(str1))
+        self.label_17.setFont(QtGui.QFont(str1))
+        self.label.setFont(QtGui.QFont(str1))
+        self.label_16.setFont(QtGui.QFont(str1))
+        self.label_18.setFont(QtGui.QFont(str1))
+        self.label_22.setFont(QtGui.QFont(str1))
+        self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
+        self.pushButton_home.setFont(QtGui.QFont(str1))
+        self.pushButton_lianji.setFont(QtGui.QFont(str1))
+        self.pushButton_music.setFont(QtGui.QFont(str1))
+        self.pushButton_shezhi.setFont(QtGui.QFont(str1))
+        self.pushButton_xiazai.setFont(QtGui.QFont(str1))
+        self.pushButton_about.setFont(QtGui.QFont(str1))
+        self.pushButton__gonggao_start.setFont(QtGui.QFont(str1))
+        self.pushButton_5.setFont(QtGui.QFont(str1))
+        self.pushButton_6.setFont(QtGui.QFont(str1))
+        self.pushButton_7.setFont(QtGui.QFont(str1))
+        self.pushButton_8.setFont(QtGui.QFont(str1))
+        self.pushButton_11.setFont(QtGui.QFont(str1))
+        self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
+        self.comboBox_2.setFont(QtGui.QFont(str1))
+        self.comboBox_3.setFont(QtGui.QFont(str1))
+        self.comboBox_4.setFont(QtGui.QFont(str1))
+        self.comboBox_5.setFont(QtGui.QFont(str1))
+        self.comboBox_6.setFont(QtGui.QFont(str1))
+        self.comboBox.setFont(QtGui.QFont(str1))
+        self.fontComboBox.setFont(QtGui.QFont(str1))
+        self.progressBar.setFont(QtGui.QFont(str1)) 
+
+
 
 
     def MOS_file_return(self, str):
@@ -1544,12 +1599,14 @@ class Ui_MOS(object):
             a = QMessageBox.critical(None,"错误","初始化程序失败！请检查当前目录下是否有读写权限。即将退出程序", QMessageBox.Ok)
             if a==QMessageBox.Ok: #检查是否点了OK按钮
                 quit()
+        elif str == 'KeyError' :
+            a = QMessageBox.critical(None,"错误","配置文件有问题，您是否自行修改了文件？。即将退出程序", QMessageBox.Ok)
+            if a==QMessageBox.Ok: #检查是否点了OK按钮
+                quit()
+
     
     
     # =================================分割线===================================#
-
-
-    
 
 
 
@@ -1810,6 +1867,7 @@ class gonggao(QThread):
 class MOS_file(QThread):
     '''初始化文件/设置'''
     sinOut = pyqtSignal(str)
+    sinOut_font = pyqtSignal(str) 
     def __init__(self):
         super(MOS_file, self).__init__()
 
@@ -1836,16 +1894,37 @@ class MOS_file(QThread):
             MOS_file_1 =os.path.join(".MOS","Music")
             os.makedirs(MOS_file_1, exist_ok=True)
 
-            MOS_file_1 =os.path.join(".MOS","MOS.json")
-            if os.path.isfile(MOS_file_1)==True:
+            MOS_file_json =os.path.join(".MOS","MOS.json")
+
+            if os.path.isfile(MOS_file_json)==True:
                 MOS_first_run = "NoFirst"
-                MOS_json=open(MOS_file_1,"w")
-                MOS_json.close()
                 print("程序不是第一次运行")
             elif os.path.isfile(MOS_file_1)==False:
                 MOS_first_run = "First"
+                MOS_json=open(MOS_file_json,"w")
+                MOS_json.close()
                 print("程序是第一次运行")
             self.sinOut.emit("OK!")
+
+            if MOS_first_run == 'First':
+                with open(MOS_file_json, 'w+', encoding='utf-8') as f:
+                    a = {'font':'Academy Engraved LET'}
+                    json.dump(a, f, sort_keys=True, indent=4, separators=(',', ': '))
+                with open(MOS_file_json, 'r', encoding='utf-8') as f:
+                    b = json.load(f)
+                    print('默认字体：' + b['font'])
+            else:
+                with open(MOS_file_json, 'r', encoding='utf-8') as f:
+                    try:
+                        b = json.load(f)
+                        c = str(b['font'])
+                        print('默认字体：' + c)
+                        self.sinOut_font.emit(c)
+                    except KeyError:
+                        print("json文件有问题")
+                        self.sinOut.emit("KeyError")
+                    
+
         except PermissionError:
             print("初始化失败 没有权限，操作不被许可")
             self.sinOut.emit("ERROR_PermissionError")
@@ -1854,9 +1933,9 @@ class MOS_file(QThread):
 try:
     if __name__ == '__main__':
 
-        # import shutil
-        # shutil.rmtree(".MOS")
-        # shutil.rmtree(".minecraft")
+        #import shutil
+        #shutil.rmtree(".MOS")
+        #shutil.rmtree(".minecraft")
 
         print("程序已开始运行！")
         app = QtWidgets.QApplication(sys.argv)
