@@ -1,0 +1,81 @@
+MetaInfo {
+    Type {
+        name: "QtQuick3D.Helpers.AxisHelper"
+        icon: "images/axishelper16.png"
+
+        Hints {
+            visibleInNavigator: true
+            canBeDroppedInNavigator: true
+            canBeDroppedInFormEditor: false
+            canBeDroppedInView3D: true
+        }
+
+        ItemLibraryEntry {
+            name: "Axis Helper"
+            category: "Helpers"
+            libraryIcon: "images/axishelper.png"
+            version: "6.0"
+            requiredImport: "QtQuick3D.Helpers"
+        }
+    }
+
+    Type {
+        name: "QtQuick3D.Helpers.DebugView"
+        icon: "images/debugview16.png"
+
+        Hints {
+            visibleInNavigator: true
+            canBeDroppedInNavigator: true
+            canBeDroppedInFormEditor: true
+            canBeDroppedInView3D: false
+        }
+
+        ItemLibraryEntry {
+            name: "Debug View"
+            category: "Helpers"
+            libraryIcon: "images/debugview.png"
+            version: "6.0"
+            requiredImport: "QtQuick3D.Helpers"
+        }
+    }
+
+    Type {
+        name: "QtQuick3D.Helpers.GridGeometry"
+        icon: "images/gridgeometry16.png"
+
+        Hints {
+            visibleInNavigator: true
+            canBeDroppedInNavigator: true
+            canBeDroppedInFormEditor: false
+            canBeDroppedInView3D: true
+        }
+
+        ItemLibraryEntry {
+            name: "Grid Geometry"
+            category: "Helpers"
+            libraryIcon: "images/gridgeometry.png"
+            version: "6.0"
+            requiredImport: "QtQuick3D.Helpers"
+        }
+    }
+
+    Type {
+        name: "QtQuick3D.Helpers.WasdController"
+        icon: "images/wasdcontroller16.png"
+
+        Hints {
+            visibleInNavigator: true
+            canBeDroppedInNavigator: true
+            canBeDroppedInFormEditor: true
+            canBeDroppedInView3D: false
+        }
+
+        ItemLibraryEntry {
+            name: "Wasd Controller"
+            category: "Helpers"
+            libraryIcon: "images/wasdcontroller.png"
+            version: "6.0"
+            requiredImport: "QtQuick3D.Helpers"
+        }
+    }
+}

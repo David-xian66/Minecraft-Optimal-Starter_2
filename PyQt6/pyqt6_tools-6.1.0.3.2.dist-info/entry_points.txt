@@ -1,0 +1,3 @@
+[console_scripts]
+pyqt6-tools = pyqt6_tools.entrypoints:main
+

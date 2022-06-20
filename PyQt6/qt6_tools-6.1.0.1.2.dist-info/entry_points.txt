@@ -1,0 +1,3 @@
+[console_scripts]
+qt6-tools = qt6_tools.entrypoints:main
+

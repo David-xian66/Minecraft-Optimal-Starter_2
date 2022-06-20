@@ -1,0 +1,40 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "anonymous"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "512"
+                    }
+                ],
+                "className": "QQuickDummyType",
+                "gadget": true,
+                "qualifiedClassName": "QQuickDummyType"
+            }
+        ],
+        "inputFile": "qquickdummyregistration_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "QQuickStylePlugin",
+                "object": true,
+                "qualifiedClassName": "QQuickStylePlugin",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQmlExtensionPlugin"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickstyleplugin_p.h",
+        "outputRevision": 68
+    }
+]

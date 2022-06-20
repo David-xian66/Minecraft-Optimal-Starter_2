@@ -1,0 +1,896 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "Material"
+                    },
+                    {
+                        "name": "QML.Attached",
+                        "value": "QQuickMaterialStyle"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "512"
+                    }
+                ],
+                "className": "QQuickMaterialStyle",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Theme",
+                        "values": [
+                            "Light",
+                            "Dark",
+                            "System"
+                        ]
+                    },
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Variant",
+                        "values": [
+                            "Normal",
+                            "Dense"
+                        ]
+                    },
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Color",
+                        "values": [
+                            "Red",
+                            "Pink",
+                            "Purple",
+                            "DeepPurple",
+                            "Indigo",
+                            "Blue",
+                            "LightBlue",
+                            "Cyan",
+                            "Teal",
+                            "Green",
+                            "LightGreen",
+                            "Lime",
+                            "Yellow",
+                            "Amber",
+                            "Orange",
+                            "DeepOrange",
+                            "Brown",
+                            "Grey",
+                            "BlueGrey"
+                        ]
+                    },
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Shade",
+                        "values": [
+                            "Shade50",
+                            "Shade100",
+                            "Shade200",
+                            "Shade300",
+                            "Shade400",
+                            "Shade500",
+                            "Shade600",
+                            "Shade700",
+                            "Shade800",
+                            "Shade900",
+                            "ShadeA100",
+                            "ShadeA200",
+                            "ShadeA400",
+                            "ShadeA700"
+                        ]
+                    }
+                ],
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "color",
+                                "type": "Color"
+                            },
+                            {
+                                "name": "shade",
+                                "type": "Shade"
+                            }
+                        ],
+                        "name": "color",
+                        "returnType": "QColor"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "color",
+                                "type": "Color"
+                            }
+                        ],
+                        "name": "color",
+                        "returnType": "QColor"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "color",
+                                "type": "QColor"
+                            },
+                            {
+                                "name": "shade",
+                                "type": "Shade"
+                            }
+                        ],
+                        "name": "shade",
+                        "returnType": "QColor"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "theme",
+                        "notify": "themeChanged",
+                        "read": "theme",
+                        "required": false,
+                        "reset": "resetTheme()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "Theme",
+                        "user": false,
+                        "write": "setTheme"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "primary",
+                        "notify": "primaryChanged",
+                        "read": "primary",
+                        "required": false,
+                        "reset": "resetPrimary()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariant",
+                        "user": false,
+                        "write": "setPrimary"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "accent",
+                        "notify": "accentChanged",
+                        "read": "accent",
+                        "required": false,
+                        "reset": "resetAccent()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariant",
+                        "user": false,
+                        "write": "setAccent"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "foreground",
+                        "notify": "foregroundChanged",
+                        "read": "foreground",
+                        "required": false,
+                        "reset": "resetForeground()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariant",
+                        "user": false,
+                        "write": "setForeground"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "background",
+                        "notify": "backgroundChanged",
+                        "read": "background",
+                        "required": false,
+                        "reset": "resetBackground()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariant",
+                        "user": false,
+                        "write": "setBackground"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "elevation",
+                        "notify": "elevationChanged",
+                        "read": "elevation",
+                        "required": false,
+                        "reset": "resetElevation()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setElevation"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "primaryColor",
+                        "notify": "primaryChanged",
+                        "read": "primaryColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "accentColor",
+                        "notify": "accentChanged",
+                        "read": "accentColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "backgroundColor",
+                        "notify": "backgroundChanged",
+                        "read": "backgroundColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "primaryTextColor",
+                        "notify": "themeChanged",
+                        "read": "primaryTextColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "primaryHighlightedTextColor",
+                        "notify": "primaryHighlightedTextColorChanged",
+                        "read": "primaryHighlightedTextColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "secondaryTextColor",
+                        "notify": "themeChanged",
+                        "read": "secondaryTextColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "hintTextColor",
+                        "notify": "themeChanged",
+                        "read": "hintTextColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "textSelectionColor",
+                        "notify": "themeOrAccentChanged",
+                        "read": "textSelectionColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "name": "dropShadowColor",
+                        "read": "dropShadowColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "dividerColor",
+                        "notify": "themeChanged",
+                        "read": "dividerColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "iconColor",
+                        "notify": "themeChanged",
+                        "read": "iconColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "iconDisabledColor",
+                        "notify": "themeChanged",
+                        "read": "iconDisabledColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "buttonColor",
+                        "notify": "buttonColorChanged",
+                        "read": "buttonColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "buttonDisabledColor",
+                        "notify": "buttonDisabledColorChanged",
+                        "read": "buttonDisabledColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "highlightedButtonColor",
+                        "notify": "buttonColorChanged",
+                        "read": "highlightedButtonColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "frameColor",
+                        "notify": "themeChanged",
+                        "read": "frameColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "rippleColor",
+                        "notify": "themeChanged",
+                        "read": "rippleColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "highlightedRippleColor",
+                        "notify": "themeOrAccentChanged",
+                        "read": "highlightedRippleColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "switchUncheckedTrackColor",
+                        "notify": "themeChanged",
+                        "read": "switchUncheckedTrackColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "switchCheckedTrackColor",
+                        "notify": "themeOrAccentChanged",
+                        "read": "switchCheckedTrackColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "switchUncheckedHandleColor",
+                        "notify": "themeChanged",
+                        "read": "switchUncheckedHandleColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "switchCheckedHandleColor",
+                        "notify": "themeOrAccentChanged",
+                        "read": "switchCheckedHandleColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "switchDisabledTrackColor",
+                        "notify": "themeChanged",
+                        "read": "switchDisabledTrackColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "switchDisabledHandleColor",
+                        "notify": "themeChanged",
+                        "read": "switchDisabledHandleColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "scrollBarColor",
+                        "notify": "themeChanged",
+                        "read": "scrollBarColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "scrollBarHoveredColor",
+                        "notify": "themeChanged",
+                        "read": "scrollBarHoveredColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "scrollBarPressedColor",
+                        "notify": "themeChanged",
+                        "read": "scrollBarPressedColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "dialogColor",
+                        "notify": "dialogColorChanged",
+                        "read": "dialogColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "backgroundDimColor",
+                        "notify": "themeChanged",
+                        "read": "backgroundDimColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "listHighlightColor",
+                        "notify": "themeChanged",
+                        "read": "listHighlightColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "tooltipColor",
+                        "notify": "tooltipColorChanged",
+                        "read": "tooltipColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "toolBarColor",
+                        "notify": "toolBarColorChanged",
+                        "read": "toolBarColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "toolTextColor",
+                        "notify": "toolTextColorChanged",
+                        "read": "toolTextColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "spinBoxDisabledIconColor",
+                        "notify": "themeChanged",
+                        "read": "spinBoxDisabledIconColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "sliderDisabledColor",
+                        "notify": "themeChanged",
+                        "read": "sliderDisabledColor",
+                        "required": false,
+                        "revision": 65295,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "name": "touchTarget",
+                        "read": "touchTarget",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "name": "buttonHeight",
+                        "read": "buttonHeight",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "name": "delegateHeight",
+                        "read": "delegateHeight",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "name": "dialogButtonBoxHeight",
+                        "read": "dialogButtonBoxHeight",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "name": "frameVerticalPadding",
+                        "read": "frameVerticalPadding",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "name": "menuItemHeight",
+                        "read": "menuItemHeight",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "name": "menuItemVerticalPadding",
+                        "read": "menuItemVerticalPadding",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "name": "switchDelegateVerticalPadding",
+                        "read": "switchDelegateVerticalPadding",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "name": "tooltipHeight",
+                        "read": "tooltipHeight",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QQuickMaterialStyle",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "themeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "primaryChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "accentChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "foregroundChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "backgroundChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "elevationChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "themeOrAccentChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "primaryHighlightedTextColorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "buttonColorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "buttonDisabledColorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "dialogColorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "tooltipColorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "toolBarColorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "toolTextColorChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickAttachedObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickmaterialstyle_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "QtQuickControls2MaterialStylePlugin",
+                "object": true,
+                "qualifiedClassName": "QtQuickControls2MaterialStylePlugin",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickStylePlugin"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qtquickcontrols2materialstyleplugin.cpp",
+        "outputRevision": 68
+    }
+]

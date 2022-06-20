@@ -1,0 +1,47 @@
+module QtQuick.Dialogs.quickimpl
+linktarget Qt6::qtquickdialogs2quickimplplugin
+optional plugin qtquickdialogs2quickimplplugin
+classname QtQuickDialogs2QuickImplPlugin
+typeinfo plugins.qmltypes
+depends QtQuick auto
+depends QtQuick.Templates auto
+prefer :/qt-project.org/imports/QtQuick/Dialogs/quickimpl/
+FileDialog 6.0 qml/FileDialog.qml
+FolderDialog 6.0 qml/FolderDialog.qml
+FileDialogDelegate 6.0 qml/FileDialogDelegate.qml
+FileDialogDelegateLabel 6.0 qml/FileDialogDelegateLabel.qml
+FolderBreadcrumbBar 6.0 qml/FolderBreadcrumbBar.qml
+FolderDialogDelegate 6.0 qml/FolderDialogDelegate.qml
+FolderDialogDelegateLabel 6.0 qml/FolderDialogDelegateLabel.qml
+FontDialog 6.0 qml/FontDialog.qml
+FontDialogContent 6.0 qml/FontDialogContent.qml
+MessageDialog 6.0 qml/MessageDialog.qml
+FileDialog 6.0 qml/+Fusion/FileDialog.qml
+FileDialogDelegate 6.0 qml/+Fusion/FileDialogDelegate.qml
+FolderDialog 6.0 qml/+Fusion/FolderDialog.qml
+FolderBreadcrumbBar 6.0 qml/+Fusion/FolderBreadcrumbBar.qml
+FolderDialogDelegate 6.0 qml/+Fusion/FolderDialogDelegate.qml
+FontDialog 6.0 qml/+Fusion/FontDialog.qml
+MessageDialog 6.0 qml/+Fusion/MessageDialog.qml
+FileDialog 6.0 qml/+Imagine/FileDialog.qml
+FileDialogDelegate 6.0 qml/+Imagine/FileDialogDelegate.qml
+FolderBreadcrumbBar 6.0 qml/+Imagine/FolderBreadcrumbBar.qml
+FolderDialog 6.0 qml/+Imagine/FolderDialog.qml
+FolderDialogDelegate 6.0 qml/+Imagine/FolderDialogDelegate.qml
+FontDialog 6.0 qml/+Imagine/FontDialog.qml
+MessageDialog 6.0 qml/+Imagine/MessageDialog.qml
+FileDialog 6.0 qml/+Material/FileDialog.qml
+FileDialogDelegate 6.0 qml/+Material/FileDialogDelegate.qml
+FolderBreadcrumbBar 6.0 qml/+Material/FolderBreadcrumbBar.qml
+FolderDialog 6.0 qml/+Material/FolderDialog.qml
+FolderDialogDelegate 6.0 qml/+Material/FolderDialogDelegate.qml
+FontDialog 6.0 qml/+Material/FontDialog.qml
+MessageDialog 6.0 qml/+Material/MessageDialog.qml
+FileDialog 6.0 qml/+Universal/FileDialog.qml
+FileDialogDelegate 6.0 qml/+Universal/FileDialogDelegate.qml
+FolderBreadcrumbBar 6.0 qml/+Universal/FolderBreadcrumbBar.qml
+FolderDialog 6.0 qml/+Universal/FolderDialog.qml
+FolderDialogDelegate 6.0 qml/+Universal/FolderDialogDelegate.qml
+FontDialog 6.0 qml/+Universal/FontDialog.qml
+MessageDialog 6.0 qml/+Universal/MessageDialog.qml
+

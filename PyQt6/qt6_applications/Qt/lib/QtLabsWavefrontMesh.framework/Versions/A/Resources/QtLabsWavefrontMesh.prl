@@ -1,0 +1,6 @@
+
+QMAKE_PRL_TARGET = QtLabsWavefrontMesh
+QMAKE_PRL_CONFIG = shared lib_bundle
+QMAKE_PRL_VERSION = 6.1.0
+QMAKE_PRL_LIBS = -F$$[QT_INSTALL_LIBS] -framework QtQmlModels -framework QtQuick -framework QtQmlModels -framework QtOpenGL -framework QtQml -framework QtGui -framework OpenGL -framework AGL -framework AppKit -framework ImageIO -framework Metal -framework QtQml -framework QtNetwork -framework QtCore -framework DiskArbitration -framework IOKit
+QMAKE_PRL_LIBS_FOR_CMAKE = -F$$[QT_INSTALL_LIBS];-framework;QtQmlModels;-framework;QtQuick;-framework;QtQmlModels;-framework;QtOpenGL;-framework;QtQml;-framework;QtGui;-framework OpenGL;-framework AGL;-framework AppKit;-framework ImageIO;-framework Metal;-framework;QtQml;-framework;QtNetwork;-framework;QtCore;-framework DiskArbitration;-framework IOKit

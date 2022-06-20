@@ -1,0 +1,999 @@
+[
+    {
+        "classes": [
+            {
+                "className": "QQuickAnimatedNode",
+                "object": true,
+                "qualifiedClassName": "QQuickAnimatedNode",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "started",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "stopped",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "name": "advance",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "name": "update",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QSGTransformNode"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickanimatednode_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "QQuickAttachedObject",
+                "object": true,
+                "qualifiedClassName": "QQuickAttachedObject",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickattachedobject_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "CheckLabel"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "515"
+                    }
+                ],
+                "className": "QQuickCheckLabel",
+                "object": true,
+                "qualifiedClassName": "QQuickCheckLabel",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickText"
+                    }
+                ]
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "anonymous"
+                    },
+                    {
+                        "name": "QML.Foreign",
+                        "value": "QQuickText"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "515"
+                    }
+                ],
+                "className": "QQuickTextForeign",
+                "gadget": true,
+                "qualifiedClassName": "QQuickTextForeign"
+            }
+        ],
+        "inputFile": "qquickchecklabel_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "ClippedText"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "514"
+                    }
+                ],
+                "className": "QQuickClippedText",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "clipX",
+                        "read": "clipX",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setClipX"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "clipY",
+                        "read": "clipY",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setClipY"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "clipWidth",
+                        "read": "clipWidth",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setClipWidth"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "clipHeight",
+                        "read": "clipHeight",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setClipHeight"
+                    }
+                ],
+                "qualifiedClassName": "QQuickClippedText",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickText"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickclippedtext_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "Color"
+                    },
+                    {
+                        "name": "QML.Singleton",
+                        "value": "true"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "515"
+                    }
+                ],
+                "className": "QQuickColor",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "color",
+                                "type": "QColor"
+                            },
+                            {
+                                "name": "opacity",
+                                "type": "qreal"
+                            }
+                        ],
+                        "name": "transparent",
+                        "returnType": "QColor"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "a",
+                                "type": "QColor"
+                            },
+                            {
+                                "name": "b",
+                                "type": "QColor"
+                            },
+                            {
+                                "name": "factor",
+                                "type": "qreal"
+                            }
+                        ],
+                        "name": "blend",
+                        "returnType": "QColor"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "QQuickColor",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickcolor_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "ColorImage"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "515"
+                    }
+                ],
+                "className": "QQuickColorImage",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "color",
+                        "notify": "colorChanged",
+                        "read": "color",
+                        "required": false,
+                        "reset": "resetColor()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false,
+                        "write": "setColor"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "defaultColor",
+                        "notify": "defaultColorChanged",
+                        "read": "defaultColor",
+                        "required": false,
+                        "reset": "resetDefaultColor()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false,
+                        "write": "setDefaultColor"
+                    }
+                ],
+                "qualifiedClassName": "QQuickColorImage",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "colorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "defaultColorChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickImage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickcolorimage_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "IconImage"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "515"
+                    }
+                ],
+                "className": "QQuickIconImage",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "name",
+                        "notify": "nameChanged",
+                        "read": "name",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setName"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "color",
+                        "notify": "colorChanged",
+                        "read": "color",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false,
+                        "write": "setColor"
+                    }
+                ],
+                "qualifiedClassName": "QQuickIconImage",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "nameChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "colorChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickImage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickiconimage_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "IconLabel"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "515"
+                    }
+                ],
+                "className": "QQuickIconLabel",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Display",
+                        "values": [
+                            "IconOnly",
+                            "TextOnly",
+                            "TextBesideIcon",
+                            "TextUnderIcon"
+                        ]
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "icon",
+                        "read": "icon",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickIcon",
+                        "user": false,
+                        "write": "setIcon"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "text",
+                        "read": "text",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setText"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "font",
+                        "read": "font",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QFont",
+                        "user": false,
+                        "write": "setFont"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "color",
+                        "read": "color",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false,
+                        "write": "setColor"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "display",
+                        "read": "display",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "Display",
+                        "user": false,
+                        "write": "setDisplay"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "spacing",
+                        "read": "spacing",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setSpacing"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "mirrored",
+                        "read": "isMirrored",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setMirrored"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "alignment",
+                        "read": "alignment",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "Qt::Alignment",
+                        "user": false,
+                        "write": "setAlignment"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "topPadding",
+                        "read": "topPadding",
+                        "required": false,
+                        "reset": "resetTopPadding()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setTopPadding"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "leftPadding",
+                        "read": "leftPadding",
+                        "required": false,
+                        "reset": "resetLeftPadding()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setLeftPadding"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "rightPadding",
+                        "read": "rightPadding",
+                        "required": false,
+                        "reset": "resetRightPadding()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setRightPadding"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "bottomPadding",
+                        "read": "bottomPadding",
+                        "required": false,
+                        "reset": "resetBottomPadding()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setBottomPadding"
+                    }
+                ],
+                "qualifiedClassName": "QQuickIconLabel",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickItem"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickiconlabel_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "ItemGroup"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "514"
+                    }
+                ],
+                "className": "QQuickItemGroup",
+                "object": true,
+                "qualifiedClassName": "QQuickItemGroup",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickImplicitSizeItem"
+                    },
+                    {
+                        "access": "protected",
+                        "name": "QQuickItemChangeListener"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickitemgroup_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "MnemonicLabel"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "515"
+                    }
+                ],
+                "className": "QQuickMnemonicLabel",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "text",
+                        "read": "text",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setText"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "mnemonicVisible",
+                        "read": "isMnemonicVisible",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setMnemonicVisible"
+                    }
+                ],
+                "qualifiedClassName": "QQuickMnemonicLabel",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickText"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickmnemoniclabel_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "PaddedRectangle"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "512"
+                    }
+                ],
+                "className": "QQuickPaddedRectangle",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "padding",
+                        "notify": "paddingChanged",
+                        "read": "padding",
+                        "required": false,
+                        "reset": "resetPadding()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setPadding"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "topPadding",
+                        "notify": "topPaddingChanged",
+                        "read": "topPadding",
+                        "required": false,
+                        "reset": "resetTopPadding()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setTopPadding"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "leftPadding",
+                        "notify": "leftPaddingChanged",
+                        "read": "leftPadding",
+                        "required": false,
+                        "reset": "resetLeftPadding()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setLeftPadding"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "rightPadding",
+                        "notify": "rightPaddingChanged",
+                        "read": "rightPadding",
+                        "required": false,
+                        "reset": "resetRightPadding()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setRightPadding"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "bottomPadding",
+                        "notify": "bottomPaddingChanged",
+                        "read": "bottomPadding",
+                        "required": false,
+                        "reset": "resetBottomPadding()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setBottomPadding"
+                    }
+                ],
+                "qualifiedClassName": "QQuickPaddedRectangle",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "paddingChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "topPaddingChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "leftPaddingChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "rightPaddingChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "bottomPaddingChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickRectangle"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickpaddedrectangle_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "PlaceholderText"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "514"
+                    }
+                ],
+                "className": "QQuickPlaceholderText",
+                "object": true,
+                "qualifiedClassName": "QQuickPlaceholderText",
+                "slots": [
+                    {
+                        "access": "private",
+                        "name": "updateAlignment",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickText"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickplaceholdertext_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "Overlay"
+                    },
+                    {
+                        "name": "QML.Foreign",
+                        "value": "QQuickOverlay"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "515"
+                    }
+                ],
+                "className": "QQuickOverlayAttachedForeign",
+                "gadget": true,
+                "qualifiedClassName": "QQuickOverlayAttachedForeign"
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "SplitHandle"
+                    },
+                    {
+                        "name": "QML.Foreign",
+                        "value": "QQuickSplitHandleAttached"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "525"
+                    }
+                ],
+                "className": "QQuickSplitHandleAttachedForeign",
+                "gadget": true,
+                "qualifiedClassName": "QQuickSplitHandleAttachedForeign"
+            }
+        ],
+        "inputFile": "qtquickcontrols2foreign_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "TumblerView"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "513"
+                    }
+                ],
+                "className": "QQuickTumblerView",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "model",
+                        "notify": "modelChanged",
+                        "read": "model",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariant",
+                        "user": false,
+                        "write": "setModel"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "delegate",
+                        "notify": "delegateChanged",
+                        "read": "delegate",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlComponent*",
+                        "user": false,
+                        "write": "setDelegate"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "path",
+                        "notify": "pathChanged",
+                        "read": "path",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickPath*",
+                        "user": false,
+                        "write": "setPath"
+                    }
+                ],
+                "qualifiedClassName": "QQuickTumblerView",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "modelChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "delegateChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "pathChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickItem"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicktumblerview_p.h",
+        "outputRevision": 68
+    }
+]

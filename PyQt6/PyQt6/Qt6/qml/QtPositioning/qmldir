@@ -1,0 +1,7 @@
+module QtPositioning
+linktarget Qt6::positioningquickplugin
+plugin positioningquickplugin
+classname QtPositioningDeclarativeModule
+typeinfo plugins.qmltypes
+prefer :/qt-project.org/imports/QtPositioning/
+

@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: pyqt6-plugins
+Version: 6.1.0.2.2
+Summary: PyQt Designer and QML plugins
+Home-page: https://github.com/altendky/pyqt-plugins
+Author: Kyle Altendorf
+Author-email: sda@fstab.net
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
+License-File: COPYING
+Requires-Dist: click
+Requires-Dist: pyqt6 (==6.1.0)
+Requires-Dist: qt6-tools (<6.1.0.2,>=6.1.0.1.2)
+
+============
+pyqt-plugins
+============
+
+
+|PyPI| |Pythons| |GitHub|
+
+Perhaps docs will follow but for now see `the pyqt5-tools readme`_.  This
+package provides just the PyQt plugins to avoid recompilation for every
+adjustment of the wrappers.
+
+
+.. |PyPI| image:: https://img.shields.io/pypi/v/pyqt5-plugins.svg
+   :alt: PyPI version
+   :target: https://pypi.org/project/pyqt5-plugins/
+
+.. |Pythons| image:: https://img.shields.io/pypi/pyversions/pyqt5-plugins.svg
+   :alt: supported Python versions
+   :target: https://pypi.org/project/pyqt5-plugins/
+
+.. |GitHub| image:: https://img.shields.io/github/last-commit/altendky/pyqt-plugins/main.svg
+   :alt: source on GitHub
+   :target: https://github.com/altendky/pyqt-plugins
+
+.. _`the pyqt5-tools readme`: https://github.com/altendky/pyqt-tools#pyqt-tools
+
+

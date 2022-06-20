@@ -1,0 +1,6 @@
+# Automatically generated configuration for PyQt6.QtPrintSupport.
+
+sip-version = "6.6.2"
+sip-abi-version = "13.4"
+module-tags = ["Qt_6_3_0", "macOS"]
+module-disabled-features = ["PyQt_OpenGL_ES2"]

@@ -1,0 +1,509 @@
+[
+    {
+        "classes": [
+            {
+                "className": "FileInfoThread",
+                "object": true,
+                "qualifiedClassName": "FileInfoThread",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "directory",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "list",
+                                "type": "QList<FileProperty>"
+                            }
+                        ],
+                        "name": "directoryChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "directory",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "list",
+                                "type": "QList<FileProperty>"
+                            },
+                            {
+                                "name": "fromIndex",
+                                "type": "int"
+                            },
+                            {
+                                "name": "toIndex",
+                                "type": "int"
+                            }
+                        ],
+                        "name": "directoryUpdated",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "list",
+                                "type": "QList<FileProperty>"
+                            }
+                        ],
+                        "name": "sortFinished",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "status",
+                                "type": "QQuickFolderListModel::Status"
+                            }
+                        ],
+                        "name": "statusChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "directoryPath",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "dirChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "path",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "updateFile",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QThread"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "fileinfothread_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "FolderListModel"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "512"
+                    }
+                ],
+                "className": "QQuickFolderListModel",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "SortField",
+                        "values": [
+                            "Unsorted",
+                            "Name",
+                            "Time",
+                            "Size",
+                            "Type"
+                        ]
+                    },
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Status",
+                        "values": [
+                            "Null",
+                            "Ready",
+                            "Loading"
+                        ]
+                    }
+                ],
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "name": "isFolder",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "idx",
+                                "type": "int"
+                            },
+                            {
+                                "name": "property",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "get",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "file",
+                                "type": "QUrl"
+                            }
+                        ],
+                        "name": "indexOf",
+                        "returnType": "int"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "folder",
+                        "notify": "folderChanged",
+                        "read": "folder",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false,
+                        "write": "setFolder"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "rootFolder",
+                        "read": "rootFolder",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false,
+                        "write": "setRootFolder"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "parentFolder",
+                        "notify": "folderChanged",
+                        "read": "parentFolder",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "nameFilters",
+                        "read": "nameFilters",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setNameFilters"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "sortField",
+                        "read": "sortField",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "SortField",
+                        "user": false,
+                        "write": "setSortField"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "sortReversed",
+                        "read": "sortReversed",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setSortReversed"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "showFiles",
+                        "read": "showFiles",
+                        "required": false,
+                        "revision": 513,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setShowFiles"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "showDirs",
+                        "read": "showDirs",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setShowDirs"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "showDirsFirst",
+                        "read": "showDirsFirst",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setShowDirsFirst"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "showDotAndDotDot",
+                        "read": "showDotAndDotDot",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setShowDotAndDotDot"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "showHidden",
+                        "read": "showHidden",
+                        "required": false,
+                        "revision": 513,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setShowHidden"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "showOnlyReadable",
+                        "read": "showOnlyReadable",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setShowOnlyReadable"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "caseSensitive",
+                        "read": "caseSensitive",
+                        "required": false,
+                        "revision": 514,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setCaseSensitive"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "count",
+                        "notify": "countChanged",
+                        "read": "count",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "status",
+                        "notify": "statusChanged",
+                        "read": "status",
+                        "required": false,
+                        "revision": 523,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "Status",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "name": "sortCaseSensitive",
+                        "read": "sortCaseSensitive",
+                        "required": false,
+                        "revision": 524,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setSortCaseSensitive"
+                    }
+                ],
+                "qualifiedClassName": "QQuickFolderListModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "folderChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "rowCountChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "countChanged",
+                        "returnType": "void",
+                        "revision": 513
+                    },
+                    {
+                        "access": "public",
+                        "name": "statusChanged",
+                        "returnType": "void",
+                        "revision": 523
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "directory",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "list",
+                                "type": "QList<FileProperty>"
+                            }
+                        ],
+                        "name": "_q_directoryChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "directory",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "list",
+                                "type": "QList<FileProperty>"
+                            },
+                            {
+                                "name": "fromIndex",
+                                "type": "int"
+                            },
+                            {
+                                "name": "toIndex",
+                                "type": "int"
+                            }
+                        ],
+                        "name": "_q_directoryUpdated",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "list",
+                                "type": "QList<FileProperty>"
+                            }
+                        ],
+                        "name": "_q_sortFinished",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "s",
+                                "type": "QQuickFolderListModel::Status"
+                            }
+                        ],
+                        "name": "_q_statusChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractListModel"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickfolderlistmodel_p.h",
+        "outputRevision": 68
+    }
+]

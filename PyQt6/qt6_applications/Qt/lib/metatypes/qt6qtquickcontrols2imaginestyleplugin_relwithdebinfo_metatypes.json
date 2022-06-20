@@ -1,0 +1,95 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "Imagine"
+                    },
+                    {
+                        "name": "QML.Attached",
+                        "value": "QQuickImagineStyle"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": ""
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "515"
+                    }
+                ],
+                "className": "QQuickImagineStyle",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "path",
+                        "notify": "pathChanged",
+                        "read": "path",
+                        "required": false,
+                        "reset": "resetPath()",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setPath"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "name": "url",
+                        "notify": "pathChanged",
+                        "read": "url",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QQuickImagineStyle",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "pathChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickAttachedObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickimaginestyle_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "QtQuickControls2ImagineStylePlugin",
+                "object": true,
+                "qualifiedClassName": "QtQuickControls2ImagineStylePlugin",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickStylePlugin"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qtquickcontrols2imaginestyleplugin.cpp",
+        "outputRevision": 68
+    }
+]

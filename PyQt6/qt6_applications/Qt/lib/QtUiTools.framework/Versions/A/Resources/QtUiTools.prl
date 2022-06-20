@@ -1,0 +1,6 @@
+
+QMAKE_PRL_TARGET = QtUiTools
+QMAKE_PRL_CONFIG = shared lib_bundle
+QMAKE_PRL_VERSION = 6.1.0
+QMAKE_PRL_LIBS = -F$$[QT_INSTALL_LIBS] -framework QtOpenGLWidgets -framework QtOpenGL -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL -framework AppKit -framework ImageIO -framework Metal
+QMAKE_PRL_LIBS_FOR_CMAKE = -F$$[QT_INSTALL_LIBS];-framework;QtOpenGLWidgets;-framework;QtOpenGL;-framework;QtWidgets;-framework;QtGui;-framework;QtCore;-framework DiskArbitration;-framework IOKit;-framework OpenGL;-framework AGL;-framework AppKit;-framework ImageIO;-framework Metal

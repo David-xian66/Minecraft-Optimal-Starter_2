@@ -1,0 +1,12 @@
+module QtTest
+linktarget Qt6::QuickTestplugin
+optional plugin quicktestplugin
+classname QtTestPlugin
+typeinfo plugins.qmltypes
+depends QtQuick.Window
+prefer :/qt-project.org/imports/QtTest/
+TestCase 6.0 TestCase.qml
+TestCase 1.0 TestCase.qml
+SignalSpy 6.0 SignalSpy.qml
+SignalSpy 1.0 SignalSpy.qml
+

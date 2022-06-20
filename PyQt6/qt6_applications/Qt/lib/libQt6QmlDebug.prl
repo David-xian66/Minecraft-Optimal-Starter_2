@@ -1,0 +1,6 @@
+
+QMAKE_PRL_TARGET = libQt6QmlDebug.a
+QMAKE_PRL_CONFIG = static
+QMAKE_PRL_VERSION = 6.1.0
+QMAKE_PRL_LIBS = $$[QT_INSTALL_LIBS]/libQt6PacketProtocol.a -F$$[QT_INSTALL_LIBS] -framework QtQml -framework QtNetwork -framework QtCore -framework DiskArbitration -framework IOKit
+QMAKE_PRL_LIBS_FOR_CMAKE = $$[QT_INSTALL_LIBS]/libQt6PacketProtocol.a;-F$$[QT_INSTALL_LIBS];-framework;QtQml;-framework;QtNetwork;-framework;QtCore;-framework DiskArbitration;-framework IOKit
