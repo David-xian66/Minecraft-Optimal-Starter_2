@@ -1,5 +1,0 @@
-#ifndef QT_QTLABSSHAREDIMAGE_MODULE_H
-#define QT_QTLABSSHAREDIMAGE_MODULE_H
-#include <QtLabsSharedImage/QtLabsSharedImageDepends>
-#include "qtlabssharedimageversion.h"
-#endif

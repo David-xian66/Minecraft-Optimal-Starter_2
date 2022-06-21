@@ -1,6 +1,0 @@
-
-QMAKE_PRL_TARGET = QtDBus
-QMAKE_PRL_CONFIG = shared lib_bundle
-QMAKE_PRL_VERSION = 6.1.0
-QMAKE_PRL_LIBS = -F$$[QT_INSTALL_LIBS] -framework QtCore -framework DiskArbitration -framework IOKit
-QMAKE_PRL_LIBS_FOR_CMAKE = -F$$[QT_INSTALL_LIBS];-framework;QtCore;-framework DiskArbitration;-framework IOKit

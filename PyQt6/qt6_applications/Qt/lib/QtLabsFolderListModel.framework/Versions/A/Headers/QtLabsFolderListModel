@@ -1,5 +1,0 @@
-#ifndef QT_QTLABSFOLDERLISTMODEL_MODULE_H
-#define QT_QTLABSFOLDERLISTMODEL_MODULE_H
-#include <QtLabsFolderListModel/QtLabsFolderListModelDepends>
-#include "qtlabsfolderlistmodelversion.h"
-#endif

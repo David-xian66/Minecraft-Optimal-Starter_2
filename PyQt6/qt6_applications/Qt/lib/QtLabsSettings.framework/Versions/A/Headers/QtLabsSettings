@@ -1,5 +1,0 @@
-#ifndef QT_QTLABSSETTINGS_MODULE_H
-#define QT_QTLABSSETTINGS_MODULE_H
-#include <QtLabsSettings/QtLabsSettingsDepends>
-#include "qtlabssettingsversion.h"
-#endif
