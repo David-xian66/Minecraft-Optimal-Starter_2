@@ -1789,6 +1789,10 @@ class Ui_MOS(object):
         self.a.sinOut.connect(self.MOS_file_return)
         self.a.sinOut_font.connect(self.MOS_file_return_font)
         self.a.start()
+
+        self.game = game_first_initialize()
+        self.game.sinOut_game_add.connect(self.game_first_initialize_add)
+        self.game.start()
         # =============================================================================#
 
     # =================================分割线===================================#
@@ -2221,6 +2225,9 @@ class Ui_MOS(object):
     
     def click_pushButton_banbenleibiao(self):
         self.stackedWidget_mos_right.setCurrentIndex(1)
+
+    def game_first_initialize_add(self, name):
+        self.listWidget.addItem(name)
 
     def gonggao(self, str):
         self.textBrowser_gonggao_left_txt.setHtml(str)
@@ -2895,6 +2902,80 @@ class MOS_file(QThread):
         except Exception as e:
             print(e)
 
+class game_first_initialize(QThread):
+    '''遍历versions文件+缓存'''
+    sinOut_game_add = pyqtSignal(str)
+
+    def __init__(self):
+        super(game_first_initialize, self).__init__()
+
+    def run(self):
+
+        a = str(sys.platform)
+        if a == "darwin":
+            print('当前系统为Mac')
+            user_name = os.getlogin()
+            # 获取当前系统用户目录
+            user_home = os.path.expanduser('~')
+            print(user_home)
+
+            file = user_home + '/Documents'
+            print(file)
+        else:
+            file = ''
+
+        file_1 = os.path.join(file,".minecraft","versions")
+        print(file_1)
+        
+        MOS_versions_zhengchang = []
+        MOS_versions_not_found_jar = []
+        MOS_versions_not_found_json = []
+
+        s_file  = os.listdir(file_1)
+        for f in s_file:
+            f_2=str(f)
+            real_url = os.path.join (file_1,f_2)
+            # real_url是versions下的文件的相对路径
+            if os.path.isdir(real_url):
+                # real_url是versions下的文件的相对路径，如果是文件夹
+                f_2= os.path.join (file_1 , f)
+                f_3= os.path.join (f_2 , f)
+                # f_2是版本文件夹的相对路径
+                jar = (f_3+".jar")
+                json = (f_3+".json")
+                print(jar)
+                print(json)
+                if os.path.exists(jar):
+                    if os.path.exists(json):
+                        MOS_versions_zhengchang.append(f_3)
+                    else:
+                        MOS_versions_not_found_json.append(f_3)
+                else:
+                    MOS_versions_not_found_jar.append(f_3)
+        
+
+        print("\n" + "——————————————————————————————————————————————————————")
+        print("——————————————————————————————————————————————————————")
+        print("\n" + "正常的游戏："+ str(MOS_versions_zhengchang))
+        print("——————————————————————————————————————————————————————")
+        print("找不到.jar文件的游戏："+ str(MOS_versions_not_found_jar))
+        print("——————————————————————————————————————————————————————")
+        print("找不到.json文件的游戏："+ str(MOS_versions_not_found_json))
+        print("——————————————————————————————————————————————————————")
+        print("检测完毕")
+        for a in MOS_versions_zhengchang:
+            #正常的
+           self.sinOut_game_add.emit(a)
+        for a in MOS_versions_not_found_jar:
+            #少jar的
+            self.sinOut_game_add.emit(a)
+        for a in MOS_versions_not_found_json:
+            #少json的
+            self.sinOut_game_add.emit(a)
+
+
+
+
 
 try:
     if __name__ == '__main__':
@@ -2912,8 +2993,8 @@ try:
         ui = Ui_MOS()
         print("创建PyQt窗口对象成功！")
         ui.setupUi(MainWindow)
-        a = str(sys.platform)
 
+        a = str(sys.platform)
         if a == "darwin":
             print('当前系统为Mac')
             user_name = os.getlogin()
@@ -2925,7 +3006,7 @@ try:
             print(file)
         else:
             file = ''
-
+ 
         print("初始化设置成功！")
         MainWindow.show()
         print("已成功显示窗体")
