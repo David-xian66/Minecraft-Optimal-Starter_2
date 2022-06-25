@@ -2944,7 +2944,7 @@ class game_first_initialize(QThread):
         a = str(sys.platform)
         if a == "darwin":
             print('当前系统为Mac')
-            user_name = os.getlogin()
+            #user_name = os.getlogin()
             # 获取当前系统用户目录
             user_home = os.path.expanduser('~')
             print(user_home)
@@ -2995,7 +2995,7 @@ class game_first_initialize(QThread):
         print("检测完毕")
         for a in MOS_versions_zhengchang:
             #正常的
-           self.sinOut_game_add.emit(a)
+            self.sinOut_game_add.emit(a)
         for a in MOS_versions_not_found_jar:
             #少jar的
             self.sinOut_game_add.emit(a)
@@ -3036,6 +3036,7 @@ try:
             print(file)
         else:
             file = ''
+            print(a)
  
         print("初始化设置成功！")
         MainWindow.show()
