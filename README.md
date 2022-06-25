@@ -9,7 +9,7 @@
 <a name="RIcff"></a>
 ## 启动器下载 ❤
 
-⬇️ MOS目前分为 内部测试版 ~~内测版~~ ~~公测版~~ ⚠️ 目前不发布 公测/内测版 因为项目未公开，<br />    大家也可直接[下载(Github)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/releases/)/[下载(Gitee)](https://gitee.com/xian66/minecraft-optimal-starter_2/releases/)
+⬇️ MOS目前分为 内部测试版 ~~内测版~~ ~~公测版~~ ⚠️ 目前不发布 公测/内测版 因为项目未公开，<br />    大家也可直接[下载(Github)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/releases/) [下载(Gitee)](https://gitee.com/xian66/minecraft-optimal-starter_2/releases/)
 
 ---
 
