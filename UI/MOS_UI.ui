@@ -120,6 +120,11 @@
                <string notr="true">QWidget  {
 	border:2px solid rgb(0, 150, 255);border-radius:15px;
 }
+
+#pushButton__gonggao_start{border:2px solid rgba(0, 150, 255, 179);height:25px;border-radius:12px;}
+#pushButton__gonggao_start::hover{color: rgb(0, 150, 255,100);}
+#pushButton__gonggao_start::pressed{background-color: rgba(0, 150, 255, 50);}
+
 QProgressBar{
 	text-align: center;
 	border-style:none;
@@ -132,10 +137,11 @@ QProgressBar::chunk{
 }
 
 QComboBox {
-    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */
+    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */
 	height:25px;
 	font-size: 14px;
-	background-color: rgba(0, 150, 255, 150);
+	/*background-color: rgba(0, 150, 255, 150);*/
+	background-color: rgba(214, 214, 214,100);
 	border-radius:10px;
 }
 
@@ -216,7 +222,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                   <bool>true</bool>
                  </property>
                  <property name="currentIndex">
-                  <number>-1</number>
+                  <number>0</number>
                  </property>
                  <property name="maxVisibleItems">
                   <number>15</number>
@@ -233,6 +239,29 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                  <property name="frame">
                   <bool>true</bool>
                  </property>
+                 <property name="modelColumn">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>1</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>2</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>3</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>4</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
                <item row="5" column="0">
@@ -267,7 +296,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">border:2px solid rgb(142, 250, 0);height:25px;border-radius:12px;</string>
+                  <string notr="true"/>
                  </property>
                  <property name="text">
                   <string>启动游戏</string>
@@ -663,8 +692,8 @@ QProgressBar::chunk{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>808</width>
-                 <height>509</height>
+                 <width>790</width>
+                 <height>280</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -1224,7 +1253,7 @@ QProgressBar::chunk{
                      </property>
                      <property name="icon">
                       <iconset>
-                       <normaloff>../picture/ folder_open.png</normaloff>../picture/ folder_open.png</iconset>
+                       <normaloff>../picture/folder.png</normaloff>../picture/folder.png</iconset>
                      </property>
                     </item>
                    </widget>
@@ -1305,6 +1334,11 @@ QProgressBar::chunk{
                      </layout>
                     </widget>
                     <widget class="QWidget" name="page_22">
+                     <property name="styleSheet">
+                      <string notr="true">#pushButton_40{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);font-size: 14px;height:27px;}
+#pushButton_40::hover{color: rgb(255, 59, 0)}
+#pushButton_40::pressed{background-color: rgba(255, 0, 0, 100);}</string>
+                     </property>
                      <layout class="QGridLayout" name="gridLayout_53">
                       <property name="leftMargin">
                        <number>0</number>
@@ -1320,6 +1354,9 @@ QProgressBar::chunk{
                       </property>
                       <item row="4" column="1" colspan="2">
                        <widget class="QPushButton" name="pushButton_40">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
                         <property name="text">
                          <string>删除游戏文件夹</string>
                         </property>
@@ -1327,52 +1364,26 @@ QProgressBar::chunk{
                          <iconset>
                           <normaloff>../picture/trash_red.png</normaloff>../picture/trash_red.png</iconset>
                         </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>20</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                        <property name="checkable">
+                         <bool>false</bool>
+                        </property>
                        </widget>
                       </item>
                       <item row="1" column="0" colspan="2">
-                       <widget class="QLineEdit" name="lineEdit_3"/>
-                      </item>
-                      <item row="5" column="1" colspan="2">
-                       <spacer name="verticalSpacer_18">
-                        <property name="orientation">
-                         <enum>Qt::Vertical</enum>
+                       <widget class="QLineEdit" name="lineEdit_3">
+                        <property name="styleSheet">
+                         <string notr="true">height:23px;font-size: 15px;border-radius:8px;border:2px solid rgb(192, 192, 192);</string>
                         </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>20</width>
-                          <height>40</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                      <item row="4" column="0">
-                       <spacer name="horizontalSpacer_37">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>40</width>
-                          <height>20</height>
-                         </size>
-                        </property>
-                       </spacer>
+                       </widget>
                       </item>
                       <item row="6" column="0" colspan="2">
                        <spacer name="horizontalSpacer_33">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>40</width>
-                          <height>20</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                      <item row="4" column="3">
-                       <spacer name="horizontalSpacer_38">
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
@@ -1425,10 +1436,26 @@ QProgressBar::chunk{
                       </item>
                       <item row="1" column="2" colspan="2">
                        <widget class="QPushButton" name="pushButton_39">
+                        <property name="styleSheet">
+                         <string notr="true">height:23px;font-size: 15px;border-radius:8px;border:2px solid rgb(192, 192, 192);</string>
+                        </property>
                         <property name="text">
                          <string>重命名版本文件夹</string>
                         </property>
                        </widget>
+                      </item>
+                      <item row="5" column="0" colspan="4">
+                       <spacer name="verticalSpacer_18">
+                        <property name="orientation">
+                         <enum>Qt::Vertical</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>20</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                       </spacer>
                       </item>
                      </layout>
                     </widget>
@@ -3543,11 +3570,11 @@ border:2px solid rgb(0, 150, 255);</string>
       <widget class="QWidget" name="page_5">
        <property name="styleSheet">
         <string notr="true">QComboBox {
-    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */
+    border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */
     border-radius: 3px;
 	height:25px;
 	font-size: 14px;
-	background-color: rgba(0, 150, 255, 150);
+	background-color: rgba(235, 235, 235, 128);
 	border-radius:10px;
 }
 /*QComboBox::down-arrow
@@ -3660,10 +3687,10 @@ border:2px solid rgb(0, 150, 255);</string>
                   <property name="styleSheet">
                    <string notr="true">QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}
 QComboBox {
-    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */
-	height:25px;
+	border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */
+	height:27px;
 	font-size: 14px;
-	background-color: rgba(0, 150, 255, 150);
+	background-color: rgba(235, 235, 235, 128);
 	border-radius:10px;
 }
 
