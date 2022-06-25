@@ -4,7 +4,7 @@ os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt5\Qt5\plugins'
 
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
-from PyQt6 import *
+from PyQt6 import QtCore, QtGui, QtWidgets
 # from PyQt6.QtWidgets import (QMainWindow, QTextEdit,QFileDialog, QApplication)
 from PyQt6.QtGui import QIcon, QAction
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
