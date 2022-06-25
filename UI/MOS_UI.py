@@ -1,22 +1,35 @@
 import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
 
-
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt5\Qt5\plugins'  #### 这一行是新增的。用的是相对路径。
-
-
 
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 from PyQt6 import *
 # from PyQt6.QtWidgets import (QMainWindow, QTextEdit,QFileDialog, QApplication)
 from PyQt6.QtGui import QIcon, QAction
-# from pathlib import Path
-# import MOS_2
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
+
 
 
 class Ui_MOS(object):
     def setupUi(self, MOS):
+        
+        MOS_catalogue_picture_ico_png = os.path.join("picture", "ico.png")
+        MOS_catalogue_picture_home_png = os.path.join("picture", "home.png")
+        MOS_catalogue_picture_online_png = os.path.join("picture", "online.png")
+        MOS_catalogue_picture_download_png = os.path.join("picture", "download.png")
+        MOS_catalogue_picture_music_png = os.path.join("picture", "music.png")
+        MOS_catalogue_picture_settings_png = os.path.join("picture", "settings.png")
+        MOS_catalogue_picture_about_png = os.path.join("picture", "about.png")
+        MOS_catalogue_picture_david_png = os.path.join("picture", "david.png")
+        MOS_catalogue_picture_heimnad_png = os.path.join("picture", "heimnad.png")
+        MOS_catalogue_picture_fabric_png = os.path.join("picture", "fabric.png")
+        MOS_catalogue_picture_forge_png = os.path.join("picture", "forge.png")
+        MOS_catalogue_picture_loading_png = os.path.join("picture", "loading.gif")
+        MOS_catalogue_picture_quilt_png = os.path.join("picture", "quilt.png")
+        MOS_catalogue_picture_optifine_png = os.path.join("picture", "optifine.png")
+
+
         MOS.setObjectName("MOS")
         MOS.setWindowModality(QtCore.Qt.WindowModality.NonModal)
         MOS.resize(1000, 533)
@@ -618,16 +631,37 @@ class Ui_MOS(object):
         self.page_12.setObjectName("page_12")
         self.gridLayout_33 = QtWidgets.QGridLayout(self.page_12)
         self.gridLayout_33.setObjectName("gridLayout_33")
-        self.label_26 = QtWidgets.QLabel(self.page_12)
-        self.label_26.setObjectName("label_26")
-        self.gridLayout_33.addWidget(self.label_26, 3, 0, 1, 1)
-        spacerItem15 = QtWidgets.QSpacerItem(805, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_33.addItem(spacerItem15, 0, 0, 1, 3)
         self.label_24 = QtWidgets.QLabel(self.page_12)
         self.label_24.setStyleSheet("border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);")
         self.label_24.setIndent(10)
         self.label_24.setObjectName("label_24")
         self.gridLayout_33.addWidget(self.label_24, 1, 0, 1, 3)
+        self.widget_7 = QtWidgets.QWidget(self.page_12)
+        self.widget_7.setMaximumSize(QtCore.QSize(185, 16777215))
+        self.widget_7.setObjectName("widget_7")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget_7)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.listWidget = QtWidgets.QListWidget(self.widget_7)
+        self.listWidget.setObjectName("listWidget")
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget.addItem(item)
+        self.verticalLayout.addWidget(self.listWidget)
+        self.pushButton_38 = QtWidgets.QPushButton(self.widget_7)
+        self.pushButton_38.setObjectName("pushButton_38")
+        self.verticalLayout.addWidget(self.pushButton_38)
+        self.pushButton_36 = QtWidgets.QPushButton(self.widget_7)
+        self.pushButton_36.setObjectName("pushButton_36")
+        self.verticalLayout.addWidget(self.pushButton_36)
+        self.pushButton_37 = QtWidgets.QPushButton(self.widget_7)
+        self.pushButton_37.setObjectName("pushButton_37")
+        self.verticalLayout.addWidget(self.pushButton_37)
+        self.pushButton_35 = QtWidgets.QPushButton(self.widget_7)
+        self.pushButton_35.setObjectName("pushButton_35")
+        self.verticalLayout.addWidget(self.pushButton_35)
+        self.gridLayout_33.addWidget(self.widget_7, 3, 0, 2, 1)
+        spacerItem15 = QtWidgets.QSpacerItem(805, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_33.addItem(spacerItem15, 0, 0, 1, 3)
         self.line_11 = QtWidgets.QFrame(self.page_12)
         self.line_11.setStyleSheet("color:rgb(214, 214, 214)")
         self.line_11.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
@@ -635,22 +669,16 @@ class Ui_MOS(object):
         self.line_11.setFrameShape(QtWidgets.QFrame.Shape.HLine)
         self.line_11.setObjectName("line_11")
         self.gridLayout_33.addWidget(self.line_11, 2, 0, 1, 3)
-        self.listWidget = QtWidgets.QListWidget(self.page_12)
-        self.listWidget.setStyleSheet("")
-        self.listWidget.setObjectName("listWidget")
-        self.gridLayout_33.addWidget(self.listWidget, 4, 0, 1, 1, QtCore.Qt.AlignmentFlag.AlignLeft)
+        spacerItem16 = QtWidgets.QSpacerItem(0, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_33.addItem(spacerItem16, 3, 2, 1, 1)
         self.widget_6 = QtWidgets.QWidget(self.page_12)
         self.widget_6.setObjectName("widget_6")
         self.gridLayout_51 = QtWidgets.QGridLayout(self.widget_6)
+        self.gridLayout_51.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_51.setObjectName("gridLayout_51")
-        self.label_43 = QtWidgets.QLabel(self.widget_6)
-        self.label_43.setObjectName("label_43")
-        self.gridLayout_51.addWidget(self.label_43, 0, 0, 1, 1)
-        spacerItem16 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_51.addItem(spacerItem16, 2, 0, 1, 1)
         self.listWidget_2 = QtWidgets.QListWidget(self.widget_6)
         self.listWidget_2.setObjectName("listWidget_2")
-        self.gridLayout_51.addWidget(self.listWidget_2, 1, 0, 1, 2)
+        self.gridLayout_51.addWidget(self.listWidget_2, 0, 1, 1, 1)
         self.gridLayout_33.addWidget(self.widget_6, 3, 1, 2, 1)
         self.stackedWidget_mos_right_2.addWidget(self.page_12)
         self.page_13 = QtWidgets.QWidget()
@@ -1503,7 +1531,7 @@ class Ui_MOS(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 822, 456))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 373, 627))
         self.scrollAreaWidgetContents_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.gridLayout_23 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_2)
@@ -1760,7 +1788,7 @@ class Ui_MOS(object):
         MOS.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MOS)
-        self.stackedWidget_mos_right.setCurrentIndex(0)
+        self.stackedWidget_mos_right.setCurrentIndex(1)
         self.stackedWidget_gonggao.setCurrentIndex(1)
         self.stackedWidget_mos_right_2.setCurrentIndex(2)
         self.stackedWidget_gonggao_2.setCurrentIndex(1)
@@ -1771,6 +1799,7 @@ class Ui_MOS(object):
         self.stackedWidget.setCurrentIndex(0)
         self.fontComboBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MOS)
+
 
 
         # =============================================================================#
@@ -1789,6 +1818,10 @@ class Ui_MOS(object):
         self.a.sinOut.connect(self.MOS_file_return)
         self.a.sinOut_font.connect(self.MOS_file_return_font)
         self.a.start()
+
+        self.game = game_first_initialize()
+        self.game.sinOut_game_add.connect(self.game_first_initialize_add)
+        self.game.start()
         # =============================================================================#
 
     # =================================分割线===================================#
@@ -2218,6 +2251,12 @@ class Ui_MOS(object):
 
     def click_pushButton_qhqqi_blog(self):
         webbrowser.open("https://blog.qhqqi.top")
+    
+    def click_pushButton_banbenleibiao(self):
+        self.stackedWidget_mos_right.setCurrentIndex(1)
+
+    def game_first_initialize_add(self, name):
+        self.listWidget_2.addItem(name)
 
     def gonggao(self, str):
         self.textBrowser_gonggao_left_txt.setHtml(str)
@@ -2379,7 +2418,7 @@ class Ui_MOS(object):
         self.progressBar.setFont(QtGui.QFont(str1))
 
         # 修改在json中的字体
-        MOS_file_json =os.path.join(".MOS","MOS.json")
+        MOS_file_json =os.path.join(file,".MOS","MOS.json")
         try:
             with open(MOS_file_json, 'r+', encoding='utf-8') as f:
                 b = json.load(f)
@@ -2477,11 +2516,6 @@ class Ui_MOS(object):
     
     # =================================分割线===================================#
 
-
-
-
-
-
     def retranslateUi(self, MOS):
         _translate = QtCore.QCoreApplication.translate
         MOS.setWindowTitle(_translate("MOS", "MOS ll 启动器"))
@@ -2516,9 +2550,16 @@ class Ui_MOS(object):
 "当前步骤：下载公告……请稍后\n"
 ""))
         self.label_gonggao_left_txt_2.setText(_translate("MOS", "<html><head/><body><p>官方公告 <span style=\" color:#55f976;\">•正在加载中</span></p></body></html>"))
-        self.label_26.setText(_translate("MOS", "游戏目录"))
         self.label_24.setText(_translate("MOS", "版本列表"))
-        self.label_43.setText(_translate("MOS", "游戏目录下的游戏"))
+        __sortingEnabled = self.listWidget.isSortingEnabled()
+        self.listWidget.setSortingEnabled(False)
+        item = self.listWidget.item(0)
+        item.setText(_translate("MOS", "默认目录"))
+        self.listWidget.setSortingEnabled(__sortingEnabled)
+        self.pushButton_38.setText(_translate("MOS", "PushButton"))
+        self.pushButton_36.setText(_translate("MOS", "PushButton"))
+        self.pushButton_37.setText(_translate("MOS", "PushButton"))
+        self.pushButton_35.setText(_translate("MOS", "PushButton"))
         self.label_27.setText(_translate("MOS", "下载"))
         self.comboBox_7.setItemText(0, _translate("MOS", "游戏下载"))
         self.comboBox_7.setItemText(1, _translate("MOS", "Mod下载"))
@@ -2600,9 +2641,6 @@ class Ui_MOS(object):
         self.label_17.setText(_translate("MOS", "关于"))
 
 
-
-
-
         
         # =================================分割线===================================#
 
@@ -2615,6 +2653,7 @@ class Ui_MOS(object):
         self.pushButton_3.clicked.connect(self.click_pushButton_zanshuzuozhe)
         self.pushButton_10.clicked.connect(self.click_pushButton_qhqqi_blog)
         self.pushButton_11.clicked.connect(self.click_pushButton_shezhi_fond_moren)
+        self.pushButton_16.clicked.connect(self.click_pushButton_banbenleibiao)
         # 在‘……………………’里显示所有
         # 为字体选择控件 连接槽
         self.fontComboBox.currentIndexChanged.connect(self.setfont)
@@ -2891,6 +2930,80 @@ class MOS_file(QThread):
         except Exception as e:
             print(e)
 
+class game_first_initialize(QThread):
+    '''遍历versions文件+缓存'''
+    sinOut_game_add = pyqtSignal(str)
+
+    def __init__(self):
+        super(game_first_initialize, self).__init__()
+
+    def run(self):
+
+        a = str(sys.platform)
+        if a == "darwin":
+            print('当前系统为Mac')
+            user_name = os.getlogin()
+            # 获取当前系统用户目录
+            user_home = os.path.expanduser('~')
+            print(user_home)
+
+            file = user_home + '/Documents'
+            print(file)
+        else:
+            file = ''
+
+        file_1 = os.path.join(file,".minecraft","versions")
+        print(file_1)
+        
+        MOS_versions_zhengchang = []
+        MOS_versions_not_found_jar = []
+        MOS_versions_not_found_json = []
+
+        s_file  = os.listdir(file_1)
+        for f in s_file:
+            f_2=str(f)
+            real_url = os.path.join (file_1,f_2)
+            # real_url是versions下的文件的相对路径
+            if os.path.isdir(real_url):
+                # real_url是versions下的文件的相对路径，如果是文件夹
+                f_2= os.path.join (file_1 , f)
+                f_3= os.path.join (f_2 , f)
+                # f_2是版本文件夹的相对路径
+                jar = (f_3+".jar")
+                json = (f_3+".json")
+                print(jar)
+                print(json)
+                if os.path.exists(jar):
+                    if os.path.exists(json):
+                        MOS_versions_zhengchang.append(f_3)
+                    else:
+                        MOS_versions_not_found_json.append(f_3)
+                else:
+                    MOS_versions_not_found_jar.append(f_3)
+        
+
+        print("\n" + "——————————————————————————————————————————————————————")
+        print("——————————————————————————————————————————————————————")
+        print("\n" + "正常的游戏："+ str(MOS_versions_zhengchang))
+        print("——————————————————————————————————————————————————————")
+        print("找不到.jar文件的游戏："+ str(MOS_versions_not_found_jar))
+        print("——————————————————————————————————————————————————————")
+        print("找不到.json文件的游戏："+ str(MOS_versions_not_found_json))
+        print("——————————————————————————————————————————————————————")
+        print("检测完毕")
+        for a in MOS_versions_zhengchang:
+            #正常的
+           self.sinOut_game_add.emit(a)
+        for a in MOS_versions_not_found_jar:
+            #少jar的
+            self.sinOut_game_add.emit(a)
+        for a in MOS_versions_not_found_json:
+            #少json的
+            self.sinOut_game_add.emit(a)
+
+
+
+
 
 try:
     if __name__ == '__main__':
@@ -2908,8 +3021,8 @@ try:
         ui = Ui_MOS()
         print("创建PyQt窗口对象成功！")
         ui.setupUi(MainWindow)
-        a = str(sys.platform)
 
+        a = str(sys.platform)
         if a == "darwin":
             print('当前系统为Mac')
             user_name = os.getlogin()
@@ -2921,7 +3034,7 @@ try:
             print(file)
         else:
             file = ''
-
+ 
         print("初始化设置成功！")
         MainWindow.show()
         print("已成功显示窗体")
@@ -2930,4 +3043,3 @@ except KeyboardInterrupt:
     print("程序以强行退出")
 except:
     traceback.print_exc()
-

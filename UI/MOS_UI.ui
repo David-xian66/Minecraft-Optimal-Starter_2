@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <author>MOS_by_David</author>
  <class>MOS</class>
  <widget class="QMainWindow" name="MOS">
   <property name="windowModality">
@@ -476,18 +477,6 @@ QPushButton
                <string notr="true">QWidget  {
 	border:2px solid rgb(0, 150, 255);border-radius:15px;
 }
-
-QComboBox {
-    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */
-    border-radius: 3px;
-	height:25px;
-	font-size: 14px;
-	background-color: rgba(0, 150, 255, 150);
-	border-radius:10px;
-}
-/*QComboBox::down-arrow
-是 右面那个 
-*/
 QProgressBar{
 	text-align: center;
 	border-style:none;
@@ -497,7 +486,63 @@ QProgressBar{
 QProgressBar::chunk{
 	border-radius:7px;
 	background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 224, 249, 255), stop:1 rgba(212, 255, 255, 255));
-}</string>
+}
+
+QComboBox {
+    border: 2px solid rgb(235, 235, 235); /* border: 宽度 线类型 颜色 */
+	height:25px;
+	font-size: 14px;
+	background-color: rgba(0, 150, 255, 150);
+	border-radius:10px;
+}
+
+/*下拉框的样式*/
+QComboBox QAbstractItemView 
+{
+    outline: 0px solid gray;  /*取消选中虚线*/
+    border: 1px solid rgb(31, 156, 255);
+    color: rgb(66, 66, 66);
+    background-color: rgb(255, 255, 255);
+    selection-background-color: rgb(0, 150, 255);
+	border-radius:5px;
+	height:35px;
+}
+ /*选中每一项高度*/
+QComboBox QAbstractItemView::item
+{ 
+	height: 20px;
+	border-radius:5px;
+ }
+/*选中每一项的字体颜色和背景颜色*/
+QComboBox QAbstractItemView::item:selected 
+{
+    color: rgb(255, 38, 0);
+	background-color: rgb(0, 150, 255);
+	border-radius:5px;
+}
+/*QComboBox::down-arrow
+是 右面那个 
+*/
+
+/* QComboBox中的垂直滚动条 */
+QComboBox QAbstractScrollArea QScrollBar:vertical {
+	width: 10px;
+	height: 8px;
+	background-color: #d0d2d4;   /* 空白区域的背景色*/
+	border-style:none;
+}
+
+QComboBox QAbstractScrollArea QScrollBar::handle:vertical {
+    border-radius: 5px;   /* 圆角 */
+    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */
+}
+
+QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
+    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/
+}
+
+
+</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_6">
                <item row="0" column="0" colspan="2">
@@ -514,7 +559,38 @@ QProgressBar::chunk{
                 </widget>
                </item>
                <item row="4" column="0">
-                <widget class="QComboBox" name="comboBox_gonggao_right"/>
+                <widget class="QComboBox" name="comboBox_gonggao_right">
+                 <property name="minimumSize">
+                  <size>
+                   <width>181</width>
+                   <height>29</height>
+                  </size>
+                 </property>
+                 <property name="mouseTracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="editable">
+                  <bool>true</bool>
+                 </property>
+                 <property name="currentIndex">
+                  <number>-1</number>
+                 </property>
+                 <property name="maxVisibleItems">
+                  <number>15</number>
+                 </property>
+                 <property name="maxCount">
+                  <number>2147483647</number>
+                 </property>
+                 <property name="minimumContentsLength">
+                  <number>0</number>
+                 </property>
+                 <property name="duplicatesEnabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="frame">
+                  <bool>true</bool>
+                 </property>
+                </widget>
                </item>
                <item row="5" column="0">
                 <spacer name="horizontalSpacer">
@@ -541,6 +617,12 @@ QProgressBar::chunk{
                </item>
                <item row="4" column="1">
                 <widget class="QPushButton" name="pushButton__gonggao_start">
+                 <property name="minimumSize">
+                  <size>
+                   <width>180</width>
+                   <height>29</height>
+                  </size>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">border:2px solid rgb(142, 250, 0);height:25px;border-radius:12px;</string>
                  </property>
@@ -551,6 +633,12 @@ QProgressBar::chunk{
                </item>
                <item row="3" column="0">
                 <widget class="QPushButton" name="pushButton_16">
+                 <property name="minimumSize">
+                  <size>
+                   <width>181</width>
+                   <height>27</height>
+                  </size>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">border:2px solid rgb(192, 192, 192);height:23px;border-radius:12px;</string>
                  </property>
@@ -629,6 +717,12 @@ QProgressBar::chunk{
                </item>
                <item row="3" column="1">
                 <widget class="QPushButton" name="pushButton_17">
+                 <property name="minimumSize">
+                  <size>
+                   <width>180</width>
+                   <height>27</height>
+                  </size>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">border:2px solid rgb(192, 192, 192);height:23px;border-radius:12px;</string>
                  </property>
@@ -1350,11 +1444,78 @@ QProgressBar::chunk{
           <widget class="QWidget" name="page_11"/>
           <widget class="QWidget" name="page_12">
            <layout class="QGridLayout" name="gridLayout_33">
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_26">
-              <property name="text">
-               <string>游戏目录</string>
+            <item row="1" column="0" colspan="3">
+             <widget class="QLabel" name="label_24">
+              <property name="styleSheet">
+               <string notr="true">border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);</string>
               </property>
+              <property name="text">
+               <string>版本列表</string>
+              </property>
+              <property name="indent">
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0" rowspan="2">
+             <widget class="QWidget" name="widget_7" native="true">
+              <property name="maximumSize">
+               <size>
+                <width>185</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QListWidget" name="listWidget">
+                 <item>
+                  <property name="text">
+                   <string>默认目录</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_38">
+                 <property name="text">
+                  <string>PushButton</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_36">
+                 <property name="text">
+                  <string>PushButton</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_37">
+                 <property name="text">
+                  <string>PushButton</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_35">
+                 <property name="text">
+                  <string>PushButton</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="0" column="0" colspan="3">
@@ -1369,19 +1530,6 @@ QProgressBar::chunk{
                </size>
               </property>
              </spacer>
-            </item>
-            <item row="1" column="0" colspan="3">
-             <widget class="QLabel" name="label_24">
-              <property name="styleSheet">
-               <string notr="true">border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);</string>
-              </property>
-              <property name="text">
-               <string>版本列表</string>
-              </property>
-              <property name="indent">
-               <number>10</number>
-              </property>
-             </widget>
             </item>
             <item row="2" column="0" colspan="3">
              <widget class="Line" name="line_11">
@@ -1399,37 +1547,35 @@ QProgressBar::chunk{
               </property>
              </widget>
             </item>
-            <item row="4" column="0" alignment="Qt::AlignLeft">
-             <widget class="QListWidget" name="listWidget">
-              <property name="styleSheet">
-               <string notr="true"/>
+            <item row="3" column="2">
+             <spacer name="verticalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
               </property>
-             </widget>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item row="3" column="1" rowspan="2">
              <widget class="QWidget" name="widget_6" native="true">
               <layout class="QGridLayout" name="gridLayout_51">
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_43">
-                 <property name="text">
-                  <string>游戏目录下的游戏</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <spacer name="horizontalSpacer_33">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="1" column="0" colspan="2">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item row="0" column="1">
                 <widget class="QListWidget" name="listWidget_2"/>
                </item>
               </layout>
@@ -3636,7 +3782,7 @@ QComboBox QAbstractItemView
     background-color: rgb(255, 255, 255);
     selection-background-color: rgb(0, 150, 255);
 	border-radius:5px;
-	height:50px;
+	height:150px;
 }
  /*选中每一项高度*/
 QComboBox QAbstractItemView::item
@@ -3659,8 +3805,8 @@ QComboBox QAbstractItemView::item:selected
 
 /* QComboBox中的垂直滚动条 */
 QComboBox QAbstractScrollArea QScrollBar:vertical {
-	width: 13px;
-	height: 5px;
+	width: 10px;
+	height: 8px;
 	background-color: #d0d2d4;   /* 空白区域的背景色*/
 	border-style:none;
 }
@@ -3703,11 +3849,17 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                    </item>
                    <item row="0" column="1" colspan="3">
                     <widget class="QFontComboBox" name="fontComboBox">
+                     <property name="editable">
+                      <bool>true</bool>
+                     </property>
                      <property name="currentIndex">
                       <number>0</number>
                      </property>
                      <property name="maxVisibleItems">
-                      <number>15</number>
+                      <number>20</number>
+                     </property>
+                     <property name="sizeAdjustPolicy">
+                      <enum>QComboBox::AdjustToMinimumContentsLength</enum>
                      </property>
                      <property name="duplicatesEnabled">
                       <bool>false</bool>
