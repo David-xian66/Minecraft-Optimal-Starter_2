@@ -9,12 +9,12 @@
 <a name="RIcff"></a>
 ## 启动器下载 ❤
 
-⬇️ MOS目前分为 内部测试版 ~~内测版~~ ~~公测版~~ ⚠️ 目前不发布 公测/内测版 因为项目未公开，<br />    大家也可直接[下载内部测试版(Github)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_issue)/[内部测试版(Gitee)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_issue)
+⬇️ MOS目前分为 内部测试版 ~~内测版~~ ~~公测版~~ ⚠️ 目前不发布 公测/内测版 因为项目未公开，<br />    大家也可直接[下载(Github)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/releases/)/[下载(Gitee)](https://gitee.com/xian66/minecraft-optimal-starter_2/releases/)
 
 ---
 
 <a name="8c8a93fa"></a>
-## 依赖 🐕‍🦺 (小白不要看这个，直接去[Gitee](https://gitee.com/xian66/minecraft-optimal-starter_issue)或[Github](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_issue)下载版本）
+## 依赖 🐕‍🦺 (小白不要看这个，直接去[Gitee](https://gitee.com/xian66/minecraft-optimal-starter_2/releases/)或[Github](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/releases/)下载版本）
 
 1. 🤖 首先，需要安装[Python3](https://www.python.org) （建议最新版本，当然，其他版本也可以） 🤖
 1. 🤖 PyQt5/6 环境(教程自己百度)，⚠️windows版请使用PyQt5，Mac版及其其他请使用PyQt6⚠️ 🤖
