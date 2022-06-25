@@ -2,11 +2,11 @@ import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt5\Qt5\plugins'  #### 这一行是新增的。用的是相对路径。
 
-from PyQt6 import QtWidgets, QtGui, QtCore
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
-from PyQt6.QtGui import QIcon, QAction
+from PyQt6 import *
 # from PyQt6.QtWidgets import (QMainWindow, QTextEdit,QFileDialog, QApplication)
+from PyQt6.QtGui import QIcon, QAction
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
 
 
@@ -35,7 +35,7 @@ class Ui_MOS(object):
         MOS.resize(1000, 533)
         MOS.setMinimumSize(QtCore.QSize(1000, 533))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/ico.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_ico_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MOS.setWindowIcon(icon)
         MOS.setStyleSheet("QMainWindow{\n"
 "    border-radius:15px;\n"
@@ -179,7 +179,7 @@ class Ui_MOS(object):
         self.pushButton_home.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.pushButton_home.setStyleSheet("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/home.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_home_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_home.setIcon(icon1)
         self.pushButton_home.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_home.setObjectName("pushButton_home")
@@ -188,7 +188,7 @@ class Ui_MOS(object):
         self.pushButton_lianji.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_lianji.setStyleSheet("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/online.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_online_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_lianji.setIcon(icon2)
         self.pushButton_lianji.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_lianji.setObjectName("pushButton_lianji")
@@ -197,7 +197,7 @@ class Ui_MOS(object):
         self.pushButton_xiazai.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_xiazai.setStyleSheet("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/download.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_download_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_xiazai.setIcon(icon3)
         self.pushButton_xiazai.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_xiazai.setObjectName("pushButton_xiazai")
@@ -206,7 +206,7 @@ class Ui_MOS(object):
         self.pushButton_music.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_music.setStyleSheet("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/music.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon4.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_music_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_music.setIcon(icon4)
         self.pushButton_music.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_music.setObjectName("pushButton_music")
@@ -215,7 +215,7 @@ class Ui_MOS(object):
         self.pushButton_shezhi.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_shezhi.setStyleSheet("")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/settings.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon5.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_settings_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_shezhi.setIcon(icon5)
         self.pushButton_shezhi.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_shezhi.setObjectName("pushButton_shezhi")
@@ -224,7 +224,7 @@ class Ui_MOS(object):
         self.pushButton_about.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_about.setStyleSheet("")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/about.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon6.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_about_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_about.setIcon(icon6)
         self.pushButton_about.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_about.setObjectName("pushButton_about")
@@ -774,7 +774,7 @@ class Ui_MOS(object):
         self.pushButton_20.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_20.setText("")
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/quilt.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon7.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_quilt_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_20.setIcon(icon7)
         self.pushButton_20.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_20.setObjectName("pushButton_20")
@@ -800,7 +800,7 @@ class Ui_MOS(object):
         self.pushButton_21.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_21.setText("")
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/loading.gif"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon8.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_loading_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_21.setIcon(icon8)
         self.pushButton_21.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_21.setObjectName("pushButton_21")
@@ -816,7 +816,7 @@ class Ui_MOS(object):
         self.pushButton_23.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_23.setText("")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/forge.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon9.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_forge_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_23.setIcon(icon9)
         self.pushButton_23.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_23.setObjectName("pushButton_23")
@@ -829,7 +829,7 @@ class Ui_MOS(object):
         self.pushButton_24.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_24.setText("")
         icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/optifine.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon10.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_optifine_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_24.setIcon(icon10)
         self.pushButton_24.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_24.setObjectName("pushButton_24")
@@ -859,7 +859,7 @@ class Ui_MOS(object):
         self.pushButton_26.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_26.setText("")
         icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/fabric.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon11.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_fabric_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_26.setIcon(icon11)
         self.pushButton_26.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_26.setObjectName("pushButton_26")
@@ -1160,7 +1160,7 @@ class Ui_MOS(object):
         self.pushButton_31.setStyleSheet("border-style:none;")
         self.pushButton_31.setText("")
         icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/david.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon12.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_david_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_31.setIcon(icon12)
         self.pushButton_31.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_31.setObjectName("pushButton_31")
@@ -1189,7 +1189,7 @@ class Ui_MOS(object):
         self.pushButton_33.setStyleSheet("border-style:none;")
         self.pushButton_33.setText("")
         icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("/Users/xyj/Desktop/MOS/UI/../picture/heimnad.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon13.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_heimnad_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_33.setIcon(icon13)
         self.pushButton_33.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_33.setObjectName("pushButton_33")
@@ -2256,9 +2256,7 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.setCurrentIndex(1)
 
     def game_first_initialize_add(self, name):
-        name1 = [name]
-        self.comboBox_gonggao_right.addItems(name1)
-        self.listWidget.addItem(name)
+        self.listWidget_2.addItem(name)
 
     def gonggao(self, str):
         self.textBrowser_gonggao_left_txt.setHtml(str)
@@ -2944,7 +2942,7 @@ class game_first_initialize(QThread):
         a = str(sys.platform)
         if a == "darwin":
             print('当前系统为Mac')
-            #user_name = os.getlogin()
+            user_name = os.getlogin()
             # 获取当前系统用户目录
             user_home = os.path.expanduser('~')
             print(user_home)
@@ -2995,7 +2993,7 @@ class game_first_initialize(QThread):
         print("检测完毕")
         for a in MOS_versions_zhengchang:
             #正常的
-            self.sinOut_game_add.emit(a)
+           self.sinOut_game_add.emit(a)
         for a in MOS_versions_not_found_jar:
             #少jar的
             self.sinOut_game_add.emit(a)
@@ -3036,7 +3034,6 @@ try:
             print(file)
         else:
             file = ''
-            print(a)
  
         print("初始化设置成功！")
         MainWindow.show()
