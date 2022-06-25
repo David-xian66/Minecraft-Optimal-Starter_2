@@ -94,8 +94,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>808</width>
-             <height>509</height>
+             <width>811</width>
+             <height>515</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -222,7 +222,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                   <bool>true</bool>
                  </property>
                  <property name="currentIndex">
-                  <number>0</number>
+                  <number>-1</number>
                  </property>
                  <property name="maxVisibleItems">
                   <number>15</number>
@@ -242,26 +242,6 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                  <property name="modelColumn">
                   <number>0</number>
                  </property>
-                 <item>
-                  <property name="text">
-                   <string>1</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>3</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>4</string>
-                  </property>
-                 </item>
                 </widget>
                </item>
                <item row="5" column="0">
@@ -692,8 +672,8 @@ QProgressBar::chunk{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>790</width>
-                 <height>280</height>
+                 <width>774</width>
+                 <height>234</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -2239,8 +2219,8 @@ border:2px solid rgb(0, 150, 255);</string>
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>373</width>
-                     <height>627</height>
+                     <width>354</width>
+                     <height>715</height>
                     </rect>
                    </property>
                    <property name="styleSheet">
@@ -2688,7 +2668,7 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                       <number>2</number>
                      </property>
                      <property name="verticalSpacing">
-                      <number>-1</number>
+                      <number>6</number>
                      </property>
                      <item row="0" column="3">
                       <spacer name="horizontalSpacer_31">
@@ -3649,8 +3629,8 @@ border:2px solid rgb(0, 150, 255);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>822</width>
-                 <height>456</height>
+                 <width>354</width>
+                 <height>715</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -3778,9 +3758,6 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                      </property>
                      <property name="maxVisibleItems">
                       <number>20</number>
-                     </property>
-                     <property name="sizeAdjustPolicy">
-                      <enum>QComboBox::AdjustToMinimumContentsLength</enum>
                      </property>
                      <property name="duplicatesEnabled">
                       <bool>false</bool>
@@ -4104,7 +4081,7 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                   <number>2</number>
                  </property>
                  <property name="verticalSpacing">
-                  <number>-1</number>
+                  <number>6</number>
                  </property>
                  <item row="0" column="3">
                   <spacer name="horizontalSpacer_10">
