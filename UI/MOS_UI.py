@@ -1987,6 +1987,7 @@ class Ui_MOS(object):
         self.game = game_first_initialize()
         self.game.sinOut_game_add.connect(self.game_first_initialize_add)
         self.game.start()
+        Ui_MOS.click_pushButton_shezhi_fond_moren(self)
         # =============================================================================#
 
     # =================================分割线===================================#
@@ -2467,62 +2468,68 @@ class Ui_MOS(object):
 
 
     def setfont(self):
-        print(self.fontComboBox.currentText())
-        self.label_4.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_6.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_mos_left_top_user.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_mos_left_top_add.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_gonggao_left_txt.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_2.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.progressBar_2.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label__gonggao_right_txt.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_3.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.progressBar.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_7.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_9.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_8.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_10.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_11.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_19.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_20.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_21.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_12.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_13.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_15.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_17.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_16.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_18.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_22.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.label_gonggao_left_txt.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-
-
-
-        self.pushButton_home.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton_lianji.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton_music.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton_shezhi.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton_xiazai.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton_about.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton__gonggao_start.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton_5.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton_6.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton_7.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton_8.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.pushButton_11.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-
-
-        self.comboBox_gonggao_right.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.comboBox_2.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.comboBox_3.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.comboBox_4.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.comboBox_5.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.comboBox_6.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.comboBox.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-        self.fontComboBox.setFont(QtGui.QFont(self.fontComboBox.currentText()))
-
-
-        self.progressBar.setFont(QtGui.QFont(self.fontComboBox.currentText()))
+        a = self.fontComboBox.currentText()
+        print(a)
+        self.label_4.setFont(QtGui.QFont(a))
+        self.label_6.setFont(QtGui.QFont(a))
+        self.label_mos_left_top_user.setFont(QtGui.QFont(a))
+        self.label_mos_left_top_add.setFont(QtGui.QFont(a))
+        self.label_gonggao_left_txt.setFont(QtGui.QFont(a))
+        self.label_2.setFont(QtGui.QFont(a))
+        self.progressBar_2.setFont(QtGui.QFont(a))
+        self.label__gonggao_right_txt.setFont(QtGui.QFont(a))
+        self.label_3.setFont(QtGui.QFont(a))
+        self.progressBar.setFont(QtGui.QFont(a))
+        self.label_7.setFont(QtGui.QFont(a))
+        self.label_9.setFont(QtGui.QFont(a))
+        self.label_8.setFont(QtGui.QFont(a))
+        self.label_10.setFont(QtGui.QFont(a))
+        self.label_11.setFont(QtGui.QFont(a))
+        self.label_19.setFont(QtGui.QFont(a))
+        self.label_20.setFont(QtGui.QFont(a))
+        self.label_21.setFont(QtGui.QFont(a))
+        self.label_12.setFont(QtGui.QFont(a))
+        self.label_13.setFont(QtGui.QFont(a))
+        self.label_15.setFont(QtGui.QFont(a))
+        self.label_17.setFont(QtGui.QFont(a))
+        self.label.setFont(QtGui.QFont(a))
+        self.label_16.setFont(QtGui.QFont(a))
+        self.label_18.setFont(QtGui.QFont(a))
+        self.label_22.setFont(QtGui.QFont(a))
+        self.label_gonggao_left_txt.setFont(QtGui.QFont(a))
+        self.label_24.setFont(QtGui.QFont(a))
+        self.pushButton_home.setFont(QtGui.QFont(a))
+        self.pushButton_lianji.setFont(QtGui.QFont(a))
+        self.pushButton_music.setFont(QtGui.QFont(a))
+        self.pushButton_shezhi.setFont(QtGui.QFont(a))
+        self.pushButton_xiazai.setFont(QtGui.QFont(a))
+        self.pushButton_about.setFont(QtGui.QFont(a))
+        self.pushButton__gonggao_start.setFont(QtGui.QFont(a))
+        self.pushButton_5.setFont(QtGui.QFont(a))
+        self.pushButton_6.setFont(QtGui.QFont(a))
+        self.pushButton_7.setFont(QtGui.QFont(a))
+        self.pushButton_8.setFont(QtGui.QFont(a))
+        self.pushButton_11.setFont(QtGui.QFont(a))
+        self.pushButton_17.setFont(QtGui.QFont(a))
+        self.pushButton_16.setFont(QtGui.QFont(a))
+        self.pushButton_36.setFont(QtGui.QFont(a))
+        self.pushButton_37.setFont(QtGui.QFont(a))
+        self.pushButton_38.setFont(QtGui.QFont(a))
+        self.pushButton_39.setFont(QtGui.QFont(a))
+        self.pushButton_40.setFont(QtGui.QFont(a))
+        self.comboBox_gonggao_right.setFont(QtGui.QFont(a))
+        self.comboBox_2.setFont(QtGui.QFont(a))
+        self.comboBox_3.setFont(QtGui.QFont(a))
+        self.comboBox_4.setFont(QtGui.QFont(a))
+        self.comboBox_5.setFont(QtGui.QFont(a))
+        self.comboBox_6.setFont(QtGui.QFont(a))
+        self.comboBox.setFont(QtGui.QFont(a))
+        self.comboBox_gonggao_right.setFont(QtGui.QFont(a))
+        self.fontComboBox.setFont(QtGui.QFont(a))
+        self.progressBar.setFont(QtGui.QFont(a))
+        self.listWidget.setFont(QtGui.QFont(a))
+        self.listWidget_2.setFont(QtGui.QFont(a))
+        self.lineEdit_3.setFont(QtGui.QFont(a))
 
         # 修改在json中的字体
         MOS_file_json =os.path.join(file,".MOS","MOS.json")
@@ -2569,6 +2576,7 @@ class Ui_MOS(object):
         self.label_18.setFont(QtGui.QFont(str1))
         self.label_22.setFont(QtGui.QFont(str1))
         self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
+        self.label_24.setFont(QtGui.QFont(str1))
         self.pushButton_home.setFont(QtGui.QFont(str1))
         self.pushButton_lianji.setFont(QtGui.QFont(str1))
         self.pushButton_music.setFont(QtGui.QFont(str1))
@@ -2581,6 +2589,13 @@ class Ui_MOS(object):
         self.pushButton_7.setFont(QtGui.QFont(str1))
         self.pushButton_8.setFont(QtGui.QFont(str1))
         self.pushButton_11.setFont(QtGui.QFont(str1))
+        self.pushButton_17.setFont(QtGui.QFont(str1))
+        self.pushButton_16.setFont(QtGui.QFont(str1))
+        self.pushButton_36.setFont(QtGui.QFont(str1))
+        self.pushButton_37.setFont(QtGui.QFont(str1))
+        self.pushButton_38.setFont(QtGui.QFont(str1))
+        self.pushButton_39.setFont(QtGui.QFont(str1))
+        self.pushButton_40.setFont(QtGui.QFont(str1))
         self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
         self.comboBox_2.setFont(QtGui.QFont(str1))
         self.comboBox_3.setFont(QtGui.QFont(str1))
@@ -2588,10 +2603,22 @@ class Ui_MOS(object):
         self.comboBox_5.setFont(QtGui.QFont(str1))
         self.comboBox_6.setFont(QtGui.QFont(str1))
         self.comboBox.setFont(QtGui.QFont(str1))
+        self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
         self.fontComboBox.setFont(QtGui.QFont(str1))
         self.progressBar.setFont(QtGui.QFont(str1))
+        self.listWidget.setFont(QtGui.QFont(str1))
+        self.listWidget_2.setFont(QtGui.QFont(str1))
+        self.lineEdit_3.setFont(QtGui.QFont(str1))
 
         # 修改在json中的字体
+        a = str(sys.platform)
+        if a == "darwin":
+            user_name = os.getlogin()
+            # 获取当前系统用户目录
+            user_home = os.path.expanduser('~')
+            file = user_home + '/Documents'
+        else:
+            file = ''
         MOS_file_json =os.path.join(file,".MOS","MOS.json")
         try:
             with open(MOS_file_json, 'r+', encoding='utf-8') as f:
@@ -2639,6 +2666,7 @@ class Ui_MOS(object):
         self.label_18.setFont(QtGui.QFont(str1))
         self.label_22.setFont(QtGui.QFont(str1))
         self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
+        self.label_24.setFont(QtGui.QFont(str1))
         self.pushButton_home.setFont(QtGui.QFont(str1))
         self.pushButton_lianji.setFont(QtGui.QFont(str1))
         self.pushButton_music.setFont(QtGui.QFont(str1))
@@ -2651,6 +2679,13 @@ class Ui_MOS(object):
         self.pushButton_7.setFont(QtGui.QFont(str1))
         self.pushButton_8.setFont(QtGui.QFont(str1))
         self.pushButton_11.setFont(QtGui.QFont(str1))
+        self.pushButton_17.setFont(QtGui.QFont(str1))
+        self.pushButton_16.setFont(QtGui.QFont(str1))
+        self.pushButton_36.setFont(QtGui.QFont(str1))
+        self.pushButton_37.setFont(QtGui.QFont(str1))
+        self.pushButton_38.setFont(QtGui.QFont(str1))
+        self.pushButton_39.setFont(QtGui.QFont(str1))
+        self.pushButton_40.setFont(QtGui.QFont(str1))
         self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
         self.comboBox_2.setFont(QtGui.QFont(str1))
         self.comboBox_3.setFont(QtGui.QFont(str1))
@@ -2658,9 +2693,12 @@ class Ui_MOS(object):
         self.comboBox_5.setFont(QtGui.QFont(str1))
         self.comboBox_6.setFont(QtGui.QFont(str1))
         self.comboBox.setFont(QtGui.QFont(str1))
+        self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
         self.fontComboBox.setFont(QtGui.QFont(str1))
-        self.progressBar.setFont(QtGui.QFont(str1)) 
-
+        self.progressBar.setFont(QtGui.QFont(str1))
+        self.listWidget.setFont(QtGui.QFont(str1))
+        self.listWidget_2.setFont(QtGui.QFont(str1))
+        self.lineEdit_3.setFont(QtGui.QFont(str1))
 
 
 
@@ -2675,7 +2713,7 @@ class Ui_MOS(object):
         elif str == "ERROR_PermissionError" :
             #self.second = MOS_UI2.Ui_MainWindow()
             #self.second.show()
-            a = QMessageBox.critical(None,"错误","配置文件有问题，您是否自行修改了文件？。即将退出程序",QMessageBox.StandardButton.Yes,QMessageBox.StandardButton.Yes)
+            a = QMessageBox.critical(None,"错误","没有权限，无法完成操作。即将退出程序",QMessageBox.StandardButton.Yes,QMessageBox.StandardButton.Yes)
             if a == QMessageBox.StandardButton.Yes:  # 检查是否点了OK按钮
                 quit()
             #reply = QMessageBox()
@@ -2855,8 +2893,17 @@ class gonggao(QThread):
 
     def run(self):
         import requests
-        import time
+        import time, sys
         import linecache
+
+        a = str(sys.platform)
+        if a == "darwin":
+            user_name = os.getlogin()
+            # 获取当前系统用户目录
+            user_home = os.path.expanduser('~')
+            file = user_home + '/Documents'
+        else:
+            file = ''
 
         self.sinOut_gonggao_jindu.emit('10')
         print("开始获取公告")
@@ -2865,6 +2912,8 @@ class gonggao(QThread):
         try:
             header = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
             r = requests.get(url, timeout=(5,50), headers = header)  # Get方式获取网页数据
+
+
             if r.status_code == 200:
                 # 拼接路径
                 self.sinOut_gonggao_jindu.emit('55')
@@ -2939,7 +2988,7 @@ class gonggao(QThread):
 
         except requests.exceptions.ConnectTimeout:
             # self.sinOut_gonggao_error.emit("请求超时")
-            a = os.path.join(".MOS","Html","announcement.html")
+            a = os.path.join(file,".MOS","Html","announcement.html")
             if os.path.isfile(a)==True:
                 gangshu = len(linecache.getlines(a))    # 统计行数
                 gangshu1 = 0
@@ -2960,7 +3009,7 @@ class gonggao(QThread):
 
         except requests.exceptions.ReadTimeout:
             # self.sinOut_gonggao_error.emit("读取超时")
-            a = os.path.join(".MOS","Html","announcement.html")
+            a = os.path.join(file,".MOS","Html","announcement.html")
             if os.path.isfile(a)==True:
                 gangshu = len(linecache.getlines(a))    # 统计行数
                 gangshu1 = 0
@@ -2981,7 +3030,7 @@ class gonggao(QThread):
 
         except requests.exceptions.SSLError:
             # self.sinOut_gonggao_error.emit("SSL错误")
-            a = os.path.join(".MOS","Html","announcement.html")
+            a = os.path.join(file,".MOS","Html","announcement.html")
             if os.path.isfile(a)==True:
                 gangshu = len(linecache.getlines(a))    # 统计行数
                 gangshu1 = 0
@@ -3002,7 +3051,7 @@ class gonggao(QThread):
 
         except requests.exceptions.ConnectionError:
             # self.sinOut_gonggao_error.emit("连接错误\n")            
-            a = os.path.join(".MOS","Html","announcement.html")
+            a = os.path.join(file,".MOS","Html","announcement.html")
             if os.path.isfile(a)==True:
                 gangshu = len(linecache.getlines(a))    # 统计行数
                 gangshu1 = 0
@@ -3023,7 +3072,7 @@ class gonggao(QThread):
         except:
             traceback.print_exc()
             print("请求失败 未知错误")
-            a = os.path.join(".MOS","Html","announcement.html")
+            a = os.path.join(file,".MOS","Html","announcement.html")
             if os.path.isfile(a)==True:
                 gangshu = len(linecache.getlines(a))    # 统计行数
                 gangshu1 = 0
@@ -3057,7 +3106,16 @@ class MOS_file(QThread):
             #a = sys.platform()
             #print(a)
             #if a = 
-            
+
+            a = str(sys.platform)
+            if a == "darwin":
+                user_name = os.getlogin()
+                # 获取当前系统用户目录
+                user_home = os.path.expanduser('~')
+                file = user_home + '/Documents'
+            else:
+                file = ''
+
             MOS_file_1=os.path.join(file,".minecraft","mods")
             os.makedirs(MOS_file_1, exist_ok=True)
 
@@ -3124,14 +3182,11 @@ class game_first_initialize(QThread):
 
         a = str(sys.platform)
         if a == "darwin":
-            print('当前系统为Mac')
             user_name = os.getlogin()
             # 获取当前系统用户目录
             user_home = os.path.expanduser('~')
-            print(user_home)
 
             file = user_home + '/Documents'
-            print(file)
         else:
             file = ''
 
@@ -3154,8 +3209,6 @@ class game_first_initialize(QThread):
                 # f_2是版本文件夹的相对路径
                 jar = (f_3+".jar")
                 json = (f_3+".json")
-                print(jar)
-                print(json)
                 if os.path.exists(jar):
                     if os.path.exists(json):
                         MOS_versions_zhengchang.append(f_3)
@@ -3211,10 +3264,7 @@ try:
             user_name = os.getlogin()
             # 获取当前系统用户目录
             user_home = os.path.expanduser('~')
-            print(user_home)
-
             file = user_home + '/Documents'
-            print(file)
         else:
             file = ''
  
