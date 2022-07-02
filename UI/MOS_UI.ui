@@ -28,14 +28,11 @@
     <normaloff>../picture/ico.png</normaloff>../picture/ico.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainWindow{
-	border-radius:15px;
-	background-color: rgba(255, 255, 255, 0);
-}</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 255, 255,100);</string>
+    <string notr="true">background-color: rgba(255, 255, 255,0);</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_13">
     <property name="leftMargin">
@@ -56,7 +53,7 @@
     <item row="0" column="1">
      <widget class="QStackedWidget" name="stackedWidget_mos_right">
       <property name="styleSheet">
-       <string notr="true">background-color: rgba(255, 255, 255, 128);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="currentIndex">
        <number>0</number>
@@ -84,7 +81,7 @@
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border-style:none;background-color: rgba(255, 255, 255, 128);</string>
+           <string notr="true">border-style:none;background-color: rgb(255, 255, 255);</string>
           </property>
           <property name="widgetResizable">
            <bool>true</bool>
@@ -94,8 +91,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>811</width>
-             <height>515</height>
+             <width>808</width>
+             <height>509</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -318,7 +315,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                   <item row="0" column="1" rowspan="2" colspan="3">
                    <widget class="QLabel" name="label_3">
                     <property name="styleSheet">
-                     <string notr="true">border-style:none;</string>
+                     <string notr="true">border-style:none;background-color: rgba(255, 255, 255, 0);</string>
                     </property>
                     <property name="text">
                      <string>启动的图片</string>
@@ -451,7 +448,8 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                    <item row="0" column="0">
                     <widget class="QTextBrowser" name="textBrowser_gonggao_left_txt">
                      <property name="styleSheet">
-                      <string notr="true">border-style:none;</string>
+                      <string notr="true">border-style:none;
+background-color: rgba(255, 255, 255, 0);</string>
                      </property>
                     </widget>
                    </item>
@@ -672,8 +670,8 @@ QProgressBar::chunk{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>774</width>
-                 <height>234</height>
+                 <width>790</width>
+                 <height>280</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -2219,8 +2217,8 @@ border:2px solid rgb(0, 150, 255);</string>
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>354</width>
-                     <height>715</height>
+                     <width>373</width>
+                     <height>627</height>
                     </rect>
                    </property>
                    <property name="styleSheet">
@@ -3629,8 +3627,8 @@ border:2px solid rgb(0, 150, 255);</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>354</width>
-                 <height>715</height>
+                 <width>373</width>
+                 <height>627</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -4225,9 +4223,7 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
       <property name="styleSheet">
        <string notr="true">QWidget
 {
-	background-color: rgba(231, 230, 228,100);
-	border-bottom-left-radius:15px;
-	border-top-left-radius:15px;
+	background-color: rgb(231, 230, 228);
 	font-size: 13px;
 }
 #widget_mos_left_top
@@ -4372,6 +4368,9 @@ QPushButton
        </item>
        <item>
         <widget class="Line" name="line_2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+         </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>

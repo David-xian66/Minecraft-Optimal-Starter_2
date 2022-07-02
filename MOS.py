@@ -1,6 +1,7 @@
+from ast import Pass
 import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
 
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt5\Qt5\plugins'  #### 这一行是新增的。用的是相对路径。
+os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
@@ -39,8 +40,6 @@ class Ui_MOS(object):
         MOS_catalogue_picture_picture_user_png = os.path.join("picture", "picture_user.png") 
         MOS_catalogue_picture_user_png = os.path.join("picture", "user.png")
 
- 
-
         MOS.setObjectName("MOS")
         MOS.setWindowModality(QtCore.Qt.WindowModality.NonModal)
         MOS.resize(1000, 533)
@@ -48,19 +47,16 @@ class Ui_MOS(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_ico_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MOS.setWindowIcon(icon)
-        MOS.setStyleSheet("QMainWindow{\n"
-"    border-radius:15px;\n"
-"    background-color: rgba(255, 255, 255, 0);\n"
-"}")
+        MOS.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MOS)
-        self.centralwidget.setStyleSheet("background-color: rgba(255, 255, 255,100);")
+        self.centralwidget.setStyleSheet("background-color: rgba(255, 255, 255,0);")
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_13 = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout_13.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_13.setHorizontalSpacing(0)
         self.gridLayout_13.setObjectName("gridLayout_13")
         self.stackedWidget_mos_right = QtWidgets.QStackedWidget(self.centralwidget)
-        self.stackedWidget_mos_right.setStyleSheet("background-color: rgba(255, 255, 255, 128);")
+        self.stackedWidget_mos_right.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.stackedWidget_mos_right.setObjectName("stackedWidget_mos_right")
         self.page_gonggao = QtWidgets.QWidget()
         self.page_gonggao.setStyleSheet("")
@@ -75,11 +71,11 @@ class Ui_MOS(object):
         sizePolicy.setHeightForWidth(self.scrollArea_page_gonggao.sizePolicy().hasHeightForWidth())
         self.scrollArea_page_gonggao.setSizePolicy(sizePolicy)
         self.scrollArea_page_gonggao.setMinimumSize(QtCore.QSize(790, 0))
-        self.scrollArea_page_gonggao.setStyleSheet("border-style:none;background-color: rgba(255, 255, 255, 128);")
+        self.scrollArea_page_gonggao.setStyleSheet("border-style:none;background-color: rgb(255, 255, 255);")
         self.scrollArea_page_gonggao.setWidgetResizable(True)
         self.scrollArea_page_gonggao.setObjectName("scrollArea_page_gonggao")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 811, 515))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 808, 509))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout_16 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
@@ -180,10 +176,6 @@ class Ui_MOS(object):
         self.comboBox_gonggao_right.setFrame(True)
         self.comboBox_gonggao_right.setModelColumn(0)
         self.comboBox_gonggao_right.setObjectName("comboBox_gonggao_right")
-        self.comboBox_gonggao_right.addItem("")
-        self.comboBox_gonggao_right.addItem("")
-        self.comboBox_gonggao_right.addItem("")
-        self.comboBox_gonggao_right.addItem("")
         self.gridLayout_6.addWidget(self.comboBox_gonggao_right, 4, 0, 1, 1)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_6.addItem(spacerItem, 5, 0, 1, 1)
@@ -214,7 +206,7 @@ class Ui_MOS(object):
         self.progressBar.setObjectName("progressBar")
         self.gridLayout_2.addWidget(self.progressBar, 2, 0, 1, 5)
         self.label_3 = QtWidgets.QLabel(self.widget_scrollArea_page_gonggao_statring)
-        self.label_3.setStyleSheet("border-style:none;")
+        self.label_3.setStyleSheet("border-style:none;background-color: rgba(255, 255, 255, 0);")
         self.label_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.gridLayout_2.addWidget(self.label_3, 0, 1, 2, 3)
@@ -254,7 +246,8 @@ class Ui_MOS(object):
         self.gridLayout_20.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_20.setObjectName("gridLayout_20")
         self.textBrowser_gonggao_left_txt = QtWidgets.QTextBrowser(self.page_gonggao_jiazai)
-        self.textBrowser_gonggao_left_txt.setStyleSheet("border-style:none;")
+        self.textBrowser_gonggao_left_txt.setStyleSheet("border-style:none;\n"
+"background-color: rgba(255, 255, 255, 0);")
         self.textBrowser_gonggao_left_txt.setObjectName("textBrowser_gonggao_left_txt")
         self.gridLayout_20.addWidget(self.textBrowser_gonggao_left_txt, 0, 0, 1, 1)
         self.stackedWidget_gonggao.addWidget(self.page_gonggao_jiazai)
@@ -341,7 +334,7 @@ class Ui_MOS(object):
         self.scrollArea_page_gonggao_2.setWidgetResizable(True)
         self.scrollArea_page_gonggao_2.setObjectName("scrollArea_page_gonggao_2")
         self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 774, 234))
+        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 790, 280))
         self.scrollAreaWidgetContents_4.setStyleSheet("")
         self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
         self.gridLayout_27 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_4)
@@ -939,7 +932,7 @@ class Ui_MOS(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollArea_3.setObjectName("scrollArea_3")
         self.scrollAreaWidgetContents_5 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 354, 715))
+        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 373, 627))
         self.scrollAreaWidgetContents_5.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_5.setObjectName("scrollAreaWidgetContents_5")
         self.gridLayout_42 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_5)
@@ -1506,7 +1499,7 @@ class Ui_MOS(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 822, 470))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 373, 627))
         self.scrollAreaWidgetContents_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.gridLayout_23 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_2)
@@ -1771,9 +1764,7 @@ class Ui_MOS(object):
         self.widget_mos_left.setAutoFillBackground(False)
         self.widget_mos_left.setStyleSheet("QWidget\n"
 "{\n"
-"    background-color: rgba(231, 230, 228,100);\n"
-"    border-bottom-left-radius:15px;\n"
-"    border-top-left-radius:15px;\n"
+"    background-color: rgb(231, 230, 228);\n"
 "    font-size: 13px;\n"
 "}\n"
 "#widget_mos_left_top\n"
@@ -1883,6 +1874,7 @@ class Ui_MOS(object):
         self.gridLayout_4.addWidget(self.label_mos_left_top_user, 0, 1, 1, 1)
         self.verticalLayout_2.addWidget(self.widget_mos_left_top)
         self.line_2 = QtWidgets.QFrame(self.widget_mos_left)
+        self.line_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.line_2.setFrameShape(QtWidgets.QFrame.Shape.HLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
         self.line_2.setObjectName("line_2")
@@ -1953,7 +1945,7 @@ class Ui_MOS(object):
 
         self.retranslateUi(MOS)
         self.stackedWidget_mos_right.setCurrentIndex(0)
-        self.comboBox_gonggao_right.setCurrentIndex(0)
+        self.comboBox_gonggao_right.setCurrentIndex(-1)
         self.stackedWidget_gonggao.setCurrentIndex(1)
         self.stackedWidget_mos_right_2.setCurrentIndex(2)
         self.stackedWidget_gonggao_2.setCurrentIndex(1)
@@ -1965,6 +1957,8 @@ class Ui_MOS(object):
         self.stackedWidget.setCurrentIndex(0)
         self.fontComboBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MOS)
+
+
 
         # =============================================================================#
 
@@ -1987,7 +1981,7 @@ class Ui_MOS(object):
         self.game = game_first_initialize()
         self.game.sinOut_game_add.connect(self.game_first_initialize_add)
         self.game.start()
-        Ui_MOS.click_pushButton_shezhi_fond_moren(self)
+        
         # =============================================================================#
 
     # =================================分割线===================================#
@@ -1996,9 +1990,7 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.setCurrentIndex(0)
         pushButton_home_true = ("QWidget\n"
                                  "{\n"
-                                 "    background-color: rgba(231, 230, 228, 100);\n"
-                                 "    border-bottom-left-radius:15px;\n"
-                                 "    border-top-left-radius:15px;\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
                                  "    font-size: 13px;\n"
                                  "}\n"
                                  "#widget_mos_left_top\n"
@@ -2066,9 +2058,7 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.setCurrentIndex(2)
         pushButton_lianji_true = ("QWidget\n"
                                  "{\n"
-                                 "    background-color: rgba(231, 230, 228, 100);\n"
-                                 "    border-bottom-left-radius:15px;\n"
-                                 "    border-top-left-radius:15px;\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
                                  "    font-size: 13px;\n"
                                  "}\n"
                                  "#widget_mos_left_top\n"
@@ -2136,9 +2126,7 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.setCurrentIndex(3)
         pushButton_xiazai_true = ("QWidget\n"
                                  "{\n"
-                                 "    background-color: rgba(231, 230, 228, 100);\n"
-                                 "    border-bottom-left-radius:15px;\n"
-                                 "    border-top-left-radius:15px;\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
                                  "    font-size: 13px;\n"
                                  "}\n"
                                  "#widget_mos_left_top\n"
@@ -2206,10 +2194,7 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.setCurrentIndex(4)
         pushButton_music_true = ("QWidget\n"
                                  "{\n"
-                                 "    background-color: rgba(231, 230, 228, 100);\n"
-                                 "    border-bottom-left-radius:15px;\n"
-                                 "    border-top-left-radius:15px;\n"
-                                 "    font-size: 13px;\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
                                  "}\n"
                                  "#widget_mos_left_top\n"
                                  "{\n"
@@ -2276,9 +2261,7 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.setCurrentIndex(5)
         pushButton_shezhi_true = ("QWidget\n"
                                  "{\n"
-                                 "    background-color: rgba(231, 230, 228, 100);\n"
-                                 "    border-bottom-left-radius:15px;\n"
-                                 "    border-top-left-radius:15px;\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
                                  "    font-size: 13px;\n"
                                  "}\n"
                                  "#widget_mos_left_top\n"
@@ -2346,9 +2329,7 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.setCurrentIndex(6)
         pushButton_about_true = ("QWidget\n"
                                  "{\n"
-                                 "    background-color: rgba(231, 230, 228, 100);\n"
-                                 "    border-bottom-left-radius:15px;\n"
-                                 "    border-top-left-radius:15px;\n"
+                                 "    background-color: rgb(231, 230, 228);\n"
                                  "    font-size: 13px;\n"
                                  "}\n"
                                  "#widget_mos_left_top\n"
@@ -2532,6 +2513,15 @@ class Ui_MOS(object):
         self.lineEdit_3.setFont(QtGui.QFont(a))
 
         # 修改在json中的字体
+        a = str(sys.platform)
+        if a == "darwin":
+            print('当前系统为Mac')
+            user_name = os.getlogin()
+            # 获取当前系统用户目录
+            user_home = os.path.expanduser('~')
+            file = user_home + '/Documents'
+        else:
+            file = ''
         MOS_file_json =os.path.join(file,".MOS","MOS.json")
         try:
             with open(MOS_file_json, 'r+', encoding='utf-8') as f:
@@ -2545,6 +2535,17 @@ class Ui_MOS(object):
             print("json文件有问题")
         except json.decoder.JSONDecodeError:
             print("json数据异常")
+        except FileNotFoundError:
+            print("11")
+            #with open(MOS_file_json, 'w') as f:
+            #    print("000")
+            #with open(MOS_file_json, 'r+', encoding='utf-8') as f:
+            #    b = json.load(f)
+            #    b['font'] = self.fontComboBox.currentText()
+            #with open(MOS_file_json, 'w+', encoding='utf-8') as f:
+            #    json.dump(b, f, sort_keys=True, indent=4, separators=(',', ': '))
+            #    b1 = str(b)
+            #    print('默认字体：' + b1)
 
 
     def click_pushButton_shezhi_fond_moren(self):
@@ -2730,15 +2731,10 @@ class Ui_MOS(object):
 
 
 
-
     def retranslateUi(self, MOS):
         _translate = QtCore.QCoreApplication.translate
         MOS.setWindowTitle(_translate("MOS", "MOS ll 启动器"))
         self.label__gonggao_right_txt.setText(_translate("MOS", "<html><head/><body><p>启动游戏 <span style=\" color:#0096ff;\">•等待启动</span></p></body></html>"))
-        self.comboBox_gonggao_right.setItemText(0, _translate("MOS", "1"))
-        self.comboBox_gonggao_right.setItemText(1, _translate("MOS", "2"))
-        self.comboBox_gonggao_right.setItemText(2, _translate("MOS", "3"))
-        self.comboBox_gonggao_right.setItemText(3, _translate("MOS", "4"))
         self.pushButton__gonggao_start.setText(_translate("MOS", "启动游戏"))
         self.pushButton_16.setText(_translate("MOS", "版本列表"))
         self.label_3.setText(_translate("MOS", "启动的图片"))
@@ -2859,6 +2855,8 @@ class Ui_MOS(object):
         self.pushButton_shezhi.setText(_translate("MOS", "设置"))
         self.pushButton_about.setText(_translate("MOS", "关于"))
         self.label_mosll.setText(_translate("MOS", "MOS II"))
+
+
 
         
         # =================================分割线===================================#
@@ -3099,9 +3097,6 @@ class MOS_file(QThread):
     def run(self):
         import os,sys,platform
         print("文件初始化线程开始")
-
-
-
         try:
             #a = sys.platform()
             #print(a)
@@ -3115,6 +3110,7 @@ class MOS_file(QThread):
                 file = user_home + '/Documents'
             else:
                 file = ''
+                print(a)
 
             MOS_file_1=os.path.join(file,".minecraft","mods")
             os.makedirs(MOS_file_1, exist_ok=True)
@@ -3153,6 +3149,7 @@ class MOS_file(QThread):
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     b = json.load(f)
                     print('默认字体：' + b['font'])
+                    Ui_MOS.click_pushButton_shezhi_fond_moren(self)
             else:
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     try:
@@ -3179,43 +3176,46 @@ class game_first_initialize(QThread):
         super(game_first_initialize, self).__init__()
 
     def run(self):
+        try:
 
-        a = str(sys.platform)
-        if a == "darwin":
-            user_name = os.getlogin()
-            # 获取当前系统用户目录
-            user_home = os.path.expanduser('~')
+            a = str(sys.platform)
+            if a == "darwin":
+                user_name = os.getlogin()
+                # 获取当前系统用户目录
+                user_home = os.path.expanduser('~')
 
-            file = user_home + '/Documents'
-        else:
-            file = ''
+                file = user_home + '/Documents'
+            else:
+                file = ''
 
-        file_1 = os.path.join(file,".minecraft","versions")
-        print(file_1)
+            file_1 = os.path.join(file,".minecraft","versions")
+            print(file_1)
         
-        MOS_versions_zhengchang = []
-        MOS_versions_not_found_jar = []
-        MOS_versions_not_found_json = []
+            MOS_versions_zhengchang = []
+            MOS_versions_not_found_jar = []
+            MOS_versions_not_found_json = []
 
-        s_file  = os.listdir(file_1)
-        for f in s_file:
-            f_2=str(f)
-            real_url = os.path.join (file_1,f_2)
-            # real_url是versions下的文件的相对路径
-            if os.path.isdir(real_url):
-                # real_url是versions下的文件的相对路径，如果是文件夹
-                f_2= os.path.join (file_1 , f)
-                f_3= os.path.join (f_2 , f)
-                # f_2是版本文件夹的相对路径
-                jar = (f_3+".jar")
-                json = (f_3+".json")
-                if os.path.exists(jar):
-                    if os.path.exists(json):
-                        MOS_versions_zhengchang.append(f_3)
+            s_file  = os.listdir(file_1)
+            for f in s_file:
+                f_2=str(f)
+                real_url = os.path.join (file_1,f_2)
+                # real_url是versions下的文件的相对路径
+                if os.path.isdir(real_url):
+                    # real_url是versions下的文件的相对路径，如果是文件夹
+                    f_2= os.path.join (file_1 , f)
+                    f_3= os.path.join (f_2 , f)
+                    # f_2是版本文件夹的相对路径
+                    jar = (f_3+".jar")
+                    json = (f_3+".json")
+                    if os.path.exists(jar):
+                        if os.path.exists(json):
+                            MOS_versions_zhengchang.append(f_3)
+                        else:
+                            MOS_versions_not_found_json.append(f_3)
                     else:
-                        MOS_versions_not_found_json.append(f_3)
-                else:
-                    MOS_versions_not_found_jar.append(f_3)
+                        MOS_versions_not_found_jar.append(f_3)
+        except FileNotFoundError:
+            print("找不到"+file_1)
         
 
         print("\n" + "——————————————————————————————————————————————————————")
