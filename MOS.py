@@ -2413,6 +2413,19 @@ class Ui_MOS(object):
     def click_pushButton_banbenleibiao_shezhi(self):
         self.stackedWidget_5.setCurrentIndex(1)
 
+    def click_pushButton_banbenleibiao_add(self):
+        dir = QFileDialog()
+        dir.setFileMode(QFileDialog.FileMode.Directory)
+        dir.setDirectory(file)
+        #dir.setNameFilter('999(*.png)') 名称过滤器
+        if dir.exec():
+            print("ii")
+
+        #写法二
+        #fname = QFileDialog.getOpenFileName(None, 'Open file', 'l(*.png)')
+        '''QWidget = None, caption: str = '', directory: str = '', filter: str = '', initial Filter: str = '''
+        '''QWidget = None，标题:str = "，      目录:str = "，         过滤器:str = "，   初始过滤器:str = '''
+
 
     def gonggao(self, str):
         self.textBrowser_gonggao_left_txt.setHtml(str)
@@ -2873,6 +2886,7 @@ class Ui_MOS(object):
         self.pushButton_16.clicked.connect(self.click_pushButton_banbenleibiao)
         self.pushButton_35.clicked.connect(self.click_pushButton_banbenleibiao_back)
         self.pushButton_38.clicked.connect(self.click_pushButton_banbenleibiao_shezhi)
+        self.pushButton_36.clicked.connect(self.click_pushButton_banbenleibiao_add)
         # 在‘……………………’里显示所有
         # 为字体选择控件 连接槽
         self.fontComboBox.currentIndexChanged.connect(self.setfont)
@@ -3195,10 +3209,16 @@ class game_first_initialize(QThread):
             MOS_versions_not_found_jar = []
             MOS_versions_not_found_json = []
 
+            MOS_versions_zhengchang_name = []
+            MOS_versions_not_found_json_name = []
+            MOS_versions_not_found_jar_name = []
+
+
             s_file  = os.listdir(file_1)
             for f in s_file:
-                f_2=str(f)
-                real_url = os.path.join (file_1,f_2)
+                #f是每个版本的名字
+                f_2_yuan=str(f)
+                real_url = os.path.join (file_1,f_2_yuan)
                 # real_url是versions下的文件的相对路径
                 if os.path.isdir(real_url):
                     # real_url是versions下的文件的相对路径，如果是文件夹
@@ -3210,30 +3230,36 @@ class game_first_initialize(QThread):
                     if os.path.exists(jar):
                         if os.path.exists(json):
                             MOS_versions_zhengchang.append(f_3)
+                            MOS_versions_zhengchang_name.append(f_2_yuan)
                         else:
                             MOS_versions_not_found_json.append(f_3)
+                            MOS_versions_not_found_json_name.append(f_2_yuan)
                     else:
                         MOS_versions_not_found_jar.append(f_3)
+                        MOS_versions_not_found_jar_name.append(f_2_yuan)
         except FileNotFoundError:
             print("找不到"+file_1)
         
 
         print("\n" + "——————————————————————————————————————————————————————")
         print("——————————————————————————————————————————————————————")
-        print("\n" + "正常的游戏："+ str(MOS_versions_zhengchang))
+        print("\n" + "正常的游戏："+ str(MOS_versions_zhengchang_name))
+        print("所对应的路径" + str(MOS_versions_zhengchang))
         print("——————————————————————————————————————————————————————")
-        print("找不到.jar文件的游戏："+ str(MOS_versions_not_found_jar))
+        print("找不到.jar文件的游戏："+ str(MOS_versions_not_found_jar_name))
+        print("所对应的路径" + str(MOS_versions_not_found_jar))
         print("——————————————————————————————————————————————————————")
-        print("找不到.json文件的游戏："+ str(MOS_versions_not_found_json))
+        print("找不到.json文件的游戏："+ str(MOS_versions_not_found_json_name))
+        print("所对应的路径" + str(MOS_versions_not_found_json))
         print("——————————————————————————————————————————————————————")
         print("检测完毕")
-        for a in MOS_versions_zhengchang:
+        for a in MOS_versions_zhengchang_name:
             #正常的
            self.sinOut_game_add.emit(a)
-        for a in MOS_versions_not_found_jar:
+        for a in MOS_versions_not_found_jar_name:
             #少jar的
             self.sinOut_game_add.emit(a)
-        for a in MOS_versions_not_found_json:
+        for a in MOS_versions_not_found_json_name:
             #少json的
             self.sinOut_game_add.emit(a)
 
