@@ -1,6 +1,6 @@
-from ast import Pass
 from inspect import Traceback
 import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
+from turtle import right
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
@@ -2421,7 +2421,7 @@ class Ui_MOS(object):
         dir.setDirectory(file)
         #dir.setNameFilter('999(*.png)') 名称过滤器
         if dir.exec():
-            print("ii")
+            MOS_print("info","ii")
 
         #写法二
         #fname = QFileDialog.getOpenFileName(None, 'Open file', 'l(*.png)')
@@ -2465,7 +2465,7 @@ class Ui_MOS(object):
 
     def setfont(self):
         a = self.fontComboBox.currentText()
-        print(a)
+        MOS_print("info",a)
         self.label_4.setFont(QtGui.QFont(a))
         self.label_6.setFont(QtGui.QFont(a))
         self.label_mos_left_top_user.setFont(QtGui.QFont(a))
@@ -2530,7 +2530,7 @@ class Ui_MOS(object):
         # 修改在json中的字体
         a = str(sys.platform)
         if a == "darwin":
-            print('当前系统为Mac')
+            MOS_print("info",'当前系统为Mac')
             user_name = os.getlogin()
             # 获取当前系统用户目录
             user_home = os.path.expanduser('~')
@@ -2545,13 +2545,14 @@ class Ui_MOS(object):
                 b['font_default'] = 'No'
             with open(MOS_file_json, 'w+', encoding='utf-8') as f:
                 json.dump(b, f, sort_keys=True, indent=4, separators=(',', ': '))
-                print('默认字体：' + str(b))
+                b_1 = '默认字体：' + str(b)
+                MOS_print("info",b_1)
         except KeyError:
-            print("json文件有问题")
+            MOS_print("error","json文件有问题")
         except json.decoder.JSONDecodeError:
-            print("json数据异常")
+            MOS_print("error","json数据异常")
         except FileNotFoundError:
-            print("11")
+            pass
             #with open(MOS_file_json, 'w') as f:
             #    print("000")
             #with open(MOS_file_json, 'r+', encoding='utf-8') as f:
@@ -2643,17 +2644,17 @@ class Ui_MOS(object):
             with open(MOS_file_json, 'w+', encoding='utf-8') as f:
                 json.dump(b, f, sort_keys=True, indent=4, separators=(',', ': '))
                 b1 = str(b)
-                print('默认字体：' + b1)
+                MOS_print("info",str('默认字体：' + b1))
         except KeyError:
-            print("json文件有问题")
+            MOS_print("error","json文件有问题")
         except json.decoder.JSONDecodeError:
-            print("json数据异常")
+            MOS_print("error","json数据异常")
 
  
 
         
     def MOS_file_return_font(self, a):
-        print(str)
+        MOS_print("info",str)
         str1 = str(a)
         self.label_4.setFont(QtGui.QFont(str1))
         self.label_6.setFont(QtGui.QFont(str1))
@@ -2925,7 +2926,7 @@ class gonggao(QThread):
             file = ''
 
         self.sinOut_gonggao_jindu.emit('10')
-        print("开始获取公告")
+        MOS_print("info","开始获取公告")
         url = 'https://file.skyworldstudio.top/d/SoftwareRelease/MOS/announcement.html'
         self.sinOut_gonggao_jindu.emit('30')
         try:
@@ -2943,15 +2944,15 @@ class gonggao(QThread):
                 a = r.text
                 MOS_Html_gonggao_ok.write(a)
                 MOS_Html_gonggao_ok.close
-                print(a)
+                MOS_print("info",a)
                 self.sinOut_gonggao_ok.emit(a)
                 self.sinOut_gonggao_jindu.emit('90')
                 self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:#55f976;\">•公告获取成功！✓</span></p></body></html>")
-                print("请求成功")
+                MOS_print("info","请求成功")
                         
             elif r.status_code != 200:
                 if r.status_code == 404:
-                    print("公告请求失败，状态码为404")
+                    MOS_print("error","公告请求失败，状态码为404")
                     if os.path.isfile(a)==True:
                         gangshu = len(linecache.getlines(a))    # 统计行数
                         gangshu1 = 0
@@ -2960,14 +2961,14 @@ class gonggao(QThread):
                             g = linecache.getline(a,gangshu1)
                             gonggao = gonggao + g
                             gangshu1 += 1
-                        print(gonggao)
+                        MOS_print("info",str('\n'+gonggao))
                         gonggao = str(gonggao)
                         self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 404找不到文件 以为您自动显示上次获取到的内容</span></p></body></html>")
                         self.sinOut_gonggao_error.emit(gonggao) 
                     else:
                         self.sinOut_gonggao_error.emit("404，找不到文件")
                 elif r.status_code == 403:
-                    print("公告请求失败，状态码为403")
+                    MOS_print("error","公告请求失败，状态码为403")
                     if os.path.isfile(a)==True:
                         gangshu = len(linecache.getlines(a))    # 统计行数
                         gangshu1 = 0
@@ -2976,7 +2977,7 @@ class gonggao(QThread):
                             g = linecache.getline(a,gangshu1)
                             gonggao = gonggao + g
                             gangshu1 += 1
-                        print(gonggao)
+                        MOS_print("info",str('\n'+gonggao))
                         gonggao = str(gonggao)
                         self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 403无权访问 以为您自动显示上次获取到的内容</span></p></body></html>")
                         self.sinOut_gonggao_error.emit(gonggao) 
@@ -2996,7 +2997,7 @@ class gonggao(QThread):
                             g = linecache.getline(a,gangshu1)
                             gonggao = gonggao + g
                             gangshu1 += 1
-                        print(gonggao)
+                        MOS_print("info",str('\n'+gonggao))
                         gonggao = str(gonggao)
                         self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 403无权访问 以为您自动显示上次获取到的内容</span></p></body></html>")
                         self.sinOut_gonggao_error.emit(gonggao) 
@@ -3016,8 +3017,8 @@ class gonggao(QThread):
                     g = linecache.getline(a,gangshu1)
                     gonggao = gonggao + g
                     gangshu1 += 1
-                print("请求失败 请求超时")
-                print(gonggao)
+                MOS_print("error","请求失败 请求超时")
+                MOS_print("info",str('\n'+gonggao))
                 gonggao = str(gonggao)
                 self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 请求超时 以为您自动显示上次获取到的内容</span></p></body></html>")
                 self.sinOut_gonggao_error.emit(gonggao)
@@ -3037,8 +3038,8 @@ class gonggao(QThread):
                     g = linecache.getline(a,gangshu1)
                     gonggao = gonggao + g
                     gangshu1 += 1
-                print("请求失败 读取超时")
-                print(gonggao)
+                MOS_print("error","请求失败 读取超时")
+                MOS_print("info",str('\n'+gonggao))
                 gonggao = str(gonggao)
                 self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 读取超时 以为您自动显示上次获取到的内容</span></p></body></html>")
                 self.sinOut_gonggao_error.emit(gonggao)
@@ -3058,8 +3059,8 @@ class gonggao(QThread):
                     g = linecache.getline(a,gangshu1)
                     gonggao = gonggao + g
                     gangshu1 += 1
-                print("请求失败 SSL证书错误")
-                print(gonggao)
+                MOS_print("error","请求失败 SSL证书错误")
+                MOS_print("info",str('\n'+gonggao))
                 gonggao = str(gonggao)
                 self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ SSL证书错误 以为您自动显示上次获取到的内容</span></p></body></html>")
                 self.sinOut_gonggao_error.emit(gonggao)
@@ -3079,8 +3080,8 @@ class gonggao(QThread):
                     g = linecache.getline(a,gangshu1)
                     gonggao = gonggao + g
                     gangshu1 += 1
-                print("请求失败 连接错误")
-                print(gonggao)
+                MOS_print("error","请求失败 连接错误")
+                MOS_print("info",str('\n'+gonggao))
                 gonggao = str(gonggao)
                 self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 连接错误 以为您自动显示上次获取到的内容</span></p></body></html>")
                 self.sinOut_gonggao_error.emit(gonggao)
@@ -3089,8 +3090,9 @@ class gonggao(QThread):
                 self.sinOut_gonggao_error.emit("连接错误")
                 self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 连接错误 无缓存可加载</span></p></body></html>")
         except:
-            traceback.print_exc()
-            print("请求失败 未知错误")
+            error = traceback.print_exc()
+            MOS_print("error",error)
+            MOS_print("error","请求失败 未知错误")
             a = os.path.join(file,".MOS","Html","announcement.html")
             if os.path.isfile(a)==True:
                 gangshu = len(linecache.getlines(a))    # 统计行数
@@ -3100,7 +3102,7 @@ class gonggao(QThread):
                     g = linecache.getline(a,gangshu1)
                     gonggao = gonggao + g
                     gangshu1 += 1
-                print(gonggao)
+                MOS_print("info",str('\n'+gonggao))
                 gonggao = str(gonggao)
                 self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 未知错误 以为您自动显示上次获取到的内容</span></p></body></html>")
                 self.sinOut_gonggao_error.emit(gonggao)
@@ -3117,7 +3119,7 @@ class MOS_file(QThread):
 
     def run(self):
         import os,sys,platform
-        print("文件初始化线程开始")
+        MOS_print("info","文件初始化线程开始")
         try:
             #a = sys.platform()
             #print(a)
@@ -3131,7 +3133,7 @@ class MOS_file(QThread):
                 file = user_home + '/Documents'
             else:
                 file = ''
-                print(a)
+                MOS_print("info",a)
 
             MOS_file_1=os.path.join(file,".minecraft","mods")
             os.makedirs(MOS_file_1, exist_ok=True)
@@ -3155,12 +3157,12 @@ class MOS_file(QThread):
 
             if os.path.isfile(MOS_file_json)==True:
                 MOS_first_run = "NoFirst"
-                print("程序不是第一次运行")
+                MOS_print("info","程序不是第一次运行")
             elif os.path.isfile(MOS_file_1)==False:
                 MOS_first_run = "First"
                 MOS_json=open(MOS_file_json,"w")
                 MOS_json.close()
-                print("程序是第一次运行")
+                MOS_print("info","程序是第一次运行")
             self.sinOut.emit("OK!")
 
             if MOS_first_run == 'First':
@@ -3174,7 +3176,7 @@ class MOS_file(QThread):
                     json.dump(a, f, sort_keys=True, indent=4, separators=(',', ': '))
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     b = json.load(f)
-                    print('默认字体：' + b['font'])
+                    MOS_print("info",'默认字体：' + b['font'])
                     Ui_MOS.click_pushButton_shezhi_fond_moren(self)
             else:
                 #如果不是
@@ -3186,24 +3188,26 @@ class MOS_file(QThread):
                             self.sinOut_font.emit(c)
                         else:
                             c = str(b['font'])
-                            print('默认字体：' + c)
+                            c_1 = '默认字体：' + c
+                            MOS_print("info",c_1)
                             self.sinOut_font.emit(c)
                         MOS_game_dir_name = b['game_file_name']
-                        print('游戏版本列表(名称): '+str(MOS_game_dir_name))
+                        MOS_print("info",'游戏版本列表(名称): '+str(MOS_game_dir_name))
                         for MOS_game_dir_name_1 in MOS_game_dir_name:
                             '''在json文件中，根据版本名称列表，读取在字典中对应的路径'''
                             MOS_game_dir = b[MOS_game_dir_name_1]
-                            print(MOS_game_dir_name_1+' 游戏目录的路径: '+str(MOS_game_dir))
+                            MOS_print("info",MOS_game_dir_name_1+' 游戏目录的路径: '+str(MOS_game_dir))
                     except KeyError:
-                        print("json文件有问题")
+                        MOS_print("error","json文件有问题")
                         self.sinOut.emit("KeyError")
                     
 
         except PermissionError:
             print("初始化失败 没有权限，操作不被许可")
             self.sinOut.emit("ERROR_PermissionError")
-        except Exception as e:
-            print(e)
+        except:
+            error = traceback.print_exc()
+            MOS_print("error",error)
 
 class game_first_initialize(QThread):
     '''遍历versions文件+缓存'''
@@ -3235,11 +3239,12 @@ class game_first_initialize(QThread):
                     MOS_json_read_geme_dir_Game_2 = MOS_json_read(MOS_game_dir='Yes',MOS_game_name_dir=MOS_json_read_geme_dir_Game_1)
 
             except:
-                traceback.print_exc()
+                error = traceback.print_exc()
+                MOS_print("error",error)
 
 
             file_1 = os.path.join(file,".minecraft","versions")
-            print(file_1)
+            MOS_print("info",'当前检测的游戏文件夹路径'+file_1)
         
             MOS_versions_zhengchang = []
             MOS_versions_not_found_jar = []
@@ -3274,21 +3279,21 @@ class game_first_initialize(QThread):
                         MOS_versions_not_found_jar.append(f_3)
                         MOS_versions_not_found_jar_name.append(f_2_yuan)
         except FileNotFoundError:
-            print("找不到"+file_1)
+            MOS_print("error",str("找不到"+file_1))
         
 
-        print("\n" + "——————————————————————————————————————————————————————")
-        print("——————————————————————————————————————————————————————")
-        print("\n" + "正常的游戏："+ str(MOS_versions_zhengchang_name))
-        print("所对应的路径" + str(MOS_versions_zhengchang))
-        print("——————————————————————————————————————————————————————")
-        print("找不到.jar文件的游戏："+ str(MOS_versions_not_found_jar_name))
-        print("所对应的路径" + str(MOS_versions_not_found_jar))
-        print("——————————————————————————————————————————————————————")
-        print("找不到.json文件的游戏："+ str(MOS_versions_not_found_json_name))
-        print("所对应的路径" + str(MOS_versions_not_found_json))
-        print("——————————————————————————————————————————————————————")
-        print("检测完毕")
+        MOS_print("info","——————————————————————————————————————————————————————")
+        MOS_print("info","——————————————————————————————————————————————————————")
+        MOS_print("info",str("正常的游戏："+ str(MOS_versions_zhengchang_name)))
+        MOS_print("info",str("所对应的路径" + str(MOS_versions_zhengchang)))
+        MOS_print("info","——————————————————————————————————————————————————————")
+        MOS_print("info",str("找不到.jar文件的游戏："+ str(MOS_versions_not_found_jar_name)))
+        MOS_print("info",str("所对应的路径" + str(MOS_versions_not_found_jar)))
+        MOS_print("info","——————————————————————————————————————————————————————")
+        MOS_print("info",str("找不到.json文件的游戏："+ str(MOS_versions_not_found_json_name)))
+        MOS_print("info",str("所对应的路径" + str(MOS_versions_not_found_json)))
+        MOS_print("info","——————————————————————————————————————————————————————")
+        MOS_print("info","检测完毕")
         for a in MOS_versions_zhengchang_name:
             #正常的
            self.sinOut_game_add.emit(a)
@@ -3339,7 +3344,8 @@ def MOS_json_read(MOS_game_dir='',MOS_game_dir_name_or_dir='',MOS_game_name_dir=
     except FileNotFoundError:
         print("FileNotFoundError")
     except:
-        traceback.print_exc()
+        error = traceback.print_exc()
+        MOS_print("error",error)
 
 class MOS_print_colour:
     '''HEADER:偏粉的紫色(?)
@@ -3366,13 +3372,24 @@ class MOS_print_colour:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-def MOS_print(type,MOS_print):
-    '''type{[error,错误]  [hint,提示]}'''
-    MOS_time = '[' + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f') + ']'
+def MOS_print(type,MOS_print_1):
+    '''type{[error,错误]  [info,提示]}'''
+    MOS_print = str(MOS_print_1)
+    MOS_time = datetime.datetime.now().strftime('%H:%M:%S.%f')
     if type == 'error':
-        print(MOS_time + MOS_print_colour.FAIL_3 + MOS_print + '\033[0m')
-    elif type == 'hint':
-        print(MOS_time + MOS_print_colour.ENDC + MOS_print + '\033[0m')
+        tybe_1 = 'ERROR'
+        tybe_2 = MOS_print_colour.FAIL_3 + tybe_1 + MOS_print_colour.ENDC
+        MOS_time_2 = MOS_print_colour.FAIL_3 + MOS_time + MOS_print_colour.ENDC
+        left = MOS_print_colour.FAIL + '[' + MOS_print_colour.ENDC
+        right = MOS_print_colour.FAIL + ']' +MOS_print_colour.ENDC
+        print(left + MOS_time_2 + right + left + tybe_2 + right + MOS_print_colour.FAIL_2 + MOS_print + MOS_print_colour.ENDC)
+    elif type == 'info':
+        tybe_1 = 'INFO'
+        left = MOS_print_colour.ENDC + '[' + MOS_print_colour.ENDC
+        right = MOS_print_colour.ENDC + ']' +MOS_print_colour.ENDC
+        tybe_2 = MOS_print_colour.UNDERLINE + tybe_1 + MOS_print_colour.ENDC
+        MOS_time_2 = MOS_print_colour.UNDERLINE + MOS_time + MOS_print_colour.ENDC
+        print(left + MOS_time_2 + right + left + tybe_2 + right + MOS_print_colour.ENDC + MOS_print + MOS_print_colour.ENDC)
     
 try:
     if __name__ == '__main__':
@@ -3382,7 +3399,7 @@ try:
         # shutil.rmtree(".minecraft")
         a = str(sys.platform)
         if a == "darwin":
-            print('当前系统为Mac')
+            MOS_print("info",'当前系统为Mac')
             user_name = os.getlogin()
             # 获取当前系统用户目录
             user_home = os.path.expanduser('~')
@@ -3390,19 +3407,19 @@ try:
         else:
             file = ''
  
-        MOS_print("hint","程序已开始运行！")
+        MOS_print("info","程序已开始运行！")
         app = QtWidgets.QApplication(sys.argv)
-        print("请稍等...")
+        MOS_print("info","请稍等...")
         MainWindow = QtWidgets.QMainWindow()
         print("创建窗口对象成功！")
         ui = Ui_MOS()
-        print("创建PyQt窗口对象成功！")
+        MOS_print("info","创建PyQt窗口对象成功！")
         ui.setupUi(MainWindow)
-        print("初始化设置成功！")
+        MOS_print("info","初始化设置成功！")
         MainWindow.show()
-        print("已成功显示窗体")
+        MOS_print("info","已成功显示窗体")
         sys.exit(app.exec())
 except KeyboardInterrupt:
-    print("程序以强行退出")
-except:
-    traceback.print_exc()
+    MOS_print("info","程序以强行退出")
+except Exception as error:
+    MOS_print("error",error)
