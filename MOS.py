@@ -1,4 +1,5 @@
 from ast import Pass
+from inspect import Traceback
 import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
@@ -1967,6 +1968,7 @@ class Ui_MOS(object):
         #home_dir = str(Path.home())
         #fname = QFileDialog.getOpenFileName(self, 'Open file', home_dir)
         self.comboBox_gonggao_right.clear()
+        self.listWidget.clear()
 
         self.progressBar_2.setMinimum(0)
         self.progressBar_2.setMaximum(99)
@@ -1978,9 +1980,6 @@ class Ui_MOS(object):
         self.a.sinOut_font.connect(self.MOS_file_return_font)
         self.a.start()
 
-        self.game = game_first_initialize()
-        self.game.sinOut_game_add.connect(self.game_first_initialize_add)
-        self.game.start()
         
         # =============================================================================#
 
@@ -2407,6 +2406,9 @@ class Ui_MOS(object):
         self.comboBox_gonggao_right.addItems(name1)
         self.listWidget_2.addItem(name)
     
+    def game_dir_add(self, name):
+        self.listWidget.addItems(name)
+    
     def click_pushButton_banbenleibiao_back(self):
         self.stackedWidget_mos_right.setCurrentIndex(0)
 
@@ -2718,6 +2720,11 @@ class Ui_MOS(object):
 
     def MOS_file_return(self, str):
         if str == "OK!":
+            self.game = game_first_initialize()
+            self.game.sinOut_game_add.connect(self.game_first_initialize_add)
+            self.game.sinOut_game_dir_add.connect(self.game_dir_add)
+            self.game.start()
+
             self.g = gonggao()
             self.g.sinOut_gonggao_ok.connect(self.gonggao)
             self.g.sinOut_gonggao_jindu.connect(self.gonggao_jindu)
@@ -3201,6 +3208,7 @@ class MOS_file(QThread):
 class game_first_initialize(QThread):
     '''遍历versions文件+缓存'''
     sinOut_game_add = pyqtSignal(str)
+    sinOut_game_dir_add = pyqtSignal(list)
 
     def __init__(self):
         super(game_first_initialize, self).__init__()
@@ -3217,8 +3225,18 @@ class game_first_initialize(QThread):
                 file = user_home + '/Documents'
             else:
                 file = ''
+            #获取目录昵称
             MOS_json_read_geme_dir_Game = MOS_json_read(MOS_game_dir='Yes',MOS_game_dir_name_or_dir='name')
-            MOS_json_read_game_dir_Dir = MOS_json_read(MOS_game_dir='Yes',MOS_game_dir_name_or_dir='Dir')
+            self.sinOut_game_dir_add.emit(MOS_json_read_geme_dir_Game)
+
+            try:
+                #循环，根据获取的目录昵称，获取对应的路径
+                for MOS_json_read_geme_dir_Game_1 in MOS_json_read_geme_dir_Game:
+                    MOS_json_read_geme_dir_Game_2 = MOS_json_read(MOS_game_dir='Yes',MOS_game_name_dir=MOS_json_read_geme_dir_Game_1)
+
+            except:
+                traceback.print_exc()
+
 
             file_1 = os.path.join(file,".minecraft","versions")
             print(file_1)
@@ -3282,7 +3300,11 @@ class game_first_initialize(QThread):
             self.sinOut_game_add.emit(a)
 
 
-def MOS_json_read(MOS_game_dir='',MOS_game_dir_name_or_dir='',file=''):
+def MOS_json_read(MOS_game_dir='',MOS_game_dir_name_or_dir='',MOS_game_name_dir='',file=''):
+    '''MOS_game_dir:是否要获取版本路径相关的？
+        MOS_game_dir_name_or_dir:是获取名字还是路径
+        MOS_game_name_dir:用路径的昵称 获取对应的路径
+    '''
     try:
         a = str(sys.platform)
         if a == "darwin":
@@ -3299,13 +3321,19 @@ def MOS_json_read(MOS_game_dir='',MOS_game_dir_name_or_dir='',file=''):
                 if MOS_game_dir_name_or_dir == 'name':
                     MOS_game_dir_name = b['game_file_name']
                     return MOS_game_dir_name
-                else:
+                elif MOS_game_dir_name_or_dir == 'dir':
                     MOS_game_dir_name = b['game_file_name']
                     MOS_game_dir_DirPrint = []
                     for MOS_game_dir_name_1 in MOS_game_dir_name:
                         MOS_game_dir = b[MOS_game_dir_name_1]
                         MOS_game_dir_DirPrint.append(MOS_game_dir)
                     return MOS_game_dir_DirPrint
+                if MOS_game_name_dir != '':
+                    '''如果 输入了 目录昵称'''
+                    MOS_game_name_dir_1 = b[MOS_game_name_dir]
+                    return MOS_game_name_dir_1
+                else:
+                    pass
             else:
                 print(b)
     except FileNotFoundError:
@@ -3313,23 +3341,45 @@ def MOS_json_read(MOS_game_dir='',MOS_game_dir_name_or_dir='',file=''):
     except:
         traceback.print_exc()
 
+class MOS_print_colour:
+    '''HEADER:偏粉的紫色(?)
+        OKBLUE:蓝色
+        OKCYAN:青色
+        OKGREEN:绿色
+        WARNING:黄色
+        FAIL:红色
+        FAIL_2:加粗的红色
+        FAIL_3:有下划线的红色
+        ENDC:正常的黑色
+        BOLD:加粗的黑色
+        UNDERLINE:有下横线的黑色
+    '''
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    FAIL_2 = '\033[1;91m'
+    FAIL_3 = '\033[4;91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
+def MOS_print(type,MOS_print):
+    '''type{[error,错误]  [hint,提示]}'''
+    MOS_time = '[' + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f') + ']'
+    if type == 'error':
+        print(MOS_time + MOS_print_colour.FAIL_3 + MOS_print + '\033[0m')
+    elif type == 'hint':
+        print(MOS_time + MOS_print_colour.ENDC + MOS_print + '\033[0m')
+    
 try:
     if __name__ == '__main__':
         
         # import shutil
         # shutil.rmtree(".MOS")
         # shutil.rmtree(".minecraft")
-
-        print("程序已开始运行！")
-        app = QtWidgets.QApplication(sys.argv)
-        print("请稍等...")
-        MainWindow = QtWidgets.QMainWindow()
-        print("创建窗口对象成功！")
-        ui = Ui_MOS()
-        print("创建PyQt窗口对象成功！")
-        ui.setupUi(MainWindow)
-
         a = str(sys.platform)
         if a == "darwin":
             print('当前系统为Mac')
@@ -3340,6 +3390,14 @@ try:
         else:
             file = ''
  
+        MOS_print("hint","程序已开始运行！")
+        app = QtWidgets.QApplication(sys.argv)
+        print("请稍等...")
+        MainWindow = QtWidgets.QMainWindow()
+        print("创建窗口对象成功！")
+        ui = Ui_MOS()
+        print("创建PyQt窗口对象成功！")
+        ui.setupUi(MainWindow)
         print("初始化设置成功！")
         MainWindow.show()
         print("已成功显示窗体")
