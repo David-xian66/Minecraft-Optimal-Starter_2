@@ -2540,10 +2540,10 @@ class Ui_MOS(object):
             with open(MOS_file_json, 'r+', encoding='utf-8') as f:
                 b = json.load(f)
                 b['font'] = self.fontComboBox.currentText()
+                b['font_default'] = 'No'
             with open(MOS_file_json, 'w+', encoding='utf-8') as f:
                 json.dump(b, f, sort_keys=True, indent=4, separators=(',', ': '))
-                b1 = str(b)
-                print('默认字体：' + b1)
+                print('默认字体：' + str(b))
         except KeyError:
             print("json文件有问题")
         except json.decoder.JSONDecodeError:
@@ -2562,7 +2562,7 @@ class Ui_MOS(object):
 
 
     def click_pushButton_shezhi_fond_moren(self):
-        str1 = 'Academy Engraved LET'
+        str1 = 'FangSong'
         self.label_4.setFont(QtGui.QFont(str1))
         self.label_6.setFont(QtGui.QFont(str1))
         self.label_mos_left_top_user.setFont(QtGui.QFont(str1))
@@ -3157,20 +3157,36 @@ class MOS_file(QThread):
             self.sinOut.emit("OK!")
 
             if MOS_first_run == 'First':
+                #如果是第一次
                 with open(MOS_file_json, 'w+', encoding='utf-8') as f:
-                    a = {'font':'Academy Engraved LET'}
+                    MOS_file_1 =os.path.join(file,".minecraft")
+                    a = {'font':'FangSong',
+                        'font_default':'Yes',   
+                        'game_file_name':['默认目录'],
+                        '默认目录':MOS_file_1}
                     json.dump(a, f, sort_keys=True, indent=4, separators=(',', ': '))
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     b = json.load(f)
                     print('默认字体：' + b['font'])
                     Ui_MOS.click_pushButton_shezhi_fond_moren(self)
             else:
+                #如果不是
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     try:
                         b = json.load(f)
-                        c = str(b['font'])
-                        print('默认字体：' + c)
-                        self.sinOut_font.emit(c)
+                        if str(b['font_default']) == 'Yes':
+                            c = str('FangSong')
+                            self.sinOut_font.emit(c)
+                        else:
+                            c = str(b['font'])
+                            print('默认字体：' + c)
+                            self.sinOut_font.emit(c)
+                        MOS_game_dir_name = b['game_file_name']
+                        print('游戏版本列表(名称): '+str(MOS_game_dir_name))
+                        for MOS_game_dir_name_1 in MOS_game_dir_name:
+                            '''在json文件中，根据版本名称列表，读取在字典中对应的路径'''
+                            MOS_game_dir = b[MOS_game_dir_name_1]
+                            print(MOS_game_dir_name_1+' 游戏目录的路径: '+str(MOS_game_dir))
                     except KeyError:
                         print("json文件有问题")
                         self.sinOut.emit("KeyError")
@@ -3201,6 +3217,8 @@ class game_first_initialize(QThread):
                 file = user_home + '/Documents'
             else:
                 file = ''
+            MOS_json_read_geme_dir_Game = MOS_json_read(MOS_game_dir='Yes',MOS_game_dir_name_or_dir='name')
+            MOS_json_read_game_dir_Dir = MOS_json_read(MOS_game_dir='Yes',MOS_game_dir_name_or_dir='Dir')
 
             file_1 = os.path.join(file,".minecraft","versions")
             print(file_1)
@@ -3264,7 +3282,36 @@ class game_first_initialize(QThread):
             self.sinOut_game_add.emit(a)
 
 
-
+def MOS_json_read(MOS_game_dir='',MOS_game_dir_name_or_dir='',file=''):
+    try:
+        a = str(sys.platform)
+        if a == "darwin":
+            user_name = os.getlogin()
+            # 获取当前系统用户目录
+            user_home = os.path.expanduser('~')
+            file = user_home + '/Documents'
+        else:
+            file = ''
+        MOS_file_json =os.path.join(file,".MOS","MOS.json")
+        with open(MOS_file_json, 'r', encoding='utf-8') as f:
+            b = json.load(f)
+            if MOS_game_dir == 'Yes':
+                if MOS_game_dir_name_or_dir == 'name':
+                    MOS_game_dir_name = b['game_file_name']
+                    return MOS_game_dir_name
+                else:
+                    MOS_game_dir_name = b['game_file_name']
+                    MOS_game_dir_DirPrint = []
+                    for MOS_game_dir_name_1 in MOS_game_dir_name:
+                        MOS_game_dir = b[MOS_game_dir_name_1]
+                        MOS_game_dir_DirPrint.append(MOS_game_dir)
+                    return MOS_game_dir_DirPrint
+            else:
+                print(b)
+    except FileNotFoundError:
+        print("FileNotFoundError")
+    except:
+        traceback.print_exc()
 
 
 try:
@@ -3273,7 +3320,6 @@ try:
         # import shutil
         # shutil.rmtree(".MOS")
         # shutil.rmtree(".minecraft")
-
 
         print("程序已开始运行！")
         app = QtWidgets.QApplication(sys.argv)

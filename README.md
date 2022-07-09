@@ -1,6 +1,26 @@
----
+<div align="center">
 
-<a name="878a6390"></a>
+<p align="center">
+<img src="https://gitee.com/xian66/minecraft-optimal-starter_2/raw/master/picture/ico.png"/>
+</p>
+
+# 我的世界MOS 2 启动器
+
+[![OSCS Status](https://www.oscs1024.com/platform/badge/xianyongjian080402/Minecraft-Optimal-Starter_2.svg?size=small)](https://www.oscs1024.com/project/xianyongjian080402/Minecraft-Optimal-Starter_2?ref=badge_small)
+[![star](https://gitee.com/xian66/minecraft-optimal-starter_2/badge/star.svg?theme=dark)](https://gitee.com/xian66/minecraft-optimal-starter_2/stargazers)
+[![fork](https://gitee.com/xian66/minecraft-optimal-starter_2/badge/fork.svg?theme=dark)](https://gitee.com/xian66/minecraft-optimal-starter_2/members)
+[![GitHub issues](https://img.shields.io/github/issues/xianyongjian080402/Minecraft-Optimal-Starter_2)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/issues)
+[![GitHub stars](https://img.shields.io/github/stars/xianyongjian080402/Minecraft-Optimal-Starter_2?color=yellow)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/stargazers)
+[![GitHub license](https://img.shields.io/github/license/xianyongjian080402/Minecraft-Optimal-Starter_2)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/blob/master/LICENSE)
+[![GitHub forks](https://img.shields.io/github/forks/xianyongjian080402/Minecraft-Optimal-Starter_2)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/network)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/xianyongjian080402/Minecraft-Optimal-Starter_2?include_prereleases)
+![Python release (python.org)](https://img.shields.io/badge/Python-3.8-brightgreen)
+![pt](https://img.shields.io/badge/平台-Win%20Mac%20Linux-critical)
+
+[![xianyongjian080402/Minecraft-Optimal-Starter_2](https://gitee.com/xian66/minecraft-optimal-starter_2/widgets/widget_card.svg?colors=4183c4,ffffff,ffffff,e3e9ed,666666,9b9b9b)](https://gitee.com/xian66/minecraft-optimal-starter_2)
+
+</div>
+
 ## 介绍 📃
 🥳  MOS ll 全称[Minecraft-Optimal-Starter](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_issue) ll 中文名称为 MOS我的世界启动器，由David ²⁰²² 发起 正在申请入驻 [SWS](https://skyworldstudio.top) 工作室 （本人已是[SWS](https://skyworldstudio.top)工作室成员）MOS启动器可以让更多的玩家启动游戏，并且具有简单启动、下载速度快、不需安装Java、跨平台 等特点 🥳
 
