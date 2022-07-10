@@ -113,6 +113,12 @@
             </property>
             <item row="0" column="1">
              <widget class="QWidget" name="widget_scrollArea_page_gonggao_right" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>399</width>
+                <height>509</height>
+               </size>
+              </property>
               <property name="styleSheet">
                <string notr="true">QWidget  {
 	border:2px solid rgb(0, 150, 255);border-radius:15px;
@@ -201,6 +207,9 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -400,8 +409,8 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
              <widget class="QWidget" name="widget_scrollArea_page_gonggao_left" native="true">
               <property name="minimumSize">
                <size>
-                <width>0</width>
-                <height>0</height>
+                <width>399</width>
+                <height>509</height>
                </size>
               </property>
               <property name="styleSheet">
@@ -604,6 +613,9 @@ QProgressBar::chunk{
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
               </layout>
@@ -629,13 +641,16 @@ QProgressBar::chunk{
         <property name="bottomMargin">
          <number>0</number>
         </property>
+        <property name="verticalSpacing">
+         <number>0</number>
+        </property>
         <item row="0" column="0">
          <widget class="QStackedWidget" name="stackedWidget_mos_right_2">
           <property name="styleSheet">
            <string notr="true">background-color: rgba(255, 255, 255, 128);</string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page_gonggao_2">
            <property name="styleSheet">
@@ -1091,8 +1106,35 @@ QProgressBar::chunk{
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="page_11"/>
           <widget class="QWidget" name="page_12">
+           <property name="styleSheet">
+            <string notr="true">#pushButton_35
+{
+	width:30px;border-radius: 13px;background-color: rgba(255, 255, 255, 0);
+}
+#pushButton_35::hover
+{
+	border-radius: 13px;
+	background-color: rgba(192, 192, 192, 128);
+}
+#pushButton_35::pressed
+{
+	background-color: rgba(0, 150, 255, 51);
+}
+#pushButton_41
+{
+	width:30px;border-radius: 13px;background-color: rgba(255, 255, 255, 0);
+}
+#pushButton_41::hover
+{
+	border-radius: 13px;
+	background-color: rgba(192, 192, 192, 128);
+}
+#pushButton_41::pressed
+{
+	background-color: rgba(0, 150, 255, 51);
+}</string>
+           </property>
            <layout class="QGridLayout" name="gridLayout_33">
             <property name="leftMargin">
              <number>5</number>
@@ -1135,26 +1177,6 @@ QProgressBar::chunk{
               </property>
              </spacer>
             </item>
-            <item row="1" column="0">
-             <widget class="QPushButton" name="pushButton_35">
-              <property name="styleSheet">
-               <string notr="true">width:30px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>../picture/back.png</normaloff>../picture/back.png</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>35</width>
-                <height>28</height>
-               </size>
-              </property>
-             </widget>
-            </item>
             <item row="2" column="0" colspan="4">
              <widget class="Line" name="line_11">
               <property name="styleSheet">
@@ -1180,7 +1202,7 @@ QProgressBar::chunk{
                <string>版本列表</string>
               </property>
               <property name="indent">
-               <number>0</number>
+               <number>8</number>
               </property>
               <property name="openExternalLinks">
                <bool>false</bool>
@@ -1202,77 +1224,10 @@ QProgressBar::chunk{
                <property name="bottomMargin">
                 <number>0</number>
                </property>
-               <item row="0" column="0">
-                <widget class="QWidget" name="widget_7" native="true">
-                 <property name="maximumSize">
-                  <size>
-                   <width>185</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout">
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QListWidget" name="listWidget">
-                    <item>
-                     <property name="text">
-                      <string>默认目录</string>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>../picture/folder.png</normaloff>../picture/folder.png</iconset>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_38">
-                    <property name="text">
-                     <string>版本设置</string>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>../picture/settings.png</normaloff>../picture/settings.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_36">
-                    <property name="text">
-                     <string>添加版本文件夹</string>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>../picture/folder_add.png</normaloff>../picture/folder_add.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_37">
-                    <property name="text">
-                     <string>安装整合包</string>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>../picture/add.png</normaloff>../picture/add.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item row="0" column="1">
+               <property name="horizontalSpacing">
+                <number>4</number>
+               </property>
+               <item row="0" column="2">
                 <widget class="QWidget" name="widget_6" native="true">
                  <layout class="QGridLayout" name="gridLayout_52">
                   <property name="leftMargin">
@@ -1285,6 +1240,9 @@ QProgressBar::chunk{
                    <number>0</number>
                   </property>
                   <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="horizontalSpacing">
                    <number>0</number>
                   </property>
                   <item row="0" column="0">
@@ -1307,7 +1265,239 @@ QProgressBar::chunk{
                        <number>0</number>
                       </property>
                       <item row="0" column="0">
-                       <widget class="QListWidget" name="listWidget_2"/>
+                       <widget class="QListWidget" name="listWidget_2">
+                        <property name="styleSheet">
+                         <string notr="true">border-style:none;</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="page_25">
+                     <layout class="QGridLayout" name="gridLayout_56">
+                      <property name="leftMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>6</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="horizontalSpacing">
+                       <number>5</number>
+                      </property>
+                      <item row="0" column="0">
+                       <widget class="QPushButton" name="pushButton_41">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../picture/back.png</normaloff>../picture/back.png</iconset>
+                        </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>27</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="autoDefault">
+                         <bool>false</bool>
+                        </property>
+                        <property name="default">
+                         <bool>false</bool>
+                        </property>
+                        <property name="flat">
+                         <bool>false</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="2">
+                       <spacer name="horizontalSpacer_37">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLabel" name="label_43">
+                        <property name="styleSheet">
+                         <string notr="true">border-style:none;color:rgb(33, 33, 33);font-size: 17px;background-color: rgba(255, 255, 255, 0);</string>
+                        </property>
+                        <property name="lineWidth">
+                         <number>1</number>
+                        </property>
+                        <property name="text">
+                         <string>添加游戏目录</string>
+                        </property>
+                        <property name="indent">
+                         <number>4</number>
+                        </property>
+                        <property name="openExternalLinks">
+                         <bool>false</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0" colspan="3">
+                       <widget class="QWidget" name="widget_21" native="true">
+                        <property name="styleSheet">
+                         <string notr="true">border-radius: 15px;background-color: rgb(235, 235, 235);</string>
+                        </property>
+                        <layout class="QGridLayout" name="gridLayout_57">
+                         <item row="0" column="0" rowspan="2">
+                          <widget class="QLabel" name="label_45">
+                           <property name="text">
+                            <string>选择目录：</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                           <property name="wordWrap">
+                            <bool>false</bool>
+                           </property>
+                           <property name="openExternalLinks">
+                            <bool>false</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="2" column="0">
+                          <widget class="QLabel" name="label_48">
+                           <property name="text">
+                            <string>选择的路径：</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="0" column="2" rowspan="2">
+                          <widget class="QPushButton" name="pushButton_42">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>28</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border-radius: 10px;border:2px solid rgb(192, 192, 192);background-color: rgb(255, 255, 255);</string>
+                           </property>
+                           <property name="text">
+                            <string>选择……</string>
+                           </property>
+                           <property name="icon">
+                            <iconset>
+                             <normaloff>../picture/folder.png</normaloff>../picture/folder.png</iconset>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="2" column="2">
+                          <widget class="QLabel" name="label_46">
+                           <property name="text">
+                            <string>请先选择一个目录</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item row="2" column="0" colspan="3">
+                       <widget class="QWidget" name="widget_22" native="true">
+                        <property name="styleSheet">
+                         <string notr="true">border-radius: 15px;background-color: rgb(235, 235, 235);</string>
+                        </property>
+                        <layout class="QGridLayout" name="gridLayout_58">
+                         <item row="0" column="0">
+                          <widget class="QLabel" name="label_44">
+                           <property name="text">
+                            <string>目录名称：</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="0" column="1">
+                          <widget class="QLineEdit" name="lineEdit_4">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>28</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border-radius: 10px;border:2px solid rgb(192, 192, 192);background-color: rgb(255, 255, 255);</string>
+                           </property>
+                           <property name="inputMask">
+                            <string/>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                           <property name="dragEnabled">
+                            <bool>false</bool>
+                           </property>
+                           <property name="readOnly">
+                            <bool>false</bool>
+                           </property>
+                           <property name="placeholderText">
+                            <string>请输入目录名</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="0">
+                          <spacer name="horizontalSpacer_38">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item row="1" column="1">
+                          <widget class="QLabel" name="label_47">
+                           <property name="text">
+                            <string>* 目录名相当于给 游戏目录起了个名字</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item row="4" column="0" colspan="3">
+                       <spacer name="verticalSpacer_14">
+                        <property name="orientation">
+                         <enum>Qt::Vertical</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>20</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                       </spacer>
                       </item>
                      </layout>
                     </widget>
@@ -1451,7 +1641,7 @@ QProgressBar::chunk{
                       <property name="bottomMargin">
                        <number>0</number>
                       </property>
-                      <item row="0" column="0">
+                      <item row="0" column="2">
                        <widget class="QLabel" name="label_26">
                         <property name="text">
                          <string/>
@@ -1477,11 +1667,180 @@ QProgressBar::chunk{
                  </layout>
                 </widget>
                </item>
+               <item row="0" column="0">
+                <widget class="QWidget" name="widget_7" native="true">
+                 <property name="maximumSize">
+                  <size>
+                   <width>185</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QListView::item {
+    height: 30px;
+	padding: 10px;
+	border-left: 3px solid rgba(214, 214, 214,0);
+}
+QListView::item:hover {
+	border-left: 3px solid rgb(214, 214, 214);
+	background-color: transparent;
+}
+QListView::item:selected {
+	background-color: transparent;
+	color: black;
+	border-left: 3px solid rgb(0, 150, 255);
+}
+QPushButton
+{
+	border-radius: 2px;background-color: rgba(255, 255, 255, 0);border-style:none;
+}
+QPushButton::hover
+{
+	border-radius: 2px;
+	background-color: rgba(192, 192, 192, 128);
+}
+QPushButton::pressed
+{
+	background-color: rgba(0, 150, 255, 51);
+}</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout">
+                  <property name="spacing">
+                   <number>3</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QListWidget" name="listWidget">
+                    <property name="styleSheet">
+                     <string notr="true">border-style:none;</string>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>24</width>
+                      <height>24</height>
+                     </size>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>默认目录</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>../picture/folder.png</normaloff>../picture/folder.png</iconset>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_38">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>版本设置</string>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../picture/settings.png</normaloff>../picture/settings.png</iconset>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_36">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>添加版本文件夹</string>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../picture/folder_add.png</normaloff>../picture/folder_add.png</iconset>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_37">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>安装整合包</string>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../picture/add.png</normaloff>../picture/add.png</iconset>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="Line" name="line_16">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;background-color: rgba(66, 66, 66,200);</string>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
               </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="pushButton_35">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../picture/back.png</normaloff>../picture/back.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>27</width>
+                <height>30</height>
+               </size>
+              </property>
              </widget>
             </item>
            </layout>
           </widget>
+          <widget class="QWidget" name="page_24"/>
           <widget class="QWidget" name="page_13">
            <property name="styleSheet">
             <string notr="true">QComboBox {
@@ -3000,11 +3359,10 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
           </property>
           <widget class="QWidget" name="page_9">
            <property name="styleSheet">
-            <string notr="true">QAbstractItemView::item {
-    min-height: 110px;
-    min-width: 40px; 
-}
-</string>
+            <string notr="true">
+QTreeWidget::item {
+    height: 40px;
+}</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_9">
             <item row="0" column="0">
