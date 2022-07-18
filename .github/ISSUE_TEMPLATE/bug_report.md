@@ -1,38 +1,29 @@
 ---
-name: 错误报告
-about: 创建一份报告，以帮助我们改进
-title: ''
+name: 反馈一个新Bug
+about: 在这里，你可以反馈本项目的新Bug
+title: "[错误]"
 labels: bug
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+### 开始前
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+<!-- 无论您提交的Bug如何简单, 也请严格按照 Issue 模板填写信息, 未正确套用模板或信息不全的将不做处理. 感谢配合-->
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+- [ ] 我已经认真阅读[说明文件(Githib)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/blob/master/.github/ISSUE_TEMPLATE/ISSUE_GUIDELINES.md)/[说明文件(Gitee)](https://gitee.com/xian66/minecraft-optimal-starter_2/blob/master/.gitee/ISSUE_GUIDELINES.md)
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+<!-- 阅读后，请讲 [ ] 改为 [X]-->
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+### Bug描述
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+### 重现步骤
 
-**Additional context**
-Add any other context about the problem here.
+### 期望效果
+
+### 实际效果
+
+### 附言
+<!-- 没有请写 无 --->
+
+<!-- 建议上传日志文件 --->
