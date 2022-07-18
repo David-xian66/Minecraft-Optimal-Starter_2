@@ -51,7 +51,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: screenshots
+    id: logs
     attributes:
       label: 日志
       description: 如果有必要上传日志的话，在这里上传吧 (强烈建议上传)
