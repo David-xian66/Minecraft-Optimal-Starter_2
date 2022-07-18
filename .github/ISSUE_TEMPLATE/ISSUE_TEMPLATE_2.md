@@ -1,8 +1,8 @@
 ---
 name: 提出一个新建议
 about: 在这里，你可以给本项目提出建议
-title: "[建议]："
-labels: ''
+title: "[建议]"
+labels: recommendation
 assignees: ''
 
 ---
