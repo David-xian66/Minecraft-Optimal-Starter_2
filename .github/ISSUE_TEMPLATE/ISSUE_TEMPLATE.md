@@ -3,18 +3,11 @@ name: 反馈一个新bug
 about: 在这里，你可以反馈本项目的新bug
 title: "[Bug]: "
 ---
-<!-- 
+<!-- 无论您提交的Bug如何简单, 也请严格按照 Issue 模板填写信息, 未正确套用模板或信息不全的将不做处理. 感谢配合-->
 
-### 在你开始之前...
+- [ ] 我已经认真阅读[说明文件(Githib)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/blob/master/.github/ISSUE_TEMPLATE/ISSUE_GUIDELINES.md)/[说明文件(Gitee)](https://gitee.com/xian66/minecraft-optimal-starter_2/blob/master/.gitee/ISSUE_GUIDELINES.md)
 
-1. 请确保，您使用的是最新版本
-2. 请务必认真填写问卷
-
-**无论您反馈的bug如何简单, 也请严格按照 Issue 模板填写信息, 未正确套用模板或信息不全的问题反馈将不做处理. 感谢配合**
-
-**感谢您对我们的支持与谅解**
-
--->
+<!-- 阅读后，请讲 [ ] 改为 [X]-->
 
 ### Bug描述
 
