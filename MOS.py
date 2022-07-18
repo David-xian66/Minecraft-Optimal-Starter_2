@@ -1,5 +1,6 @@
 from inspect import Traceback
 import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
+from tkinter.messagebox import NO
 from turtle import right
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
@@ -2178,6 +2179,10 @@ class Ui_MOS(object):
             b = self.lineEdit_4.text()
             MOS_print("info",str("路径：" + a))
             MOS_print("info",str("名称：" + b))
+            self.pushButton_18.setText("正在设置，稍等")
+            MOS_print("info",str(MOS_json_read(All = "Yes")))
+            
+
     def gonggao(self, str):
         self.textBrowser_gonggao_left_txt.setHtml(str)
         self.progressBar_2.setMinimum(0)
@@ -3033,8 +3038,9 @@ class game_first_initialize(QThread):
             self.sinOut_game_add.emit(a)
 
 
-def MOS_json_read(MOS_game_dir='',MOS_game_dir_name_or_dir='',MOS_game_name_dir='',file=''):
-    '''MOS_game_dir:是否要获取版本路径相关的？
+def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = None, MOS_game_name_dir = None, file = None):
+    '''All:是否获取全部？
+        MOS_game_dir:是否要获取版本路径相关的？
         MOS_game_dir_name_or_dir:是获取名字还是路径
         MOS_game_name_dir:用路径的昵称 获取对应的路径
     '''
@@ -3050,6 +3056,10 @@ def MOS_json_read(MOS_game_dir='',MOS_game_dir_name_or_dir='',MOS_game_name_dir=
         MOS_file_json =os.path.join(file,".MOS","MOS.json")
         with open(MOS_file_json, 'r', encoding='utf-8') as f:
             b = json.load(f)
+            if All == "Yes":
+                return b
+            else:
+                pass
             if MOS_game_dir == 'Yes':
                 if MOS_game_dir_name_or_dir == 'name':
                     MOS_game_dir_name = b['game_file_name']
