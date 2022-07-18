@@ -13,7 +13,7 @@ body:
     id: preflight
     attributes:
       label: 开始之前……
-      description: 让我们看看你的登机牌准备好了吗
+      description: 让我们看看你准备好了吗？～
       options:
         - label: 我已经认真阅读[说明文件(Githib)](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2/blob/master/.github/ISSUE_TEMPLATE/ISSUE_GUIDELINES.md)/[说明文件(Gitee)](https://gitee.com/xian66/minecraft-optimal-starter_2/blob/master/.gitee/ISSUE_GUIDELINES.md)
           required: true
