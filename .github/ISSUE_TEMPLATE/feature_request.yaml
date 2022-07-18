@@ -48,7 +48,7 @@ body:
     attributes:
       label: 帮助文档
       description: 你有这个库/接口的帮助文档吗? (这有助于开发人员快速开发哦)
-      placeholder: 
+      placeholder: https://doc.qt.io/
     validations:
       required: false
   - type: textarea
