@@ -1,7 +1,10 @@
 ---
 name: 反馈一个新bug
 about: 在这里，你可以反馈本项目的新bug
-title: "[Bug]: "
+title: "[错误]："
+labels: ''
+assignees: ''
+
 ---
 
 ### 开始前
