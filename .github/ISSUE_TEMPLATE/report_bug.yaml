@@ -38,16 +38,24 @@ body:
   - type: textarea
     id: expected
     attributes:
-      label: 本应发生的结果
-      description: 你认为本应发生的结果
+      label: 期望的效果
+      description: 你期盼发生的结果
       placeholder: 切换页面
+    validations:
+      required: true
+  - type: textarea
+    id: expected_2
+    attributes:
+      label: 实际效果
+      description: 实际发生的结果 (如果在 “错误描述里” 写过了，可写“见上文”)
+      placeholder: 程序闪退了
     validations:
       required: true
   - type: textarea
     id: screenshots
     attributes:
       label: 截图
-      description: 如果有截图的话，在这里上传吧
+      description: 如果有截图的话，在这里上传吧。
     validations:
       required: false
   - type: textarea
@@ -61,7 +69,15 @@ body:
     id: other
     attributes:
       label: 备注
+      description: 在这里写上备注
+      placeholder: 什么都可以哦，没有那就算了吧。
+    validations:
+      required: false
+  - type: textarea
+    id: other_2
+    attributes:
+      label: 留言
       description: 你还想告诉我们什么？
-      placeholder: 什么都可以哦，没有就算了吧。
+      placeholder: 什么都可以哦，没有那就算了吧。
     validations:
       required: false
