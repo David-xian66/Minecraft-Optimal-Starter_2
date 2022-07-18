@@ -20,7 +20,7 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: 错误描述
+      label: Bug描述
       description: 请描述你遇到的具体问题
       placeholder: 如：MOS启动器在运行时，出现了…………
     validations:
@@ -28,7 +28,7 @@ body:
   - type: textarea
     id: reproducing
     attributes:
-      label: 复现方法
+      label: 复现方法(重现步骤)
       description: 你是如何触发这个错误的
       placeholder: |
         1. 点击……

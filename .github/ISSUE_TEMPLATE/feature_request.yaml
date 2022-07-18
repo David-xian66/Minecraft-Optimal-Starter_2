@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        无论您提交的Bug有多么简单, 也请严格按照 Issue 模板填写信息, 未正确套用模板或信息不全的将不做处理. 感谢配合
+        无论您提交的建议有多么简单, 也请严格按照 Issue 模板填写信息, 未正确套用模板或信息不全的将不做处理. 感谢配合
   - type: checkboxes
     id: preflight
     attributes:
@@ -20,9 +20,25 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: 建议描述
-      description: 请描述你的建议
+      label: 需求/意见说明
+      description: 请说明你的建议
+      placeholder: 添加…………
+    validations:
+      required: true
+  - type: textarea
+    id: description_2
+    attributes:
+      label: 建议描述 (详细)
+      description: 请详细描述你的建议
       placeholder: 如：为MOS启动器添加…………
+    validations:
+      required: true
+  - type: textarea
+    id: description_3
+    attributes:
+      label: 解决什么痛点/带来什么收益
+      description: 解决什么痛点/带来什么收益
+      placeholder: 如：可以解决/有利于…………
     validations:
       required: true
   - type: textarea
@@ -39,7 +55,7 @@ body:
     id: expected
     attributes:
       label: 要用到的API/库
-      description: 要用到的API/库
+      description: 为了实现，要用到的API/库
       placeholder: requests库/……的API
     validations:
       required: false
