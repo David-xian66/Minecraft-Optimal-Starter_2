@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="img">
+    <file>picture/loading_3.gif</file>
     <file>picture/back_blue_down.png</file>
     <file>picture/back_blue_up.png</file>
   </qresource>
