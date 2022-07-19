@@ -1,7 +1,6 @@
-from inspect import Traceback
+from ast import literal_eval
 import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
-from tkinter.messagebox import NO
-from turtle import right
+from tokenize import Name
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
@@ -2127,8 +2126,9 @@ class Ui_MOS(object):
         self.listWidget_2.addItem(name)
     
     def game_dir_add(self, name):
+        '''在版本文件夹类表中添加（多个）“文本”'''
         for name_1 in name:
-            icon2 = "picture/folder.png"
+            icon2 = os.path.join("picture","folder.png")
             item = QListWidgetItem(QIcon(icon2),name_1)
             self.listWidget.addItem(item)
     
@@ -2170,17 +2170,48 @@ class Ui_MOS(object):
             self.pushButton_18.setEnabled(False)
         else:
             self.pushButton_18.setEnabled(True)
+            self.pushButton_18.setText("确认添加")
+
+
     def click_pushButton_banbenleibiao_add_confirm(self):
-        a = self.label_46.text()
-        if a == "请先选择一个目录":
-            pass
-            #self.label_46.setText("请选择目录")
-        else:
-            b = self.lineEdit_4.text()
-            MOS_print("info",str("路径：" + a))
-            MOS_print("info",str("名称：" + b))
-            self.pushButton_18.setText("正在设置，稍等")
-            MOS_print("info",str(MOS_json_read(All = "Yes")))
+        back = self.pushButton_18.text()
+        if back != '添加完成, 再次点击可返回':
+            a = self.label_46.text()
+            if a == "请先选择一个目录":
+                pass
+                #self.label_46.setText("请选择目录")
+            else:
+                b = self.lineEdit_4.text()
+                MOS_print("info",str("路径：" + a))
+                MOS_print("info",str("名称：" + b))
+                self.pushButton_18.setEnabled(False)
+                self.pushButton_18.setText("正在设置并添加，请稍等")
+                # 获取Json文件内容
+                a_1 = MOS_json_read(All = "Yes")
+                # 提取名称列表
+                b_1 = a_1['game_file_name']
+                # 将新的名称加到提取出的名称表中
+                b_1.append(b)
+                # 将修改过的名称类表 “替换” 到原类表中
+                a_1['game_file_name'] = b_1
+                # 将对应的 路径 添加到 原类表中
+                a_1[b] = a
+                MOS_print("info",str(a_1))
+                MOS_json_write(a_1)
+
+                self.pushButton_18.setText("添加完成, 等待刷新")
+                
+                name_2 = MOS_json_read(MOS_game_dir='Yes', MOS_game_dir_name_or_dir='name')
+                self.listWidget.clear()
+                for name_1 in name_2:
+                    icon2 = os.path.join("picture","folder.png")
+                    item = QListWidgetItem(QIcon(icon2),name_1)
+                    self.listWidget.addItem(item)
+                self.pushButton_18.setText("添加完成, 再次点击可返回")
+                self.pushButton_18.setEnabled(True)
+        elif back == '添加完成, 再次点击可返回':
+            self.stackedWidget_5.setCurrentIndex(0)
+
             
 
     def gonggao(self, str):
@@ -2338,6 +2369,7 @@ class Ui_MOS(object):
         self.label_12.setStyleSheet(Ui_title_right)
         self.label_15.setStyleSheet(Ui_title_right)
         self.label_17.setStyleSheet(Ui_title_right)
+
     def click_pushButton_shezhi_fond_moren(self):
         str1 = 'FangSong'
         self.label_4.setFont(QtGui.QFont(str1))
@@ -2494,6 +2526,7 @@ class Ui_MOS(object):
 
 
     def MOS_file_return(self, str):
+        '''文件处理后……（如果成功那么启动2进程 如果失败……）'''
         if str == "OK!":
             self.game = game_first_initialize()
             self.game.sinOut_game_add.connect(self.game_first_initialize_add)
@@ -2663,7 +2696,7 @@ class gonggao(QThread):
         url = 'https://file.skyworldstudio.top/d/SoftwareRelease/MOS/announcement.html'
         self.sinOut_gonggao_jindu.emit('30')
         try:
-            header = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
+            header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
             r = requests.get(url, timeout=(5,50), headers = header)  # Get方式获取网页数据
 
 
@@ -2721,7 +2754,7 @@ class gonggao(QThread):
                     gonggao_r_status_code = r.status_code
                     gonggao_r_status_code1 = str(gonggao_r_status_code)
                     gonggao_111 = ("公告请求失败，状态码为" + gonggao_r_status_code1)
-                    print(gonggao_111)
+                    MOS_print("info", gonggao_111)
                     if os.path.isfile(a)==True:
                         gangshu = len(linecache.getlines(a))    # 统计行数
                         gangshu1 = 0
@@ -2936,7 +2969,7 @@ class MOS_file(QThread):
                     
 
         except PermissionError:
-            print("初始化失败 没有权限，操作不被许可")
+            MOS_print("error", "初始化失败 没有权限，操作不被许可")
             self.sinOut.emit("ERROR_PermissionError")
         except:
             error = traceback.print_exc()
@@ -2969,7 +3002,7 @@ class game_first_initialize(QThread):
             try:
                 #循环，根据获取的目录昵称，获取对应的路径
                 for MOS_json_read_geme_dir_Game_1 in MOS_json_read_geme_dir_Game:
-                    MOS_json_read_geme_dir_Game_2 = MOS_json_read(MOS_game_dir='Yes',MOS_game_name_dir=MOS_json_read_geme_dir_Game_1)
+                    MOS_json_read_geme_dir_Game_2 = MOS_json_read(MOS_game_dir='Yes', MOS_game_name_dir = MOS_json_read_geme_dir_Game_1)
 
             except:
                 error = traceback.print_exc()
@@ -3041,7 +3074,7 @@ class game_first_initialize(QThread):
 def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = None, MOS_game_name_dir = None, file = None):
     '''All:是否获取全部？
         MOS_game_dir:是否要获取版本路径相关的？
-        MOS_game_dir_name_or_dir:是获取名字还是路径
+        MOS_game_dir_name_or_dir:是获取名字还是路径 (如果是上面那个值要写Yes)
         MOS_game_name_dir:用路径的昵称 获取对应的路径
     '''
     try:
@@ -3078,9 +3111,19 @@ def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = No
                 else:
                     pass
             else:
-                print(b)
+                return b
     except FileNotFoundError:
-        print("FileNotFoundError")
+        MOS_print("error", "FileNotFoundError")
+    except:
+        error = traceback.print_exc()
+        MOS_print("error",error)
+
+def MOS_json_write(text):
+    '''写入Json文件，注意: 类型必须是字典'''
+    MOS_file_json =os.path.join(file,".MOS","MOS.json")
+    try:
+        with open(MOS_file_json, 'w+', encoding='utf-8') as f:
+            json.dump(text, f, sort_keys=False, indent=4, separators=(',', ': '))
     except:
         error = traceback.print_exc()
         MOS_print("error",error)
@@ -3110,18 +3153,18 @@ class MOS_print_colour:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-def MOS_print(type,MOS_print_1):
-    '''type{[error,错误]  [info,提示]}'''
+def MOS_print(type_,MOS_print_1):
+    '''type_{[error,错误]  [info,提示]}'''
     MOS_print = str(MOS_print_1)
     MOS_time = datetime.datetime.now().strftime('%H:%M:%S.%f')
-    if type == 'error':
+    if type_ == 'error':
         tybe_1 = 'ERROR'
         tybe_2 = MOS_print_colour.FAIL_3 + tybe_1 + MOS_print_colour.ENDC
         MOS_time_2 = MOS_print_colour.FAIL_3 + MOS_time + MOS_print_colour.ENDC
         left = MOS_print_colour.FAIL + '[' + MOS_print_colour.ENDC
         right = MOS_print_colour.FAIL + ']' +MOS_print_colour.ENDC
         print(left + MOS_time_2 + right + left + tybe_2 + right + MOS_print_colour.FAIL_2 + MOS_print + MOS_print_colour.ENDC)
-    elif type == 'info':
+    elif type_ == 'info':
         tybe_1 = 'INFO'
         left = MOS_print_colour.ENDC + '[' + MOS_print_colour.ENDC
         right = MOS_print_colour.ENDC + ']' +MOS_print_colour.ENDC
