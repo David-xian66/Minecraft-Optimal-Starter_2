@@ -1,6 +1,6 @@
-from ast import literal_eval
 import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
-from tokenize import Name
+
+
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
@@ -2117,7 +2117,7 @@ class Ui_MOS(object):
     def click_pushButton_qhqqi_blog(self):
         webbrowser.open("https://blog.qhqqi.top")
     
-    def click_pushButton_banbenleibiao(self):
+    def click_pushButton_youximululeibiao(self):
         self.stackedWidget_mos_right.setCurrentIndex(1)
 
     def game_first_initialize_add(self, name):
@@ -2126,22 +2126,22 @@ class Ui_MOS(object):
         self.listWidget_2.addItem(name)
     
     def game_dir_add(self, name):
-        '''在版本文件夹类表中添加（多个）“文本”'''
+        '''在版本文件夹类表中添加（多个）“文本”和图标'''
         for name_1 in name:
             icon2 = os.path.join("picture","folder.png")
             item = QListWidgetItem(QIcon(icon2),name_1)
             self.listWidget.addItem(item)
     
-    def click_pushButton_banbenleibiao_back(self):
+    def click_pushButton_youximululeibiao_back(self):
         self.stackedWidget_mos_right.setCurrentIndex(0)
 
-    def click_pushButton_banbenleibiao_shezhi(self):
+    def click_pushButton_youximululeibiao_shezhi(self):
         self.stackedWidget_5.setCurrentIndex(2)
 
-    def click_pushButton_banbenleibiao_add_qian(self):
+    def click_pushButton_youximululeibiao_add_qian(self):
         self.stackedWidget_5.setCurrentIndex(1)
 
-    def click_pushButton_banbenleibiao_add(self):
+    def click_pushButton_youximululeibiao_add(self):
         dir = QFileDialog()
         dir.setFileMode(QFileDialog.FileMode.Directory)
         dir.setDirectory(file)
@@ -2161,10 +2161,10 @@ class Ui_MOS(object):
         '''QWidget = None, caption: str = '', directory: str = '', filter: str = '', initial Filter: str = '''
         '''QWidget = None，标题:str = "，      目录:str = "，         过滤器:str = "，   初始过滤器:str = '''
 
-    def click_pushButton_banbenleibiao_add_back(self):
+    def click_pushButton_youximululeibiao_add_back(self):
         self.stackedWidget_5.setCurrentIndex(0)
 
-    def click_lineEdit_banbenleibiao_check(self):
+    def click_lineEdit_youximululeibiao_check(self):
         a = self.lineEdit_4.text()
         if self.label_46.text() == "请先选择一个目录":
             self.pushButton_18.setEnabled(False)
@@ -2172,8 +2172,28 @@ class Ui_MOS(object):
             self.pushButton_18.setEnabled(True)
             self.pushButton_18.setText("确认添加")
 
+    def click_lineEdit_youximululeibiao_check_leibiao(self, item):
+        '''点击游戏目录列表中的某一项后，加载所对应的路径下的游戏，并显示'''
+        # 切换为加载页面
+        self.stackedWidget_5.setCurrentIndex(3)
+        # 加载动图
+        gif_file = os.path.join("picture","loading.gif")
+        self.gif = QtGui.QMovie(gif_file)
+        self.label_26.setMovie(self.gif)
+        self.gif.start()
+        # 开始检测对应的路径下的游戏
+        file_name = item.text()
+        name = MOS_json_read(MOS_game_dir = 'Yes', MOS_game_name_dir = file_name)
+        self.game = game_first_initialize(file_versinons=name)
+        self.game.sinOut_game_add.connect(self.game_first_initialize_add)
+        self.game.sinOut_game_dir_add.connect(self.game_dir_add)
+        self.game.start()
+        
+            
 
-    def click_pushButton_banbenleibiao_add_confirm(self):
+
+
+    def click_pushButton_youximululeibiao_add_confirm(self):
         back = self.pushButton_18.text()
         if back != '添加完成, 再次点击可返回':
             a = self.label_46.text()
@@ -2328,7 +2348,7 @@ class Ui_MOS(object):
                 b['font'] = self.fontComboBox.currentText()
                 b['font_default'] = 'No'
             with open(MOS_file_json, 'w+', encoding='utf-8') as f:
-                json.dump(b, f, sort_keys=True, indent=4, separators=(',', ': '))
+                json.dump(b, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
                 b_1 = '默认字体：' + str(b)
                 MOS_print("info",b_1)
         except KeyError:
@@ -2343,7 +2363,7 @@ class Ui_MOS(object):
             #    b = json.load(f)
             #    b['font'] = self.fontComboBox.currentText()
             #with open(MOS_file_json, 'w+', encoding='utf-8') as f:
-            #    json.dump(b, f, sort_keys=True, indent=4, separators=(',', ': '))
+            #    json.dump(b, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
             #    b1 = str(b)
             #    print('默认字体：' + b1)
 
@@ -2448,7 +2468,7 @@ class Ui_MOS(object):
                 b = json.load(f)
                 b['font'] = str1
             with open(MOS_file_json, 'w+', encoding='utf-8') as f:
-                json.dump(b, f, sort_keys=True, indent=4, separators=(',', ': '))
+                json.dump(b, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
                 b1 = str(b)
                 MOS_print("info",str('默认字体：' + b1))
         except KeyError:
@@ -2654,17 +2674,19 @@ class Ui_MOS(object):
         self.pushButton_3.clicked.connect(self.click_pushButton_zanshuzuozhe)
         self.pushButton_10.clicked.connect(self.click_pushButton_qhqqi_blog)
         self.pushButton_11.clicked.connect(self.click_pushButton_shezhi_fond_moren)
-        self.pushButton_16.clicked.connect(self.click_pushButton_banbenleibiao)
-        self.pushButton_35.clicked.connect(self.click_pushButton_banbenleibiao_back)
-        self.pushButton_38.clicked.connect(self.click_pushButton_banbenleibiao_shezhi)
-        self.pushButton_36.clicked.connect(self.click_pushButton_banbenleibiao_add_qian)
-        self.pushButton_42.clicked.connect(self.click_pushButton_banbenleibiao_add)
-        self.pushButton_41.clicked.connect(self.click_pushButton_banbenleibiao_add_back)
-        self.pushButton_18.clicked.connect(self.click_pushButton_banbenleibiao_add_confirm)
-        self.lineEdit_4.textChanged.connect(self.click_lineEdit_banbenleibiao_check)
-        # 在‘……………………’里显示所有
+        self.pushButton_16.clicked.connect(self.click_pushButton_youximululeibiao)
+        self.pushButton_35.clicked.connect(self.click_pushButton_youximululeibiao_back)
+        self.pushButton_38.clicked.connect(self.click_pushButton_youximululeibiao_shezhi)
+        self.pushButton_36.clicked.connect(self.click_pushButton_youximululeibiao_add_qian)
+        self.pushButton_42.clicked.connect(self.click_pushButton_youximululeibiao_add)
+        self.pushButton_41.clicked.connect(self.click_pushButton_youximululeibiao_add_back)
+        self.pushButton_18.clicked.connect(self.click_pushButton_youximululeibiao_add_confirm)
+        self.lineEdit_4.textChanged.connect(self.click_lineEdit_youximululeibiao_check)
+        # 在‘………(上)……………’里显示所有
         # 为字体选择控件 连接槽
         self.fontComboBox.currentIndexChanged.connect(self.setfont)
+        self.listWidget.itemClicked.connect(self.click_lineEdit_youximululeibiao_check_leibiao)
+        
 
 
 class gonggao(QThread):
@@ -2939,7 +2961,7 @@ class MOS_file(QThread):
                         'font_default':'Yes',   
                         'game_file_name':['默认目录'],
                         '默认目录':MOS_file_1}
-                    json.dump(a, f, sort_keys=True, indent=4, separators=(',', ': '))
+                    json.dump(a, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     b = json.load(f)
                     MOS_print("info",'默认字体：' + b['font'])
@@ -2976,11 +2998,14 @@ class MOS_file(QThread):
             MOS_print("error",error)
 
 class game_first_initialize(QThread):
-    '''遍历versions文件+缓存'''
+    '''遍历versions文件+缓存, 默认
+        如果要遍历特定的文件夹，请把file_versinons附上路径
+    '''
     sinOut_game_add = pyqtSignal(str)
     sinOut_game_dir_add = pyqtSignal(list)
 
-    def __init__(self):
+    def __init__(self,file_versinons=None):
+        self.file_versinons = file_versinons
         super(game_first_initialize, self).__init__()
 
     def run(self):
@@ -2995,21 +3020,16 @@ class game_first_initialize(QThread):
                 file = user_home + '/Documents'
             else:
                 file = ''
-            #获取目录昵称
-            MOS_json_read_geme_dir_Game = MOS_json_read(MOS_game_dir='Yes',MOS_game_dir_name_or_dir='name')
-            self.sinOut_game_dir_add.emit(MOS_json_read_geme_dir_Game)
 
-            try:
-                #循环，根据获取的目录昵称，获取对应的路径
-                for MOS_json_read_geme_dir_Game_1 in MOS_json_read_geme_dir_Game:
-                    MOS_json_read_geme_dir_Game_2 = MOS_json_read(MOS_game_dir='Yes', MOS_game_name_dir = MOS_json_read_geme_dir_Game_1)
+            if self.file_versinons == None:
+                # 在程序刚刚开始运行的时候，在Json中获取所有的名称，并传给主窗口的game_dir_add函数，将名称和图标添加到列表中
+                MOS_json_read_geme_dir_Game = MOS_json_read(MOS_game_dir='Yes',MOS_game_dir_name_or_dir='name')
+                self.sinOut_game_dir_add.emit(MOS_json_read_geme_dir_Game)
 
-            except:
-                error = traceback.print_exc()
-                MOS_print("error",error)
-
-
-            file_1 = os.path.join(file,".minecraft","versions")
+                # 在程序刚刚开始运行的时候默认检测 默认路径 下的游戏
+                file_1 = os.path.join(file,".minecraft","versions")
+            else:
+                file_1 = os.path.join(self.file_versinons,"versions")
             MOS_print("info",'当前检测的游戏文件夹路径'+file_1)
         
             MOS_versions_zhengchang = []
@@ -3047,16 +3067,25 @@ class game_first_initialize(QThread):
         except FileNotFoundError:
             MOS_print("error",str("找不到"+file_1))
         
+        if self.file_versinons == None:
+            b = "默认目录"
+        else:
+            file_2 = self.file_versinons
+            b_1 = MOS_json_read(MOS_game_dir='Yes', MOS_game_dir_to_name=file_2)
+            if b_1 != 'Json异常':
+                '''列表正常'''
+                b = b_1
+            else:
+                MOS_print("error", b_1)
 
         MOS_print("info","——————————————————————————————————————————————————————")
-        MOS_print("info","——————————————————————————————————————————————————————")
-        MOS_print("info",str("正常的游戏："+ str(MOS_versions_zhengchang_name)))
+        MOS_print("info",str("'" + b + "'中" + "正常的游戏："+ str(MOS_versions_zhengchang_name)))
         MOS_print("info",str("所对应的路径" + str(MOS_versions_zhengchang)))
         MOS_print("info","——————————————————————————————————————————————————————")
-        MOS_print("info",str("找不到.jar文件的游戏："+ str(MOS_versions_not_found_jar_name)))
+        MOS_print("info",str("'" + b + "'中" + "找不到.jar文件的游戏："+ str(MOS_versions_not_found_jar_name)))
         MOS_print("info",str("所对应的路径" + str(MOS_versions_not_found_jar)))
         MOS_print("info","——————————————————————————————————————————————————————")
-        MOS_print("info",str("找不到.json文件的游戏："+ str(MOS_versions_not_found_json_name)))
+        MOS_print("info",str("'" + b + "'中" + "找不到.json文件的游戏："+ str(MOS_versions_not_found_json_name)))
         MOS_print("info",str("所对应的路径" + str(MOS_versions_not_found_json)))
         MOS_print("info","——————————————————————————————————————————————————————")
         MOS_print("info","检测完毕")
@@ -3071,11 +3100,13 @@ class game_first_initialize(QThread):
             self.sinOut_game_add.emit(a)
 
 
-def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = None, MOS_game_name_dir = None, file = None):
-    '''All:是否获取全部？
-        MOS_game_dir:是否要获取版本路径相关的？
-        MOS_game_dir_name_or_dir:是获取名字还是路径 (如果是上面那个值要写Yes)
-        MOS_game_name_dir:用路径的昵称 获取对应的路径
+def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = None, MOS_game_name_dir = None, MOS_game_dir_to_name = None,file = None):
+    '''All: 是否获取Json的全部数据？(直接输出全部的Json内容)
+        MOS_game_dir: 是否获取版本路径相关的？
+        MOS_game_dir_name_or_dir: 是获取所有的名字还是路径 (MOS_game_dir值要写Yes)
+        MOS_game_name_dir: 用路径的昵称 获取对应的路径 (MOS_game_dir值要写Yes)
+        MOS_game_dir_name: 用路径，获取对应的名字 (MOS_game_dir值要写Yes)
+        file: 强制设定前目录
     '''
     try:
         a = str(sys.platform)
@@ -3095,19 +3126,38 @@ def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = No
                 pass
             if MOS_game_dir == 'Yes':
                 if MOS_game_dir_name_or_dir == 'name':
-                    MOS_game_dir_name = b['game_file_name']
-                    return MOS_game_dir_name
+                    MOS_game_dir_name_ = b['game_file_name']
+                    return MOS_game_dir_name_
                 elif MOS_game_dir_name_or_dir == 'dir':
-                    MOS_game_dir_name = b['game_file_name']
+                    MOS_game_dir_name_ = b['game_file_name']
                     MOS_game_dir_DirPrint = []
-                    for MOS_game_dir_name_1 in MOS_game_dir_name:
+                    for MOS_game_dir_name_1 in MOS_game_dir_name_:
                         MOS_game_dir = b[MOS_game_dir_name_1]
                         MOS_game_dir_DirPrint.append(MOS_game_dir)
                     return MOS_game_dir_DirPrint
-                if MOS_game_name_dir != '':
-                    '''如果 输入了 目录昵称'''
+                if MOS_game_name_dir != None:
+                    '''根据名字获取路径'''
                     MOS_game_name_dir_1 = b[MOS_game_name_dir]
                     return MOS_game_name_dir_1
+                else:
+                    pass
+                if MOS_game_dir_to_name != None:
+                    '''根据路径获取名字'''
+                    # 列表推导式
+                    # b为整个Json数据 MOS_game_name_dir为路径
+                    # 返回的是个类表
+                    k_2 = [k for k, v in b.items() if v == MOS_game_dir_to_name]
+                    # 为了避免意外，对列表进行检查，检查是否只有一个值
+                    if len(k_2) == 1:
+                        '''检查通过'''
+                        for k_3 in k_2:
+                            return k_3
+                    else:
+                        '''检查不通过'''
+                        e = str("Json异常")
+                        MOS_print("error", str("Json异常" + str(k_2)))
+                        return e
+                    
                 else:
                     pass
             else:
@@ -3123,7 +3173,7 @@ def MOS_json_write(text):
     MOS_file_json =os.path.join(file,".MOS","MOS.json")
     try:
         with open(MOS_file_json, 'w+', encoding='utf-8') as f:
-            json.dump(text, f, sort_keys=False, indent=4, separators=(',', ': '))
+            json.dump(text, f, ensure_ascii=False, sort_keys=False, indent=4, separators=(',', ': '))
     except:
         error = traceback.print_exc()
         MOS_print("error",error)
