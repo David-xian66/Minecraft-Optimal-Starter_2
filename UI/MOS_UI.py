@@ -2122,22 +2122,42 @@ class Ui_MOS(object):
     def click_pushButton_youximululeibiao(self):
         self.stackedWidget_mos_right.setCurrentIndex(1)
 
-    def game_first_initialize_add(self, name):
-        '''将游戏添加到 主页上“选择要启动的游戏”下拉框中'''
-        name1 = [name]
-        self.comboBox_gonggao_right.addItems(name1)
-        self.listWidget_2.addItem(name)
-    
-    def game_dir_add(self, name, back= None):
-        '''在版本文件夹类表中添加（多个）“文本”和图标
-            参数back为是否返回到“版本文件夹下的游戏类表”页
+    def game_first_initialize_add(self, name, back= None):
+        '''将游戏添加到 主页上“选择要启动的游戏”下拉框 和“游戏目录”列表中 所选的目录下的游戏列表中
+            如果要 将 “游戏目录列表” 右边的页面 切换为 “当前选择的游戏目录 中的游戏 列表” back='Yes'
+            如果不，请写No
         '''
+        # 先清空列表
+        self.listWidget_2.clear()
+        self.listWidget_2.addItems(name)
+        if back != 'No':
+            self.stackedWidget_5.setCurrentIndex(0)
+        elif back == 'No':
+            pass
+    def game_first_initialize_add_DropDownBox(self, name):
+        '''在刚开始运行时，将所有的游戏添加到“选择要启动的游戏”下拉框中'''
+        self.comboBox_gonggao_right.clear()
+        self.comboBox_gonggao_right.addItems(name)
+
+    def game_first_initialize_add_error(self, error):
+        '''当点击 “游戏文件夹列表” 中的 文件夹后，检测目录下的游戏后 发生的错误'''
+        if error == '该版本文件夹下无游戏':
+            # 先清空列表
+            self.listWidget_2.clear()
+            self.listWidget_2.addItem("该版本文件夹下无游戏")
+            self.stackedWidget_5.setCurrentIndex(0)
+        elif error == '该版本文件夹下无游戏目录':
+            # 先清空列表
+            self.listWidget_2.clear()
+            self.listWidget_2.addItem("该版本文件夹下无游戏目录")
+            self.stackedWidget_5.setCurrentIndex(0)
+
+    def game_dir_add(self, name):
+        '''在游戏文件夹类表中添加（多个）“文本”和图标'''
         for name_1 in name:
             icon2 = os.path.join("picture","folder.png")
             item = QListWidgetItem(QIcon(icon2),name_1)
             self.listWidget.addItem(item)
-            if back != None:
-                self.stackedWidget_mos_right.setCurrentIndex(0)
     
     def click_pushButton_youximululeibiao_back(self):
         '''当点击版本列表页面上方的“返回”按钮后……'''
@@ -2178,7 +2198,6 @@ class Ui_MOS(object):
 
     def click_lineEdit_youximululeibiao_check(self):
         '''当“添加版本文件夹”页面中的“名称输入框”中的文字改变时，检查是否设置了要添加的文件夹路径。如果没有就不激活按钮，如果有，则激活'''
-        MOS_print("error","jjjjjjjj")
         a = self.lineEdit_4.text()
         if self.label_46.text() == "请先选择一个目录":
             self.pushButton_18.setEnabled(False)
@@ -2201,8 +2220,10 @@ class Ui_MOS(object):
         self.game = game_first_initialize(file_versinons=name)
         self.game.sinOut_game_add.connect(self.game_first_initialize_add)
         self.game.sinOut_game_dir_add.connect(self.game_dir_add)
+        self.game.sinOut_game_error.connect(self.game_first_initialize_add_error)
         self.game.start()
-        
+
+
             
 
 
@@ -2563,9 +2584,11 @@ class Ui_MOS(object):
     def MOS_file_return(self, str):
         '''文件处理后……（如果成功那么启动2进程 如果失败……）'''
         if str == "OK!":
-            self.game = game_first_initialize()
+            self.game = game_first_initialize(all='Yes')
             self.game.sinOut_game_add.connect(self.game_first_initialize_add)
+            self.game.sinOut_game_add_DropDownBox.connect(self.game_first_initialize_add_DropDownBox)
             self.game.sinOut_game_dir_add.connect(self.game_dir_add)
+            self.game.sinOut_game_error.connect(self.game_first_initialize_add_error)
             self.game.start()
 
             self.g = gonggao()
@@ -3013,14 +3036,18 @@ class MOS_file(QThread):
             MOS_print("error",error)
 
 class game_first_initialize(QThread):
-    '''遍历versions文件+缓存, 默认
+    '''遍历versions文件+缓存
         如果要遍历特定的文件夹，请把file_versinons附上路径
+        是程序刚开始运行时初始化的 all="Yes" (会检测Json中所有路径下的游戏，并添加到“选择要启动的游戏”下拉框中 然后单独检测默认目录，将其添加到 “目录下的游戏”列表)
     '''
-    sinOut_game_add = pyqtSignal(str)
+    sinOut_game_add = pyqtSignal(list,str)
     sinOut_game_dir_add = pyqtSignal(list)
+    sinOut_game_add_DropDownBox = pyqtSignal(list)
+    sinOut_game_error = pyqtSignal(str)
 
-    def __init__(self,file_versinons=None):
+    def __init__(self, file_versinons= None, all= None):
         self.file_versinons = file_versinons
+        self.all = all
         super(game_first_initialize, self).__init__()
 
     def run(self):
@@ -3035,9 +3062,13 @@ class game_first_initialize(QThread):
                 file = user_home + '/Documents'
             else:
                 file = ''
+            
+
+            # file_ 这个是为了在后面判断，这个指定的文件夹下，有没有游戏文件夹（在后面的代码中，如果报：找不到文件夹（就是游戏文件夹）这个变量的值会改变
+            file_ = "Yes"
 
             if self.file_versinons == None:
-                # 在程序刚刚开始运行的时候，在Json中获取所有的名称，并传给主窗口的game_dir_add函数，将名称和图标添加到列表中
+                # 在程序刚刚开始运行的时候，在Json中获取所有的名称，并传给主窗口的game_dir_add函数，将名称和图标添加到游戏文件夹列表中
                 MOS_json_read_geme_dir_Game = MOS_json_read(MOS_game_dir='Yes',MOS_game_dir_name_or_dir='name')
                 self.sinOut_game_dir_add.emit(MOS_json_read_geme_dir_Game)
 
@@ -3080,7 +3111,8 @@ class game_first_initialize(QThread):
                         MOS_versions_not_found_jar.append(f_3)
                         MOS_versions_not_found_jar_name.append(f_2_yuan)
         except FileNotFoundError:
-            MOS_print("error",str("找不到"+file_1))
+            # 在上面说了file_是做什么的
+            file_ = "NO"
         
         if self.file_versinons == None:
             b = "默认目录"
@@ -3092,6 +3124,44 @@ class game_first_initialize(QThread):
                 b = b_1
             else:
                 MOS_print("error", b_1)
+        
+        # 开始处理all
+        if self.all != None:
+            # 获取所有路径
+            all_1 = MOS_json_read(MOS_game_dir='Yes',MOS_game_dir_name_or_dir='dir')
+            # 准备列表
+            all_name = []
+            # 准备遍历
+            for all_2 in all_1:
+                all_file = os.path.join (all_2, "versions")
+                # 开始遍历
+                # all_file_2是versions文件夹的路径
+                all_file_2 = os.listdir(all_file)
+                for all_file_3 in all_file_2:
+                    # 开始一个一个进行分析
+                    # 注意：all_file_3 里面存的是名字 而不是 路径
+                    all_file_4 = os.path.join(all_file, all_file_3)
+                    if os.path.isdir(all_file_4):
+                        # 如果是文件夹
+                        jar = (all_file_3+ ".jar")
+                        json = (all_file_3+ ".json")
+                        jar_2 = os.path.join(all_file_4, jar)
+                        json_2 = os.path.join(all_file_4, json)
+                        if os.path.exists(jar_2):
+                            # 如果有jar文件
+                            if os.path.exists(json_2):
+                                # 如果也有Json
+                                all_name.append(all_file_3)
+                            else:
+                                # 如果没Json
+                                all_name_2 = str(all_file_3) + "找不到Json文件"
+                                all_name.append(all_name_2)
+                        else:
+                            # 如果连Jar都没有，直接判断，不是游戏文件夹
+                            pass
+            self.sinOut_game_add_DropDownBox.emit(all_name)
+
+
 
         MOS_print("info","——————————————————————————————————————————————————————")
         MOS_print("info",str("'" + b + "'中" + "正常的游戏："+ str(MOS_versions_zhengchang_name)))
@@ -3104,15 +3174,43 @@ class game_first_initialize(QThread):
         MOS_print("info",str("所对应的路径" + str(MOS_versions_not_found_json)))
         MOS_print("info","——————————————————————————————————————————————————————")
         MOS_print("info","检测完毕")
-        for a in MOS_versions_zhengchang_name:
-            #正常的
-           self.sinOut_game_add.emit(a)
-        for a in MOS_versions_not_found_jar_name:
-            #少jar的
-            self.sinOut_game_add.emit(a)
-        for a in MOS_versions_not_found_json_name:
-            #少json的
-            self.sinOut_game_add.emit(a)
+
+        if file_ == 'Yes':
+            '''判断 有没有游戏文件夹 file_的注释在上面'''
+            if len(MOS_versions_zhengchang_name) ==0 and len(MOS_versions_not_found_jar_name) == 0 and len(MOS_versions_not_found_json_name) == 0 :
+                '''单独判断是不是一个游戏都没有'''
+                MOS_print("info", str("'" + b + "'中没有游戏"))
+                self.sinOut_game_error.emit("该版本文件夹下无游戏")
+            else:
+                if len(MOS_versions_zhengchang_name) != 0:
+                    if self.file_versinons == None:
+                        #正常的
+                        self.sinOut_game_add.emit(MOS_versions_zhengchang_name,'No')
+                    else:
+                        self.sinOut_game_add.emit(MOS_versions_zhengchang_name,'Yes')
+                else:
+                    MOS_print("info", str("'" + b + "'中没有正常的游戏"))
+
+                if len(MOS_versions_not_found_jar_name) != 0:
+                    if self.file_versinons == None:
+                        #少jar的
+                        self.sinOut_game_add.emit(MOS_versions_not_found_json_name,'No')
+                    else:
+                        self.sinOut_game_add.emit(MOS_versions_not_found_json_name,'Yes')
+                else:
+                    MOS_print("info", str("'" + b + "'中没有少Jar的游戏"))
+
+                if len(MOS_versions_not_found_json_name) != 0:
+                    if self.file_versinons == None:
+                        #少json的
+                        self.sinOut_game_add.emit(MOS_versions_not_found_json_name,'NO')
+                    else:
+                        self.sinOut_game_add.emit(MOS_versions_not_found_json_name,'Yes')
+                else:
+                    MOS_print("info", str("'" + b + "'中没有少Json的游戏"))
+        else:
+            self.sinOut_game_error.emit("该版本文件夹下无游戏目录")
+            MOS_print("error",str("找不到" + file_1 + "没有游戏目录"))
 
 
 def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = None, MOS_game_name_dir = None, MOS_game_dir_to_name = None,file = None):
