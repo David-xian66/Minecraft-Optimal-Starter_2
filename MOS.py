@@ -2112,36 +2112,47 @@ class Ui_MOS(object):
         self.widget_mos_left.setStyleSheet(pushButton_about_true)
 
     def click_pushButton_zanshuzuozhe(self):
+        '''当点击“关于”页面中的“赞助作”按钮后……'''
         webbrowser.open("https://afdian.net/@David_MOS")
 
     def click_pushButton_qhqqi_blog(self):
+        '''当点击“关于”页面中的“打开QHQQI博客”按钮后……'''
         webbrowser.open("https://blog.qhqqi.top")
     
     def click_pushButton_youximululeibiao(self):
         self.stackedWidget_mos_right.setCurrentIndex(1)
 
     def game_first_initialize_add(self, name):
+        '''将游戏添加到 主页上“选择要启动的游戏”下拉框中'''
         name1 = [name]
         self.comboBox_gonggao_right.addItems(name1)
         self.listWidget_2.addItem(name)
     
-    def game_dir_add(self, name):
-        '''在版本文件夹类表中添加（多个）“文本”和图标'''
+    def game_dir_add(self, name, back= None):
+        '''在版本文件夹类表中添加（多个）“文本”和图标
+            参数back为是否返回到“版本文件夹下的游戏类表”页
+        '''
         for name_1 in name:
             icon2 = os.path.join("picture","folder.png")
             item = QListWidgetItem(QIcon(icon2),name_1)
             self.listWidget.addItem(item)
+            if back != None:
+                self.stackedWidget_mos_right.setCurrentIndex(0)
     
     def click_pushButton_youximululeibiao_back(self):
+        '''当点击版本列表页面上方的“返回”按钮后……'''
         self.stackedWidget_mos_right.setCurrentIndex(0)
 
     def click_pushButton_youximululeibiao_shezhi(self):
+        '''点击版本文件夹设置后……'''
         self.stackedWidget_5.setCurrentIndex(2)
 
     def click_pushButton_youximululeibiao_add_qian(self):
+        '''点击版本列表中的“添加版本文件夹”按钮后……'''
         self.stackedWidget_5.setCurrentIndex(1)
 
     def click_pushButton_youximululeibiao_add(self):
+        '''版本文件夹添加页面的目录选择'''
         dir = QFileDialog()
         dir.setFileMode(QFileDialog.FileMode.Directory)
         dir.setDirectory(file)
@@ -2162,9 +2173,12 @@ class Ui_MOS(object):
         '''QWidget = None，标题:str = "，      目录:str = "，         过滤器:str = "，   初始过滤器:str = '''
 
     def click_pushButton_youximululeibiao_add_back(self):
+        '''当点击“添加版本文件夹”页面上方的“返回”按钮后……'''
         self.stackedWidget_5.setCurrentIndex(0)
 
     def click_lineEdit_youximululeibiao_check(self):
+        '''当“添加版本文件夹”页面中的“名称输入框”中的文字改变时，检查是否设置了要添加的文件夹路径。如果没有就不激活按钮，如果有，则激活'''
+        MOS_print("error","jjjjjjjj")
         a = self.lineEdit_4.text()
         if self.label_46.text() == "请先选择一个目录":
             self.pushButton_18.setEnabled(False)
@@ -2194,6 +2208,7 @@ class Ui_MOS(object):
 
 
     def click_pushButton_youximululeibiao_add_confirm(self):
+        '''当点击“添加游戏目录”页面中的“添加”按钮后……'''
         back = self.pushButton_18.text()
         if back != '添加完成, 再次点击可返回':
             a = self.label_46.text()
