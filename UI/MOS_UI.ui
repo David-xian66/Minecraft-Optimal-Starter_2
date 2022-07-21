@@ -111,322 +111,6 @@
             <property name="bottomMargin">
              <number>0</number>
             </property>
-            <item row="0" column="1">
-             <widget class="QWidget" name="widget_scrollArea_page_gonggao_right" native="true">
-              <property name="minimumSize">
-               <size>
-                <width>399</width>
-                <height>509</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QWidget  {
-	border:2px solid rgb(0, 150, 255);border-radius:15px;
-}
-
-#pushButton__gonggao_start{border:2px solid rgba(0, 150, 255, 179);height:25px;border-radius:12px;}
-#pushButton__gonggao_start::hover{color: rgb(0, 150, 255,100);}
-#pushButton__gonggao_start::pressed{background-color: rgba(0, 150, 255, 50);}
-
-QProgressBar{
-    text-align: center;
-    border-style:none;
-    border-radius:7px;
-    color: rgb(33, 33, 33);
-}
-QProgressBar::chunk{
-    border-radius:7px;
-    background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 224, 249, 255), stop:1 rgba(212, 255, 255, 255));
-}
-
-QComboBox {
-    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */
-    height:25px;
-    /*background-color: rgba(0, 150, 255, 150);*/
-    background-color: rgba(214, 214, 214,100);
-    border-radius:10px;
-}
-
-/*下拉框的样式*/
-QComboBox QAbstractItemView
-{
-    outline: 0px solid gray;  /*取消选中虚线*/
-    border: 1px solid rgb(31, 156, 255);
-    color: rgb(66, 66, 66);
-    background-color: rgb(255, 255, 255);
-    selection-background-color: rgb(0, 150, 255);
-    border-radius:5px;
-    height:35px;
-    border:None;
-}
-/*选中每一项的字体颜色和背景颜色*/
-QComboBox::item:selected 
-{
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 150, 255);
-    border-radius:5px;
-}
-/*右边*/
-QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}
-QComboBox::down-arrow
-{
-    image: url(:/img/picture/back_blue_down.png);
-    width: 25px;
-    height: 35px;
-    right:6px;
-    border-left: 2px solid rgb(192, 192, 192);
-    border-right: 1px solid rgba(214, 214, 214,0);
-}
-QComboBox::down-arrow:on
-{
-    image: url(:/img/picture/back_blue_up.png);
-    width: 25px;
-    height: 35px;
-    right:6px;
-    border-left: 2px solid rgb(192, 192, 192);
-    border-right: 1px solid rgba(214, 214, 214,0);
-}
-/*QComboBox::down-arrow::hover{}*
-
-/* QComboBox中的垂直滚动条 */
-QComboBox QAbstractScrollArea QScrollBar:vertical {
-    width: 10px;
-    height: 8px;
-    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/
-    border-style:none;
-}
-
-QComboBox QAbstractScrollArea QScrollBar::handle:vertical {
-    border-radius: 5px;   /* 圆角 */
-    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */
-}
-
-QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
-    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/
-}</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_6">
-               <item row="0" column="0" colspan="2">
-                <widget class="QLabel" name="label__gonggao_right_txt">
-                 <property name="font">
-                  <font>
-                   <pointsize>14</pointsize>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;</string>
-                 </property>
-                 <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;启动游戏 &lt;span style=&quot; color:#0096ff;&quot;&gt;•等待启动&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QComboBox" name="comboBox_gonggao_right">
-                 <property name="minimumSize">
-                  <size>
-                   <width>181</width>
-                   <height>29</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <pointsize>14</pointsize>
-                  </font>
-                 </property>
-                 <property name="mouseTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="editable">
-                  <bool>false</bool>
-                 </property>
-                 <property name="currentIndex">
-                  <number>-1</number>
-                 </property>
-                 <property name="maxVisibleItems">
-                  <number>15</number>
-                 </property>
-                 <property name="maxCount">
-                  <number>2147483647</number>
-                 </property>
-                 <property name="minimumContentsLength">
-                  <number>0</number>
-                 </property>
-                 <property name="duplicatesEnabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="frame">
-                  <bool>true</bool>
-                 </property>
-                 <property name="modelColumn">
-                  <number>0</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0">
-                <spacer name="horizontalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="1" column="0" colspan="2">
-                <widget class="Line" name="line_8">
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(169, 169, 169);border:none;</string>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QPushButton" name="pushButton__gonggao_start">
-                 <property name="minimumSize">
-                  <size>
-                   <width>180</width>
-                   <height>29</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <property name="text">
-                  <string>启动游戏</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QPushButton" name="pushButton_16">
-                 <property name="minimumSize">
-                  <size>
-                   <width>181</width>
-                   <height>27</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border:2px solid rgb(192, 192, 192);height:23px;border-radius:12px;</string>
-                 </property>
-                 <property name="text">
-                  <string>版本列表</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0" colspan="2">
-                <widget class="QWidget" name="widget_scrollArea_page_gonggao_statring" native="true">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;</string>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_2">
-                  <item row="2" column="0" colspan="5">
-                   <widget class="QProgressBar" name="progressBar">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgba(0, 150, 255, 10);height:15px;</string>
-                    </property>
-                    <property name="value">
-                     <number>0</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1" rowspan="2" colspan="3">
-                   <widget class="QLabel" name="label_3">
-                    <property name="styleSheet">
-                     <string notr="true">border-style:none;background-color: rgba(255, 255, 255, 0);</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="pixmap">
-                     <pixmap>../../../Desktop/MOS/picture/loading_3.gif</pixmap>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <spacer name="verticalSpacer_4">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item row="3" column="1" colspan="3">
-                   <widget class="QLabel" name="label_7">
-                    <property name="text">
-                     <string>启动君：待命中……</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="4" rowspan="2">
-                   <spacer name="verticalSpacer_5">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QPushButton" name="pushButton_17">
-                 <property name="minimumSize">
-                  <size>
-                   <width>180</width>
-                   <height>27</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border:2px solid rgb(192, 192, 192);height:23px;border-radius:12px;</string>
-                 </property>
-                 <property name="text">
-                  <string>版本设置</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="1">
-                <spacer name="horizontalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </widget>
-            </item>
             <item row="0" column="0">
              <widget class="QWidget" name="widget_scrollArea_page_gonggao_left" native="true">
               <property name="minimumSize">
@@ -524,19 +208,6 @@ QProgressBar::chunk{
                      </property>
                     </spacer>
                    </item>
-                   <item row="3" column="0">
-                    <spacer name="verticalSpacer_2">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                    <item row="1" column="0">
                     <widget class="QLabel" name="label_2">
                      <property name="styleSheet">
@@ -552,6 +223,19 @@ QProgressBar::chunk{
                       <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <spacer name="verticalSpacer_2">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                    <item row="2" column="0">
                     <widget class="QProgressBar" name="progressBar_2">
@@ -642,6 +326,375 @@ QProgressBar::chunk{
                  <property name="wordWrap">
                   <bool>true</bool>
                  </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QWidget" name="widget_scrollArea_page_gonggao_right" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>399</width>
+                <height>509</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget  {
+	border:2px solid rgb(0, 150, 255);border-radius:15px;
+}
+QProgressBar{
+    text-align: center;
+    border-style:none;
+    border-radius:7px;
+    color: rgb(33, 33, 33);
+}
+QProgressBar::chunk{
+    border-radius:7px;
+    background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 224, 249, 255), stop:1 rgba(212, 255, 255, 255));
+}</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_28">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label__gonggao_right_txt">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;启动游戏 &lt;span style=&quot; color:#0096ff;&quot;&gt;•等待启动&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="Line" name="line_8">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(169, 169, 169);border:none;</string>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QWidget" name="widget_scrollArea_page_gonggao_statring" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_2">
+                  <item row="2" column="0" colspan="5">
+                   <widget class="QProgressBar" name="progressBar">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgba(0, 150, 255, 10);height:15px;</string>
+                    </property>
+                    <property name="value">
+                     <number>0</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <spacer name="verticalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>10</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="4" rowspan="2">
+                   <spacer name="verticalSpacer_5">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>10</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1" rowspan="2" colspan="3">
+                   <widget class="QLabel" name="label_3">
+                    <property name="styleSheet">
+                     <string notr="true">border-style:none;background-color: rgba(255, 255, 255, 0);</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap>../../../Desktop/MOS/picture/loading_3.gif</pixmap>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="5">
+                   <widget class="QLabel" name="label_7">
+                    <property name="font">
+                     <font>
+                      <pointsize>13</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>启动君：待命中……</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QWidget" name="widget_9" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget{border-style:none;}
+QPushButton{border:2px solid rgb(192, 192, 192);border-radius:8px;}
+#pushButton__gonggao_start{border:2px solid rgb(0, 150, 255);height:25px;border-radius:8px;}
+#pushButton__gonggao_start::hover{color: rgb(0, 150, 255,100);}
+#pushButton__gonggao_start::pressed{background-color: rgba(0, 150, 255, 50);}
+
+QComboBox {
+    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */
+    height:25px;
+    /*background-color: rgba(0, 150, 255, 150);*/
+    background-color: rgba(214, 214, 214,100);
+    border-radius:8px;
+}
+
+/*下拉框的样式*/
+QComboBox QAbstractItemView
+{
+    outline: 0px solid gray;  /*取消选中虚线*/
+    border: 1px solid rgb(31, 156, 255);
+    color: rgb(66, 66, 66);
+    background-color: rgb(255, 255, 255);
+    selection-background-color: rgb(0, 150, 255);
+    border-radius:5px;
+    height:35px;
+    border:None;
+}
+/*选中每一项的字体颜色和背景颜色*/
+QComboBox::item:selected 
+{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 150, 255);
+    border-radius:5px;
+}
+/*右边*/
+QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}
+QComboBox::down-arrow
+{
+    image: url(:/img/picture/back_blue_down.png);
+    width: 25px;
+    height: 35px;
+    right:6px;
+    border-left: 2px solid rgb(192, 192, 192);
+    border-right: 1px solid rgba(214, 214, 214,0);
+}
+QComboBox::down-arrow:on
+{
+    image: url(:/img/picture/back_blue_up.png);
+    width: 25px;
+    height: 35px;
+    right:6px;
+    border-left: 2px solid rgb(192, 192, 192);
+    border-right: 1px solid rgba(214, 214, 214,0);
+}
+/*QComboBox::down-arrow::hover{}*
+
+/* QComboBox中的垂直滚动条 */
+QComboBox QAbstractScrollArea QScrollBar:vertical {
+    width: 10px;
+    height: 8px;
+    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/
+    border-style:none;
+}
+
+QComboBox QAbstractScrollArea QScrollBar::handle:vertical {
+    border-radius: 5px;   /* 圆角 */
+    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */
+}
+
+QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
+    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/
+}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_6">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="horizontalSpacing">
+                   <number>5</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QPushButton" name="pushButton_16">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>183</width>
+                      <height>29</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>版本列表</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QPushButton" name="pushButton_17">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>183</width>
+                      <height>29</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>版本设置</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QComboBox" name="comboBox_gonggao_right">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>183</width>
+                      <height>29</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                     </font>
+                    </property>
+                    <property name="mouseTracking">
+                     <bool>false</bool>
+                    </property>
+                    <property name="editable">
+                     <bool>false</bool>
+                    </property>
+                    <property name="currentIndex">
+                     <number>-1</number>
+                    </property>
+                    <property name="maxVisibleItems">
+                     <number>15</number>
+                    </property>
+                    <property name="maxCount">
+                     <number>2147483647</number>
+                    </property>
+                    <property name="minimumContentsLength">
+                     <number>0</number>
+                    </property>
+                    <property name="duplicatesEnabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="frame">
+                     <bool>true</bool>
+                    </property>
+                    <property name="modelColumn">
+                     <number>0</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QPushButton" name="pushButton__gonggao_start">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>183</width>
+                      <height>29</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>启动游戏</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                </item>
               </layout>
@@ -984,6 +1037,23 @@ QPushButton::pressed
                      <number>0</number>
                     </property>
                     <widget class="QWidget" name="page_21">
+                     <property name="styleSheet">
+                      <string notr="true">QListView::item {
+    height: 25px;
+	padding: 8px;
+	border-left: 3px solid rgba(214, 214, 214,0);
+}
+QListView::item:hover {
+	border-left: 3px solid rgb(214, 214, 214);
+	background-color: transparent;
+}
+QListView::item:selected {
+	background-color: transparent;
+	color: black;
+	background-color: rgb(235, 235, 235);
+	border-left: 3px solid rgb(0, 150, 255);
+}</string>
+                     </property>
                      <layout class="QGridLayout" name="gridLayout_51">
                       <property name="leftMargin">
                        <number>0</number>
@@ -999,6 +1069,11 @@ QPushButton::pressed
                       </property>
                       <item row="0" column="0">
                        <widget class="QListWidget" name="listWidget_2">
+                        <property name="font">
+                         <font>
+                          <pointsize>14</pointsize>
+                         </font>
+                        </property>
                         <property name="styleSheet">
                          <string notr="true">border-style:none;</string>
                         </property>
@@ -1011,7 +1086,9 @@ QPushButton::pressed
                       <item row="2" column="0" colspan="4">
                        <widget class="QWidget" name="widget_22" native="true">
                         <property name="styleSheet">
-                         <string notr="true">border-radius: 15px;background-color: rgb(235, 235, 235);</string>
+                         <string notr="true">QWidget{border-radius: 15px;background-color: rgb(249, 249, 249);}
+QLineEdit{border-radius: 10px;border:2px solid rgb(192, 192, 192);background-color: rgb(255, 255, 255);}
+QLineEdit::focus{border:2px solid rgb(0, 250, 146);}</string>
                         </property>
                         <layout class="QGridLayout" name="gridLayout_58">
                          <item row="0" column="0">
@@ -1043,7 +1120,7 @@ QPushButton::pressed
                             </font>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-radius: 10px;border:2px solid rgb(192, 192, 192);background-color: rgb(255, 255, 255);</string>
+                            <string notr="true"/>
                            </property>
                            <property name="inputMask">
                             <string/>
@@ -1133,7 +1210,9 @@ QPushButton::pressed
                       <item row="1" column="0" colspan="4">
                        <widget class="QWidget" name="widget_21" native="true">
                         <property name="styleSheet">
-                         <string notr="true">border-radius: 15px;background-color: rgb(235, 235, 235);</string>
+                         <string notr="true">QWidget{border-radius: 15px;background-color: rgb(249, 249, 249);}
+QPushButton{border-radius: 10px;border:2px solid rgb(192, 192, 192);background-color: rgb(255, 255, 255);}
+QPushButton::hover{background-color: rgb(118, 214, 255);border:2px solid rgb(128, 217, 255);color: rgb(255, 255, 255);}</string>
                         </property>
                         <layout class="QGridLayout" name="gridLayout_57">
                          <item row="0" column="0" rowspan="2">
@@ -1186,7 +1265,7 @@ QPushButton::pressed
                             </font>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-radius: 10px;border:2px solid rgb(192, 192, 192);background-color: rgb(255, 255, 255);</string>
+                            <string notr="true"/>
                            </property>
                            <property name="text">
                             <string>选择……</string>
@@ -1241,6 +1320,9 @@ QPushButton::pressed
                       </item>
                       <item row="3" column="0" colspan="4">
                        <widget class="QWidget" name="widget_3" native="true">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
                         <property name="minimumSize">
                          <size>
                           <width>602</width>
@@ -1260,6 +1342,10 @@ QPushButton::hover
 QPushButton::pressed
 {
 	background-color: rgb(115, 250, 121);color: rgb(255, 255, 255);
+}
+QPushButton:disabled{
+	/*禁用*/
+	border-radius: 10px;border:2px solid rgb(214, 214, 214);background-color: rgb(255, 255, 255);
 }</string>
                         </property>
                         <layout class="QGridLayout" name="gridLayout_27">
@@ -1304,6 +1390,9 @@ QPushButton::pressed
                          </item>
                          <item row="0" column="1" colspan="2">
                           <widget class="QPushButton" name="pushButton_18">
+                           <property name="enabled">
+                            <bool>false</bool>
+                           </property>
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -1328,6 +1417,21 @@ QPushButton::pressed
                              <width>16</width>
                              <height>16</height>
                             </size>
+                           </property>
+                           <property name="checked">
+                            <bool>false</bool>
+                           </property>
+                           <property name="autoRepeat">
+                            <bool>false</bool>
+                           </property>
+                           <property name="autoExclusive">
+                            <bool>false</bool>
+                           </property>
+                           <property name="autoDefault">
+                            <bool>false</bool>
+                           </property>
+                           <property name="default">
+                            <bool>false</bool>
                            </property>
                           </widget>
                          </item>
