@@ -19,7 +19,7 @@
 
 [![xianyongjian080402/Minecraft-Optimal-Starter_2](https://gitee.com/xian66/minecraft-optimal-starter_2/widgets/widget_card.svg?colors=4183c4,ffffff,ffffff,e3e9ed,666666,9b9b9b)](https://gitee.com/xian66/minecraft-optimal-starter_2)
 
-![Alt](https://repobeats.axiom.co/api/embed/b690a0a750143858f38209f1a9fb619146492357.svg "Repobeats analytics image")
+[![Alt](https://repobeats.axiom.co/api/embed/b690a0a750143858f38209f1a9fb619146492357.svg "Repobeats analytics image")](https://repobeats.axiom.co/)
 
 </div>
 
