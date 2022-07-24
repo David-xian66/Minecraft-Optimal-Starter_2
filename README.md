@@ -19,6 +19,8 @@
 
 [![xianyongjian080402/Minecraft-Optimal-Starter_2](https://gitee.com/xian66/minecraft-optimal-starter_2/widgets/widget_card.svg?colors=4183c4,ffffff,ffffff,e3e9ed,666666,9b9b9b)](https://gitee.com/xian66/minecraft-optimal-starter_2)
 
+[![Alt](https://repobeats.axiom.co/api/embed/b690a0a750143858f38209f1a9fb619146492357.svg "Repobeats analytics image")](https://repobeats.axiom.co/)
+
 </div>
 
 ## 介绍 📃
@@ -38,7 +40,7 @@
 
 1. 🤖 首先，需要安装[Python3](https://www.python.org) （建议最新版本，当然，其他版本也可以） 🤖
 1. 🤖 PyQt5/6 环境(教程自己百度)，⚠️windows版请使用PyQt5，Mac版及其其他请使用PyQt6⚠️ 🤖
-1. 之后下载 “有环境版” 运行 即可（过段时间 会发布）
+1. 之后下载 “有环境版” 运行 即可（过段时间发布）
 
 ---
 
