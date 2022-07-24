@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MOS_UI.ui'
+## Form generated from reading UI file 'MOS_UI的副本.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.3.0
 ##
@@ -232,6 +232,8 @@ class Ui_MOS(object):
 
         self.label_7 = QLabel(self.widget_scrollArea_page_gonggao_statring)
         self.label_7.setObjectName(u"label_7")
+        font = QFont()
+        self.label_7.setFont(font)
         self.label_7.setStyleSheet(u"font-size: 13px;")
         self.label_7.setAlignment(Qt.AlignCenter)
 
@@ -643,6 +645,7 @@ class Ui_MOS(object):
         self.gridLayout_57.setObjectName(u"gridLayout_57")
         self.label_45 = QLabel(self.widget_21)
         self.label_45.setObjectName(u"label_45")
+        self.label_45.setFont(font)
         self.label_45.setStyleSheet(u"font-size: 14px;")
         self.label_45.setAlignment(Qt.AlignCenter)
         self.label_45.setWordWrap(False)
@@ -726,6 +729,10 @@ class Ui_MOS(object):
         self.pushButton_18.setObjectName(u"pushButton_18")
         self.pushButton_18.setEnabled(False)
         self.pushButton_18.setMinimumSize(QSize(0, 28))
+        font1 = QFont()
+        font1.setBold(False)
+        font1.setKerning(True)
+        self.pushButton_18.setFont(font1)
         self.pushButton_18.setStyleSheet(u"font-size: 14px;")
         self.pushButton_18.setIconSize(QSize(16, 16))
         self.pushButton_18.setChecked(False)
@@ -759,6 +766,7 @@ class Ui_MOS(object):
         self.gridLayout_53.setContentsMargins(0, 0, 0, 0)
         self.pushButton_40 = QPushButton(self.page_22)
         self.pushButton_40.setObjectName(u"pushButton_40")
+        self.pushButton_40.setFont(font)
         self.pushButton_40.setStyleSheet(u"font-size: 13px;")
         icon6 = QIcon()
         icon6.addFile(u"../picture/trash_red.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -770,6 +778,7 @@ class Ui_MOS(object):
 
         self.lineEdit_3 = QLineEdit(self.page_22)
         self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_3.setFont(font)
         self.lineEdit_3.setStyleSheet(u"font-size: 13px;")
 
         self.gridLayout_53.addWidget(self.lineEdit_3, 1, 0, 1, 2)
@@ -792,6 +801,7 @@ class Ui_MOS(object):
 
         self.pushButton_39 = QPushButton(self.page_22)
         self.pushButton_39.setObjectName(u"pushButton_39")
+        self.pushButton_39.setFont(font)
         self.pushButton_39.setStyleSheet(u"font-size: 14px;")
 
         self.gridLayout_53.addWidget(self.pushButton_39, 1, 2, 1, 2)
@@ -887,9 +897,9 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.addWidget(self.page_2)
         self.page_3 = QWidget()
         self.page_3.setObjectName(u"page_3")
-        font = QFont()
-        font.setPointSize(13)
-        self.page_3.setFont(font)
+        font2 = QFont()
+        font2.setPointSize(13)
+        self.page_3.setFont(font2)
         self.page_3.setStyleSheet(u"QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}\n"
 "QComboBox {\n"
 "    border: 2px solid rgb(169, 169, 169); /* border: \u5bbd\u5ea6 \u7ebf\u7c7b\u578b \u989c\u8272 */\n"
@@ -1517,10 +1527,10 @@ class Ui_MOS(object):
 
         self.label_6 = QLabel(self.widget)
         self.label_6.setObjectName(u"label_6")
-        font1 = QFont()
-        font1.setItalic(True)
-        font1.setUnderline(True)
-        self.label_6.setFont(font1)
+        font3 = QFont()
+        font3.setItalic(True)
+        font3.setUnderline(True)
+        self.label_6.setFont(font3)
         self.label_6.setStyleSheet(u"font-size: 14px;")
         self.label_6.setAlignment(Qt.AlignCenter)
 
@@ -1674,7 +1684,7 @@ class Ui_MOS(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 822, 456))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 245, 829))
         self.scrollAreaWidgetContents_3.setStyleSheet(u"background-color: rgba(255, 255, 255, 0);")
         self.gridLayout_30 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_30.setObjectName(u"gridLayout_30")
@@ -1767,6 +1777,7 @@ class Ui_MOS(object):
         self.pushButton_21.setMinimumSize(QSize(0, 0))
         self.pushButton_21.setSizeIncrement(QSize(0, 0))
         self.pushButton_21.setBaseSize(QSize(0, 0))
+        self.pushButton_21.setFont(font)
         self.pushButton_21.setStyleSheet(u"font-size: 14px;")
         self.pushButton_21.setIconSize(QSize(16, 16))
 
@@ -1953,6 +1964,7 @@ class Ui_MOS(object):
 
         self.label_17 = QLabel(self.page_6)
         self.label_17.setObjectName(u"label_17")
+        self.label_17.setFont(font)
         self.label_17.setStyleSheet(u"font-size: 17px;")
         self.label_17.setIndent(10)
 
@@ -1966,9 +1978,9 @@ class Ui_MOS(object):
         self.widget_mos_left.setObjectName(u"widget_mos_left")
         sizePolicy1.setHeightForWidth(self.widget_mos_left.sizePolicy().hasHeightForWidth())
         self.widget_mos_left.setSizePolicy(sizePolicy1)
-        font2 = QFont()
-        font2.setPointSize(15)
-        self.widget_mos_left.setFont(font2)
+        font4 = QFont()
+        font4.setPointSize(15)
+        self.widget_mos_left.setFont(font4)
         self.widget_mos_left.setAutoFillBackground(False)
         self.widget_mos_left.setStyleSheet(u"QWidget\n"
 "{\n"
