@@ -2515,21 +2515,53 @@ class Ui_MOS(object):
             self.stackedWidget.setCurrentIndex(1)
 
     def click_pushButton_jianchagengxin(self):
-        self.pushButton_19.setText("正在准备检查更新(1/2)")
-        if file == 'Mac':
-            self.pushButton_19.setText("正在准备检查更新(2/2)")
-            url = 'http://api.2018k.cn/checkVersion?id=6edb1fb4d4154cd7a104f6f0702fcbed&version=' + versions
+        self.pushButton_19.setEnabled(False)
+        if self.pushButton_19.text() != '检查到更新，点击下载':
+            self.pushButton_19.setEnabled(False)
+            self.v = MOS_versions(a)
+            self.v.sinOut_versions.connect(self.click_pushButton_jianchagengxin_sinOut)
+            self.v.sinOut_versions_yes_no.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes_no)
+            self.v.sinOut_versions_yes.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes)
+            self.v.start()
         else:
-            self.pushButton_19.setText("正在准备检查更新(2/2)")
-            url = 'http://api.2018k.cn/checkVersion?id=b7c5251e83a644e7ad8b5bd8451ceb0a&version=' + versions
-        self.pushButton_19.setText("正在获取更新(1/2)")
-        header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
-        r_2 = requests.get(url, timeout=(5,50), headers = header)
-        r_2.split('|') #分割
-        if r_2(0) == 'True':
-            '''如果要更新'''
-            MOS_print("info",str("新版本：" + r_2(4)))
-            self.pushButton_19.setText("正在获取更新(2/2)")
+            self.pushButton_18.setEnabled(True)
+        
+    
+    def click_pushButton_jianchagengxin_sinOut(self,text):
+        self.pushButton_19.setText(text)
+
+    def click_pushButton_jianchagengxin_sinOut_versions_yes_no(self,text):
+        if text == "No":
+            self.pushButton_19.setText("检测完毕 没有更新 点击重新获取")
+            self.pushButton_19.setEnabled(True)
+
+    def click_pushButton_jianchagengxin_sinOut_versions_yes(self,url,text,v):
+        self.pushButton_19.setText("检查到更新，在弹出的窗口中下载&查看更新内容")
+        self.pushButton_19.setEnabled(True)
+        a = QMessageBox.information(None,"更新",str("<html><head/><body><h1> 版本" + v + "的更新内容： </h1><p>" + text + "</p></body></html>"),QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel,QMessageBox.StandardButton.Ok)
+
+        if a == QMessageBox.StandardButton.Ok: #点了OK按钮
+            dir = QFileDialog()
+            dir.setFileMode(QFileDialog.FileMode.Directory)
+            dir.setDirectory(str(file_h))
+            if dir.exec():
+                file_2 = dir.selectedFiles()
+                file_1 = file_2[0]
+                if str(system_h) == "darwin":
+                    file = os.path.join(file_1,'MOS.dmg')
+                else:
+                    file = os.path.join(file_1,'MOS.zip')
+                header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
+                r_2 = open(file, 'w+')
+                r_2.close
+                r = requests.get(url, stream=True, timeout=(60,120), headers = header)
+                with open(file, "wb") as f:
+                    for chunk in r.iter_content(chunk_size=10240):  # 每次加载……字节
+                        f.write(chunk)
+                        print("kk")
+
+
+
 
     def setfont(self):
         '''在“字体选择下拉菜单”中 更改字体后，设置字体'''
@@ -3021,7 +3053,7 @@ class gonggao(QThread):
         try:
             header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
             try:
-                self.sinOut_gonggao_jindu.emit('20','正在加载\n\n当前步骤：刷新远程服务器文件(为了确保文件是最新的，我们需要远程服务器刷新文件)……请稍后\n')
+                self.sinOut_gonggao_jindu.emit('35','正在加载\n\n当前步骤：刷新远程服务器文件(为了确保文件是最新的，我们需要远程服务器刷新文件)……请稍后\n')
                 r_2 = requests.get(url_2, timeout=(5,50), headers = header)
             except:
                 pass
@@ -3235,6 +3267,55 @@ class gonggao(QThread):
             else:
                 self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 未知错误 无缓存可加载</span></p></body></html>")
 
+class MOS_versions(QThread):
+    '''获取更新'''
+    sinOut_versions = pyqtSignal(str)
+    sinOut_versions_yes_no = pyqtSignal(str)
+    sinOut_versions_yes = pyqtSignal(str,str,str)
+    
+    def __init__(self, a):
+        super(MOS_versions, self).__init__()
+        self.a = a
+
+    def run(self):
+        import requests
+        self.sinOut_versions.emit("正在准备检查更新(1/2)")
+        if self.a == 'darwin':
+            self.sinOut_versions.emit("正在准备检查更新(2/2)")
+            url = 'http://api.2018k.cn/checkVersion?id=6edb1fb4d4154cd7a104f6f0702fcbed&version=' + versions
+            url_text = 'http://api.2018k.cn/getExample?id=6edb1fb4d4154cd7a104f6f0702fcbed&data=remark'
+        else:
+            self.sinOut_versions.emit("正在准备检查更新(2/2)")
+            url = 'http://api.2018k.cn/checkVersion?id=b7c5251e83a644e7ad8b5bd8451ceb0a&version=' + versions
+            url_text = 'http://api.2018k.cn/getExample?id=b7c5251e83a644e7ad8b5bd8451ceb0a&data=remark'
+        self.sinOut_versions.emit("正在获取更新(1/5)")
+        header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
+        r_2 = requests.get(url, timeout=(5,50), headers = header)
+        r_3 = r_2.text
+        r_4 = r_3.split('|') #分割
+        if r_4[0] == 'true':
+            '''如果要更新'''
+            self.sinOut_versions.emit("正在获取更新(2/5)")
+            url_2 = 'https://purge.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
+            url_3 = 'https://cdn.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
+            self.sinOut_versions.emit("正在获取更新(3/5)")
+            r_5 = requests.get(url_2, timeout=(5,50), headers = header)
+            self.sinOut_versions.emit("正在获取更新(4/5)")
+            r_6 = requests.get(url_3, timeout=(5,50), headers = header)
+            self.sinOut_versions.emit("正在获取更新(5/5)")
+
+            r_7 = requests.get(url_text, timeout=(5,50), headers = header)
+            r_7.encoding = 'utf-8'
+            r_7_1 = r_7.text
+
+            self.sinOut_versions.emit("正在准备……")
+            json_1 = r_6.json()
+            r_7 = r_4[4]
+            json_2 = json_1[r_7]
+            MOS_print("info",str("新版本：" + json_2 + " ->编号：" + r_7))
+            self.sinOut_versions_yes.emit(r_4[3],r_7_1,json_2)
+        else:
+            self.sinOut_versions_yes_no.emit('No')
 
 class MOS_file(QThread):
     '''初始化文件/设置'''
@@ -3638,6 +3719,20 @@ def MOS_print(type_,MOS_print_1):
 def except_hook(cls, exception, traceback):
     '''报错显示'''
     sys.__excepthook__(cls, exception, traceback)
+
+def file_h():
+    if a == "darwin":
+        user_name = os.getlogin()
+        # 获取当前系统用户目录
+        user_home = os.path.expanduser('~')
+        file = user_home + '/Documents'
+    else:
+        file = ''
+    return file
+
+def system_h():
+    a = str(sys.platform)
+    return a
 
 try:
     if __name__ == '__main__':
