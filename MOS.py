@@ -2506,7 +2506,30 @@ class Ui_MOS(object):
         _translate = QtCore.QCoreApplication.translate
         self.label_gonggao_left_txt.setText(_translate(text1,text2))
 
+    def click_comboBox_shezhi(self):
+        '''设置页'''
+        a = self.comboBox.currentText()
+        if a == "启动器设置":
+            self.stackedWidget.setCurrentIndex(0)
+        elif a == "全局游戏设置":
+            self.stackedWidget.setCurrentIndex(1)
 
+    def click_pushButton_jianchagengxin(self):
+        self.pushButton_19.setText("正在准备检查更新(1/2)")
+        if file == 'Mac':
+            self.pushButton_19.setText("正在准备检查更新(2/2)")
+            url = 'http://api.2018k.cn/checkVersion?id=6edb1fb4d4154cd7a104f6f0702fcbed&version=' + versions
+        else:
+            self.pushButton_19.setText("正在准备检查更新(2/2)")
+            url = 'http://api.2018k.cn/checkVersion?id=b7c5251e83a644e7ad8b5bd8451ceb0a&version=' + versions
+        self.pushButton_19.setText("正在获取更新(1/2)")
+        header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
+        r_2 = requests.get(url, timeout=(5,50), headers = header)
+        r_2.split('|') #分割
+        if r_2(0) == 'True':
+            '''如果要更新'''
+            MOS_print("info",str("新版本：" + r_2(4)))
+            self.pushButton_19.setText("正在获取更新(2/2)")
 
     def setfont(self):
         '''在“字体选择下拉菜单”中 更改字体后，设置字体'''
@@ -2572,6 +2595,14 @@ class Ui_MOS(object):
         self.listWidget.setFont(QtGui.QFont(a))
         self.listWidget_2.setFont(QtGui.QFont(a))
         self.lineEdit_3.setFont(QtGui.QFont(a))
+        self.pushButton_19.setFont(QtGui.QFont(a))
+        self.label_5.setFont(QtGui.QFont(a))
+        self.radioButton.setFont(QtGui.QFont(a))
+        self.pushButton_20.setFont(QtGui.QFont(a))
+        self.label_14.setFont(QtGui.QFont(a))
+        self.comboBox_7.setFont(QtGui.QFont(a))
+        self.pushButton_21.setFont(QtGui.QFont(a))
+        self.label_14.setFont(QtGui.QFont(a))
         # 修改在json中的字体
         a = str(sys.platform)
         if a == "darwin":
@@ -2694,6 +2725,14 @@ class Ui_MOS(object):
         self.listWidget.setFont(QtGui.QFont(str1))
         self.listWidget_2.setFont(QtGui.QFont(str1))
         self.lineEdit_3.setFont(QtGui.QFont(str1))
+        self.pushButton_19.setFont(QtGui.QFont(str1))
+        self.label_5.setFont(QtGui.QFont(str1))
+        self.radioButton.setFont(QtGui.QFont(str1))
+        self.pushButton_20.setFont(QtGui.QFont(str1))
+        self.label_14.setFont(QtGui.QFont(str1))
+        self.comboBox_7.setFont(QtGui.QFont(str1))
+        self.pushButton_21.setFont(QtGui.QFont(str1))
+        self.label_14.setFont(QtGui.QFont(str1))
 
         # 修改在json中的字体
         a = str(sys.platform)
@@ -2784,7 +2823,14 @@ class Ui_MOS(object):
         self.listWidget.setFont(QtGui.QFont(str1))
         self.listWidget_2.setFont(QtGui.QFont(str1))
         self.lineEdit_3.setFont(QtGui.QFont(str1))
-
+        self.pushButton_19.setFont(QtGui.QFont(str1))
+        self.label_5.setFont(QtGui.QFont(str1))
+        self.radioButton.setFont(QtGui.QFont(str1))
+        self.pushButton_20.setFont(QtGui.QFont(str1))
+        self.label_14.setFont(QtGui.QFont(str1))
+        self.comboBox_7.setFont(QtGui.QFont(str1))
+        self.pushButton_21.setFont(QtGui.QFont(str1))
+        self.label_14.setFont(QtGui.QFont(str1))
 
 
     def MOS_file_return(self, str):
@@ -2933,11 +2979,13 @@ class Ui_MOS(object):
         self.pushButton_41.clicked.connect(self.click_pushButton_youximululeibiao_add_back)
         self.pushButton_18.clicked.connect(self.click_pushButton_youximululeibiao_add_confirm)
         self.lineEdit_4.textChanged.connect(self.click_lineEdit_youximululeibiao_check)
-        # 在‘………(上)……………’里显示所有
+        # 在lineEdit_4里显示所有
         # 为字体选择控件 连接槽
         self.fontComboBox.currentIndexChanged.connect(self.setfont)
         self.listWidget.itemClicked.connect(self.click_lineEdit_youximululeibiao_check_leibiao)
-        
+        #
+        self.comboBox.currentIndexChanged.connect(self.click_comboBox_shezhi)
+        self.pushButton_19.clicked.connect(self.click_pushButton_jianchagengxin)
 
 
 class gonggao(QThread):
@@ -3593,7 +3641,7 @@ def except_hook(cls, exception, traceback):
 
 try:
     if __name__ == '__main__':
-        
+        versions = '2.0.5'
         # import shutil
         # shutil.rmtree(".MOS")
         # shutil.rmtree(".minecraft")

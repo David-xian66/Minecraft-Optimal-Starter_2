@@ -1,7 +1,5 @@
 {
-    "versions": 1.01,
-    "Mac_url": "https://gitee.com/xian66/minecraft-optimal-starter_issue/blob/master/1.0.1/1.0.1.dmg",
-    "MAc_url_2":"https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_issue/blob/master/1.0.1/1.0.1.dmg",
-    "Windows_url":"https://gitee.com/xian66/minecraft-optimal-starter_issue/blob/master/1.0.1/1.0.1_windows.zip",
-    "Windows_url_2":"https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_issue/blob/master/1.0.1/1.0.1_windows.zip"
+    "2.0.4":"V2.0.4-alpha",
+    "2.0.5":"V2.0.5-alpha",
+    "2.0.6":"V2.0.6-alpha"
 }
