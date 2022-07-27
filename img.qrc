@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="img">
+    <file>picture/caret-down_1.png</file>
+    <file>picture/caret-up_1.png</file>
+    <file>picture/caret-down.png</file>
+    <file>picture/caret-up.png</file>
     <file>picture/loading_3.gif</file>
     <file>picture/back_blue_down.png</file>
     <file>picture/back_blue_up.png</file>
