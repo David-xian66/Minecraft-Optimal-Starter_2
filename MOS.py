@@ -1,13 +1,11 @@
 import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
 
 
-
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 from PyQt6 import QtCore, QtGui, QtWidgets
-# from PyQt6.QtWidgets import (QMainWindow, QTextEdit,QFileDialog, QApplication)
 from PyQt6.QtGui import QIcon, QAction
 import MOS_rc
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
@@ -1234,7 +1232,7 @@ class Ui_MOS(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 377, 798))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 822, 456))
         self.scrollAreaWidgetContents_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.gridLayout_23 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_2)
@@ -1459,7 +1457,7 @@ class Ui_MOS(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 245, 829))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 822, 456))
         self.scrollAreaWidgetContents_3.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.gridLayout_30 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_3)
@@ -1524,10 +1522,18 @@ class Ui_MOS(object):
 "\n"
 "QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
 "QPushButton::hover{color: rgb(255, 59, 0)}\n"
-"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}")
+"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}\n"
+"\n"
+"#pushButton_22{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(115, 250, 121);}\n"
+"#pushButton_22::hover{color: rgb(115, 250, 121)}\n"
+"#pushButton_22::pressed{background-color: rgb(178, 255, 182);color: rgb(255, 255, 255);}")
         self.widget_15.setObjectName("widget_15")
         self.gridLayout_31 = QtWidgets.QGridLayout(self.widget_15)
         self.gridLayout_31.setObjectName("gridLayout_31")
+        self.comboBox_7 = QtWidgets.QComboBox(self.widget_15)
+        self.comboBox_7.setObjectName("comboBox_7")
+        self.comboBox_7.addItem("")
+        self.gridLayout_31.addWidget(self.comboBox_7, 0, 2, 2, 1)
         self.label_14 = QtWidgets.QLabel(self.widget_15)
         self.label_14.setStyleSheet("font-size: 13px;")
         self.label_14.setScaledContents(False)
@@ -1535,11 +1541,7 @@ class Ui_MOS(object):
         self.label_14.setWordWrap(True)
         self.label_14.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
         self.label_14.setObjectName("label_14")
-        self.gridLayout_31.addWidget(self.label_14, 0, 0, 3, 1)
-        self.comboBox_7 = QtWidgets.QComboBox(self.widget_15)
-        self.comboBox_7.setObjectName("comboBox_7")
-        self.comboBox_7.addItem("")
-        self.gridLayout_31.addWidget(self.comboBox_7, 0, 2, 2, 1)
+        self.gridLayout_31.addWidget(self.label_14, 0, 0, 4, 1)
         self.pushButton_21 = QtWidgets.QPushButton(self.widget_15)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -1552,7 +1554,11 @@ class Ui_MOS(object):
         self.pushButton_21.setStyleSheet("font-size: 14px;")
         self.pushButton_21.setIconSize(QtCore.QSize(16, 16))
         self.pushButton_21.setObjectName("pushButton_21")
-        self.gridLayout_31.addWidget(self.pushButton_21, 2, 2, 1, 1)
+        self.gridLayout_31.addWidget(self.pushButton_21, 3, 2, 1, 1)
+        self.pushButton_22 = QtWidgets.QPushButton(self.widget_15)
+        self.pushButton_22.setStyleSheet("font-size: 14px;")
+        self.pushButton_22.setObjectName("pushButton_22")
+        self.gridLayout_31.addWidget(self.pushButton_22, 2, 2, 1, 1)
         self.gridLayout_30.addWidget(self.widget_15, 0, 0, 1, 1)
         spacerItem31 = QtWidgets.QSpacerItem(20, 282, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.gridLayout_30.addItem(spacerItem31, 1, 0, 1, 1)
@@ -1891,6 +1897,8 @@ class Ui_MOS(object):
         self.stackedWidget.setCurrentIndex(0)
         self.fontComboBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MOS)
+
+
 
 
         # =============================================================================#
@@ -2561,7 +2569,9 @@ class Ui_MOS(object):
                         print("kk")
 
 
-
+    def chick_pushButton_Java_check(self):
+        a = Java_check()
+        print(a)
 
     def setfont(self):
         '''在“字体选择下拉菜单”中 更改字体后，设置字体'''
@@ -2900,6 +2910,7 @@ class Ui_MOS(object):
     # =================================分割线===================================#
 
 
+ 
     def retranslateUi(self, MOS):
         _translate = QtCore.QCoreApplication.translate
         MOS.setWindowTitle(_translate("MOS", "MOS ll 启动器"))
@@ -2966,9 +2977,10 @@ class Ui_MOS(object):
         self.label_5.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:20pt;\">启动器更新</span></p><p>在这里 你可以更新启动器</p><p>你可以在“关于”中查看当前版本</p></body></html>"))
         self.radioButton.setText(_translate("MOS", "自动为您检查更新"))
         self.pushButton_20.setText(_translate("MOS", "开始更新"))
-        self.label_14.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:20pt;\">Java设置</span></p><p>在这里 你可以设置启动游戏时使用的Java 建议选择 <span style=\" font-style:italic;\">让MOS为您自动选择</span></p><p>注意：<span style=\" font-weight:600;\">不要使用</span><span style=\" font-weight:600; font-style:italic;\">网易启动器</span><span style=\" font-weight:600;\">的Java 、</span><span style=\" font-weight:600; font-style:italic;\">1.17</span><span style=\" font-weight:600;\">及以上版本需用</span><span style=\" font-weight:600; font-style:italic;\">Java16</span><span style=\" font-weight:600;\">及以上版本 1.17一下需用Java8</span></p></body></html>"))
         self.comboBox_7.setItemText(0, _translate("MOS", "让MOS自动为您选择"))
+        self.label_14.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:20pt;\">Java设置</span></p><p>在这里 你可以设置启动游戏时使用的Java 建议选择 <span style=\" font-style:italic;\">让MOS为您自动选择</span></p><p>注意：<span style=\" font-weight:600;\">不要使用</span><span style=\" font-weight:600; font-style:italic;\">网易启动器</span><span style=\" font-weight:600;\">的Java 、</span><span style=\" font-weight:600; font-style:italic;\">1.17</span><span style=\" font-weight:600;\">及以上版本需用</span><span style=\" font-weight:600; font-style:italic;\">Java16</span><span style=\" font-weight:600;\">及以上版本 1.17一下需用Java8</span></p></body></html>"))
         self.pushButton_21.setText(_translate("MOS", "恢复默认"))
+        self.pushButton_22.setText(_translate("MOS", "刷新"))
         self.comboBox.setItemText(0, _translate("MOS", "启动器设置"))
         self.comboBox.setItemText(1, _translate("MOS", "全局游戏设置"))
         self.label.setText(_translate("MOS", "关于："))
@@ -2988,6 +3000,7 @@ class Ui_MOS(object):
         self.pushButton_shezhi.setText(_translate("MOS", "设置"))
         self.pushButton_about.setText(_translate("MOS", "关于"))
         self.label_mosll.setText(_translate("MOS", "MOS II"))
+
 
 
 
@@ -3018,6 +3031,7 @@ class Ui_MOS(object):
         #
         self.comboBox.currentIndexChanged.connect(self.click_comboBox_shezhi)
         self.pushButton_19.clicked.connect(self.click_pushButton_jianchagengxin)
+        self.pushButton_22.clicked.connect(self.chick_pushButton_Java_check)
 
 
 class gonggao(QThread):
@@ -3593,6 +3607,43 @@ class game_first_initialize(QThread):
             self.sinOut_game_error.emit("该版本文件夹下无游戏目录")
             MOS_print("error",str("找不到" + file_1 + "没有游戏目录"))
 
+
+def Java_check():
+    import subprocess
+    Java_1 = os.environ.get('JAVA_HOM')
+    Java_2 = os.environ.get('JDK_HOME')
+    file_java_2 = [Java_1,Java_2]
+    if a == 'darwin':
+        Java_file = "/usr/bin/java"
+        if os.path.exists(Java_file):
+            file_java_2.append(Java_file)
+        java_mac = subprocess.getoutput('/usr/libexec/java_home -V')
+        java_mac_1 = java_mac.split('\n') # ['Matching Java Virtual Machines (2):', '    1.8.321.07 (x86_64) "Oracle Corporation" - "Java" /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home', '    1.8.0_321 (x86_64) "Oracle Corporation" - "Java SE 8" /Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home', '/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home']
+        java_mac_2 = java_mac_1[1:-1] #['    1.8.321.07 (x86_64) "Oracle Corporation" - "Java" /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home', '    1.8.0_321 (x86_64) "Oracle Corporation" - "Java SE 8" /Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home']
+        for java_mac_2_1 in java_mac_2:
+            java_mac_2_2 = java_mac_2_1.split('"') # ['    1.8.321.07 (x86_64) ', 'Oracle Corporation', ' - ', 'Java', ' /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home']
+            java_mac_2_3 = java_mac_2_2[-1] + '/bin/java'
+            java_mac_2_4 = java_mac_2_3[1:] #删除前面的空格
+            file_java_2.append(java_mac_2_4)
+    file_java = {}
+    print(file_java_2)
+    for file_java_1 in file_java_2:
+        if file_java_1 == None:
+            pass
+        else:
+            file_java_1_2 = file_java_1+' -version'
+            print("mm"+file_java_1_2)
+            #print(file_java_1_2)
+            # https://blog.csdn.net/henghenghalala/article/details/98868979
+            # https://www.runoob.com/w3cnote/python3-subprocess.html
+            # https://blog.csdn.net/u013019701/article/details/121205743
+            result = subprocess.getoutput(file_java_1_2)
+            k_2 = str(result).split('\n') # ['java version "1.8.0_321"', 'Java(TM) SE Runtime Environment (build 1.8.0_321-b07)', 'Java HotSpot(TM) 64-Bit Server VM (build 25.321-b07, mixed mode)']
+            k_1 = k_2[0].split('"') # ['java version ', '1.8.0_321', '']
+            k = k_1[1]
+            file_java[file_java_1] = k
+            
+    return file_java
 
 def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = None, MOS_game_name_dir = None, MOS_game_dir_to_name = None,file = None):
     '''All: 是否获取Json的全部数据？(直接输出全部的Json内容)

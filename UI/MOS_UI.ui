@@ -2625,8 +2625,8 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>377</width>
-                 <height>798</height>
+                 <width>822</width>
+                 <height>456</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -2997,8 +2997,8 @@ QRadioButton{border-style:none;}</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>245</width>
-                 <height>829</height>
+                 <width>822</width>
+                 <height>456</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -3067,10 +3067,23 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
 
 QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}
 QPushButton::hover{color: rgb(255, 59, 0)}
-QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
+QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
+
+#pushButton_22{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(115, 250, 121);}
+#pushButton_22::hover{color: rgb(115, 250, 121)}
+#pushButton_22::pressed{background-color: rgb(178, 255, 182);color: rgb(255, 255, 255);}</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_31">
-                   <item row="0" column="0" rowspan="3">
+                   <item row="0" column="2" rowspan="2">
+                    <widget class="QComboBox" name="comboBox_7">
+                     <item>
+                      <property name="text">
+                       <string>让MOS自动为您选择</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item row="0" column="0" rowspan="4">
                     <widget class="QLabel" name="label_14">
                      <property name="styleSheet">
                       <string notr="true">font-size: 13px;</string>
@@ -3092,16 +3105,7 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="2" rowspan="2">
-                    <widget class="QComboBox" name="comboBox_7">
-                     <item>
-                      <property name="text">
-                       <string>让MOS自动为您选择</string>
-                      </property>
-                     </item>
-                    </widget>
-                   </item>
-                   <item row="2" column="2">
+                   <item row="3" column="2">
                     <widget class="QPushButton" name="pushButton_21">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -3138,6 +3142,16 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                        <width>16</width>
                        <height>16</height>
                       </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QPushButton" name="pushButton_22">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 14px;</string>
+                     </property>
+                     <property name="text">
+                      <string>刷新</string>
                      </property>
                     </widget>
                    </item>

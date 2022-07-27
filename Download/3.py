@@ -1,3 +1,5 @@
+"""自动建立多线程的写法，文件越大 线程越多 性能可能下降 一开始很快 到后面掉速严重"""
+
 from __future__ import annotations
 # 用于显示进度条
 from tqdm import tqdm
@@ -20,10 +22,18 @@ MB = 1024**2
 
 def split(start: int, end: int, step_1: int) -> list[tuple[int, int]]:
     # 分多块
-    if step_1 <= 14000000:
-        step = step_1
-    else:
-        step = step_1 - 12000000
+    #if step_1 >= 52428800:
+    #    # 如果小于50MB
+    #    step = step_1
+    #elif step_1 >= 1073741824:
+    #    # 大于1G 减去0.5G
+    #    step = step_1 - 536870912
+    #else:
+    #    # 如果都不是 自己砍一半
+    #    step = step_1//2
+    step = step_1
+
+    
     parts = [(start, min(start+step, end))
              for start in range(0, end, step)]
     return parts
@@ -64,7 +74,10 @@ def download(url: str, file_name: str, retry_times: int = 6, each_size=16*MB) ->
     '''
     f = open(file_name, 'wb')
     file_size = get_file_size(url)
- 
+    file_size_print_2 = file_size/1024
+    file_size_print = file_size_print_2/1024
+    print("文件大小" + str(file_size_print) + " MB")
+
     @retry(tries=retry_times)
     @multitasking.task
     def start_download(start: int, end: int) -> None:
@@ -81,7 +94,7 @@ def download(url: str, file_name: str, retry_times: int = 6, each_size=16*MB) ->
         # 发起请求并获取响应（流式）
         response = session.get(url, headers=_headers, stream=True)
         # 每次读取的流式响应大小
-        chunk_size = 95232
+        chunk_size = 84992
         # 暂存已获取的响应，后续循环写入
         chunks = []
         for chunk in response.iter_content(chunk_size=chunk_size):
@@ -118,6 +131,7 @@ if "__main__" == __name__:
     #url = 'https://download.visualstudio.microsoft.com/download/pr/cc04076c-d188-4c20-9b4f-89be06f1a39c/32da746ef46fbeedb4f609b67cb451c3/windowsdesktop-runtime-6.0.6-win-x86.exe'
     #url = 'https://visualstudio.microsoft.com/aabf4bb0-b5f4-4e42-8aae-6ad17ec46db2'
     #url = 'https://file.skyworldstudio.top/d/SoftwareRelease/MOS/Publish/2.0.4-alpha/2.0.4-alpha-win.zip'
+    #url = 'https://download.visualstudio.microsoft.com/download/pr/ca7c7580-dd29-42d8-a0b1-3223e61f1623/b38739f51587806a5751419435d6c4ad/visualstudioformacinstaller-17.0.4.5.dmg'
     file_name = 'BaiduNetdisk_7.2.8.9.dmg'
     # 开始下载文件
     download(url, file_name)

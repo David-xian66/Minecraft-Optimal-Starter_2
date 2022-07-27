@@ -1234,7 +1234,7 @@ class Ui_MOS(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 377, 798))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 822, 456))
         self.scrollAreaWidgetContents_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.gridLayout_23 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_2)
@@ -1459,7 +1459,7 @@ class Ui_MOS(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 245, 829))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 822, 456))
         self.scrollAreaWidgetContents_3.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.gridLayout_30 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_3)
@@ -1524,10 +1524,18 @@ class Ui_MOS(object):
 "\n"
 "QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
 "QPushButton::hover{color: rgb(255, 59, 0)}\n"
-"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}")
+"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}\n"
+"\n"
+"#pushButton_22{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(115, 250, 121);}\n"
+"#pushButton_22::hover{color: rgb(115, 250, 121)}\n"
+"#pushButton_22::pressed{background-color: rgb(178, 255, 182);color: rgb(255, 255, 255);}")
         self.widget_15.setObjectName("widget_15")
         self.gridLayout_31 = QtWidgets.QGridLayout(self.widget_15)
         self.gridLayout_31.setObjectName("gridLayout_31")
+        self.comboBox_7 = QtWidgets.QComboBox(self.widget_15)
+        self.comboBox_7.setObjectName("comboBox_7")
+        self.comboBox_7.addItem("")
+        self.gridLayout_31.addWidget(self.comboBox_7, 0, 2, 2, 1)
         self.label_14 = QtWidgets.QLabel(self.widget_15)
         self.label_14.setStyleSheet("font-size: 13px;")
         self.label_14.setScaledContents(False)
@@ -1535,11 +1543,7 @@ class Ui_MOS(object):
         self.label_14.setWordWrap(True)
         self.label_14.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
         self.label_14.setObjectName("label_14")
-        self.gridLayout_31.addWidget(self.label_14, 0, 0, 3, 1)
-        self.comboBox_7 = QtWidgets.QComboBox(self.widget_15)
-        self.comboBox_7.setObjectName("comboBox_7")
-        self.comboBox_7.addItem("")
-        self.gridLayout_31.addWidget(self.comboBox_7, 0, 2, 2, 1)
+        self.gridLayout_31.addWidget(self.label_14, 0, 0, 4, 1)
         self.pushButton_21 = QtWidgets.QPushButton(self.widget_15)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -1552,7 +1556,11 @@ class Ui_MOS(object):
         self.pushButton_21.setStyleSheet("font-size: 14px;")
         self.pushButton_21.setIconSize(QtCore.QSize(16, 16))
         self.pushButton_21.setObjectName("pushButton_21")
-        self.gridLayout_31.addWidget(self.pushButton_21, 2, 2, 1, 1)
+        self.gridLayout_31.addWidget(self.pushButton_21, 3, 2, 1, 1)
+        self.pushButton_22 = QtWidgets.QPushButton(self.widget_15)
+        self.pushButton_22.setStyleSheet("font-size: 14px;")
+        self.pushButton_22.setObjectName("pushButton_22")
+        self.gridLayout_31.addWidget(self.pushButton_22, 2, 2, 1, 1)
         self.gridLayout_30.addWidget(self.widget_15, 0, 0, 1, 1)
         spacerItem31 = QtWidgets.QSpacerItem(20, 282, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.gridLayout_30.addItem(spacerItem31, 1, 0, 1, 1)
@@ -1891,6 +1899,8 @@ class Ui_MOS(object):
         self.stackedWidget.setCurrentIndex(0)
         self.fontComboBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MOS)
+
+
 
 
         # =============================================================================#
@@ -2506,6 +2516,61 @@ class Ui_MOS(object):
         _translate = QtCore.QCoreApplication.translate
         self.label_gonggao_left_txt.setText(_translate(text1,text2))
 
+    def click_comboBox_shezhi(self):
+        '''设置页'''
+        a = self.comboBox.currentText()
+        if a == "启动器设置":
+            self.stackedWidget.setCurrentIndex(0)
+        elif a == "全局游戏设置":
+            self.stackedWidget.setCurrentIndex(1)
+
+    def click_pushButton_jianchagengxin(self):
+        self.pushButton_19.setEnabled(False)
+        if self.pushButton_19.text() != '检查到更新，点击下载':
+            self.pushButton_19.setEnabled(False)
+            self.v = MOS_versions(a)
+            self.v.sinOut_versions.connect(self.click_pushButton_jianchagengxin_sinOut)
+            self.v.sinOut_versions_yes_no.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes_no)
+            self.v.sinOut_versions_yes.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes)
+            self.v.start()
+        else:
+            self.pushButton_18.setEnabled(True)
+        
+    
+    def click_pushButton_jianchagengxin_sinOut(self,text):
+        self.pushButton_19.setText(text)
+
+    def click_pushButton_jianchagengxin_sinOut_versions_yes_no(self,text):
+        if text == "No":
+            self.pushButton_19.setText("检测完毕 没有更新 点击重新获取")
+            self.pushButton_19.setEnabled(True)
+
+    def click_pushButton_jianchagengxin_sinOut_versions_yes(self,url,text,v):
+        self.pushButton_19.setText("检查到更新，在弹出的窗口中下载&查看更新内容")
+        self.pushButton_19.setEnabled(True)
+        a = QMessageBox.information(None,"更新",str("<html><head/><body><h1> 版本" + v + "的更新内容： </h1><p>" + text + "</p></body></html>"),QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel,QMessageBox.StandardButton.Ok)
+
+        if a == QMessageBox.StandardButton.Ok: #点了OK按钮
+            dir = QFileDialog()
+            dir.setFileMode(QFileDialog.FileMode.Directory)
+            dir.setDirectory(str(file_h))
+            if dir.exec():
+                file_2 = dir.selectedFiles()
+                file_1 = file_2[0]
+                if str(system_h) == "darwin":
+                    file = os.path.join(file_1,'MOS.dmg')
+                else:
+                    file = os.path.join(file_1,'MOS.zip')
+                header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
+                r_2 = open(file, 'w+')
+                r_2.close
+                r = requests.get(url, stream=True, timeout=(60,120), headers = header)
+                with open(file, "wb") as f:
+                    for chunk in r.iter_content(chunk_size=10240):  # 每次加载……字节
+                        f.write(chunk)
+                        print("kk")
+
+
 
 
     def setfont(self):
@@ -2572,6 +2637,14 @@ class Ui_MOS(object):
         self.listWidget.setFont(QtGui.QFont(a))
         self.listWidget_2.setFont(QtGui.QFont(a))
         self.lineEdit_3.setFont(QtGui.QFont(a))
+        self.pushButton_19.setFont(QtGui.QFont(a))
+        self.label_5.setFont(QtGui.QFont(a))
+        self.radioButton.setFont(QtGui.QFont(a))
+        self.pushButton_20.setFont(QtGui.QFont(a))
+        self.label_14.setFont(QtGui.QFont(a))
+        self.comboBox_7.setFont(QtGui.QFont(a))
+        self.pushButton_21.setFont(QtGui.QFont(a))
+        self.label_14.setFont(QtGui.QFont(a))
         # 修改在json中的字体
         a = str(sys.platform)
         if a == "darwin":
@@ -2694,6 +2767,14 @@ class Ui_MOS(object):
         self.listWidget.setFont(QtGui.QFont(str1))
         self.listWidget_2.setFont(QtGui.QFont(str1))
         self.lineEdit_3.setFont(QtGui.QFont(str1))
+        self.pushButton_19.setFont(QtGui.QFont(str1))
+        self.label_5.setFont(QtGui.QFont(str1))
+        self.radioButton.setFont(QtGui.QFont(str1))
+        self.pushButton_20.setFont(QtGui.QFont(str1))
+        self.label_14.setFont(QtGui.QFont(str1))
+        self.comboBox_7.setFont(QtGui.QFont(str1))
+        self.pushButton_21.setFont(QtGui.QFont(str1))
+        self.label_14.setFont(QtGui.QFont(str1))
 
         # 修改在json中的字体
         a = str(sys.platform)
@@ -2784,7 +2865,14 @@ class Ui_MOS(object):
         self.listWidget.setFont(QtGui.QFont(str1))
         self.listWidget_2.setFont(QtGui.QFont(str1))
         self.lineEdit_3.setFont(QtGui.QFont(str1))
-
+        self.pushButton_19.setFont(QtGui.QFont(str1))
+        self.label_5.setFont(QtGui.QFont(str1))
+        self.radioButton.setFont(QtGui.QFont(str1))
+        self.pushButton_20.setFont(QtGui.QFont(str1))
+        self.label_14.setFont(QtGui.QFont(str1))
+        self.comboBox_7.setFont(QtGui.QFont(str1))
+        self.pushButton_21.setFont(QtGui.QFont(str1))
+        self.label_14.setFont(QtGui.QFont(str1))
 
 
     def MOS_file_return(self, str):
@@ -2822,6 +2910,7 @@ class Ui_MOS(object):
     # =================================分割线===================================#
 
 
+ 
     def retranslateUi(self, MOS):
         _translate = QtCore.QCoreApplication.translate
         MOS.setWindowTitle(_translate("MOS", "MOS ll 启动器"))
@@ -2888,9 +2977,10 @@ class Ui_MOS(object):
         self.label_5.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:20pt;\">启动器更新</span></p><p>在这里 你可以更新启动器</p><p>你可以在“关于”中查看当前版本</p></body></html>"))
         self.radioButton.setText(_translate("MOS", "自动为您检查更新"))
         self.pushButton_20.setText(_translate("MOS", "开始更新"))
-        self.label_14.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:20pt;\">Java设置</span></p><p>在这里 你可以设置启动游戏时使用的Java 建议选择 <span style=\" font-style:italic;\">让MOS为您自动选择</span></p><p>注意：<span style=\" font-weight:600;\">不要使用</span><span style=\" font-weight:600; font-style:italic;\">网易启动器</span><span style=\" font-weight:600;\">的Java 、</span><span style=\" font-weight:600; font-style:italic;\">1.17</span><span style=\" font-weight:600;\">及以上版本需用</span><span style=\" font-weight:600; font-style:italic;\">Java16</span><span style=\" font-weight:600;\">及以上版本 1.17一下需用Java8</span></p></body></html>"))
         self.comboBox_7.setItemText(0, _translate("MOS", "让MOS自动为您选择"))
+        self.label_14.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:20pt;\">Java设置</span></p><p>在这里 你可以设置启动游戏时使用的Java 建议选择 <span style=\" font-style:italic;\">让MOS为您自动选择</span></p><p>注意：<span style=\" font-weight:600;\">不要使用</span><span style=\" font-weight:600; font-style:italic;\">网易启动器</span><span style=\" font-weight:600;\">的Java 、</span><span style=\" font-weight:600; font-style:italic;\">1.17</span><span style=\" font-weight:600;\">及以上版本需用</span><span style=\" font-weight:600; font-style:italic;\">Java16</span><span style=\" font-weight:600;\">及以上版本 1.17一下需用Java8</span></p></body></html>"))
         self.pushButton_21.setText(_translate("MOS", "恢复默认"))
+        self.pushButton_22.setText(_translate("MOS", "刷新"))
         self.comboBox.setItemText(0, _translate("MOS", "启动器设置"))
         self.comboBox.setItemText(1, _translate("MOS", "全局游戏设置"))
         self.label.setText(_translate("MOS", "关于："))
@@ -2910,6 +3000,7 @@ class Ui_MOS(object):
         self.pushButton_shezhi.setText(_translate("MOS", "设置"))
         self.pushButton_about.setText(_translate("MOS", "关于"))
         self.label_mosll.setText(_translate("MOS", "MOS II"))
+
 
 
 
@@ -2933,11 +3024,13 @@ class Ui_MOS(object):
         self.pushButton_41.clicked.connect(self.click_pushButton_youximululeibiao_add_back)
         self.pushButton_18.clicked.connect(self.click_pushButton_youximululeibiao_add_confirm)
         self.lineEdit_4.textChanged.connect(self.click_lineEdit_youximululeibiao_check)
-        # 在‘………(上)……………’里显示所有
+        # 在lineEdit_4里显示所有
         # 为字体选择控件 连接槽
         self.fontComboBox.currentIndexChanged.connect(self.setfont)
         self.listWidget.itemClicked.connect(self.click_lineEdit_youximululeibiao_check_leibiao)
-        
+        #
+        self.comboBox.currentIndexChanged.connect(self.click_comboBox_shezhi)
+        self.pushButton_19.clicked.connect(self.click_pushButton_jianchagengxin)
 
 
 class gonggao(QThread):
@@ -2973,7 +3066,7 @@ class gonggao(QThread):
         try:
             header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
             try:
-                self.sinOut_gonggao_jindu.emit('20','正在加载\n\n当前步骤：刷新远程服务器文件(为了确保文件是最新的，我们需要远程服务器刷新文件)……请稍后\n')
+                self.sinOut_gonggao_jindu.emit('35','正在加载\n\n当前步骤：刷新远程服务器文件(为了确保文件是最新的，我们需要远程服务器刷新文件)……请稍后\n')
                 r_2 = requests.get(url_2, timeout=(5,50), headers = header)
             except:
                 pass
@@ -3187,6 +3280,55 @@ class gonggao(QThread):
             else:
                 self.sinOut_gonggao_text.emit("MOS", "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 未知错误 无缓存可加载</span></p></body></html>")
 
+class MOS_versions(QThread):
+    '''获取更新'''
+    sinOut_versions = pyqtSignal(str)
+    sinOut_versions_yes_no = pyqtSignal(str)
+    sinOut_versions_yes = pyqtSignal(str,str,str)
+    
+    def __init__(self, a):
+        super(MOS_versions, self).__init__()
+        self.a = a
+
+    def run(self):
+        import requests
+        self.sinOut_versions.emit("正在准备检查更新(1/2)")
+        if self.a == 'darwin':
+            self.sinOut_versions.emit("正在准备检查更新(2/2)")
+            url = 'http://api.2018k.cn/checkVersion?id=6edb1fb4d4154cd7a104f6f0702fcbed&version=' + versions
+            url_text = 'http://api.2018k.cn/getExample?id=6edb1fb4d4154cd7a104f6f0702fcbed&data=remark'
+        else:
+            self.sinOut_versions.emit("正在准备检查更新(2/2)")
+            url = 'http://api.2018k.cn/checkVersion?id=b7c5251e83a644e7ad8b5bd8451ceb0a&version=' + versions
+            url_text = 'http://api.2018k.cn/getExample?id=b7c5251e83a644e7ad8b5bd8451ceb0a&data=remark'
+        self.sinOut_versions.emit("正在获取更新(1/5)")
+        header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
+        r_2 = requests.get(url, timeout=(5,50), headers = header)
+        r_3 = r_2.text
+        r_4 = r_3.split('|') #分割
+        if r_4[0] == 'true':
+            '''如果要更新'''
+            self.sinOut_versions.emit("正在获取更新(2/5)")
+            url_2 = 'https://purge.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
+            url_3 = 'https://cdn.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
+            self.sinOut_versions.emit("正在获取更新(3/5)")
+            r_5 = requests.get(url_2, timeout=(5,50), headers = header)
+            self.sinOut_versions.emit("正在获取更新(4/5)")
+            r_6 = requests.get(url_3, timeout=(5,50), headers = header)
+            self.sinOut_versions.emit("正在获取更新(5/5)")
+
+            r_7 = requests.get(url_text, timeout=(5,50), headers = header)
+            r_7.encoding = 'utf-8'
+            r_7_1 = r_7.text
+
+            self.sinOut_versions.emit("正在准备……")
+            json_1 = r_6.json()
+            r_7 = r_4[4]
+            json_2 = json_1[r_7]
+            MOS_print("info",str("新版本：" + json_2 + " ->编号：" + r_7))
+            self.sinOut_versions_yes.emit(r_4[3],r_7_1,json_2)
+        else:
+            self.sinOut_versions_yes_no.emit('No')
 
 class MOS_file(QThread):
     '''初始化文件/设置'''
@@ -3591,9 +3733,23 @@ def except_hook(cls, exception, traceback):
     '''报错显示'''
     sys.__excepthook__(cls, exception, traceback)
 
+def file_h():
+    if a == "darwin":
+        user_name = os.getlogin()
+        # 获取当前系统用户目录
+        user_home = os.path.expanduser('~')
+        file = user_home + '/Documents'
+    else:
+        file = ''
+    return file
+
+def system_h():
+    a = str(sys.platform)
+    return a
+
 try:
     if __name__ == '__main__':
-        
+        versions = '2.0.5'
         # import shutil
         # shutil.rmtree(".MOS")
         # shutil.rmtree(".minecraft")
