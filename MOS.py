@@ -2571,7 +2571,18 @@ class Ui_MOS(object):
 
     def chick_pushButton_Java_check(self):
         a = Java_check()
-        print(a)
+        MOS_print("info",a)
+        self.comboBox_7.clear()
+        self.comboBox_7.addItem("让MOS自动为您选择")
+        for a_1, a_2 in a.items():
+            a_3 = a_2 + "  ––>  " + a_1
+            self.comboBox_7.addItem(a_3)
+        java_json = MOS_json_read(All='Yes')
+        if 'Java' in java_json:
+            java_json['Java'] = a
+        else:
+            java_json['Java'] = a
+        MOS_json_write(java_json)
 
     def setfont(self):
         '''在“字体选择下拉菜单”中 更改字体后，设置字体'''
@@ -3626,13 +3637,11 @@ def Java_check():
             java_mac_2_4 = java_mac_2_3[1:] #删除前面的空格
             file_java_2.append(java_mac_2_4)
     file_java = {}
-    print(file_java_2)
     for file_java_1 in file_java_2:
         if file_java_1 == None:
             pass
         else:
-            file_java_1_2 = file_java_1+' -version'
-            print("mm"+file_java_1_2)
+            file_java_1_2 = '"' + file_java_1 + '"' +' -version'
             #print(file_java_1_2)
             # https://blog.csdn.net/henghenghalala/article/details/98868979
             # https://www.runoob.com/w3cnote/python3-subprocess.html
@@ -3646,8 +3655,8 @@ def Java_check():
     return file_java
 
 def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = None, MOS_game_name_dir = None, MOS_game_dir_to_name = None,file = None):
-    '''All: 是否获取Json的全部数据？(直接输出全部的Json内容)
-        MOS_game_dir: 是否获取版本路径相关的？
+    '''All: 是否获取Json的全部数据？(直接输出全部的Json内容) 'Yes'
+        MOS_game_dir: 是否获取版本路径相关的？'Yes'
         MOS_game_dir_name_or_dir: 是获取所有的名字还是路径 (MOS_game_dir值要写Yes)
         MOS_game_name_dir: 用路径的昵称 获取对应的路径 (MOS_game_dir值要写Yes)
         MOS_game_dir_name: 用路径，获取对应的名字 (MOS_game_dir值要写Yes)
