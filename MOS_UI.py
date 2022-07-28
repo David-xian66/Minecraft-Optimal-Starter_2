@@ -4209,9 +4209,6 @@ def MOS_json_write(text):
         MOS_print("error",error)
 
 
-def except_hook(cls, exception, traceback):
-    '''报错显示'''
-    sys.__excepthook__(cls, exception, traceback)
 
 def file_h():
     if system_h() == "darwin":
@@ -4230,4 +4227,3 @@ def system_h():
 def versions():
     versions = '2.0.5'
     return versions
-
