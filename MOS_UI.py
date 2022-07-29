@@ -1,5 +1,7 @@
 import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
 
+from tomlkit import item
+
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
 from PyQt6.QtCore import *
@@ -3000,6 +3002,29 @@ class Ui_MOS(object):
         self.stackedWidget_2.setCurrentIndex(8)
         self.stackedWidget_mos_right.setCurrentIndex(3)
         self.comboBox_2.setCurrentIndex(4)
+        self.click_pushButton_xiazai()
+        
+    def click_listWidget_Java_xiazai(self,item):
+        """点击下载Java列表中的项时……"""
+        if item.isSelected():
+            a = item.text()
+            MOS_print("info",str("点击: " + a))
+            self.pushButton_24.setText(str("下载 - " + a))
+            self.pushButton_24.setEnabled(True)
+    
+    def click_pushButton_Java_Dowmloader(self):
+        a = self.pushButton_24.text()
+        if a == '下载 - 免安装版 Java 8':
+            webbrowser.open("https://www.123pan.com/s/xCVDVv-gXuY3")
+        elif a == '下载 - 免安装版 Java 16':
+            webbrowser.open("https://www.123pan.com/s/xCVDVv-gXuY3")
+        elif a == '下载 - 免安装版 Java 17':
+            webbrowser.open("https://www.123pan.com/s/xCVDVv-gXuY3")
+        else:
+            webbrowser.open("https://www.123pan.com/s/xCVDVv-gXuY3")
+
+        
+
 
     def click_pushButton_GitHub(self):
         webbrowser.open("https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2")
@@ -3527,6 +3552,8 @@ class Ui_MOS(object):
         self.comboBox_2.currentIndexChanged.connect(self.click_comboBox_xiazai)
         self.pushButton_27.clicked.connect(self.click_pushButton_Gitee)
         self.pushButton_29.clicked.connect(self.click_pushButton_GitHub)
+        self.listWidget_3.itemClicked.connect(self.click_listWidget_Java_xiazai)
+        self.pushButton_24.clicked.connect(self.click_pushButton_Java_Dowmloader)
 
 
 class gonggao(QThread):

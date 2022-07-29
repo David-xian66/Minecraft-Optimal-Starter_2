@@ -504,7 +504,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -513,7 +513,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -523,9 +523,9 @@ class Ui_MOS(object):
 "/*QComboBox::down-arrow::hover{}*\n"
 "\n"
 "/* QComboBox\u4e2d\u7684\u5782\u76f4\u6eda\u52a8\u6761 */\n"
-"QComboBox QAbstractScrollArea QScrollBar"
-                        ":vertical {\n"
-"    width: 10px;\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+""
+                        "    width: 10px;\n"
 "    height: 8px;\n"
 "    background-color: rgb(255, 64, 255);   /* \u7a7a\u767d\u533a\u57df\u7684\u80cc\u666f\u8272*/\n"
 "    border-style:none;\n"
@@ -1463,7 +1463,7 @@ class Ui_MOS(object):
         self.pushButton_13.setObjectName(u"pushButton_13")
         self.pushButton_13.setStyleSheet(u"border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         icon14 = QIcon()
-        icon14.addFile(u"../picture/loading.gif", QSize(), QIcon.Normal, QIcon.Off)
+        icon14.addFile(u"../../picture/loading.gif", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_13.setIcon(icon14)
         self.pushButton_13.setIconSize(QSize(40, 40))
 
@@ -1701,6 +1701,7 @@ class Ui_MOS(object):
 
         self.widget_16 = QWidget(self.page_18)
         self.widget_16.setObjectName(u"widget_16")
+        self.widget_16.setEnabled(True)
         self.widget_16.setStyleSheet(u"#listWidget_3{border-style:none;}\n"
 "QListView::item {\n"
 "    height: 25px;\n"
@@ -1720,15 +1721,17 @@ class Ui_MOS(object):
 "#pushButton_24{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 250, 146);color: rgb(33, 33, 33);}\n"
 "#pushButton_24::hover{color: rgb(0, 250, 146);}\n"
 "#pushButton_24::pressed{background-color: rgb(128, 255, 202);color: rgb(255, 255, 255);}\n"
+"/*\u7981\u7528*/\n"
+"#pushButton_24:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);color: rgb(145, 145, 145);}\n"
 "\n"
 "/*\u8bbe\u7f6e\u5782\u76f4\u6eda\u52a8\u6761\u57fa\u672c\u6837\u5f0f*/\n"
 "QScrollBar:vertical\n"
 "{\n"
 "    width:8px;\n"
-"    background:rgba(0,0,0,0%);\n"
+"    background"
+                        ":rgba(0,0,0,0%);\n"
 "    margin:0px,0px,0px,0px;\n"
-"    padding-top:9px;   /*\u7559\u51fa9px\u7ed9\u4e0a\u9762\u548c\u4e0b\u9762\u7684"
-                        "\u7bad\u5934*/\n"
+"    padding-top:9px;   /*\u7559\u51fa9px\u7ed9\u4e0a\u9762\u548c\u4e0b\u9762\u7684\u7bad\u5934*/\n"
 "    padding-bottom:9px;\n"
 "}\n"
 "QScrollBar::handle:vertical\n"
@@ -1748,26 +1751,26 @@ class Ui_MOS(object):
 "QScrollBar::add-line:vertical   /*\u8fd9\u4e2a\u5e94\u8be5\u662f\u8bbe\u7f6e\u4e0b\u7bad\u5934\u7684\uff0c3.png\u5c31\u662f\u7bad\u5934*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    border-image:url(:/img/caret-down_1.png);\n"
 "    subcontrol-position:bottom;\n"
 "}\n"
 "QScrollBar::sub-line:vertical   /*\u8bbe\u7f6e\u4e0a\u7bad\u5934*/\n"
 "{\n"
-"    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    height:9px;width:8px;"
+                        "\n"
+"    border-image:url(:/img/caret-up_1.png);\n"
 "    subcontrol-position:top;\n"
 "}\n"
-"QScrollBar::add-line:vertic"
-                        "al:hover   /*\u5f53\u9f20\u6807\u653e\u5230\u4e0b\u7bad\u5934\u4e0a\u7684\u65f6\u5019*/\n"
+"QScrollBar::add-line:vertical:hover   /*\u5f53\u9f20\u6807\u653e\u5230\u4e0b\u7bad\u5934\u4e0a\u7684\u65f6\u5019*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-down.png);\n"
+"    border-image:url(:/img/caret-down.png);\n"
 "    subcontrol-position:bottom;\n"
 "}\n"
 "QScrollBar::sub-line:vertical:hover  /*\u5f53\u9f20\u6807\u653e\u5230\u4e0b\u7bad\u5934\u4e0a\u7684\u65f6\u5019*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-up.png);\n"
+"    border-image:url(:/img/caret-up.png);\n"
 "    subcontrol-position:top;\n"
 "}\n"
 "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*\u5f53\u6eda\u52a8\u6761\u6eda\u52a8\u7684\u65f6\u5019\uff0c\u4e0a\u9762\u7684\u90e8\u5206\u548c\u4e0b\u9762\u7684\u90e8\u5206*/\n"
@@ -1797,6 +1800,7 @@ class Ui_MOS(object):
 
         self.pushButton_24 = QPushButton(self.widget_16)
         self.pushButton_24.setObjectName(u"pushButton_24")
+        self.pushButton_24.setEnabled(False)
         self.pushButton_24.setStyleSheet(u"font-size: 14px;")
 
         self.gridLayout_40.addWidget(self.pushButton_24, 1, 0, 1, 1)
@@ -2765,7 +2769,7 @@ class Ui_MOS(object):
         ___qlistwidgetitem6.setText(QCoreApplication.translate("MOS", u"\u514d\u5b89\u88c5\u7248 Java 17", None));
         self.listWidget_3.setSortingEnabled(__sortingEnabled1)
 
-        self.pushButton_24.setText(QCoreApplication.translate("MOS", u"\u4e0b\u8f7d", None))
+        self.pushButton_24.setText(QCoreApplication.translate("MOS", u"\u4e0b\u8f7d - \u8bf7\u9009\u62e9\u8981\u4e0b\u8f7d\u7684Java", None))
         ___qtreewidgetitem4 = self.treeWidget_5.headerItem()
         ___qtreewidgetitem4.setText(2, QCoreApplication.translate("MOS", u"\u5df2\u7528\u65f6\u95f4/\u5269\u4f59\u65f6\u95f4", None));
         ___qtreewidgetitem4.setText(1, QCoreApplication.translate("MOS", u"\u8fdb\u5ea6", None));
