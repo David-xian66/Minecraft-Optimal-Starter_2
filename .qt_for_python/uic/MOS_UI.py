@@ -22,7 +22,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFontComboBox, QFrame,
     QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
     QTabWidget, QTextBrowser, QTreeWidget, QTreeWidgetItem,
     QVBoxLayout, QWidget)
-import img_rc
+import MOS_rc
 
 class Ui_MOS(object):
     def setupUi(self, MOS):
@@ -156,7 +156,9 @@ class Ui_MOS(object):
         self.pushButton_mos_left_top = QPushButton(self.widget_mos_left_top)
         self.pushButton_mos_left_top.setObjectName(u"pushButton_mos_left_top")
         self.pushButton_mos_left_top.setStyleSheet(u"width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);")
-        self.pushButton_mos_left_top.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u"../../picture/ico.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_mos_left_top.setIcon(icon1)
         self.pushButton_mos_left_top.setIconSize(QSize(50, 50))
 
         self.gridLayout_4.addWidget(self.pushButton_mos_left_top, 0, 0, 2, 1)
@@ -184,9 +186,9 @@ class Ui_MOS(object):
         self.pushButton_home.setFocusPolicy(Qt.TabFocus)
         self.pushButton_home.setLayoutDirection(Qt.LeftToRight)
         self.pushButton_home.setStyleSheet(u"font-size: 15px;")
-        icon1 = QIcon()
-        icon1.addFile(u"../picture/home.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_home.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addFile(u"../../picture/home.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_home.setIcon(icon2)
         self.pushButton_home.setIconSize(QSize(20, 20))
 
         self.verticalLayout_2.addWidget(self.pushButton_home)
@@ -195,9 +197,9 @@ class Ui_MOS(object):
         self.pushButton_lianji.setObjectName(u"pushButton_lianji")
         self.pushButton_lianji.setMinimumSize(QSize(150, 0))
         self.pushButton_lianji.setStyleSheet(u"font-size: 15px;")
-        icon2 = QIcon()
-        icon2.addFile(u"../picture/online.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_lianji.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u"../../picture/online.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_lianji.setIcon(icon3)
         self.pushButton_lianji.setIconSize(QSize(20, 20))
 
         self.verticalLayout_2.addWidget(self.pushButton_lianji)
@@ -206,9 +208,9 @@ class Ui_MOS(object):
         self.pushButton_xiazai.setObjectName(u"pushButton_xiazai")
         self.pushButton_xiazai.setMinimumSize(QSize(150, 0))
         self.pushButton_xiazai.setStyleSheet(u"font-size: 15px;")
-        icon3 = QIcon()
-        icon3.addFile(u"../picture/download.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_xiazai.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u"../../picture/download.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_xiazai.setIcon(icon4)
         self.pushButton_xiazai.setIconSize(QSize(20, 20))
 
         self.verticalLayout_2.addWidget(self.pushButton_xiazai)
@@ -217,9 +219,9 @@ class Ui_MOS(object):
         self.pushButton_music.setObjectName(u"pushButton_music")
         self.pushButton_music.setMinimumSize(QSize(150, 0))
         self.pushButton_music.setStyleSheet(u"font-size: 15px;")
-        icon4 = QIcon()
-        icon4.addFile(u"../picture/music.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_music.setIcon(icon4)
+        icon5 = QIcon()
+        icon5.addFile(u"../../picture/music.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_music.setIcon(icon5)
         self.pushButton_music.setIconSize(QSize(20, 20))
 
         self.verticalLayout_2.addWidget(self.pushButton_music)
@@ -228,9 +230,9 @@ class Ui_MOS(object):
         self.pushButton_shezhi.setObjectName(u"pushButton_shezhi")
         self.pushButton_shezhi.setMinimumSize(QSize(150, 0))
         self.pushButton_shezhi.setStyleSheet(u"font-size: 15px;")
-        icon5 = QIcon()
-        icon5.addFile(u"../picture/settings.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_shezhi.setIcon(icon5)
+        icon6 = QIcon()
+        icon6.addFile(u"../../picture/settings.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_shezhi.setIcon(icon6)
         self.pushButton_shezhi.setIconSize(QSize(20, 20))
 
         self.verticalLayout_2.addWidget(self.pushButton_shezhi)
@@ -239,9 +241,9 @@ class Ui_MOS(object):
         self.pushButton_about.setObjectName(u"pushButton_about")
         self.pushButton_about.setMinimumSize(QSize(150, 0))
         self.pushButton_about.setStyleSheet(u"font-size: 15px;")
-        icon6 = QIcon()
-        icon6.addFile(u"../picture/about.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_about.setIcon(icon6)
+        icon7 = QIcon()
+        icon7.addFile(u"../../picture/about.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_about.setIcon(icon7)
         self.pushButton_about.setIconSize(QSize(20, 20))
 
         self.verticalLayout_2.addWidget(self.pushButton_about)
@@ -442,7 +444,7 @@ class Ui_MOS(object):
         self.label_3 = QLabel(self.widget_scrollArea_page_gonggao_statring)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setStyleSheet(u"border-style:none;background-color: rgba(255, 255, 255, 0);")
-        self.label_3.setPixmap(QPixmap(u"../../../Desktop/MOS/picture/loading_3.gif"))
+        self.label_3.setPixmap(QPixmap(u"../../picture/loading_3.gif"))
         self.label_3.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_2.addWidget(self.label_3, 0, 1, 2, 3)
@@ -772,10 +774,10 @@ class Ui_MOS(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.listWidget = QListWidget(self.widget_7)
-        icon7 = QIcon()
-        icon7.addFile(u"../picture/folder.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon8 = QIcon()
+        icon8.addFile(u"../../picture/folder.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem = QListWidgetItem(self.listWidget)
-        __qlistwidgetitem.setIcon(icon7);
+        __qlistwidgetitem.setIcon(icon8);
         self.listWidget.setObjectName(u"listWidget")
         self.listWidget.setStyleSheet(u"font-size: 15px;")
         self.listWidget.setIconSize(QSize(24, 24))
@@ -786,7 +788,7 @@ class Ui_MOS(object):
         self.pushButton_38.setObjectName(u"pushButton_38")
         self.pushButton_38.setMinimumSize(QSize(0, 30))
         self.pushButton_38.setStyleSheet(u"font-size: 13px;")
-        self.pushButton_38.setIcon(icon5)
+        self.pushButton_38.setIcon(icon6)
 
         self.verticalLayout.addWidget(self.pushButton_38)
 
@@ -794,9 +796,9 @@ class Ui_MOS(object):
         self.pushButton_36.setObjectName(u"pushButton_36")
         self.pushButton_36.setMinimumSize(QSize(0, 30))
         self.pushButton_36.setStyleSheet(u"font-size: 13px;")
-        icon8 = QIcon()
-        icon8.addFile(u"../picture/folder_add.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_36.setIcon(icon8)
+        icon9 = QIcon()
+        icon9.addFile(u"../../picture/folder_add.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_36.setIcon(icon9)
 
         self.verticalLayout.addWidget(self.pushButton_36)
 
@@ -804,9 +806,9 @@ class Ui_MOS(object):
         self.pushButton_37.setObjectName(u"pushButton_37")
         self.pushButton_37.setMinimumSize(QSize(0, 30))
         self.pushButton_37.setStyleSheet(u"font-size: 13px;")
-        icon9 = QIcon()
-        icon9.addFile(u"../picture/add.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_37.setIcon(icon9)
+        icon10 = QIcon()
+        icon10.addFile(u"../../picture/add.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_37.setIcon(icon10)
 
         self.verticalLayout.addWidget(self.pushButton_37)
 
@@ -989,7 +991,7 @@ class Ui_MOS(object):
         self.pushButton_42.setObjectName(u"pushButton_42")
         self.pushButton_42.setMinimumSize(QSize(0, 28))
         self.pushButton_42.setStyleSheet(u"font-size: 14px;")
-        self.pushButton_42.setIcon(icon7)
+        self.pushButton_42.setIcon(icon8)
 
         self.gridLayout_57.addWidget(self.pushButton_42, 0, 2, 2, 1)
 
@@ -1006,9 +1008,9 @@ class Ui_MOS(object):
         self.pushButton_41 = QPushButton(self.page_25)
         self.pushButton_41.setObjectName(u"pushButton_41")
         self.pushButton_41.setStyleSheet(u"")
-        icon10 = QIcon()
-        icon10.addFile(u"../picture/back.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_41.setIcon(icon10)
+        icon11 = QIcon()
+        icon11.addFile(u"../../picture/back.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_41.setIcon(icon11)
         self.pushButton_41.setIconSize(QSize(27, 30))
         self.pushButton_41.setAutoDefault(False)
         self.pushButton_41.setFlat(False)
@@ -1088,9 +1090,9 @@ class Ui_MOS(object):
         self.pushButton_40 = QPushButton(self.page_22)
         self.pushButton_40.setObjectName(u"pushButton_40")
         self.pushButton_40.setStyleSheet(u"font-size: 13px;")
-        icon11 = QIcon()
-        icon11.addFile(u"../picture/trash_red.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_40.setIcon(icon11)
+        icon12 = QIcon()
+        icon12.addFile(u"../picture/trash_red.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_40.setIcon(icon12)
         self.pushButton_40.setIconSize(QSize(20, 20))
         self.pushButton_40.setCheckable(False)
 
@@ -1136,7 +1138,7 @@ class Ui_MOS(object):
         self.gridLayout_54.setContentsMargins(0, 0, 0, 0)
         self.label_26 = QLabel(self.page_23)
         self.label_26.setObjectName(u"label_26")
-        self.label_26.setPixmap(QPixmap(u"../picture/loading.gif"))
+        self.label_26.setPixmap(QPixmap(u"../../picture/loading.gif"))
         self.label_26.setScaledContents(False)
         self.label_26.setAlignment(Qt.AlignCenter)
         self.label_26.setWordWrap(False)
@@ -1156,7 +1158,7 @@ class Ui_MOS(object):
         self.pushButton_35 = QPushButton(self.page_12)
         self.pushButton_35.setObjectName(u"pushButton_35")
         self.pushButton_35.setStyleSheet(u"")
-        self.pushButton_35.setIcon(icon10)
+        self.pushButton_35.setIcon(icon11)
         self.pushButton_35.setIconSize(QSize(27, 30))
 
         self.gridLayout_33.addWidget(self.pushButton_35, 1, 0, 1, 1)
@@ -1251,7 +1253,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1260,7 +1262,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1278,8 +1280,8 @@ class Ui_MOS(object):
 "}\n"
 "\n"
 "QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
-""
-                        "    border-radius: 5px;   /* \u5706\u89d2 */\n"
+"    border-radiu"
+                        "s: 5px;   /* \u5706\u89d2 */\n"
 "    background: rgb(160,160,160);   /* \u5c0f\u65b9\u5757\u7684\u80cc\u666f\u8272\u6df1\u7070lightblue */\n"
 "}\n"
 "\n"
@@ -1379,7 +1381,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1388,7 +1390,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1405,9 +1407,9 @@ class Ui_MOS(object):
 "    border-style:none;\n"
 "}\n"
 "\n"
-"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {"
-                        "\n"
-"    border-radius: 5px;   /* \u5706\u89d2 */\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-"
+                        "radius: 5px;   /* \u5706\u89d2 */\n"
 "    background: rgb(160,160,160);   /* \u5c0f\u65b9\u5757\u7684\u80cc\u666f\u8272\u6df1\u7070lightblue */\n"
 "}\n"
 "\n"
@@ -1423,9 +1425,9 @@ class Ui_MOS(object):
         self.pushButton_8 = QPushButton(self.widget_2)
         self.pushButton_8.setObjectName(u"pushButton_8")
         self.pushButton_8.setStyleSheet(u"border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
-        icon12 = QIcon()
-        icon12.addFile(u"../picture/quilt.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_8.setIcon(icon12)
+        icon13 = QIcon()
+        icon13.addFile(u"../../picture/quilt.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_8.setIcon(icon13)
         self.pushButton_8.setIconSize(QSize(50, 50))
 
         self.gridLayout_25.addWidget(self.pushButton_8, 3, 0, 1, 1)
@@ -1460,9 +1462,9 @@ class Ui_MOS(object):
         self.pushButton_13 = QPushButton(self.widget_2)
         self.pushButton_13.setObjectName(u"pushButton_13")
         self.pushButton_13.setStyleSheet(u"border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
-        icon13 = QIcon()
-        icon13.addFile(u"../picture/loading.gif", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_13.setIcon(icon13)
+        icon14 = QIcon()
+        icon14.addFile(u"../picture/loading.gif", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_13.setIcon(icon14)
         self.pushButton_13.setIconSize(QSize(40, 40))
 
         self.gridLayout_25.addWidget(self.pushButton_13, 1, 4, 1, 1)
@@ -1470,7 +1472,7 @@ class Ui_MOS(object):
         self.pushButton_14 = QPushButton(self.widget_2)
         self.pushButton_14.setObjectName(u"pushButton_14")
         self.pushButton_14.setStyleSheet(u"border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
-        self.pushButton_14.setIcon(icon13)
+        self.pushButton_14.setIcon(icon14)
         self.pushButton_14.setIconSize(QSize(40, 40))
 
         self.gridLayout_25.addWidget(self.pushButton_14, 2, 4, 1, 1)
@@ -1478,9 +1480,9 @@ class Ui_MOS(object):
         self.pushButton_5 = QPushButton(self.widget_2)
         self.pushButton_5.setObjectName(u"pushButton_5")
         self.pushButton_5.setStyleSheet(u"border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
-        icon14 = QIcon()
-        icon14.addFile(u"../picture/forge.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_5.setIcon(icon14)
+        icon15 = QIcon()
+        icon15.addFile(u"../../picture/forge.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_5.setIcon(icon15)
         self.pushButton_5.setIconSize(QSize(50, 50))
 
         self.gridLayout_25.addWidget(self.pushButton_5, 0, 0, 1, 1)
@@ -1494,9 +1496,9 @@ class Ui_MOS(object):
         self.pushButton_7 = QPushButton(self.widget_2)
         self.pushButton_7.setObjectName(u"pushButton_7")
         self.pushButton_7.setStyleSheet(u"border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
-        icon15 = QIcon()
-        icon15.addFile(u"../picture/optifine.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_7.setIcon(icon15)
+        icon16 = QIcon()
+        icon16.addFile(u"../../picture/optifine.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_7.setIcon(icon16)
         self.pushButton_7.setIconSize(QSize(50, 50))
 
         self.gridLayout_25.addWidget(self.pushButton_7, 2, 0, 1, 1)
@@ -1504,7 +1506,7 @@ class Ui_MOS(object):
         self.pushButton_15 = QPushButton(self.widget_2)
         self.pushButton_15.setObjectName(u"pushButton_15")
         self.pushButton_15.setStyleSheet(u"border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
-        self.pushButton_15.setIcon(icon13)
+        self.pushButton_15.setIcon(icon14)
         self.pushButton_15.setIconSize(QSize(40, 40))
 
         self.gridLayout_25.addWidget(self.pushButton_15, 3, 4, 1, 1)
@@ -1532,9 +1534,9 @@ class Ui_MOS(object):
         self.pushButton_6 = QPushButton(self.widget_2)
         self.pushButton_6.setObjectName(u"pushButton_6")
         self.pushButton_6.setStyleSheet(u"border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
-        icon16 = QIcon()
-        icon16.addFile(u"../picture/fabric.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_6.setIcon(icon16)
+        icon17 = QIcon()
+        icon17.addFile(u"../../picture/fabric.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_6.setIcon(icon17)
         self.pushButton_6.setIconSize(QSize(50, 50))
 
         self.gridLayout_25.addWidget(self.pushButton_6, 1, 0, 1, 1)
@@ -1542,7 +1544,7 @@ class Ui_MOS(object):
         self.pushButton_12 = QPushButton(self.widget_2)
         self.pushButton_12.setObjectName(u"pushButton_12")
         self.pushButton_12.setStyleSheet(u"border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
-        self.pushButton_12.setIcon(icon13)
+        self.pushButton_12.setIcon(icon14)
         self.pushButton_12.setIconSize(QSize(40, 40))
 
         self.gridLayout_25.addWidget(self.pushButton_12, 0, 4, 1, 1)
@@ -1940,7 +1942,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1949,7 +1951,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1967,8 +1969,8 @@ class Ui_MOS(object):
 "}\n"
 "\n"
 "QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
-""
-                        "    border-radius: 5px;   /* \u5706\u89d2 */\n"
+"    border-radiu"
+                        "s: 5px;   /* \u5706\u89d2 */\n"
 "    background: rgb(160,160,160);   /* \u5c0f\u65b9\u5757\u7684\u80cc\u666f\u8272\u6df1\u7070lightblue */\n"
 "}\n"
 "\n"
@@ -2256,7 +2258,7 @@ class Ui_MOS(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 258, 845))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 832, 469))
         self.scrollAreaWidgetContents_3.setStyleSheet(u"background-color: rgba(255, 255, 255, 0);")
         self.gridLayout_30 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_30.setObjectName(u"gridLayout_30")
@@ -2512,7 +2514,7 @@ class Ui_MOS(object):
         self.pushButton = QPushButton(self.widget_11)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setStyleSheet(u"border-style:none;")
-        self.pushButton.setIcon(icon)
+        self.pushButton.setIcon(icon1)
         self.pushButton.setIconSize(QSize(40, 40))
 
         self.gridLayout_12.addWidget(self.pushButton, 1, 0, 1, 1)
@@ -2542,9 +2544,9 @@ class Ui_MOS(object):
         self.pushButton_4 = QPushButton(self.widget_12)
         self.pushButton_4.setObjectName(u"pushButton_4")
         self.pushButton_4.setStyleSheet(u"border-style:none;")
-        icon17 = QIcon()
-        icon17.addFile(u"../picture/david.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_4.setIcon(icon17)
+        icon18 = QIcon()
+        icon18.addFile(u"../../picture/david.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_4.setIcon(icon18)
         self.pushButton_4.setIconSize(QSize(40, 40))
 
         self.gridLayout_17.addWidget(self.pushButton_4, 0, 0, 1, 1)
@@ -2580,9 +2582,9 @@ class Ui_MOS(object):
         self.pushButton_9 = QPushButton(self.widget_14)
         self.pushButton_9.setObjectName(u"pushButton_9")
         self.pushButton_9.setStyleSheet(u"border-style:none;")
-        icon18 = QIcon()
-        icon18.addFile(u"../picture/heimnad.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_9.setIcon(icon18)
+        icon19 = QIcon()
+        icon19.addFile(u"../../picture/heimnad.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_9.setIcon(icon19)
         self.pushButton_9.setIconSize(QSize(40, 40))
 
         self.gridLayout_18.addWidget(self.pushButton_9, 0, 0, 1, 1)

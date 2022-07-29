@@ -188,7 +188,7 @@ QPushButton
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>../picture/ico.png</normaloff>../picture/ico.png</iconset>
+              <normaloff>../../picture/ico.png</normaloff>../../picture/ico.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -243,7 +243,7 @@ QPushButton
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../picture/home.png</normaloff>../picture/home.png</iconset>
+           <normaloff>../../picture/home.png</normaloff>../../picture/home.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -269,7 +269,7 @@ QPushButton
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../picture/online.png</normaloff>../picture/online.png</iconset>
+           <normaloff>../../picture/online.png</normaloff>../../picture/online.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -295,7 +295,7 @@ QPushButton
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../picture/download.png</normaloff>../picture/download.png</iconset>
+           <normaloff>../../picture/download.png</normaloff>../../picture/download.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -321,7 +321,7 @@ QPushButton
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../picture/music.png</normaloff>../picture/music.png</iconset>
+           <normaloff>../../picture/music.png</normaloff>../../picture/music.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -347,7 +347,7 @@ QPushButton
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../picture/settings.png</normaloff>../picture/settings.png</iconset>
+           <normaloff>../../picture/settings.png</normaloff>../../picture/settings.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -373,7 +373,7 @@ QPushButton
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../picture/about.png</normaloff>../picture/about.png</iconset>
+           <normaloff>../../picture/about.png</normaloff>../../picture/about.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -799,7 +799,7 @@ QProgressBar::chunk{
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap>../../../Desktop/MOS/picture/loading_3.gif</pixmap>
+                     <pixmap>../../picture/loading_3.gif</pixmap>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -1327,7 +1327,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                      </property>
                      <property name="icon">
                       <iconset>
-                       <normaloff>../picture/folder.png</normaloff>../picture/folder.png</iconset>
+                       <normaloff>../../picture/folder.png</normaloff>../../picture/folder.png</iconset>
                      </property>
                     </item>
                    </widget>
@@ -1348,7 +1348,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>../picture/settings.png</normaloff>../picture/settings.png</iconset>
+                      <normaloff>../../picture/settings.png</normaloff>../../picture/settings.png</iconset>
                     </property>
                    </widget>
                   </item>
@@ -1368,7 +1368,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>../picture/folder_add.png</normaloff>../picture/folder_add.png</iconset>
+                      <normaloff>../../picture/folder_add.png</normaloff>../../picture/folder_add.png</iconset>
                     </property>
                    </widget>
                   </item>
@@ -1388,7 +1388,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>../picture/add.png</normaloff>../picture/add.png</iconset>
+                      <normaloff>../../picture/add.png</normaloff>../../picture/add.png</iconset>
                     </property>
                    </widget>
                   </item>
@@ -1690,7 +1690,7 @@ QPushButton::hover{background-color: rgb(118, 214, 255);border:2px solid rgb(128
                            </property>
                            <property name="icon">
                             <iconset>
-                             <normaloff>../picture/folder.png</normaloff>../picture/folder.png</iconset>
+                             <normaloff>../../picture/folder.png</normaloff>../../picture/folder.png</iconset>
                            </property>
                           </widget>
                          </item>
@@ -1720,7 +1720,7 @@ QPushButton::hover{background-color: rgb(118, 214, 255);border:2px solid rgb(128
                         </property>
                         <property name="icon">
                          <iconset>
-                          <normaloff>../picture/back.png</normaloff>../picture/back.png</iconset>
+                          <normaloff>../../picture/back.png</normaloff>../../picture/back.png</iconset>
                         </property>
                         <property name="iconSize">
                          <size>
@@ -2028,7 +2028,7 @@ QPushButton:disabled{
                          <string/>
                         </property>
                         <property name="pixmap">
-                         <pixmap>../picture/loading.gif</pixmap>
+                         <pixmap>../../picture/loading.gif</pixmap>
                         </property>
                         <property name="scaledContents">
                          <bool>false</bool>
@@ -2061,7 +2061,7 @@ QPushButton:disabled{
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>../picture/back.png</normaloff>../picture/back.png</iconset>
+                <normaloff>../../picture/back.png</normaloff>../../picture/back.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -2214,7 +2214,7 @@ QComboBox::item:selected
 QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}
 QComboBox::down-arrow
 {
-    image: url(:/img/picture/back_blue_down.png);
+    image: url(:/img/back_blue_down.png);
     width: 25px;
     height: 35px;
     right:6px;
@@ -2223,7 +2223,7 @@ QComboBox::down-arrow
 }
 QComboBox::down-arrow:on
 {
-    image: url(:/img/picture/back_blue_up.png);
+    image: url(:/img/back_blue_up.png);
     width: 25px;
     height: 35px;
     right:6px;
@@ -2413,7 +2413,7 @@ QComboBox::item:selected
 QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}
 QComboBox::down-arrow
 {
-    image: url(:/img/picture/back_blue_down.png);
+    image: url(:/img/back_blue_down.png);
     width: 25px;
     height: 35px;
     right:6px;
@@ -2422,7 +2422,7 @@ QComboBox::down-arrow
 }
 QComboBox::down-arrow:on
 {
-    image: url(:/img/picture/back_blue_up.png);
+    image: url(:/img/back_blue_up.png);
     width: 25px;
     height: 35px;
     right:6px;
@@ -2475,7 +2475,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>../picture/quilt.png</normaloff>../picture/quilt.png</iconset>
+                   <normaloff>../../picture/quilt.png</normaloff>../../picture/quilt.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -2596,7 +2596,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>../picture/forge.png</normaloff>../picture/forge.png</iconset>
+                   <normaloff>../../picture/forge.png</normaloff>../../picture/forge.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -2627,7 +2627,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>../picture/optifine.png</normaloff>../picture/optifine.png</iconset>
+                   <normaloff>../../picture/optifine.png</normaloff>../../picture/optifine.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -2704,7 +2704,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>../picture/fabric.png</normaloff>../picture/fabric.png</iconset>
+                   <normaloff>../../picture/fabric.png</normaloff>../../picture/fabric.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -3445,7 +3445,7 @@ QComboBox::item:selected
 QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}
 QComboBox::down-arrow
 {
-    image: url(:/img/picture/back_blue_down.png);
+    image: url(:/img/back_blue_down.png);
     width: 25px;
     height: 35px;
     right:6px;
@@ -3454,7 +3454,7 @@ QComboBox::down-arrow
 }
 QComboBox::down-arrow:on
 {
-    image: url(:/img/picture/back_blue_up.png);
+    image: url(:/img/back_blue_up.png);
     width: 25px;
     height: 35px;
     right:6px;
@@ -3919,8 +3919,8 @@ QRadioButton{border-style:none;}</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>258</width>
-                 <height>845</height>
+                 <width>832</width>
+                 <height>469</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -4339,7 +4339,7 @@ QLabel{border-style:none;}</string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>../picture/ico.png</normaloff>../picture/ico.png</iconset>
+                     <normaloff>../../picture/ico.png</normaloff>../../picture/ico.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -4397,7 +4397,7 @@ QLabel{border-style:none;}</string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>../picture/david.png</normaloff>../picture/david.png</iconset>
+                     <normaloff>../../picture/david.png</normaloff>../../picture/david.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -4465,7 +4465,7 @@ QLabel{border-style:none;}</string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>../picture/heimnad.png</normaloff>../picture/heimnad.png</iconset>
+                     <normaloff>../../picture/heimnad.png</normaloff>../../picture/heimnad.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -4567,7 +4567,7 @@ QLabel{border-style:none;}</string>
   </widget>
  </widget>
  <resources>
-  <include location="../img.qrc"/>
+  <include location="../qrc/MOS.qrc"/>
  </resources>
  <connections/>
 </ui>

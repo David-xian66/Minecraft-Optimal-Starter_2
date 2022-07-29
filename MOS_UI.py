@@ -3001,6 +3001,12 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.setCurrentIndex(3)
         self.comboBox_2.setCurrentIndex(4)
 
+    def click_pushButton_GitHub(self):
+        webbrowser.open("https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2")
+
+    def click_pushButton_Gitee(self):
+        webbrowser.open("https://gitee.com/xian66/minecraft-optimal-starter_2")
+    
     def setfont(self):
         '''在“字体选择下拉菜单”中 更改字体后，设置字体'''
         a = self.fontComboBox.currentText()
@@ -3519,6 +3525,8 @@ class Ui_MOS(object):
         self.pushButton_22.clicked.connect(self.chick_pushButton_Java_check)
         self.pushButton_23.clicked.connect(self.chick_pushButton_Java_shezhi_xiazai)
         self.comboBox_2.currentIndexChanged.connect(self.click_comboBox_xiazai)
+        self.pushButton_27.clicked.connect(self.click_pushButton_Gitee)
+        self.pushButton_29.clicked.connect(self.click_pushButton_GitHub)
 
 
 class gonggao(QThread):
