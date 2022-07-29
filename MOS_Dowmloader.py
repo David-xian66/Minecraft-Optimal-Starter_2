@@ -119,13 +119,16 @@ class Dowmloader:
         end_time_1 = time.perf_counter()
         print(end_time_1)
 
+# ************************************************** #
 def Dowmloader_(url, thread_num, file):
     """
         url=地址 thread_num=线程数量 file=保存路径
     """
     down = Dowmloader(url, thread_num, file)
     down.run
-    
+
+# ************************************************** #
+
 """
 if __name__ == '__main__':
     debug = 1           # 测试情况

@@ -1,7 +1,11 @@
-"""由于文件名和模块一摸一样会报错 所以我加了个下划线"""
+"""
+MOS的print
+由于文件名和模块一摸一样会报错 所以我加了个下划线
+"""
 import datetime
 class MOS_print_colour:
-    '''HEADER:偏粉的紫色(?)
+    '''
+        HEADER:偏粉的紫色(?)
         OKBLUE:蓝色
         OKCYAN:青色
         OKGREEN:绿色

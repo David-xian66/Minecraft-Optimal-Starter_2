@@ -77,7 +77,7 @@ except KeyboardInterrupt:
 except:
     error = traceback.print_exc()
     if error == None:
-        MOS_print("error","出现了一个None，如果您确定这是在您退出窗口后出现的，那么请忽略。如果不是，建议提交反馈。下面，程序将打印错误")
+        MOS_print("error","出现了一个None，如果您确定这是在您退出窗口后出现的，那么请忽略。如果不是，建议提交反馈。错误已打印")
         MOS_print("error",error)
     else:
         MOS_print("error",error)

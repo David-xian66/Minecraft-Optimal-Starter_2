@@ -1,6 +1,5 @@
-import sys, os, requests, json, datetime, time, traceback, webbrowser, platform
+import sys, os, requests, json, datetime, time, traceback, webbrowser
 
-from tomlkit import item
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
@@ -2316,6 +2315,7 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.setCurrentIndex(0)
         # 启动线程
         self.a = MOS_file()
+        self.a.sinOut_updates.connect(self.MOS_file_return_updates)
         self.a.sinOut.connect(self.MOS_file_return)
         self.a.sinOut_font.connect(self.MOS_file_return_font)
         self.a.start()
@@ -2969,18 +2969,7 @@ class Ui_MOS(object):
             if dir.exec():
                 file_2 = dir.selectedFiles()
                 file_1 = file_2[0]
-                if str(system_h) == "darwin":
-                    file = os.path.join(file_1,'MOS.dmg')
-                else:
-                    file = os.path.join(file_1,'MOS.zip')
-                header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
-                r_2 = open(file, 'w+')
-                r_2.close
-                r = requests.get(url, stream=True, timeout=(60,120), headers = header)
-                with open(file, "wb") as f:
-                    for chunk in r.iter_content(chunk_size=10240):  # 每次加载……字节
-                        f.write(chunk)
-                        print("kk")
+                # 下面衔接下载模块 记得指定路径（按照系统
 
 
     def chick_pushButton_Java_check(self):
@@ -3023,7 +3012,19 @@ class Ui_MOS(object):
         else:
             webbrowser.open("https://www.123pan.com/s/xCVDVv-gXuY3")
 
-        
+    def click_radioButton_checking_updates(self):
+        if self.radioButton.isChecked():
+            # 如果选择了
+            t = MOS_json_read(All='Yes')
+            t['Automatically_checking_for_updates'] = "True"
+            MOS_json_write(t)
+            MOS_print("info","自动检查更新已开启")
+        else:
+            #如果没有
+            t = MOS_json_read(All='Yes')
+            t['Automatically_checking_for_updates'] = "False"
+            MOS_json_write(t)
+            MOS_print("info","自动检查更新已关闭")
 
 
     def click_pushButton_GitHub(self):
@@ -3264,74 +3265,97 @@ class Ui_MOS(object):
     def MOS_file_return_font(self, a):
         MOS_print("info",str)
         str1 = str(a)
-        self.label_4.setFont(QtGui.QFont(str1))
-        self.label_6.setFont(QtGui.QFont(str1))
-        self.label_mos_left_top_user.setFont(QtGui.QFont(str1))
-        self.label_mos_left_top_add.setFont(QtGui.QFont(str1))
-        self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
-        self.label_2.setFont(QtGui.QFont(str1))
-        self.progressBar_2.setFont(QtGui.QFont(str1))
-        self.label__gonggao_right_txt.setFont(QtGui.QFont(str1))
-        self.label_3.setFont(QtGui.QFont(str1))
-        self.progressBar.setFont(QtGui.QFont(str1))
-        self.label_7.setFont(QtGui.QFont(str1))
-        self.label_9.setFont(QtGui.QFont(str1))
-        self.label_8.setFont(QtGui.QFont(str1))
-        self.label_10.setFont(QtGui.QFont(str1))
-        self.label_11.setFont(QtGui.QFont(str1))
-        self.label_19.setFont(QtGui.QFont(str1))
-        self.label_20.setFont(QtGui.QFont(str1))
-        self.label_21.setFont(QtGui.QFont(str1))
-        self.label_12.setFont(QtGui.QFont(str1))
-        self.label_13.setFont(QtGui.QFont(str1))
-        self.label_15.setFont(QtGui.QFont(str1))
-        self.label_17.setFont(QtGui.QFont(str1))
-        self.label.setFont(QtGui.QFont(str1))
-        self.label_16.setFont(QtGui.QFont(str1))
-        self.label_18.setFont(QtGui.QFont(str1))
-        self.label_22.setFont(QtGui.QFont(str1))
-        self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
-        self.label_24.setFont(QtGui.QFont(str1))
-        self.pushButton_home.setFont(QtGui.QFont(str1))
-        self.pushButton_lianji.setFont(QtGui.QFont(str1))
-        self.pushButton_music.setFont(QtGui.QFont(str1))
-        self.pushButton_shezhi.setFont(QtGui.QFont(str1))
-        self.pushButton_xiazai.setFont(QtGui.QFont(str1))
-        self.pushButton_about.setFont(QtGui.QFont(str1))
-        self.pushButton__gonggao_start.setFont(QtGui.QFont(str1))
-        self.pushButton_5.setFont(QtGui.QFont(str1))
-        self.pushButton_6.setFont(QtGui.QFont(str1))
-        self.pushButton_7.setFont(QtGui.QFont(str1))
-        self.pushButton_8.setFont(QtGui.QFont(str1))
-        self.pushButton_11.setFont(QtGui.QFont(str1))
-        self.pushButton_17.setFont(QtGui.QFont(str1))
-        self.pushButton_16.setFont(QtGui.QFont(str1))
-        self.pushButton_36.setFont(QtGui.QFont(str1))
-        self.pushButton_37.setFont(QtGui.QFont(str1))
-        self.pushButton_38.setFont(QtGui.QFont(str1))
-        self.pushButton_39.setFont(QtGui.QFont(str1))
-        self.pushButton_40.setFont(QtGui.QFont(str1))
-        self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
-        self.comboBox_2.setFont(QtGui.QFont(str1))
-        self.comboBox_3.setFont(QtGui.QFont(str1))
-        self.comboBox_4.setFont(QtGui.QFont(str1))
-        self.comboBox_5.setFont(QtGui.QFont(str1))
-        self.comboBox_6.setFont(QtGui.QFont(str1))
-        self.comboBox.setFont(QtGui.QFont(str1))
-        self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
-        self.fontComboBox.setFont(QtGui.QFont(str1))
-        self.progressBar.setFont(QtGui.QFont(str1))
-        self.listWidget.setFont(QtGui.QFont(str1))
-        self.listWidget_2.setFont(QtGui.QFont(str1))
-        self.lineEdit_3.setFont(QtGui.QFont(str1))
-        self.pushButton_19.setFont(QtGui.QFont(str1))
-        self.label_5.setFont(QtGui.QFont(str1))
-        self.radioButton.setFont(QtGui.QFont(str1))
-        self.pushButton_20.setFont(QtGui.QFont(str1))
-        self.label_14.setFont(QtGui.QFont(str1))
-        self.comboBox_7.setFont(QtGui.QFont(str1))
-        self.pushButton_21.setFont(QtGui.QFont(str1))
-        self.label_14.setFont(QtGui.QFont(str1))
+        try:
+            self.label_4.setFont(QtGui.QFont(str1))
+            self.label_6.setFont(QtGui.QFont(str1))
+            self.label_mos_left_top_user.setFont(QtGui.QFont(str1))
+            self.label_mos_left_top_add.setFont(QtGui.QFont(str1))
+            self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
+            self.label_2.setFont(QtGui.QFont(str1))
+            self.progressBar_2.setFont(QtGui.QFont(str1))
+            self.label__gonggao_right_txt.setFont(QtGui.QFont(str1))
+            self.label_3.setFont(QtGui.QFont(str1))
+            self.progressBar.setFont(QtGui.QFont(str1))
+            self.label_7.setFont(QtGui.QFont(str1))
+            self.label_9.setFont(QtGui.QFont(str1))
+            self.label_8.setFont(QtGui.QFont(str1))
+            self.label_10.setFont(QtGui.QFont(str1))
+            self.label_11.setFont(QtGui.QFont(str1))
+            self.label_19.setFont(QtGui.QFont(str1))
+            self.label_20.setFont(QtGui.QFont(str1))
+            self.label_21.setFont(QtGui.QFont(str1))
+            self.label_12.setFont(QtGui.QFont(str1))
+            self.label_13.setFont(QtGui.QFont(str1))
+            self.label_15.setFont(QtGui.QFont(str1))
+            self.label_17.setFont(QtGui.QFont(str1))
+            self.label.setFont(QtGui.QFont(str1))
+            self.label_16.setFont(QtGui.QFont(str1))
+            self.label_18.setFont(QtGui.QFont(str1))
+            self.label_22.setFont(QtGui.QFont(str1))
+            self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
+            self.label_24.setFont(QtGui.QFont(str1))
+            self.pushButton_home.setFont(QtGui.QFont(str1))
+            self.pushButton_lianji.setFont(QtGui.QFont(str1))
+            self.pushButton_music.setFont(QtGui.QFont(str1))
+            self.pushButton_shezhi.setFont(QtGui.QFont(str1))
+            self.pushButton_xiazai.setFont(QtGui.QFont(str1))
+            self.pushButton_about.setFont(QtGui.QFont(str1))
+            self.pushButton__gonggao_start.setFont(QtGui.QFont(str1))
+            self.pushButton_5.setFont(QtGui.QFont(str1))
+            self.pushButton_6.setFont(QtGui.QFont(str1))
+            self.pushButton_7.setFont(QtGui.QFont(str1))
+            self.pushButton_8.setFont(QtGui.QFont(str1))
+            self.pushButton_11.setFont(QtGui.QFont(str1))
+            self.pushButton_17.setFont(QtGui.QFont(str1))
+            self.pushButton_16.setFont(QtGui.QFont(str1))
+            self.pushButton_36.setFont(QtGui.QFont(str1))
+            self.pushButton_37.setFont(QtGui.QFont(str1))
+            self.pushButton_38.setFont(QtGui.QFont(str1))
+            self.pushButton_39.setFont(QtGui.QFont(str1))
+            self.pushButton_40.setFont(QtGui.QFont(str1))
+            self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
+            self.comboBox_2.setFont(QtGui.QFont(str1))
+            self.comboBox_3.setFont(QtGui.QFont(str1))
+            self.comboBox_4.setFont(QtGui.QFont(str1))
+            self.comboBox_5.setFont(QtGui.QFont(str1))
+            self.comboBox_6.setFont(QtGui.QFont(str1))
+            self.comboBox.setFont(QtGui.QFont(str1))
+            self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
+            self.fontComboBox.setFont(QtGui.QFont(str1))
+            self.progressBar.setFont(QtGui.QFont(str1))
+            self.listWidget.setFont(QtGui.QFont(str1))
+            self.listWidget_2.setFont(QtGui.QFont(str1))
+            self.lineEdit_3.setFont(QtGui.QFont(str1))
+            self.pushButton_19.setFont(QtGui.QFont(str1))
+            self.label_5.setFont(QtGui.QFont(str1))
+            self.radioButton.setFont(QtGui.QFont(str1))
+            self.pushButton_20.setFont(QtGui.QFont(str1))
+            self.label_14.setFont(QtGui.QFont(str1))
+            self.comboBox_7.setFont(QtGui.QFont(str1))
+            self.pushButton_21.setFont(QtGui.QFont(str1))
+            self.label_14.setFont(QtGui.QFont(str1))
+        except:
+            pass
+            
+    def json_error():
+        a = QMessageBox.critical(None,"错误","您是否删除了MOS启动器生成的JSON文件？请在删除后重启启动器 即将退出启动器",QMessageBox.StandardButton.Yes,QMessageBox.StandardButton.Yes)
+        if a == QMessageBox.StandardButton.Yes: #检查是否点了OK按钮
+            quit()
+
+    def MOS_file_return_updates(self):
+        self.updates_time=QTimer() #创建计时器对象
+        self.updates_time.start(2000) #开始计时器
+        self.updates_time.timeout.connect(self.updates_time_) #要执行的槽
+    
+    def updates_time_(self):
+        self.updates_time.stop()
+        # 启动线程
+        self.pushButton_19.setEnabled(False)
+        self.v = MOS_versions(system_h)
+        self.v.sinOut_versions.connect(self.click_pushButton_jianchagengxin_sinOut)
+        self.v.sinOut_versions_yes_no.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes_no)
+        self.v.sinOut_versions_yes.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes)
+        self.v.start()
 
 
     def MOS_file_return(self, str):
@@ -3554,6 +3578,7 @@ class Ui_MOS(object):
         self.pushButton_29.clicked.connect(self.click_pushButton_GitHub)
         self.listWidget_3.itemClicked.connect(self.click_listWidget_Java_xiazai)
         self.pushButton_24.clicked.connect(self.click_pushButton_Java_Dowmloader)
+        self.radioButton.toggled.connect(self.click_radioButton_checking_updates)
 
 
 class gonggao(QThread):
@@ -3835,12 +3860,12 @@ class MOS_versions(QThread):
             url_2 = 'https://purge.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
             url_3 = 'https://cdn.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
             self.sinOut_versions.emit("正在获取更新(3/5)")
-            r_5 = requests.get(url_2, timeout=(5,50), headers = header)
+            r_5 = requests.get(url_2, timeout=(5,50), headers = header) # 更新公告文件
             self.sinOut_versions.emit("正在获取更新(4/5)")
-            r_6 = requests.get(url_3, timeout=(5,50), headers = header)
+            r_6 = requests.get(url_3, timeout=(5,50), headers = header) # 获取公告
             self.sinOut_versions.emit("正在获取更新(5/5)")
 
-            r_7 = requests.get(url_text, timeout=(5,50), headers = header)
+            r_7 = requests.get(url_text, timeout=(5,50), headers = header) # 获取更新内容   
             r_7.encoding = 'utf-8'
             r_7_1 = r_7.text
 
@@ -3848,7 +3873,7 @@ class MOS_versions(QThread):
             json_1 = r_6.json()
             r_7 = r_4[4]
             json_2 = json_1[r_7]
-            MOS_print("info",str("新版本：" + json_2 + " ->编号：" + r_7))
+            MOS_print("info",str("新版本：" + json_2 + " ->编号：" + r_7) + '更新内容：\n' + r_7_1)
             self.sinOut_versions_yes.emit(r_4[3],r_7_1,json_2)
         else:
             self.sinOut_versions_yes_no.emit('No')
@@ -3856,7 +3881,8 @@ class MOS_versions(QThread):
 class MOS_file(QThread):
     '''初始化文件/设置'''
     sinOut = pyqtSignal(str)
-    sinOut_font = pyqtSignal(str) 
+    sinOut_font = pyqtSignal(str)
+    sinOut_updates = pyqtSignal()
     def __init__(self):
         super(MOS_file, self).__init__()
 
@@ -3913,19 +3939,24 @@ class MOS_file(QThread):
                 with open(MOS_file_json, 'w+', encoding='utf-8') as f:
                     MOS_file_1 =os.path.join(file,".minecraft")
                     a = {'font':'FangSong',
-                        'font_default':'Yes',   
+                        'font_default':'Yes',
+                        'Automatically_checking_for_updates':'True',
                         'game_file_name':['默认目录'],
                         '默认目录':MOS_file_1}
                     json.dump(a, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     b = json.load(f)
                     MOS_print("info",'默认字体：' + b['font'])
-                    Ui_MOS.click_pushButton_shezhi_fond_moren(self)
+                    try:
+                        Ui_MOS.click_pushButton_shezhi_fond_moren(self)
+                    except AttributeError:
+                        pass
             else:
                 #如果不是
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     try:
                         b = json.load(f)
+                        MOS_print("info",str("自动检查更新" + b['Automatically_checking_for_updates']))
                         if str(b['font_default']) == 'Yes':
                             c = str('FangSong')
                             self.sinOut_font.emit(c)
@@ -3943,6 +3974,13 @@ class MOS_file(QThread):
                     except KeyError:
                         MOS_print("error","json文件有问题")
                         self.sinOut.emit("KeyError")
+
+            # 不管他是不是 都判断是否自动检查更新
+            if b['Automatically_checking_for_updates'] == 'True':
+                MOS_print("info","自动检查更新为开启状态")
+                self.sinOut_updates.emit()
+            else:
+                MOS_print("info","自动检查更新已关闭")
                     
 
         except PermissionError:
@@ -4129,7 +4167,6 @@ class game_first_initialize(QThread):
             self.sinOut_game_error.emit("该版本文件夹下无游戏目录")
             MOS_print("error",str("找不到" + file_1 + "没有游戏目录"))
 
-
 def Java_check():
     import subprocess
     Java_1 = os.environ.get('JAVA_HOM')
@@ -4228,7 +4265,8 @@ def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = No
             else:
                 return b
     except FileNotFoundError:
-        MOS_print("error", "FileNotFoundError")
+        MOS_print("error", "Json文件出现：FileNotFoundError 错误！")
+        Ui_MOS.json_error()
     except:
         error = traceback.print_exc()
         MOS_print("error",error)
@@ -4239,6 +4277,9 @@ def MOS_json_write(text):
     try:
         with open(MOS_file_json, 'w+', encoding='utf-8') as f:
             json.dump(text, f, ensure_ascii=False, sort_keys=False, indent=4, separators=(',', ': '))
+    except FileNotFoundError:
+        MOS_print("error", "Json文件出现：FileNotFoundError 错误！")
+        Ui_MOS.json_error()
     except:
         error = traceback.print_exc()
         MOS_print("error",error)
