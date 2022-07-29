@@ -3004,7 +3004,6 @@ class Ui_MOS(object):
     def click_pushButton_GitHub(self):
         webbrowser.open("https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2")
 
-
     def click_pushButton_Gitee(self):
         webbrowser.open("https://gitee.com/xian66/minecraft-optimal-starter_2")
     
