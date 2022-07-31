@@ -8,6 +8,7 @@
 使用python实现百行代码高速下载，同IDM
 使用Dowmloader_调用下载
 """
+import MOS_UI
 
 """建议用这个 经过我测试 这个最稳定 经常是最快的"""
 import os
@@ -17,7 +18,7 @@ from requests import get,head
 from concurrent.futures import ThreadPoolExecutor,wait
 
 
-class Dowmloader:
+class Dowmloader():
     def __init__(self, url, nums, file):
         self.url = url      # url链接
         self.num = nums     # 线程数
@@ -41,6 +42,18 @@ class Dowmloader:
             r = head(self.url)
         self.size = int(r.headers['Content-Length'])
         print('该文件大小为: {} bytes'.format(self.size))
+
+    # ************************************************** #
+    def Dowmloader_(url, thread_num, file):
+        """
+            url=地址 thread_num=线程数量 file=保存路径(要写全)
+        """
+        down = Dowmloader(url, thread_num, file)
+        a = down.run()
+        return a
+
+    # ************************************************** #
+
 
     def down(self, start, end, thread_id, chunk_size = 10240):
         raw_start = start
@@ -117,19 +130,11 @@ class Dowmloader:
         print(f"{self.name}下载完成，平均速度: {speed}")
 
         end_time_1 = time.perf_counter()
-        print(end_time_1)
+        print("用时" + str(end_time_1))
+        a = 'OK'
+        return a
 
-# ************************************************** #
-def Dowmloader_(url, thread_num, file):
-    """
-        url=地址 thread_num=线程数量 file=保存路径
-    """
-    down = Dowmloader(url, thread_num, file)
-    down.run
 
-# ************************************************** #
-
-"""
 if __name__ == '__main__':
     debug = 1           # 测试情况
     if debug:
@@ -146,4 +151,4 @@ if __name__ == '__main__':
         thread_num = int(sys.argv[3])  # 使用的线程数量
         down = Dowmloader(url, thread_num, file)
     down.run()
-"""
+

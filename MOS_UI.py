@@ -1,13 +1,15 @@
-import sys, os, requests, json, datetime, time, traceback, webbrowser
-
+import json
+import os
+import sys
+import traceback
+import webbrowser
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtGui import QIcon, QAction
-import MOS_rc
+from PyQt6.QtGui import QIcon
 from MOS_print_ import MOS_print
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
 
@@ -2939,18 +2941,41 @@ class Ui_MOS(object):
     def click_pushButton_jianchagengxin(self):
         self.pushButton_19.setEnabled(False)
         if self.pushButton_19.text() != '检查到更新，点击下载':
-            self.pushButton_19.setEnabled(False)
-            self.v = MOS_versions(system_h)
-            self.v.sinOut_versions.connect(self.click_pushButton_jianchagengxin_sinOut)
-            self.v.sinOut_versions_yes_no.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes_no)
-            self.v.sinOut_versions_yes.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes)
-            self.v.start()
+            if self.pushButton_19.text() == '下载完成 - 点击打开下载目录 请进行手动安装(启动器会自动退出)':
+                n_1 = file_h()
+                n = os.path.join(n_1,'.MOS','Download')
+                if system_h() == 'darwin':
+                    #如果是Mac
+                    os.system(str('open ' + n))
+                elif system_h() == 'win32' or system_h() == 'cygwin':
+                    #如果是win
+                    os.system(str('start' + n))
+                quit()
+            else:
+                self.pushButton_19.setEnabled(False)
+                self.v = MOS_versions()
+                self.v.sinOut_versions.connect(self.click_pushButton_jianchagengxin_sinOut)
+                self.v.sinOut_versions_error.connect(self.click_pushButton_jianchagengxin_sinOut_error)
+                self.v.sinOut_versions_yes_no.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes_no)
+                self.v.sinOut_versions_yes.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes)
+                self.v.start()
+
         else:
             self.pushButton_18.setEnabled(True)
         
     
     def click_pushButton_jianchagengxin_sinOut(self,text):
         self.pushButton_19.setText(text)
+
+    def click_pushButton_jianchagengxin_sinOut_error(self,text,t):
+        """当获取更新发生错误时… text是错误类型 t是在哪里错了
+            t
+        """
+        if t != '':
+            self.pushButton_19.setText(str("检测失败 - "+ "在" + t +"时 出现"+text))
+        else:
+            # 如果报错未知
+            self.pushButton_19.setText(str("检测失败 - "+ "在" + t +"时 出现未知的异常 建议关于中进行反馈"))
 
     def click_pushButton_jianchagengxin_sinOut_versions_yes_no(self,text):
         if text == "No":
@@ -2963,13 +2988,25 @@ class Ui_MOS(object):
         a = QMessageBox.information(None,"更新",str("<html><head/><body><h1> 版本" + v + "的更新内容： </h1><p>" + text + "</p></body></html>"),QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel,QMessageBox.StandardButton.Ok)
 
         if a == QMessageBox.StandardButton.Ok: #点了OK按钮
-            dir = QFileDialog()
-            dir.setFileMode(QFileDialog.FileMode.Directory)
-            dir.setDirectory(str(file_h))
-            if dir.exec():
-                file_2 = dir.selectedFiles()
-                file_1 = file_2[0]
-                # 下面衔接下载模块 记得指定路径（按照系统
+            # 下面衔接下载模块 记得指定路径（按照系统
+            if system_h() == 'darwin':
+                d_name = 'MOS.dmg'
+            else:
+                d_name = 'MOS.zip'
+            MOS_print('info',str('更新下载地址：' + url))
+            d_file = os.path.join(file_h(),'.MOS','Download',d_name)
+            #from MOS_Dowmloader import Dowmloader_
+            #down = Dowmloader_(url,8,d_file)
+            self.pushButton_19.setEnabled(False)
+            self.pushButton_19.setText("正在下载中")
+
+            self.v_d = MOS_versions_dowmloader(url,8,d_file)
+            self.v_d.sinOut_versions_d.connect(self.click_pushButton_jianchagengxin_sinOut_versions_dowmloader_ok)
+            self.v_d.start()
+    
+    def click_pushButton_jianchagengxin_sinOut_versions_dowmloader_ok(self):
+        self.pushButton_19.setText("下载完成 - 点击打开下载目录 请进行手动安装(启动器会自动退出)")
+        self.pushButton_19.setEnabled(True)
 
 
     def chick_pushButton_Java_check(self):
@@ -3142,8 +3179,8 @@ class Ui_MOS(object):
             #    print('默认字体：' + b1)
 
     
-    # def setfont_size(self):
-        '''修改默认字体大小'''
+    def setfont_size(self):
+        '''修改默认字体大小(已弃用)'''
 
         Ui_title_left_left_2 = 15
         Ui_title_left = "font-size: " + str(Ui_title_left_left_2) + "px;"
@@ -3337,7 +3374,7 @@ class Ui_MOS(object):
         except:
             pass
             
-    def json_error():
+    def json_error(self):
         a = QMessageBox.critical(None,"错误","您是否删除了MOS启动器生成的JSON文件？请在删除后重启启动器 即将退出启动器",QMessageBox.StandardButton.Yes,QMessageBox.StandardButton.Yes)
         if a == QMessageBox.StandardButton.Yes: #检查是否点了OK按钮
             quit()
@@ -3351,8 +3388,9 @@ class Ui_MOS(object):
         self.updates_time.stop()
         # 启动线程
         self.pushButton_19.setEnabled(False)
-        self.v = MOS_versions(system_h)
+        self.v = MOS_versions()
         self.v.sinOut_versions.connect(self.click_pushButton_jianchagengxin_sinOut)
+        self.v.sinOut_versions_error.connect(self.click_pushButton_jianchagengxin_sinOut_error)
         self.v.sinOut_versions_yes_no.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes_no)
         self.v.sinOut_versions_yes.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes)
         self.v.start()
@@ -3593,7 +3631,7 @@ class gonggao(QThread):
 
     def run(self):
         import requests
-        import time, sys
+        import sys
         import linecache
 
         a = str(sys.platform)
@@ -3831,12 +3869,13 @@ class gonggao(QThread):
 class MOS_versions(QThread):
     '''获取更新'''
     sinOut_versions = pyqtSignal(str)
+    sinOut_versions_error = pyqtSignal(str,str)
     sinOut_versions_yes_no = pyqtSignal(str)
     sinOut_versions_yes = pyqtSignal(str,str,str)
     
-    def __init__(self, a):
+    def __init__(self):
         super(MOS_versions, self).__init__()
-        self.a = a
+        self.a = str(system_h())
 
     def run(self):
         import requests
@@ -3851,32 +3890,59 @@ class MOS_versions(QThread):
             url_text = 'http://api.2018k.cn/getExample?id=b7c5251e83a644e7ad8b5bd8451ceb0a&data=remark'
         self.sinOut_versions.emit("正在获取更新(1/5)")
         header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
-        r_2 = requests.get(url, timeout=(5,50), headers = header)
-        r_3 = r_2.text
-        r_4 = r_3.split('|') #分割
-        if r_4[0] == 'true':
-            '''如果要更新'''
-            self.sinOut_versions.emit("正在获取更新(2/5)")
-            url_2 = 'https://purge.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
-            url_3 = 'https://cdn.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
-            self.sinOut_versions.emit("正在获取更新(3/5)")
-            r_5 = requests.get(url_2, timeout=(5,50), headers = header) # 更新公告文件
-            self.sinOut_versions.emit("正在获取更新(4/5)")
-            r_6 = requests.get(url_3, timeout=(5,50), headers = header) # 获取公告
-            self.sinOut_versions.emit("正在获取更新(5/5)")
+        try:
+            t = '检查是否有更新'
+            r_2 = requests.get(url, timeout=(5,50), headers = header)
+            r_3 = r_2.text
+            r_4 = r_3.split('|') #分割
+            if r_4[0] == 'true':
+                '''如果要更新'''
+                self.sinOut_versions.emit("正在获取更新(2/5)")
+                url_2 = 'https://purge.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
+                url_3 = 'https://cdn.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
+                self.sinOut_versions.emit("正在获取更新(3/5)")
+                t = '更新远程公告支持文件'
+                r_5 = requests.get(url_2, timeout=(5,50), headers = header) # 更新公告文件
+                self.sinOut_versions.emit("正在获取更新(4/5)")
+                t = '获取远程公告支持文件'
+                r_6 = requests.get(url_3, timeout=(5,50), headers = header) # 获取公告更新文件（其实这个文件存储的是版本编号所对应版本
+                self.sinOut_versions.emit("正在获取更新(5/5)")
+                t = '更新更新内容'
+                r_7 = requests.get(url_text, timeout=(5,50), headers = header) # 获取更新内容   
+                r_7.encoding = 'utf-8'
+                r_7_1 = r_7.text
 
-            r_7 = requests.get(url_text, timeout=(5,50), headers = header) # 获取更新内容   
-            r_7.encoding = 'utf-8'
-            r_7_1 = r_7.text
+                self.sinOut_versions.emit("正在准备……")
+                json_1 = r_6.json()
+                r_7 = r_4[4]
+                json_2 = json_1[r_7]
+                MOS_print("info",str("新版本：" + json_2 + " ->编号：" + r_7) + '更新内容：\n' + r_7_1)
+                self.sinOut_versions_yes.emit(r_4[3],r_7_1,json_2)
+            else:
+                self.sinOut_versions_yes_no.emit('No')
 
-            self.sinOut_versions.emit("正在准备……")
-            json_1 = r_6.json()
-            r_7 = r_4[4]
-            json_2 = json_1[r_7]
-            MOS_print("info",str("新版本：" + json_2 + " ->编号：" + r_7) + '更新内容：\n' + r_7_1)
-            self.sinOut_versions_yes.emit(r_4[3],r_7_1,json_2)
-        else:
-            self.sinOut_versions_yes_no.emit('No')
+        except requests.exceptions.ReadTimeout:
+            self.sinOut_versions_error.emit('读取超时',t)
+        except requests.exceptions.ConnectionError:
+            self.sinOut_versions_error.emit('连接错误',t)
+        except:
+            error = traceback.print_exc()
+            MOS_print("error",error)
+            #因为“TypeError: native Qt signal is not callable”所以 不传error内容
+            self.sinOut_versions_error.emit('',t)
+
+class MOS_versions_dowmloader(QThread):
+    sinOut_versions_d = pyqtSignal()
+    def __init__(self,url,thread_num,file):
+        self.url = url
+        self.thread_num = thread_num
+        self.file = file
+        super(MOS_versions_dowmloader, self).__init__()
+    def run(self):
+        from MOS_Dowmloader import Dowmloader
+        a = Dowmloader(self.url, self.thread_num, self.file)
+        a.run()
+        self.sinOut_versions_d.emit()
 
 class MOS_file(QThread):
     '''初始化文件/设置'''
@@ -3887,22 +3953,14 @@ class MOS_file(QThread):
         super(MOS_file, self).__init__()
 
     def run(self):
-        import os,sys,platform
+        import os
         MOS_print("info","文件初始化线程开始")
         try:
             #a = sys.platform()
             #print(a)
             #if a = 
 
-            a = str(sys.platform)
-            if a == "darwin":
-                user_name = os.getlogin()
-                # 获取当前系统用户目录
-                user_home = os.path.expanduser('~')
-                file = user_home + '/Documents'
-            else:
-                file = ''
-                MOS_print("info",a)
+            file = file_h()
 
             MOS_file_1=os.path.join(file,".minecraft","mods")
             os.makedirs(MOS_file_1, exist_ok=True)
@@ -3920,6 +3978,9 @@ class MOS_file(QThread):
             os.makedirs(MOS_file_1, exist_ok=True)
         
             MOS_file_1 =os.path.join(file,".MOS","Music")
+            os.makedirs(MOS_file_1, exist_ok=True)
+
+            MOS_file_1 =os.path.join(file,".MOS","Download")
             os.makedirs(MOS_file_1, exist_ok=True)
 
             MOS_file_json =os.path.join(file,".MOS","MOS.json")
@@ -4167,6 +4228,8 @@ class game_first_initialize(QThread):
             self.sinOut_game_error.emit("该版本文件夹下无游戏目录")
             MOS_print("error",str("找不到" + file_1 + "没有游戏目录"))
 
+
+
 def Java_check():
     import subprocess
     Java_1 = os.environ.get('JAVA_HOM')
@@ -4297,6 +4360,13 @@ def file_h():
     return file
 
 def system_h():
+    """
+        'win32':Windows
+        'cygwin':Windows/Cygwin
+        'darwin':macOS
+        'aix':AIX
+        'linux':Linux
+    """
     a = str(sys.platform)
     return a
 
