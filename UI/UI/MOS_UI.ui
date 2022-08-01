@@ -3927,8 +3927,8 @@ QRadioButton{border-style:none;}</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>832</width>
-                 <height>469</height>
+                 <width>258</width>
+                 <height>845</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -4203,327 +4203,18 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
         <property name="bottomMargin">
          <number>0</number>
         </property>
-        <property name="spacing">
-         <number>-1</number>
-        </property>
-        <item row="3" column="0" colspan="2">
-         <widget class="QWidget" name="widget_10" native="true">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+        <item row="0" column="0" colspan="2">
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
-          <layout class="QGridLayout" name="gridLayout_43">
-           <item row="1" column="0">
-            <widget class="QWidget" name="widget_19" native="true">
-             <property name="styleSheet">
-              <string notr="true">QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}
-QLabel{border-style:none;}</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_8">
-              <item>
-               <widget class="QLabel" name="label_30">
-                <property name="styleSheet">
-                 <string notr="true">font-size: 13px;</string>
-                </property>
-                <property name="text">
-                 <string>法律声明</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_23" native="true">
-                <property name="styleSheet">
-                 <string notr="true">QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}
-#pushButton_27{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
-#pushButton_27::hover{background-color: rgb(255, 255, 255);}
-#pushButton_27::pressed{background-color: rgba(0, 150, 255, 51);}
-#pushButton_29{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
-#pushButton_29::hover{background-color: rgb(255, 255, 255);}
-#pushButton_29::pressed{background-color: rgba(0, 150, 255, 51);}</string>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_19">
-                 <property name="horizontalSpacing">
-                  <number>7</number>
-                 </property>
-                 <item row="1" column="3">
-                  <widget class="QPushButton" name="pushButton_29">
-                   <property name="text">
-                    <string>项目地址(GitHub)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QLabel" name="label_31">
-                   <property name="styleSheet">
-                    <string notr="true">font-size: 13px;</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;开源 &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#212121;&quot;&gt;开源协议：GPL-3.0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <spacer name="horizontalSpacer_19">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>34</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item row="1" column="2">
-                  <widget class="QPushButton" name="pushButton_27">
-                   <property name="text">
-                    <string>项目地址(Gitee)</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QWidget" name="widget_13" native="true">
-             <property name="styleSheet">
-              <string notr="true">QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}
-QLabel{border-style:none;}</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_3">
-              <item>
-               <widget class="QLabel" name="label">
-                <property name="styleSheet">
-                 <string notr="true">font-size: 13px;</string>
-                </property>
-                <property name="text">
-                 <string>关于</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_11" native="true">
-                <property name="styleSheet">
-                 <string notr="true">QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}</string>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_12">
-                 <property name="horizontalSpacing">
-                  <number>7</number>
-                 </property>
-                 <item row="1" column="2">
-                  <spacer name="horizontalSpacer_8">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>34</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QLabel" name="label_16">
-                   <property name="styleSheet">
-                    <string notr="true">font-size: 13px;</string>
-                   </property>
-                   <property name="text">
-                    <string>MOS启动器
-版本V2.0.5-alpha</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QPushButton" name="pushButton">
-                   <property name="styleSheet">
-                    <string notr="true">border-style:none;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normaloff>../../picture/ico.png</normaloff>../../picture/ico.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>40</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_12" native="true">
-                <property name="styleSheet">
-                 <string notr="true">QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}
-#pushButton_3{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
-#pushButton_3::hover{background-color: rgb(255, 255, 255);}
-#pushButton_3::pressed{background-color: rgba(0, 150, 255, 51);}</string>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_17">
-                 <property name="horizontalSpacing">
-                  <number>7</number>
-                 </property>
-                 <item row="0" column="1">
-                  <widget class="QLabel" name="label_18">
-                   <property name="styleSheet">
-                    <string notr="true">font-size: 13px;</string>
-                   </property>
-                   <property name="text">
-                    <string>MOS唯一开发者 David</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="2">
-                  <spacer name="horizontalSpacer_9">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>34</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item row="0" column="0">
-                  <widget class="QPushButton" name="pushButton_4">
-                   <property name="styleSheet">
-                    <string notr="true">border-style:none;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normaloff>../../picture/david.png</normaloff>../../picture/david.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>40</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="3">
-                  <widget class="QPushButton" name="pushButton_3">
-                   <property name="styleSheet">
-                    <string notr="true">font-size: 13px;</string>
-                   </property>
-                   <property name="text">
-                    <string>赞助作者</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_14" native="true">
-                <property name="styleSheet">
-                 <string notr="true">QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}
-#pushButton_10{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
-#pushButton_10::hover{background-color: rgb(255, 255, 255);}
-#pushButton_10::pressed{background-color: rgba(0, 150, 255, 51);}</string>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_18">
-                 <property name="horizontalSpacing">
-                  <number>2</number>
-                 </property>
-                 <property name="verticalSpacing">
-                  <number>6</number>
-                 </property>
-                 <item row="0" column="3">
-                  <spacer name="horizontalSpacer_10">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>34</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QLabel" name="label_25">
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="0">
-                  <widget class="QPushButton" name="pushButton_9">
-                   <property name="styleSheet">
-                    <string notr="true">border-style:none;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normaloff>../../picture/heimnad.png</normaloff>../../picture/heimnad.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>40</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="2">
-                  <widget class="QLabel" name="label_22">
-                   <property name="styleSheet">
-                    <string notr="true">font-size: 13px;</string>
-                   </property>
-                   <property name="text">
-                    <string>MOS网站支持、测试小组负责人 HeimNad</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="4">
-                  <widget class="QPushButton" name="pushButton_10">
-                   <property name="styleSheet">
-                    <string notr="true">font-size: 13px;</string>
-                   </property>
-                   <property name="text">
-                    <string>打开博客</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>832</width>
+            <height>13</height>
+           </size>
+          </property>
+         </spacer>
         </item>
         <item row="2" column="0" colspan="2">
          <widget class="Line" name="line_6">
@@ -4541,18 +4232,562 @@ QLabel{border-style:none;}</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="0" colspan="2">
-         <spacer name="horizontalSpacer_7">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+        <item row="3" column="0" colspan="2">
+         <widget class="QScrollArea" name="scrollArea_3">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea{border-style:none;}
+/*设置垂直滚动条基本样式*/
+QScrollBar:vertical
+{
+    width:8px;
+    background:rgba(0,0,0,0%);
+    margin:0px,0px,0px,0px;
+    padding-top:9px;   /*留出9px给上面和下面的箭头*/
+    padding-bottom:9px;
+}
+QScrollBar::handle:vertical
+{
+    width:8px;
+    background:rgba(0,0,0,25%);
+    border-radius:4px;   /*滚动条两端变成椭圆*/
+    min-height:;
+}
+QScrollBar::handle:vertical:hover
+{
+    width:8px;
+    background:rgba(0,0,0,50%);   /* 鼠标放到滚动条上的时候，颜色变深*/
+    border-radius:4px;
+    min-height:;
+}
+QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-down_1.png);
+    subcontrol-position:bottom;
+}
+QScrollBar::sub-line:vertical   /*设置上箭头*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-up_1.png);
+    subcontrol-position:top;
+}
+QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-down.png);
+    subcontrol-position:bottom;
+}
+QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-up.png);
+    subcontrol-position:top;
+}
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+{
+    background:rgba(0,0,0,10%);
+    border-radius:4px;
+}
+</string>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>832</width>
-            <height>13</height>
-           </size>
+          <property name="widgetResizable">
+           <bool>true</bool>
           </property>
-         </spacer>
+          <widget class="QWidget" name="scrollAreaWidgetContents_4">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>832</width>
+             <height>800</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_43">
+            <property name="topMargin">
+             <number>12</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QWidget" name="widget_13" native="true">
+              <property name="styleSheet">
+               <string notr="true">QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}
+QLabel{border-style:none;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_3">
+               <item>
+                <widget class="QLabel" name="label">
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 13px;</string>
+                 </property>
+                 <property name="text">
+                  <string>关于</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="widget_11" native="true">
+                 <property name="styleSheet">
+                  <string notr="true">QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_12">
+                  <property name="horizontalSpacing">
+                   <number>7</number>
+                  </property>
+                  <item row="1" column="2">
+                   <spacer name="horizontalSpacer_8">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>34</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLabel" name="label_16">
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 13px;</string>
+                    </property>
+                    <property name="text">
+                     <string>MOS启动器
+版本V2.0.5-alpha</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QPushButton" name="pushButton">
+                    <property name="styleSheet">
+                     <string notr="true">border-style:none;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../../picture/ico.png</normaloff>../../picture/ico.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>40</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="widget_12" native="true">
+                 <property name="styleSheet">
+                  <string notr="true">QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}
+#pushButton_3{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
+#pushButton_3::hover{background-color: rgb(255, 255, 255);}
+#pushButton_3::pressed{background-color: rgba(0, 150, 255, 51);}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_17">
+                  <property name="horizontalSpacing">
+                   <number>7</number>
+                  </property>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_18">
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 13px;</string>
+                    </property>
+                    <property name="text">
+                     <string>MOS唯一开发者 David</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_9">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>34</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QPushButton" name="pushButton_4">
+                    <property name="styleSheet">
+                     <string notr="true">border-style:none;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../../picture/david.png</normaloff>../../picture/david.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>40</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QPushButton" name="pushButton_3">
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 13px;</string>
+                    </property>
+                    <property name="text">
+                     <string>赞助作者</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="widget_14" native="true">
+                 <property name="styleSheet">
+                  <string notr="true">QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}
+#pushButton_10{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
+#pushButton_10::hover{background-color: rgb(255, 255, 255);}
+#pushButton_10::pressed{background-color: rgba(0, 150, 255, 51);}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_18">
+                  <property name="horizontalSpacing">
+                   <number>2</number>
+                  </property>
+                  <property name="verticalSpacing">
+                   <number>6</number>
+                  </property>
+                  <item row="0" column="3">
+                   <spacer name="horizontalSpacer_10">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>34</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_25">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QPushButton" name="pushButton_9">
+                    <property name="styleSheet">
+                     <string notr="true">border-style:none;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../../picture/heimnad.png</normaloff>../../picture/heimnad.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>40</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_22">
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 13px;</string>
+                    </property>
+                    <property name="text">
+                     <string>MOS网站支持、测试小组负责人 HeimNad</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QPushButton" name="pushButton_10">
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 13px;</string>
+                    </property>
+                    <property name="text">
+                     <string>打开博客</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QWidget" name="widget_19" native="true">
+              <property name="styleSheet">
+               <string notr="true">QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}
+QLabel{border-style:none;}</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item>
+                <widget class="QLabel" name="label_30">
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 13px;</string>
+                 </property>
+                 <property name="text">
+                  <string>法律声明</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="widget_23" native="true">
+                 <property name="styleSheet">
+                  <string notr="true">QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}
+#pushButton_27{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
+#pushButton_27::hover{background-color: rgb(255, 255, 255);}
+#pushButton_27::pressed{background-color: rgba(0, 150, 255, 51);}
+#pushButton_29{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
+#pushButton_29::hover{background-color: rgb(255, 255, 255);}
+#pushButton_29::pressed{background-color: rgba(0, 150, 255, 51);}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_19">
+                  <property name="horizontalSpacing">
+                   <number>7</number>
+                  </property>
+                  <item row="1" column="2">
+                   <widget class="QPushButton" name="pushButton_27">
+                    <property name="text">
+                     <string>项目地址(Gitee)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QPushButton" name="pushButton_29">
+                    <property name="text">
+                     <string>项目地址(GitHub)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_31">
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 13px;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;开源 &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#212121;&quot;&gt;开源协议：GPL-3.0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <spacer name="horizontalSpacer_19">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>34</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QWidget" name="widget_10" native="true">
+              <property name="styleSheet">
+               <string notr="true">QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}
+QLabel{border-style:none;}</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_46">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_32">
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 13px;</string>
+                 </property>
+                 <property name="text">
+                  <string>建议Bug反馈</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QWidget" name="widget_24" native="true">
+                 <property name="styleSheet">
+                  <string notr="true">QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}
+#pushButton_28{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
+#pushButton_28::hover{background-color: rgb(255, 255, 255);}
+#pushButton_28::pressed{background-color: rgba(0, 150, 255, 51);}
+#pushButton_30{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
+#pushButton_30::hover{background-color: rgb(255, 255, 255);}
+#pushButton_30::pressed{background-color: rgba(0, 150, 255, 51);}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_44">
+                  <property name="horizontalSpacing">
+                   <number>7</number>
+                  </property>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_33">
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 13px;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;提出建议&lt;/span&gt;&lt;/p&gt;&lt;p&gt;仓库Issue反馈&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="3">
+                   <widget class="QPushButton" name="pushButton_30">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>项目地址(GitHub 推荐)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QPushButton" name="pushButton_28">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>项目地址(Gitee 不推荐)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <spacer name="horizontalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QWidget" name="widget_25" native="true">
+                 <property name="styleSheet">
+                  <string notr="true">QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}
+#pushButton_25{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
+#pushButton_25::hover{background-color: rgb(255, 255, 255);}
+#pushButton_25::pressed{background-color: rgba(0, 150, 255, 51);}
+#pushButton_31{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
+#pushButton_31::hover{background-color: rgb(255, 255, 255);}
+#pushButton_31::pressed{background-color: rgba(0, 150, 255, 51);}
+#pushButton_32{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}
+#pushButton_32::hover{background-color: rgb(255, 255, 255);}
+#pushButton_32::pressed{background-color: rgba(0, 150, 255, 51);}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_45">
+                  <property name="horizontalSpacing">
+                   <number>7</number>
+                  </property>
+                  <item row="0" column="1" rowspan="5">
+                   <spacer name="horizontalSpacer_2">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Ignored</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>10</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="0" rowspan="5">
+                   <widget class="QLabel" name="label_34">
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 13px;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;反馈Bug/沸腾&lt;/span&gt;&lt;/p&gt;&lt;p&gt;• 仓库Issue反馈 • 问卷星反馈&lt;/p&gt;&lt;p&gt;注：这两种反馈方式有区别 &lt;/p&gt;&lt;p&gt;第一种是在您知道Bug/沸腾出现的具体原因(如：快速点击某按钮) &lt;/p&gt;&lt;p&gt;第二种是您不知道Bug/沸腾的原因&lt;/p&gt;&lt;p&gt;第一种处理较快&lt;/p&gt;&lt;p&gt;第二种处理较慢(开发者需要进行分析，分析后会在GitHub发起Issue)&lt;/p&gt;&lt;p&gt;不管哪种方式 都请您认真填写 感谢配合&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>false</bool>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="2" colspan="2">
+                   <widget class="QPushButton" name="pushButton_25">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>问卷星</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2" colspan="2">
+                   <widget class="QPushButton" name="pushButton_31">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>项目地址(GitHub 推荐)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2" rowspan="3" colspan="2">
+                   <widget class="QPushButton" name="pushButton_32">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>项目地址(Gitee 不推荐)</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
         </item>
         <item row="1" column="0" colspan="2">
          <widget class="QLabel" name="label_17">

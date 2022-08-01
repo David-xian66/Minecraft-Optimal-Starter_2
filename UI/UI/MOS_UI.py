@@ -1,7 +1,5 @@
-import datetime
 import json
 import os
-import requests
 import sys
 import traceback
 import webbrowser
@@ -12,8 +10,8 @@ from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QIcon
-
-
+from MOS_print_ import MOS_print
+import MOS_rc
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
 
 
@@ -55,13 +53,12 @@ class Ui_MOS(object):
         MOS_catalogue_picture_user_add_png = os.path.join("picture", "user_add.png")
         MOS_catalogue_picture_picture_user_png = os.path.join("picture", "picture_user.png")
 
- 
         MOS.setObjectName("MOS")
         MOS.setWindowModality(QtCore.Qt.WindowModality.NonModal)
         MOS.resize(1000, 533)
         MOS.setMinimumSize(QtCore.QSize(1000, 533))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/ico.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../picture/ico.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MOS.setWindowIcon(icon)
         MOS.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MOS)
@@ -182,7 +179,9 @@ class Ui_MOS(object):
         self.pushButton_mos_left_top = QtWidgets.QPushButton(self.widget_mos_left_top)
         self.pushButton_mos_left_top.setStyleSheet("width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);")
         self.pushButton_mos_left_top.setText("")
-        self.pushButton_mos_left_top.setIcon(icon)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/ico.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_mos_left_top.setIcon(icon1)
         self.pushButton_mos_left_top.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_mos_left_top.setObjectName("pushButton_mos_left_top")
         self.gridLayout_4.addWidget(self.pushButton_mos_left_top, 0, 0, 2, 1)
@@ -202,54 +201,54 @@ class Ui_MOS(object):
         self.pushButton_home.setFocusPolicy(QtCore.Qt.FocusPolicy.TabFocus)
         self.pushButton_home.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.pushButton_home.setStyleSheet("font-size: 15px;")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/home.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_home.setIcon(icon1)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/home.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_home.setIcon(icon2)
         self.pushButton_home.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_home.setObjectName("pushButton_home")
         self.verticalLayout_2.addWidget(self.pushButton_home)
         self.pushButton_lianji = QtWidgets.QPushButton(self.widget_mos_left)
         self.pushButton_lianji.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_lianji.setStyleSheet("font-size: 15px;")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/online.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_lianji.setIcon(icon2)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/online.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_lianji.setIcon(icon3)
         self.pushButton_lianji.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_lianji.setObjectName("pushButton_lianji")
         self.verticalLayout_2.addWidget(self.pushButton_lianji)
         self.pushButton_xiazai = QtWidgets.QPushButton(self.widget_mos_left)
         self.pushButton_xiazai.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_xiazai.setStyleSheet("font-size: 15px;")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/download.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_xiazai.setIcon(icon3)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/download.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_xiazai.setIcon(icon4)
         self.pushButton_xiazai.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_xiazai.setObjectName("pushButton_xiazai")
         self.verticalLayout_2.addWidget(self.pushButton_xiazai)
         self.pushButton_music = QtWidgets.QPushButton(self.widget_mos_left)
         self.pushButton_music.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_music.setStyleSheet("font-size: 15px;")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/music.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_music.setIcon(icon4)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/music.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_music.setIcon(icon5)
         self.pushButton_music.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_music.setObjectName("pushButton_music")
         self.verticalLayout_2.addWidget(self.pushButton_music)
         self.pushButton_shezhi = QtWidgets.QPushButton(self.widget_mos_left)
         self.pushButton_shezhi.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_shezhi.setStyleSheet("font-size: 15px;")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/settings.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_shezhi.setIcon(icon5)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/settings.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_shezhi.setIcon(icon6)
         self.pushButton_shezhi.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_shezhi.setObjectName("pushButton_shezhi")
         self.verticalLayout_2.addWidget(self.pushButton_shezhi)
         self.pushButton_about = QtWidgets.QPushButton(self.widget_mos_left)
         self.pushButton_about.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_about.setStyleSheet("font-size: 15px;")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/about.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_about.setIcon(icon6)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/about.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_about.setIcon(icon7)
         self.pushButton_about.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_about.setObjectName("pushButton_about")
         self.verticalLayout_2.addWidget(self.pushButton_about)
@@ -416,7 +415,7 @@ class Ui_MOS(object):
         self.label_3 = QtWidgets.QLabel(self.widget_scrollArea_page_gonggao_statring)
         self.label_3.setStyleSheet("border-style:none;background-color: rgba(255, 255, 255, 0);")
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../../../Desktop/MOS/picture/loading_3.gif"))
+        self.label_3.setPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/loading_3.gif"))
         self.label_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.gridLayout_2.addWidget(self.label_3, 0, 1, 2, 3)
@@ -469,7 +468,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -478,7 +477,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -726,31 +725,31 @@ class Ui_MOS(object):
         self.listWidget.setIconSize(QtCore.QSize(24, 24))
         self.listWidget.setObjectName("listWidget")
         item = QtWidgets.QListWidgetItem()
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/folder.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        item.setIcon(icon7)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/folder.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        item.setIcon(icon8)
         self.listWidget.addItem(item)
         self.verticalLayout.addWidget(self.listWidget)
         self.pushButton_38 = QtWidgets.QPushButton(self.widget_7)
         self.pushButton_38.setMinimumSize(QtCore.QSize(0, 30))
         self.pushButton_38.setStyleSheet("font-size: 13px;")
-        self.pushButton_38.setIcon(icon5)
+        self.pushButton_38.setIcon(icon6)
         self.pushButton_38.setObjectName("pushButton_38")
         self.verticalLayout.addWidget(self.pushButton_38)
         self.pushButton_36 = QtWidgets.QPushButton(self.widget_7)
         self.pushButton_36.setMinimumSize(QtCore.QSize(0, 30))
         self.pushButton_36.setStyleSheet("font-size: 13px;")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/folder_add.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_36.setIcon(icon8)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/folder_add.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_36.setIcon(icon9)
         self.pushButton_36.setObjectName("pushButton_36")
         self.verticalLayout.addWidget(self.pushButton_36)
         self.pushButton_37 = QtWidgets.QPushButton(self.widget_7)
         self.pushButton_37.setMinimumSize(QtCore.QSize(0, 30))
         self.pushButton_37.setStyleSheet("font-size: 13px;")
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/add.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_37.setIcon(icon9)
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/add.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_37.setIcon(icon10)
         self.pushButton_37.setObjectName("pushButton_37")
         self.verticalLayout.addWidget(self.pushButton_37)
         self.gridLayout_55.addWidget(self.widget_7, 0, 0, 1, 1)
@@ -909,7 +908,7 @@ class Ui_MOS(object):
         self.pushButton_42 = QtWidgets.QPushButton(self.widget_21)
         self.pushButton_42.setMinimumSize(QtCore.QSize(0, 28))
         self.pushButton_42.setStyleSheet("font-size: 14px;")
-        self.pushButton_42.setIcon(icon7)
+        self.pushButton_42.setIcon(icon8)
         self.pushButton_42.setObjectName("pushButton_42")
         self.gridLayout_57.addWidget(self.pushButton_42, 0, 2, 2, 1)
         self.label_46 = QtWidgets.QLabel(self.widget_21)
@@ -921,9 +920,9 @@ class Ui_MOS(object):
         self.pushButton_41 = QtWidgets.QPushButton(self.page_25)
         self.pushButton_41.setStyleSheet("")
         self.pushButton_41.setText("")
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/back.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_41.setIcon(icon10)
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/back.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_41.setIcon(icon11)
         self.pushButton_41.setIconSize(QtCore.QSize(27, 30))
         self.pushButton_41.setAutoDefault(False)
         self.pushButton_41.setDefault(False)
@@ -989,9 +988,9 @@ class Ui_MOS(object):
         self.gridLayout_53.setObjectName("gridLayout_53")
         self.pushButton_40 = QtWidgets.QPushButton(self.page_22)
         self.pushButton_40.setStyleSheet("font-size: 13px;")
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/trash_red.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_40.setIcon(icon11)
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../picture/trash_red.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_40.setIcon(icon12)
         self.pushButton_40.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_40.setCheckable(False)
         self.pushButton_40.setObjectName("pushButton_40")
@@ -1022,7 +1021,7 @@ class Ui_MOS(object):
         self.gridLayout_54.setObjectName("gridLayout_54")
         self.label_26 = QtWidgets.QLabel(self.page_23)
         self.label_26.setText("")
-        self.label_26.setPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/loading.gif"))
+        self.label_26.setPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/loading.gif"))
         self.label_26.setScaledContents(False)
         self.label_26.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_26.setWordWrap(False)
@@ -1035,7 +1034,7 @@ class Ui_MOS(object):
         self.pushButton_35 = QtWidgets.QPushButton(self.page_12)
         self.pushButton_35.setStyleSheet("")
         self.pushButton_35.setText("")
-        self.pushButton_35.setIcon(icon10)
+        self.pushButton_35.setIcon(icon11)
         self.pushButton_35.setIconSize(QtCore.QSize(27, 30))
         self.pushButton_35.setObjectName("pushButton_35")
         self.gridLayout_33.addWidget(self.pushButton_35, 1, 0, 1, 1)
@@ -1113,7 +1112,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1122,7 +1121,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1229,7 +1228,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1238,7 +1237,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1271,9 +1270,9 @@ class Ui_MOS(object):
         self.pushButton_8 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_8.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_8.setText("")
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/quilt.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_8.setIcon(icon12)
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/quilt.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_8.setIcon(icon13)
         self.pushButton_8.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_8.setObjectName("pushButton_8")
         self.gridLayout_25.addWidget(self.pushButton_8, 3, 0, 1, 1)
@@ -1297,25 +1296,25 @@ class Ui_MOS(object):
         self.pushButton_13 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_13.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_13.setText("")
-        icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/loading.gif"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_13.setIcon(icon13)
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/loading.gif"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_13.setIcon(icon14)
         self.pushButton_13.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_13.setObjectName("pushButton_13")
         self.gridLayout_25.addWidget(self.pushButton_13, 1, 4, 1, 1)
         self.pushButton_14 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_14.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_14.setText("")
-        self.pushButton_14.setIcon(icon13)
+        self.pushButton_14.setIcon(icon14)
         self.pushButton_14.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_14.setObjectName("pushButton_14")
         self.gridLayout_25.addWidget(self.pushButton_14, 2, 4, 1, 1)
         self.pushButton_5 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_5.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_5.setText("")
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/forge.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_5.setIcon(icon14)
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/forge.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_5.setIcon(icon15)
         self.pushButton_5.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_5.setObjectName("pushButton_5")
         self.gridLayout_25.addWidget(self.pushButton_5, 0, 0, 1, 1)
@@ -1326,16 +1325,16 @@ class Ui_MOS(object):
         self.pushButton_7 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_7.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_7.setText("")
-        icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/optifine.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_7.setIcon(icon15)
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/optifine.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_7.setIcon(icon16)
         self.pushButton_7.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_7.setObjectName("pushButton_7")
         self.gridLayout_25.addWidget(self.pushButton_7, 2, 0, 1, 1)
         self.pushButton_15 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_15.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_15.setText("")
-        self.pushButton_15.setIcon(icon13)
+        self.pushButton_15.setIcon(icon14)
         self.pushButton_15.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_15.setObjectName("pushButton_15")
         self.gridLayout_25.addWidget(self.pushButton_15, 3, 4, 1, 1)
@@ -1356,16 +1355,16 @@ class Ui_MOS(object):
         self.pushButton_6 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_6.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_6.setText("")
-        icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/fabric.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_6.setIcon(icon16)
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/fabric.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_6.setIcon(icon17)
         self.pushButton_6.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_6.setObjectName("pushButton_6")
         self.gridLayout_25.addWidget(self.pushButton_6, 1, 0, 1, 1)
         self.pushButton_12 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_12.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_12.setText("")
-        self.pushButton_12.setIcon(icon13)
+        self.pushButton_12.setIcon(icon14)
         self.pushButton_12.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_12.setObjectName("pushButton_12")
         self.gridLayout_25.addWidget(self.pushButton_12, 0, 4, 1, 1)
@@ -1493,6 +1492,7 @@ class Ui_MOS(object):
         self.label_29.setObjectName("label_29")
         self.gridLayout_41.addWidget(self.label_29, 0, 0, 1, 1)
         self.widget_16 = QtWidgets.QWidget(self.page_18)
+        self.widget_16.setEnabled(True)
         self.widget_16.setStyleSheet("#listWidget_3{border-style:none;}\n"
 "QListView::item {\n"
 "    height: 25px;\n"
@@ -1512,6 +1512,8 @@ class Ui_MOS(object):
 "#pushButton_24{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 250, 146);color: rgb(33, 33, 33);}\n"
 "#pushButton_24::hover{color: rgb(0, 250, 146);}\n"
 "#pushButton_24::pressed{background-color: rgb(128, 255, 202);color: rgb(255, 255, 255);}\n"
+"/*禁用*/\n"
+"#pushButton_24:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);color: rgb(145, 145, 145);}\n"
 "\n"
 "/*设置垂直滚动条基本样式*/\n"
 "QScrollBar:vertical\n"
@@ -1539,25 +1541,25 @@ class Ui_MOS(object):
 "QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    border-image:url(:/img/caret-down_1.png);\n"
 "    subcontrol-position:bottom;\n"
 "}\n"
 "QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    border-image:url(:/img/caret-up_1.png);\n"
 "    subcontrol-position:top;\n"
 "}\n"
 "QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-down.png);\n"
+"    border-image:url(:/img/caret-down.png);\n"
 "    subcontrol-position:bottom;\n"
 "}\n"
 "QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-up.png);\n"
+"    border-image:url(:/img/caret-up.png);\n"
 "    subcontrol-position:top;\n"
 "}\n"
 "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
@@ -1590,6 +1592,7 @@ class Ui_MOS(object):
         self.listWidget_3.addItem(item)
         self.gridLayout_40.addWidget(self.listWidget_3, 0, 0, 1, 1)
         self.pushButton_24 = QtWidgets.QPushButton(self.widget_16)
+        self.pushButton_24.setEnabled(False)
         self.pushButton_24.setStyleSheet("font-size: 14px;")
         self.pushButton_24.setObjectName("pushButton_24")
         self.gridLayout_40.addWidget(self.pushButton_24, 1, 0, 1, 1)
@@ -1706,7 +1709,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1715,7 +1718,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -2133,48 +2136,80 @@ class Ui_MOS(object):
         self.gridLayout_14 = QtWidgets.QGridLayout(self.page_6)
         self.gridLayout_14.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_14.setObjectName("gridLayout_14")
-        self.widget_10 = QtWidgets.QWidget(self.page_6)
-        self.widget_10.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
-        self.widget_10.setObjectName("widget_10")
-        self.gridLayout_43 = QtWidgets.QGridLayout(self.widget_10)
+        spacerItem33 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_14.addItem(spacerItem33, 0, 0, 1, 2)
+        self.line_6 = QtWidgets.QFrame(self.page_6)
+        self.line_6.setStyleSheet("color:rgb(214, 214, 214)")
+        self.line_6.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
+        self.line_6.setMidLineWidth(1)
+        self.line_6.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.line_6.setObjectName("line_6")
+        self.gridLayout_14.addWidget(self.line_6, 2, 0, 1, 2)
+        self.scrollArea_3 = QtWidgets.QScrollArea(self.page_6)
+        self.scrollArea_3.setStyleSheet("QScrollArea{border-style:none;}\n"
+"/*设置垂直滚动条基本样式*/\n"
+"QScrollBar:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,0%);\n"
+"    margin:0px,0px,0px,0px;\n"
+"    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
+"    padding-bottom:9px;\n"
+"}\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,25%);\n"
+"    border-radius:4px;   /*滚动条两端变成椭圆*/\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::handle:vertical:hover\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,50%);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
+"    border-radius:4px;\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background:rgba(0,0,0,10%);\n"
+"    border-radius:4px;\n"
+"}\n"
+"")
+        self.scrollArea_3.setWidgetResizable(True)
+        self.scrollArea_3.setObjectName("scrollArea_3")
+        self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 832, 800))
+        self.scrollAreaWidgetContents_4.setStyleSheet("")
+        self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
+        self.gridLayout_43 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_4)
+        self.gridLayout_43.setContentsMargins(-1, 12, -1, -1)
         self.gridLayout_43.setObjectName("gridLayout_43")
-        self.widget_19 = QtWidgets.QWidget(self.widget_10)
-        self.widget_19.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
-"QLabel{border-style:none;}")
-        self.widget_19.setObjectName("widget_19")
-        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.widget_19)
-        self.verticalLayout_8.setObjectName("verticalLayout_8")
-        self.label_30 = QtWidgets.QLabel(self.widget_19)
-        self.label_30.setStyleSheet("font-size: 13px;")
-        self.label_30.setObjectName("label_30")
-        self.verticalLayout_8.addWidget(self.label_30)
-        self.widget_23 = QtWidgets.QWidget(self.widget_19)
-        self.widget_23.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
-"#pushButton_27{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-"#pushButton_27::hover{background-color: rgb(255, 255, 255);}\n"
-"#pushButton_27::pressed{background-color: rgba(0, 150, 255, 51);}\n"
-"#pushButton_29{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-"#pushButton_29::hover{background-color: rgb(255, 255, 255);}\n"
-"#pushButton_29::pressed{background-color: rgba(0, 150, 255, 51);}")
-        self.widget_23.setObjectName("widget_23")
-        self.gridLayout_19 = QtWidgets.QGridLayout(self.widget_23)
-        self.gridLayout_19.setHorizontalSpacing(7)
-        self.gridLayout_19.setObjectName("gridLayout_19")
-        self.pushButton_29 = QtWidgets.QPushButton(self.widget_23)
-        self.pushButton_29.setObjectName("pushButton_29")
-        self.gridLayout_19.addWidget(self.pushButton_29, 1, 3, 1, 1)
-        self.label_31 = QtWidgets.QLabel(self.widget_23)
-        self.label_31.setStyleSheet("font-size: 13px;")
-        self.label_31.setObjectName("label_31")
-        self.gridLayout_19.addWidget(self.label_31, 1, 0, 1, 1)
-        spacerItem33 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_19.addItem(spacerItem33, 1, 1, 1, 1)
-        self.pushButton_27 = QtWidgets.QPushButton(self.widget_23)
-        self.pushButton_27.setObjectName("pushButton_27")
-        self.gridLayout_19.addWidget(self.pushButton_27, 1, 2, 1, 1)
-        self.verticalLayout_8.addWidget(self.widget_23)
-        self.gridLayout_43.addWidget(self.widget_19, 1, 0, 1, 1)
-        self.widget_13 = QtWidgets.QWidget(self.widget_10)
+        self.widget_13 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
         self.widget_13.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
 "QLabel{border-style:none;}")
         self.widget_13.setObjectName("widget_13")
@@ -2199,7 +2234,7 @@ class Ui_MOS(object):
         self.pushButton = QtWidgets.QPushButton(self.widget_11)
         self.pushButton.setStyleSheet("border-style:none;")
         self.pushButton.setText("")
-        self.pushButton.setIcon(icon)
+        self.pushButton.setIcon(icon1)
         self.pushButton.setIconSize(QtCore.QSize(40, 40))
         self.pushButton.setObjectName("pushButton")
         self.gridLayout_12.addWidget(self.pushButton, 1, 0, 1, 1)
@@ -2222,9 +2257,9 @@ class Ui_MOS(object):
         self.pushButton_4 = QtWidgets.QPushButton(self.widget_12)
         self.pushButton_4.setStyleSheet("border-style:none;")
         self.pushButton_4.setText("")
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/david.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_4.setIcon(icon17)
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/david.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_4.setIcon(icon18)
         self.pushButton_4.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_4.setObjectName("pushButton_4")
         self.gridLayout_17.addWidget(self.pushButton_4, 0, 0, 1, 1)
@@ -2252,9 +2287,9 @@ class Ui_MOS(object):
         self.pushButton_9 = QtWidgets.QPushButton(self.widget_14)
         self.pushButton_9.setStyleSheet("border-style:none;")
         self.pushButton_9.setText("")
-        icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/heimnad.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_9.setIcon(icon18)
+        icon19 = QtGui.QIcon()
+        icon19.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/heimnad.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_9.setIcon(icon19)
         self.pushButton_9.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_9.setObjectName("pushButton_9")
         self.gridLayout_18.addWidget(self.pushButton_9, 0, 0, 1, 1)
@@ -2268,18 +2303,138 @@ class Ui_MOS(object):
         self.gridLayout_18.addWidget(self.pushButton_10, 0, 4, 1, 1)
         self.verticalLayout_3.addWidget(self.widget_14)
         self.gridLayout_43.addWidget(self.widget_13, 0, 0, 1, 1)
-        spacerItem37 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_43.addItem(spacerItem37, 2, 0, 1, 1)
-        self.gridLayout_14.addWidget(self.widget_10, 3, 0, 1, 2)
-        self.line_6 = QtWidgets.QFrame(self.page_6)
-        self.line_6.setStyleSheet("color:rgb(214, 214, 214)")
-        self.line_6.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-        self.line_6.setMidLineWidth(1)
-        self.line_6.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-        self.line_6.setObjectName("line_6")
-        self.gridLayout_14.addWidget(self.line_6, 2, 0, 1, 2)
-        spacerItem38 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_14.addItem(spacerItem38, 0, 0, 1, 2)
+        self.widget_19 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
+        self.widget_19.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
+"QLabel{border-style:none;}")
+        self.widget_19.setObjectName("widget_19")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.widget_19)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.label_30 = QtWidgets.QLabel(self.widget_19)
+        self.label_30.setStyleSheet("font-size: 13px;")
+        self.label_30.setObjectName("label_30")
+        self.verticalLayout_8.addWidget(self.label_30)
+        self.widget_23 = QtWidgets.QWidget(self.widget_19)
+        self.widget_23.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_27{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_27::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_27::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_29{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_29::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_29::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_23.setObjectName("widget_23")
+        self.gridLayout_19 = QtWidgets.QGridLayout(self.widget_23)
+        self.gridLayout_19.setHorizontalSpacing(7)
+        self.gridLayout_19.setObjectName("gridLayout_19")
+        self.pushButton_27 = QtWidgets.QPushButton(self.widget_23)
+        self.pushButton_27.setObjectName("pushButton_27")
+        self.gridLayout_19.addWidget(self.pushButton_27, 1, 2, 1, 1)
+        self.pushButton_29 = QtWidgets.QPushButton(self.widget_23)
+        self.pushButton_29.setObjectName("pushButton_29")
+        self.gridLayout_19.addWidget(self.pushButton_29, 1, 3, 1, 1)
+        self.label_31 = QtWidgets.QLabel(self.widget_23)
+        self.label_31.setStyleSheet("font-size: 13px;")
+        self.label_31.setObjectName("label_31")
+        self.gridLayout_19.addWidget(self.label_31, 1, 0, 1, 1)
+        spacerItem37 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_19.addItem(spacerItem37, 1, 1, 1, 1)
+        self.verticalLayout_8.addWidget(self.widget_23)
+        self.gridLayout_43.addWidget(self.widget_19, 2, 0, 1, 1)
+        self.widget_10 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
+        self.widget_10.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
+"QLabel{border-style:none;}")
+        self.widget_10.setObjectName("widget_10")
+        self.gridLayout_46 = QtWidgets.QGridLayout(self.widget_10)
+        self.gridLayout_46.setObjectName("gridLayout_46")
+        self.label_32 = QtWidgets.QLabel(self.widget_10)
+        self.label_32.setStyleSheet("font-size: 13px;")
+        self.label_32.setObjectName("label_32")
+        self.gridLayout_46.addWidget(self.label_32, 0, 0, 1, 1)
+        self.widget_24 = QtWidgets.QWidget(self.widget_10)
+        self.widget_24.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_28{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_28::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_28::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_30{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_30::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_30::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_24.setObjectName("widget_24")
+        self.gridLayout_44 = QtWidgets.QGridLayout(self.widget_24)
+        self.gridLayout_44.setHorizontalSpacing(7)
+        self.gridLayout_44.setObjectName("gridLayout_44")
+        self.label_33 = QtWidgets.QLabel(self.widget_24)
+        self.label_33.setStyleSheet("font-size: 13px;")
+        self.label_33.setObjectName("label_33")
+        self.gridLayout_44.addWidget(self.label_33, 2, 0, 1, 1)
+        self.pushButton_30 = QtWidgets.QPushButton(self.widget_24)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_30.sizePolicy().hasHeightForWidth())
+        self.pushButton_30.setSizePolicy(sizePolicy)
+        self.pushButton_30.setObjectName("pushButton_30")
+        self.gridLayout_44.addWidget(self.pushButton_30, 2, 3, 1, 1)
+        self.pushButton_28 = QtWidgets.QPushButton(self.widget_24)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_28.sizePolicy().hasHeightForWidth())
+        self.pushButton_28.setSizePolicy(sizePolicy)
+        self.pushButton_28.setObjectName("pushButton_28")
+        self.gridLayout_44.addWidget(self.pushButton_28, 2, 2, 1, 1)
+        spacerItem38 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_44.addItem(spacerItem38, 2, 1, 1, 1)
+        self.gridLayout_46.addWidget(self.widget_24, 1, 0, 1, 1)
+        self.widget_25 = QtWidgets.QWidget(self.widget_10)
+        self.widget_25.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_25{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_25::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_25::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_31{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_31::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_31::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_32{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_32::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_32::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_25.setObjectName("widget_25")
+        self.gridLayout_45 = QtWidgets.QGridLayout(self.widget_25)
+        self.gridLayout_45.setHorizontalSpacing(7)
+        self.gridLayout_45.setObjectName("gridLayout_45")
+        spacerItem39 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Policy.Ignored, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_45.addItem(spacerItem39, 0, 1, 5, 1)
+        self.label_34 = QtWidgets.QLabel(self.widget_25)
+        self.label_34.setStyleSheet("font-size: 13px;")
+        self.label_34.setScaledContents(False)
+        self.label_34.setWordWrap(True)
+        self.label_34.setObjectName("label_34")
+        self.gridLayout_45.addWidget(self.label_34, 0, 0, 5, 1)
+        self.pushButton_25 = QtWidgets.QPushButton(self.widget_25)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_25.sizePolicy().hasHeightForWidth())
+        self.pushButton_25.setSizePolicy(sizePolicy)
+        self.pushButton_25.setObjectName("pushButton_25")
+        self.gridLayout_45.addWidget(self.pushButton_25, 4, 2, 1, 2)
+        self.pushButton_31 = QtWidgets.QPushButton(self.widget_25)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_31.sizePolicy().hasHeightForWidth())
+        self.pushButton_31.setSizePolicy(sizePolicy)
+        self.pushButton_31.setObjectName("pushButton_31")
+        self.gridLayout_45.addWidget(self.pushButton_31, 0, 2, 1, 2)
+        self.pushButton_32 = QtWidgets.QPushButton(self.widget_25)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_32.sizePolicy().hasHeightForWidth())
+        self.pushButton_32.setSizePolicy(sizePolicy)
+        self.pushButton_32.setObjectName("pushButton_32")
+        self.gridLayout_45.addWidget(self.pushButton_32, 1, 2, 3, 2)
+        self.gridLayout_46.addWidget(self.widget_25, 2, 0, 1, 1)
+        self.gridLayout_43.addWidget(self.widget_10, 1, 0, 1, 1)
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_4)
+        self.gridLayout_14.addWidget(self.scrollArea_3, 3, 0, 1, 2)
         self.label_17 = QtWidgets.QLabel(self.page_6)
         self.label_17.setStyleSheet("font-size: 17px;")
         self.label_17.setIndent(10)
@@ -2304,6 +2459,7 @@ class Ui_MOS(object):
 
 
 
+
         # =============================================================================#
 
         #dir = QFileDialog()
@@ -2320,6 +2476,7 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.setCurrentIndex(0)
         # 启动线程
         self.a = MOS_file()
+        self.a.sinOut_updates.connect(self.MOS_file_return_updates)
         self.a.sinOut.connect(self.MOS_file_return)
         self.a.sinOut_font.connect(self.MOS_file_return_font)
         self.a.start()
@@ -2785,7 +2942,7 @@ class Ui_MOS(object):
         '''版本文件夹添加页面的目录选择'''
         dir = QFileDialog()
         dir.setFileMode(QFileDialog.FileMode.Directory)
-        dir.setDirectory(file)
+        dir.setDirectory(file_h())
         #dir.setNameFilter('999(*.png)') 名称过滤器
         if dir.exec():
             MOS_banbenwenjianjia_file = dir.selectedFiles()
@@ -2917,6 +3074,21 @@ class Ui_MOS(object):
         _translate = QtCore.QCoreApplication.translate
         self.label_gonggao_left_txt.setText(_translate(text1,text2))
 
+    def click_comboBox_xiazai(self):
+        a = self.comboBox_2.currentIndex()
+        if a == 0:
+            self.stackedWidget_2.setCurrentIndex(a)
+        elif a == 1:
+            self.stackedWidget_2.setCurrentIndex(2)
+        elif a == 2:
+            self.stackedWidget_2.setCurrentIndex(4)
+        elif a == 3:
+            self.stackedWidget_2.setCurrentIndex(6)
+        elif a == 4:
+            self.stackedWidget_2.setCurrentIndex(8)
+        elif a == 5:
+            self.stackedWidget_2.setCurrentIndex(9)
+
     def click_comboBox_shezhi(self):
         '''设置页'''
         a = self.comboBox.currentText()
@@ -2928,18 +3100,41 @@ class Ui_MOS(object):
     def click_pushButton_jianchagengxin(self):
         self.pushButton_19.setEnabled(False)
         if self.pushButton_19.text() != '检查到更新，点击下载':
-            self.pushButton_19.setEnabled(False)
-            self.v = MOS_versions(a)
-            self.v.sinOut_versions.connect(self.click_pushButton_jianchagengxin_sinOut)
-            self.v.sinOut_versions_yes_no.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes_no)
-            self.v.sinOut_versions_yes.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes)
-            self.v.start()
+            if self.pushButton_19.text() == '下载完成 - 点击打开下载目录 请进行手动安装(启动器会自动退出)':
+                n_1 = file_h()
+                n = os.path.join(n_1,'.MOS','Download')
+                if system_h() == 'darwin':
+                    #如果是Mac
+                    os.system(str('open ' + n))
+                elif system_h() == 'win32' or system_h() == 'cygwin':
+                    #如果是win
+                    os.system(str('start' + n))
+                quit()
+            else:
+                self.pushButton_19.setEnabled(False)
+                self.v = MOS_versions()
+                self.v.sinOut_versions.connect(self.click_pushButton_jianchagengxin_sinOut)
+                self.v.sinOut_versions_error.connect(self.click_pushButton_jianchagengxin_sinOut_error)
+                self.v.sinOut_versions_yes_no.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes_no)
+                self.v.sinOut_versions_yes.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes)
+                self.v.start()
+
         else:
             self.pushButton_18.setEnabled(True)
         
     
     def click_pushButton_jianchagengxin_sinOut(self,text):
         self.pushButton_19.setText(text)
+
+    def click_pushButton_jianchagengxin_sinOut_error(self,text,t):
+        """当获取更新发生错误时… text是错误类型 t是在哪里错了
+            t
+        """
+        if t != '':
+            self.pushButton_19.setText(str("检测失败 - "+ "在" + t +"时 出现"+text))
+        else:
+            # 如果报错未知
+            self.pushButton_19.setText(str("检测失败 - "+ "在" + t +"时 出现未知的异常 建议关于中进行反馈"))
 
     def click_pushButton_jianchagengxin_sinOut_versions_yes_no(self,text):
         if text == "No":
@@ -2952,24 +3147,25 @@ class Ui_MOS(object):
         a = QMessageBox.information(None,"更新",str("<html><head/><body><h1> 版本" + v + "的更新内容： </h1><p>" + text + "</p></body></html>"),QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel,QMessageBox.StandardButton.Ok)
 
         if a == QMessageBox.StandardButton.Ok: #点了OK按钮
-            dir = QFileDialog()
-            dir.setFileMode(QFileDialog.FileMode.Directory)
-            dir.setDirectory(str(file_h))
-            if dir.exec():
-                file_2 = dir.selectedFiles()
-                file_1 = file_2[0]
-                if str(system_h) == "darwin":
-                    file = os.path.join(file_1,'MOS.dmg')
-                else:
-                    file = os.path.join(file_1,'MOS.zip')
-                header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
-                r_2 = open(file, 'w+')
-                r_2.close
-                r = requests.get(url, stream=True, timeout=(60,120), headers = header)
-                with open(file, "wb") as f:
-                    for chunk in r.iter_content(chunk_size=10240):  # 每次加载……字节
-                        f.write(chunk)
-                        print("kk")
+            # 下面衔接下载模块 记得指定路径（按照系统
+            if system_h() == 'darwin':
+                d_name = 'MOS.dmg'
+            else:
+                d_name = 'MOS.zip'
+            MOS_print('info',str('更新下载地址：' + url))
+            d_file = os.path.join(file_h(),'.MOS','Download',d_name)
+            #from MOS_Dowmloader import Dowmloader_
+            #down = Dowmloader_(url,8,d_file)
+            self.pushButton_19.setEnabled(False)
+            self.pushButton_19.setText("正在下载中")
+
+            self.v_d = MOS_versions_dowmloader(url,8,d_file)
+            self.v_d.sinOut_versions_d.connect(self.click_pushButton_jianchagengxin_sinOut_versions_dowmloader_ok)
+            self.v_d.start()
+    
+    def click_pushButton_jianchagengxin_sinOut_versions_dowmloader_ok(self):
+        self.pushButton_19.setText("下载完成 - 点击打开下载目录 请进行手动安装(启动器会自动退出)")
+        self.pushButton_19.setEnabled(True)
 
 
     def chick_pushButton_Java_check(self):
@@ -2987,6 +3183,52 @@ class Ui_MOS(object):
             java_json['Java'] = a
         MOS_json_write(java_json)
 
+    def chick_pushButton_Java_shezhi_xiazai(self):
+        self.stackedWidget_2.setCurrentIndex(8)
+        self.stackedWidget_mos_right.setCurrentIndex(3)
+        self.comboBox_2.setCurrentIndex(4)
+        self.click_pushButton_xiazai()
+        
+    def click_listWidget_Java_xiazai(self,item):
+        """点击下载Java列表中的项时……"""
+        if item.isSelected():
+            a = item.text()
+            MOS_print("info",str("点击: " + a))
+            self.pushButton_24.setText(str("下载 - " + a))
+            self.pushButton_24.setEnabled(True)
+    
+    def click_pushButton_Java_Dowmloader(self):
+        a = self.pushButton_24.text()
+        if a == '下载 - 免安装版 Java 8':
+            webbrowser.open("https://www.123pan.com/s/xCVDVv-gXuY3")
+        elif a == '下载 - 免安装版 Java 16':
+            webbrowser.open("https://www.123pan.com/s/xCVDVv-gXuY3")
+        elif a == '下载 - 免安装版 Java 17':
+            webbrowser.open("https://www.123pan.com/s/xCVDVv-gXuY3")
+        else:
+            webbrowser.open("https://www.123pan.com/s/xCVDVv-gXuY3")
+
+    def click_radioButton_checking_updates(self):
+        if self.radioButton.isChecked():
+            # 如果选择了
+            t = MOS_json_read(All='Yes')
+            t['Automatically_checking_for_updates'] = "True"
+            MOS_json_write(t)
+            MOS_print("info","自动检查更新已开启")
+        else:
+            #如果没有
+            t = MOS_json_read(All='Yes')
+            t['Automatically_checking_for_updates'] = "False"
+            MOS_json_write(t)
+            MOS_print("info","自动检查更新已关闭")
+
+
+    def click_pushButton_GitHub(self):
+        webbrowser.open("https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_2")
+
+    def click_pushButton_Gitee(self):
+        webbrowser.open("https://gitee.com/xian66/minecraft-optimal-starter_2")
+    
     def setfont(self):
         '''在“字体选择下拉菜单”中 更改字体后，设置字体'''
         a = self.fontComboBox.currentText()
@@ -3096,8 +3338,8 @@ class Ui_MOS(object):
             #    print('默认字体：' + b1)
 
     
-    # def setfont_size(self):
-        '''修改默认字体大小'''
+    def setfont_size(self):
+        '''修改默认字体大小(已弃用)'''
 
         Ui_title_left_left_2 = 15
         Ui_title_left = "font-size: " + str(Ui_title_left_left_2) + "px;"
@@ -3219,74 +3461,98 @@ class Ui_MOS(object):
     def MOS_file_return_font(self, a):
         MOS_print("info",str)
         str1 = str(a)
-        self.label_4.setFont(QtGui.QFont(str1))
-        self.label_6.setFont(QtGui.QFont(str1))
-        self.label_mos_left_top_user.setFont(QtGui.QFont(str1))
-        self.label_mos_left_top_add.setFont(QtGui.QFont(str1))
-        self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
-        self.label_2.setFont(QtGui.QFont(str1))
-        self.progressBar_2.setFont(QtGui.QFont(str1))
-        self.label__gonggao_right_txt.setFont(QtGui.QFont(str1))
-        self.label_3.setFont(QtGui.QFont(str1))
-        self.progressBar.setFont(QtGui.QFont(str1))
-        self.label_7.setFont(QtGui.QFont(str1))
-        self.label_9.setFont(QtGui.QFont(str1))
-        self.label_8.setFont(QtGui.QFont(str1))
-        self.label_10.setFont(QtGui.QFont(str1))
-        self.label_11.setFont(QtGui.QFont(str1))
-        self.label_19.setFont(QtGui.QFont(str1))
-        self.label_20.setFont(QtGui.QFont(str1))
-        self.label_21.setFont(QtGui.QFont(str1))
-        self.label_12.setFont(QtGui.QFont(str1))
-        self.label_13.setFont(QtGui.QFont(str1))
-        self.label_15.setFont(QtGui.QFont(str1))
-        self.label_17.setFont(QtGui.QFont(str1))
-        self.label.setFont(QtGui.QFont(str1))
-        self.label_16.setFont(QtGui.QFont(str1))
-        self.label_18.setFont(QtGui.QFont(str1))
-        self.label_22.setFont(QtGui.QFont(str1))
-        self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
-        self.label_24.setFont(QtGui.QFont(str1))
-        self.pushButton_home.setFont(QtGui.QFont(str1))
-        self.pushButton_lianji.setFont(QtGui.QFont(str1))
-        self.pushButton_music.setFont(QtGui.QFont(str1))
-        self.pushButton_shezhi.setFont(QtGui.QFont(str1))
-        self.pushButton_xiazai.setFont(QtGui.QFont(str1))
-        self.pushButton_about.setFont(QtGui.QFont(str1))
-        self.pushButton__gonggao_start.setFont(QtGui.QFont(str1))
-        self.pushButton_5.setFont(QtGui.QFont(str1))
-        self.pushButton_6.setFont(QtGui.QFont(str1))
-        self.pushButton_7.setFont(QtGui.QFont(str1))
-        self.pushButton_8.setFont(QtGui.QFont(str1))
-        self.pushButton_11.setFont(QtGui.QFont(str1))
-        self.pushButton_17.setFont(QtGui.QFont(str1))
-        self.pushButton_16.setFont(QtGui.QFont(str1))
-        self.pushButton_36.setFont(QtGui.QFont(str1))
-        self.pushButton_37.setFont(QtGui.QFont(str1))
-        self.pushButton_38.setFont(QtGui.QFont(str1))
-        self.pushButton_39.setFont(QtGui.QFont(str1))
-        self.pushButton_40.setFont(QtGui.QFont(str1))
-        self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
-        self.comboBox_2.setFont(QtGui.QFont(str1))
-        self.comboBox_3.setFont(QtGui.QFont(str1))
-        self.comboBox_4.setFont(QtGui.QFont(str1))
-        self.comboBox_5.setFont(QtGui.QFont(str1))
-        self.comboBox_6.setFont(QtGui.QFont(str1))
-        self.comboBox.setFont(QtGui.QFont(str1))
-        self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
-        self.fontComboBox.setFont(QtGui.QFont(str1))
-        self.progressBar.setFont(QtGui.QFont(str1))
-        self.listWidget.setFont(QtGui.QFont(str1))
-        self.listWidget_2.setFont(QtGui.QFont(str1))
-        self.lineEdit_3.setFont(QtGui.QFont(str1))
-        self.pushButton_19.setFont(QtGui.QFont(str1))
-        self.label_5.setFont(QtGui.QFont(str1))
-        self.radioButton.setFont(QtGui.QFont(str1))
-        self.pushButton_20.setFont(QtGui.QFont(str1))
-        self.label_14.setFont(QtGui.QFont(str1))
-        self.comboBox_7.setFont(QtGui.QFont(str1))
-        self.pushButton_21.setFont(QtGui.QFont(str1))
-        self.label_14.setFont(QtGui.QFont(str1))
+        try:
+            self.label_4.setFont(QtGui.QFont(str1))
+            self.label_6.setFont(QtGui.QFont(str1))
+            self.label_mos_left_top_user.setFont(QtGui.QFont(str1))
+            self.label_mos_left_top_add.setFont(QtGui.QFont(str1))
+            self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
+            self.label_2.setFont(QtGui.QFont(str1))
+            self.progressBar_2.setFont(QtGui.QFont(str1))
+            self.label__gonggao_right_txt.setFont(QtGui.QFont(str1))
+            self.label_3.setFont(QtGui.QFont(str1))
+            self.progressBar.setFont(QtGui.QFont(str1))
+            self.label_7.setFont(QtGui.QFont(str1))
+            self.label_9.setFont(QtGui.QFont(str1))
+            self.label_8.setFont(QtGui.QFont(str1))
+            self.label_10.setFont(QtGui.QFont(str1))
+            self.label_11.setFont(QtGui.QFont(str1))
+            self.label_19.setFont(QtGui.QFont(str1))
+            self.label_20.setFont(QtGui.QFont(str1))
+            self.label_21.setFont(QtGui.QFont(str1))
+            self.label_12.setFont(QtGui.QFont(str1))
+            self.label_13.setFont(QtGui.QFont(str1))
+            self.label_15.setFont(QtGui.QFont(str1))
+            self.label_17.setFont(QtGui.QFont(str1))
+            self.label.setFont(QtGui.QFont(str1))
+            self.label_16.setFont(QtGui.QFont(str1))
+            self.label_18.setFont(QtGui.QFont(str1))
+            self.label_22.setFont(QtGui.QFont(str1))
+            self.label_gonggao_left_txt.setFont(QtGui.QFont(str1))
+            self.label_24.setFont(QtGui.QFont(str1))
+            self.pushButton_home.setFont(QtGui.QFont(str1))
+            self.pushButton_lianji.setFont(QtGui.QFont(str1))
+            self.pushButton_music.setFont(QtGui.QFont(str1))
+            self.pushButton_shezhi.setFont(QtGui.QFont(str1))
+            self.pushButton_xiazai.setFont(QtGui.QFont(str1))
+            self.pushButton_about.setFont(QtGui.QFont(str1))
+            self.pushButton__gonggao_start.setFont(QtGui.QFont(str1))
+            self.pushButton_5.setFont(QtGui.QFont(str1))
+            self.pushButton_6.setFont(QtGui.QFont(str1))
+            self.pushButton_7.setFont(QtGui.QFont(str1))
+            self.pushButton_8.setFont(QtGui.QFont(str1))
+            self.pushButton_11.setFont(QtGui.QFont(str1))
+            self.pushButton_17.setFont(QtGui.QFont(str1))
+            self.pushButton_16.setFont(QtGui.QFont(str1))
+            self.pushButton_36.setFont(QtGui.QFont(str1))
+            self.pushButton_37.setFont(QtGui.QFont(str1))
+            self.pushButton_38.setFont(QtGui.QFont(str1))
+            self.pushButton_39.setFont(QtGui.QFont(str1))
+            self.pushButton_40.setFont(QtGui.QFont(str1))
+            self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
+            self.comboBox_2.setFont(QtGui.QFont(str1))
+            self.comboBox_3.setFont(QtGui.QFont(str1))
+            self.comboBox_4.setFont(QtGui.QFont(str1))
+            self.comboBox_5.setFont(QtGui.QFont(str1))
+            self.comboBox_6.setFont(QtGui.QFont(str1))
+            self.comboBox.setFont(QtGui.QFont(str1))
+            self.comboBox_gonggao_right.setFont(QtGui.QFont(str1))
+            self.fontComboBox.setFont(QtGui.QFont(str1))
+            self.progressBar.setFont(QtGui.QFont(str1))
+            self.listWidget.setFont(QtGui.QFont(str1))
+            self.listWidget_2.setFont(QtGui.QFont(str1))
+            self.lineEdit_3.setFont(QtGui.QFont(str1))
+            self.pushButton_19.setFont(QtGui.QFont(str1))
+            self.label_5.setFont(QtGui.QFont(str1))
+            self.radioButton.setFont(QtGui.QFont(str1))
+            self.pushButton_20.setFont(QtGui.QFont(str1))
+            self.label_14.setFont(QtGui.QFont(str1))
+            self.comboBox_7.setFont(QtGui.QFont(str1))
+            self.pushButton_21.setFont(QtGui.QFont(str1))
+            self.label_14.setFont(QtGui.QFont(str1))
+        except:
+            pass
+            
+    def json_error(self):
+        a = QMessageBox.critical(None,"错误","您是否删除了MOS启动器生成的JSON文件？请在删除后重启启动器 即将退出启动器",QMessageBox.StandardButton.Yes,QMessageBox.StandardButton.Yes)
+        if a == QMessageBox.StandardButton.Yes: #检查是否点了OK按钮
+            quit()
+
+    def MOS_file_return_updates(self):
+        self.updates_time=QTimer() #创建计时器对象
+        self.updates_time.start(2000) #开始计时器
+        self.updates_time.timeout.connect(self.updates_time_) #要执行的槽
+    
+    def updates_time_(self):
+        self.updates_time.stop()
+        # 启动线程
+        self.pushButton_19.setEnabled(False)
+        self.v = MOS_versions()
+        self.v.sinOut_versions.connect(self.click_pushButton_jianchagengxin_sinOut)
+        self.v.sinOut_versions_error.connect(self.click_pushButton_jianchagengxin_sinOut_error)
+        self.v.sinOut_versions_yes_no.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes_no)
+        self.v.sinOut_versions_yes.connect(self.click_pushButton_jianchagengxin_sinOut_versions_yes)
+        self.v.start()
 
 
     def MOS_file_return(self, str):
@@ -3412,7 +3678,7 @@ class Ui_MOS(object):
         item = self.listWidget_3.item(5)
         item.setText(_translate("MOS", "免安装版 Java 17"))
         self.listWidget_3.setSortingEnabled(__sortingEnabled)
-        self.pushButton_24.setText(_translate("MOS", "下载"))
+        self.pushButton_24.setText(_translate("MOS", "下载 - 请选择要下载的Java"))
         self.treeWidget_5.headerItem().setText(0, _translate("MOS", "任务"))
         self.treeWidget_5.headerItem().setText(1, _translate("MOS", "进度"))
         self.treeWidget_5.headerItem().setText(2, _translate("MOS", "已用时间/剩余时间"))
@@ -3457,10 +3723,6 @@ class Ui_MOS(object):
         self.label_15.setText(_translate("MOS", "设置"))
         self.comboBox.setItemText(0, _translate("MOS", "启动器设置"))
         self.comboBox.setItemText(1, _translate("MOS", "全局游戏设置"))
-        self.label_30.setText(_translate("MOS", "法律声明"))
-        self.pushButton_29.setText(_translate("MOS", "项目地址(GitHub)"))
-        self.label_31.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">开源 </span></p><p><span style=\" color:#212121;\">开源协议：GPL-3.0</span></p></body></html>"))
-        self.pushButton_27.setText(_translate("MOS", "项目地址(Gitee)"))
         self.label.setText(_translate("MOS", "关于"))
         self.label_16.setText(_translate("MOS", "MOS启动器\n"
 "版本V2.0.5-alpha"))
@@ -3468,6 +3730,18 @@ class Ui_MOS(object):
         self.pushButton_3.setText(_translate("MOS", "赞助作者"))
         self.label_22.setText(_translate("MOS", "MOS网站支持、测试小组负责人 HeimNad"))
         self.pushButton_10.setText(_translate("MOS", "打开博客"))
+        self.label_30.setText(_translate("MOS", "法律声明"))
+        self.pushButton_27.setText(_translate("MOS", "项目地址(Gitee)"))
+        self.pushButton_29.setText(_translate("MOS", "项目地址(GitHub)"))
+        self.label_31.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">开源 </span></p><p><span style=\" color:#212121;\">开源协议：GPL-3.0</span></p></body></html>"))
+        self.label_32.setText(_translate("MOS", "建议Bug反馈"))
+        self.label_33.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">提出建议</span></p><p>仓库Issue反馈</p></body></html>"))
+        self.pushButton_30.setText(_translate("MOS", "项目地址(GitHub 推荐)"))
+        self.pushButton_28.setText(_translate("MOS", "项目地址(Gitee 不推荐)"))
+        self.label_34.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">反馈Bug/沸腾</span></p><p>• 仓库Issue反馈 • 问卷星反馈</p><p>注：这两种反馈方式有区别 </p><p>第一种是在您知道Bug/沸腾出现的具体原因(如：快速点击某按钮) </p><p>第二种是您不知道Bug/沸腾的原因</p><p>第一种处理较快</p><p>第二种处理较慢(开发者需要进行分析，分析后会在GitHub发起Issue)</p><p>不管哪种方式 都请您认真填写 感谢配合</p></body></html>"))
+        self.pushButton_25.setText(_translate("MOS", "问卷星"))
+        self.pushButton_31.setText(_translate("MOS", "项目地址(GitHub 推荐)"))
+        self.pushButton_32.setText(_translate("MOS", "项目地址(Gitee 不推荐)"))
         self.label_17.setText(_translate("MOS", "关于"))
 
 
@@ -3503,6 +3777,13 @@ class Ui_MOS(object):
         self.comboBox.currentIndexChanged.connect(self.click_comboBox_shezhi)
         self.pushButton_19.clicked.connect(self.click_pushButton_jianchagengxin)
         self.pushButton_22.clicked.connect(self.chick_pushButton_Java_check)
+        self.pushButton_23.clicked.connect(self.chick_pushButton_Java_shezhi_xiazai)
+        self.comboBox_2.currentIndexChanged.connect(self.click_comboBox_xiazai)
+        self.pushButton_27.clicked.connect(self.click_pushButton_Gitee)
+        self.pushButton_29.clicked.connect(self.click_pushButton_GitHub)
+        self.listWidget_3.itemClicked.connect(self.click_listWidget_Java_xiazai)
+        self.pushButton_24.clicked.connect(self.click_pushButton_Java_Dowmloader)
+        self.radioButton.toggled.connect(self.click_radioButton_checking_updates)
 
 
 class gonggao(QThread):
@@ -3755,77 +4036,98 @@ class gonggao(QThread):
 class MOS_versions(QThread):
     '''获取更新'''
     sinOut_versions = pyqtSignal(str)
+    sinOut_versions_error = pyqtSignal(str,str)
     sinOut_versions_yes_no = pyqtSignal(str)
     sinOut_versions_yes = pyqtSignal(str,str,str)
     
-    def __init__(self, a):
+    def __init__(self):
         super(MOS_versions, self).__init__()
-        self.a = a
+        self.a = str(system_h())
 
     def run(self):
         import requests
         self.sinOut_versions.emit("正在准备检查更新(1/2)")
         if self.a == 'darwin':
             self.sinOut_versions.emit("正在准备检查更新(2/2)")
-            url = 'http://api.2018k.cn/checkVersion?id=6edb1fb4d4154cd7a104f6f0702fcbed&version=' + versions
+            url = 'http://api.2018k.cn/checkVersion?id=6edb1fb4d4154cd7a104f6f0702fcbed&version=' + versions()
             url_text = 'http://api.2018k.cn/getExample?id=6edb1fb4d4154cd7a104f6f0702fcbed&data=remark'
         else:
             self.sinOut_versions.emit("正在准备检查更新(2/2)")
-            url = 'http://api.2018k.cn/checkVersion?id=b7c5251e83a644e7ad8b5bd8451ceb0a&version=' + versions
+            url = 'http://api.2018k.cn/checkVersion?id=b7c5251e83a644e7ad8b5bd8451ceb0a&version=' + versions()
             url_text = 'http://api.2018k.cn/getExample?id=b7c5251e83a644e7ad8b5bd8451ceb0a&data=remark'
         self.sinOut_versions.emit("正在获取更新(1/5)")
         header = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0'}    # 伪装浏览器
-        r_2 = requests.get(url, timeout=(5,50), headers = header)
-        r_3 = r_2.text
-        r_4 = r_3.split('|') #分割
-        if r_4[0] == 'true':
-            '''如果要更新'''
-            self.sinOut_versions.emit("正在获取更新(2/5)")
-            url_2 = 'https://purge.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
-            url_3 = 'https://cdn.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
-            self.sinOut_versions.emit("正在获取更新(3/5)")
-            r_5 = requests.get(url_2, timeout=(5,50), headers = header)
-            self.sinOut_versions.emit("正在获取更新(4/5)")
-            r_6 = requests.get(url_3, timeout=(5,50), headers = header)
-            self.sinOut_versions.emit("正在获取更新(5/5)")
+        try:
+            t = '检查是否有更新'
+            r_2 = requests.get(url, timeout=(5,50), headers = header)
+            r_3 = r_2.text
+            r_4 = r_3.split('|') #分割
+            if r_4[0] == 'true':
+                '''如果要更新'''
+                self.sinOut_versions.emit("正在获取更新(2/5)")
+                url_2 = 'https://purge.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
+                url_3 = 'https://cdn.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2/MOS_versions.json'
+                self.sinOut_versions.emit("正在获取更新(3/5)")
+                t = '更新远程公告支持文件'
+                r_5 = requests.get(url_2, timeout=(5,50), headers = header) # 更新公告文件
+                self.sinOut_versions.emit("正在获取更新(4/5)")
+                t = '获取远程公告支持文件'
+                r_6 = requests.get(url_3, timeout=(5,50), headers = header) # 获取公告更新文件（其实这个文件存储的是版本编号所对应版本
+                self.sinOut_versions.emit("正在获取更新(5/5)")
+                t = '更新更新内容'
+                r_7 = requests.get(url_text, timeout=(5,50), headers = header) # 获取更新内容   
+                r_7.encoding = 'utf-8'
+                r_7_1 = r_7.text
 
-            r_7 = requests.get(url_text, timeout=(5,50), headers = header)
-            r_7.encoding = 'utf-8'
-            r_7_1 = r_7.text
+                self.sinOut_versions.emit("正在准备……")
+                json_1 = r_6.json()
+                r_7 = r_4[4]
+                json_2 = json_1[r_7]
+                MOS_print("info",str("新版本：" + json_2 + " ->编号：" + r_7) + '更新内容：\n' + r_7_1)
+                self.sinOut_versions_yes.emit(r_4[3],r_7_1,json_2)
+            else:
+                self.sinOut_versions_yes_no.emit('No')
 
-            self.sinOut_versions.emit("正在准备……")
-            json_1 = r_6.json()
-            r_7 = r_4[4]
-            json_2 = json_1[r_7]
-            MOS_print("info",str("新版本：" + json_2 + " ->编号：" + r_7))
-            self.sinOut_versions_yes.emit(r_4[3],r_7_1,json_2)
-        else:
-            self.sinOut_versions_yes_no.emit('No')
+        except requests.exceptions.ReadTimeout:
+            self.sinOut_versions_error.emit('读取超时',t)
+        except requests.exceptions.ConnectionError:
+            self.sinOut_versions_error.emit('连接错误',t)
+        except:
+            error = traceback.print_exc()
+            MOS_print("error",error)
+            #因为“TypeError: native Qt signal is not callable”所以 不传error内容
+            self.sinOut_versions_error.emit('',t)
+
+class MOS_versions_dowmloader(QThread):
+    sinOut_versions_d = pyqtSignal()
+    def __init__(self,url,thread_num,file):
+        self.url = url
+        self.thread_num = thread_num
+        self.file = file
+        super(MOS_versions_dowmloader, self).__init__()
+    def run(self):
+        from MOS_Dowmloader import Dowmloader
+        a = Dowmloader(self.url, self.thread_num, self.file)
+        a.run()
+        self.sinOut_versions_d.emit()
 
 class MOS_file(QThread):
     '''初始化文件/设置'''
     sinOut = pyqtSignal(str)
-    sinOut_font = pyqtSignal(str) 
+    sinOut_font = pyqtSignal(str)
+    sinOut_updates = pyqtSignal()
     def __init__(self):
         super(MOS_file, self).__init__()
 
     def run(self):
-        import os,sys
+        import os
         MOS_print("info","文件初始化线程开始")
         try:
             #a = sys.platform()
             #print(a)
             #if a = 
 
-            a = str(sys.platform)
-            if a == "darwin":
-                user_name = os.getlogin()
-                # 获取当前系统用户目录
-                user_home = os.path.expanduser('~')
-                file = user_home + '/Documents'
-            else:
-                file = ''
-                MOS_print("info",a)
+            file = file_h()
 
             MOS_file_1=os.path.join(file,".minecraft","mods")
             os.makedirs(MOS_file_1, exist_ok=True)
@@ -3845,6 +4147,9 @@ class MOS_file(QThread):
             MOS_file_1 =os.path.join(file,".MOS","Music")
             os.makedirs(MOS_file_1, exist_ok=True)
 
+            MOS_file_1 =os.path.join(file,".MOS","Download")
+            os.makedirs(MOS_file_1, exist_ok=True)
+
             MOS_file_json =os.path.join(file,".MOS","MOS.json")
 
             if os.path.isfile(MOS_file_json)==True:
@@ -3862,19 +4167,24 @@ class MOS_file(QThread):
                 with open(MOS_file_json, 'w+', encoding='utf-8') as f:
                     MOS_file_1 =os.path.join(file,".minecraft")
                     a = {'font':'FangSong',
-                        'font_default':'Yes',   
+                        'font_default':'Yes',
+                        'Automatically_checking_for_updates':'True',
                         'game_file_name':['默认目录'],
                         '默认目录':MOS_file_1}
                     json.dump(a, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     b = json.load(f)
                     MOS_print("info",'默认字体：' + b['font'])
-                    Ui_MOS.click_pushButton_shezhi_fond_moren(self)
+                    try:
+                        Ui_MOS.click_pushButton_shezhi_fond_moren(self)
+                    except AttributeError:
+                        pass
             else:
                 #如果不是
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     try:
                         b = json.load(f)
+                        MOS_print("info",str("自动检查更新" + b['Automatically_checking_for_updates']))
                         if str(b['font_default']) == 'Yes':
                             c = str('FangSong')
                             self.sinOut_font.emit(c)
@@ -3892,6 +4202,13 @@ class MOS_file(QThread):
                     except KeyError:
                         MOS_print("error","json文件有问题")
                         self.sinOut.emit("KeyError")
+
+            # 不管他是不是 都判断是否自动检查更新
+            if b['Automatically_checking_for_updates'] == 'True':
+                MOS_print("info","自动检查更新为开启状态")
+                self.sinOut_updates.emit()
+            else:
+                MOS_print("info","自动检查更新已关闭")
                     
 
         except PermissionError:
@@ -4079,12 +4396,13 @@ class game_first_initialize(QThread):
             MOS_print("error",str("找不到" + file_1 + "没有游戏目录"))
 
 
+
 def Java_check():
     import subprocess
     Java_1 = os.environ.get('JAVA_HOM')
     Java_2 = os.environ.get('JDK_HOME')
     file_java_2 = [Java_1,Java_2]
-    if a == 'darwin':
+    if system_h() == 'darwin':
         Java_file = "/usr/bin/java"
         if os.path.exists(Java_file):
             file_java_2.append(Java_file)
@@ -4177,71 +4495,29 @@ def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = No
             else:
                 return b
     except FileNotFoundError:
-        MOS_print("error", "FileNotFoundError")
+        MOS_print("error", "Json文件出现：FileNotFoundError 错误！")
+        Ui_MOS.json_error()
     except:
         error = traceback.print_exc()
         MOS_print("error",error)
 
 def MOS_json_write(text):
     '''写入Json文件，注意: 类型必须是字典'''
-    MOS_file_json =os.path.join(file,".MOS","MOS.json")
+    MOS_file_json =os.path.join(file_h(),".MOS","MOS.json")
     try:
         with open(MOS_file_json, 'w+', encoding='utf-8') as f:
             json.dump(text, f, ensure_ascii=False, sort_keys=False, indent=4, separators=(',', ': '))
+    except FileNotFoundError:
+        MOS_print("error", "Json文件出现：FileNotFoundError 错误！")
+        Ui_MOS.json_error()
     except:
         error = traceback.print_exc()
         MOS_print("error",error)
 
-class MOS_print_colour:
-    '''HEADER:偏粉的紫色(?)
-        OKBLUE:蓝色
-        OKCYAN:青色
-        OKGREEN:绿色
-        WARNING:黄色
-        FAIL:红色
-        FAIL_2:加粗的红色
-        FAIL_3:有下划线的红色
-        ENDC:正常的黑色
-        BOLD:加粗的黑色
-        UNDERLINE:有下横线的黑色
-    '''
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    FAIL_2 = '\033[1;91m'
-    FAIL_3 = '\033[4;91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
 
-def MOS_print(type_,MOS_print_1):
-    '''type_{[error,错误]  [info,提示]}'''
-    MOS_print = str(MOS_print_1)
-    MOS_time = datetime.datetime.now().strftime('%H:%M:%S.%f')
-    if type_ == 'error':
-        tybe_1 = 'ERROR'
-        tybe_2 = MOS_print_colour.FAIL_3 + tybe_1 + MOS_print_colour.ENDC
-        MOS_time_2 = MOS_print_colour.FAIL_3 + MOS_time + MOS_print_colour.ENDC
-        left = MOS_print_colour.FAIL + '[' + MOS_print_colour.ENDC
-        right = MOS_print_colour.FAIL + ']' +MOS_print_colour.ENDC
-        print(left + MOS_time_2 + right + left + tybe_2 + right + MOS_print_colour.FAIL_2 + MOS_print + MOS_print_colour.ENDC)
-    elif type_ == 'info':
-        tybe_1 = 'INFO'
-        left = MOS_print_colour.ENDC + '[' + MOS_print_colour.ENDC
-        right = MOS_print_colour.ENDC + ']' +MOS_print_colour.ENDC
-        tybe_2 = MOS_print_colour.UNDERLINE + tybe_1 + MOS_print_colour.ENDC
-        MOS_time_2 = MOS_print_colour.UNDERLINE + MOS_time + MOS_print_colour.ENDC
-        print(left + MOS_time_2 + right + left + tybe_2 + right + MOS_print_colour.ENDC + MOS_print + MOS_print_colour.ENDC)
-
-def except_hook(cls, exception, traceback):
-    '''报错显示'''
-    sys.__excepthook__(cls, exception, traceback)
 
 def file_h():
-    if a == "darwin":
+    if system_h() == "darwin":
         user_name = os.getlogin()
         # 获取当前系统用户目录
         user_home = os.path.expanduser('~')
@@ -4251,39 +4527,16 @@ def file_h():
     return file
 
 def system_h():
+    """
+        'win32':Windows
+        'cygwin':Windows/Cygwin
+        'darwin':macOS
+        'aix':AIX
+        'linux':Linux
+    """
     a = str(sys.platform)
     return a
 
-try:
-    if __name__ == '__main__':
-        versions = '2.0.5'
-        # import shutil
-        # shutil.rmtree(".MOS")
-        # shutil.rmtree(".minecraft")
-        a = str(sys.platform)
-        if a == "darwin":
-            MOS_print("info",'当前系统为Mac')
-            user_name = os.getlogin()
-            # 获取当前系统用户目录
-            user_home = os.path.expanduser('~')
-            file = user_home + '/Documents'
-        else:
-            file = ''
- 
-        MOS_print("info","程序已开始运行！")
-        app = QtWidgets.QApplication(sys.argv)
-        sys.excepthook = except_hook
-        MOS_print("info","请稍等...")
-        MainWindow = QtWidgets.QMainWindow()
-        MOS_print("info","创建窗口对象成功！")
-        ui = Ui_MOS()
-        MOS_print("info","创建PyQt窗口对象成功！")
-        ui.setupUi(MainWindow)
-        MOS_print("info","初始化设置成功！")
-        MainWindow.show()
-        MOS_print("info","已成功显示窗体")
-        sys.exit(app.exec())
-except KeyboardInterrupt:
-    MOS_print("info","程序以强行退出")
-except Exception as error:
-    MOS_print("error",error)
+def versions():
+    versions = '2.0.5'
+    return versions

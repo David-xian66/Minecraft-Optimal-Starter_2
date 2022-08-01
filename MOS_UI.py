@@ -11,6 +11,7 @@ from PyQt6.QtWidgets import *
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QIcon
 from MOS_print_ import MOS_print
+import MOS_rc
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
 
 
@@ -52,13 +53,12 @@ class Ui_MOS(object):
         MOS_catalogue_picture_user_add_png = os.path.join("picture", "user_add.png")
         MOS_catalogue_picture_picture_user_png = os.path.join("picture", "picture_user.png")
 
- 
         MOS.setObjectName("MOS")
         MOS.setWindowModality(QtCore.Qt.WindowModality.NonModal)
         MOS.resize(1000, 533)
         MOS.setMinimumSize(QtCore.QSize(1000, 533))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/ico.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../picture/ico.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MOS.setWindowIcon(icon)
         MOS.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MOS)
@@ -179,7 +179,9 @@ class Ui_MOS(object):
         self.pushButton_mos_left_top = QtWidgets.QPushButton(self.widget_mos_left_top)
         self.pushButton_mos_left_top.setStyleSheet("width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);")
         self.pushButton_mos_left_top.setText("")
-        self.pushButton_mos_left_top.setIcon(icon)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/ico.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_mos_left_top.setIcon(icon1)
         self.pushButton_mos_left_top.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_mos_left_top.setObjectName("pushButton_mos_left_top")
         self.gridLayout_4.addWidget(self.pushButton_mos_left_top, 0, 0, 2, 1)
@@ -199,54 +201,54 @@ class Ui_MOS(object):
         self.pushButton_home.setFocusPolicy(QtCore.Qt.FocusPolicy.TabFocus)
         self.pushButton_home.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.pushButton_home.setStyleSheet("font-size: 15px;")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/home.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_home.setIcon(icon1)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/home.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_home.setIcon(icon2)
         self.pushButton_home.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_home.setObjectName("pushButton_home")
         self.verticalLayout_2.addWidget(self.pushButton_home)
         self.pushButton_lianji = QtWidgets.QPushButton(self.widget_mos_left)
         self.pushButton_lianji.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_lianji.setStyleSheet("font-size: 15px;")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/online.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_lianji.setIcon(icon2)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/online.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_lianji.setIcon(icon3)
         self.pushButton_lianji.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_lianji.setObjectName("pushButton_lianji")
         self.verticalLayout_2.addWidget(self.pushButton_lianji)
         self.pushButton_xiazai = QtWidgets.QPushButton(self.widget_mos_left)
         self.pushButton_xiazai.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_xiazai.setStyleSheet("font-size: 15px;")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/download.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_xiazai.setIcon(icon3)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/download.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_xiazai.setIcon(icon4)
         self.pushButton_xiazai.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_xiazai.setObjectName("pushButton_xiazai")
         self.verticalLayout_2.addWidget(self.pushButton_xiazai)
         self.pushButton_music = QtWidgets.QPushButton(self.widget_mos_left)
         self.pushButton_music.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_music.setStyleSheet("font-size: 15px;")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/music.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_music.setIcon(icon4)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/music.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_music.setIcon(icon5)
         self.pushButton_music.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_music.setObjectName("pushButton_music")
         self.verticalLayout_2.addWidget(self.pushButton_music)
         self.pushButton_shezhi = QtWidgets.QPushButton(self.widget_mos_left)
         self.pushButton_shezhi.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_shezhi.setStyleSheet("font-size: 15px;")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/settings.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_shezhi.setIcon(icon5)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/settings.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_shezhi.setIcon(icon6)
         self.pushButton_shezhi.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_shezhi.setObjectName("pushButton_shezhi")
         self.verticalLayout_2.addWidget(self.pushButton_shezhi)
         self.pushButton_about = QtWidgets.QPushButton(self.widget_mos_left)
         self.pushButton_about.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_about.setStyleSheet("font-size: 15px;")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/about.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_about.setIcon(icon6)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/about.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_about.setIcon(icon7)
         self.pushButton_about.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_about.setObjectName("pushButton_about")
         self.verticalLayout_2.addWidget(self.pushButton_about)
@@ -413,7 +415,7 @@ class Ui_MOS(object):
         self.label_3 = QtWidgets.QLabel(self.widget_scrollArea_page_gonggao_statring)
         self.label_3.setStyleSheet("border-style:none;background-color: rgba(255, 255, 255, 0);")
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../../../Desktop/MOS/picture/loading_3.gif"))
+        self.label_3.setPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/loading_3.gif"))
         self.label_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.gridLayout_2.addWidget(self.label_3, 0, 1, 2, 3)
@@ -466,7 +468,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -475,7 +477,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -723,31 +725,31 @@ class Ui_MOS(object):
         self.listWidget.setIconSize(QtCore.QSize(24, 24))
         self.listWidget.setObjectName("listWidget")
         item = QtWidgets.QListWidgetItem()
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/folder.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        item.setIcon(icon7)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/folder.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        item.setIcon(icon8)
         self.listWidget.addItem(item)
         self.verticalLayout.addWidget(self.listWidget)
         self.pushButton_38 = QtWidgets.QPushButton(self.widget_7)
         self.pushButton_38.setMinimumSize(QtCore.QSize(0, 30))
         self.pushButton_38.setStyleSheet("font-size: 13px;")
-        self.pushButton_38.setIcon(icon5)
+        self.pushButton_38.setIcon(icon6)
         self.pushButton_38.setObjectName("pushButton_38")
         self.verticalLayout.addWidget(self.pushButton_38)
         self.pushButton_36 = QtWidgets.QPushButton(self.widget_7)
         self.pushButton_36.setMinimumSize(QtCore.QSize(0, 30))
         self.pushButton_36.setStyleSheet("font-size: 13px;")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/folder_add.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_36.setIcon(icon8)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/folder_add.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_36.setIcon(icon9)
         self.pushButton_36.setObjectName("pushButton_36")
         self.verticalLayout.addWidget(self.pushButton_36)
         self.pushButton_37 = QtWidgets.QPushButton(self.widget_7)
         self.pushButton_37.setMinimumSize(QtCore.QSize(0, 30))
         self.pushButton_37.setStyleSheet("font-size: 13px;")
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/add.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_37.setIcon(icon9)
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/add.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_37.setIcon(icon10)
         self.pushButton_37.setObjectName("pushButton_37")
         self.verticalLayout.addWidget(self.pushButton_37)
         self.gridLayout_55.addWidget(self.widget_7, 0, 0, 1, 1)
@@ -906,7 +908,7 @@ class Ui_MOS(object):
         self.pushButton_42 = QtWidgets.QPushButton(self.widget_21)
         self.pushButton_42.setMinimumSize(QtCore.QSize(0, 28))
         self.pushButton_42.setStyleSheet("font-size: 14px;")
-        self.pushButton_42.setIcon(icon7)
+        self.pushButton_42.setIcon(icon8)
         self.pushButton_42.setObjectName("pushButton_42")
         self.gridLayout_57.addWidget(self.pushButton_42, 0, 2, 2, 1)
         self.label_46 = QtWidgets.QLabel(self.widget_21)
@@ -918,9 +920,9 @@ class Ui_MOS(object):
         self.pushButton_41 = QtWidgets.QPushButton(self.page_25)
         self.pushButton_41.setStyleSheet("")
         self.pushButton_41.setText("")
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/back.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_41.setIcon(icon10)
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/back.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_41.setIcon(icon11)
         self.pushButton_41.setIconSize(QtCore.QSize(27, 30))
         self.pushButton_41.setAutoDefault(False)
         self.pushButton_41.setDefault(False)
@@ -986,9 +988,9 @@ class Ui_MOS(object):
         self.gridLayout_53.setObjectName("gridLayout_53")
         self.pushButton_40 = QtWidgets.QPushButton(self.page_22)
         self.pushButton_40.setStyleSheet("font-size: 13px;")
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/trash_red.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_40.setIcon(icon11)
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../picture/trash_red.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_40.setIcon(icon12)
         self.pushButton_40.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_40.setCheckable(False)
         self.pushButton_40.setObjectName("pushButton_40")
@@ -1019,7 +1021,7 @@ class Ui_MOS(object):
         self.gridLayout_54.setObjectName("gridLayout_54")
         self.label_26 = QtWidgets.QLabel(self.page_23)
         self.label_26.setText("")
-        self.label_26.setPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/loading.gif"))
+        self.label_26.setPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/loading.gif"))
         self.label_26.setScaledContents(False)
         self.label_26.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_26.setWordWrap(False)
@@ -1032,7 +1034,7 @@ class Ui_MOS(object):
         self.pushButton_35 = QtWidgets.QPushButton(self.page_12)
         self.pushButton_35.setStyleSheet("")
         self.pushButton_35.setText("")
-        self.pushButton_35.setIcon(icon10)
+        self.pushButton_35.setIcon(icon11)
         self.pushButton_35.setIconSize(QtCore.QSize(27, 30))
         self.pushButton_35.setObjectName("pushButton_35")
         self.gridLayout_33.addWidget(self.pushButton_35, 1, 0, 1, 1)
@@ -1110,7 +1112,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1119,7 +1121,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1226,7 +1228,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1235,7 +1237,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1268,9 +1270,9 @@ class Ui_MOS(object):
         self.pushButton_8 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_8.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_8.setText("")
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/quilt.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_8.setIcon(icon12)
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/quilt.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_8.setIcon(icon13)
         self.pushButton_8.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_8.setObjectName("pushButton_8")
         self.gridLayout_25.addWidget(self.pushButton_8, 3, 0, 1, 1)
@@ -1294,25 +1296,25 @@ class Ui_MOS(object):
         self.pushButton_13 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_13.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_13.setText("")
-        icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/loading.gif"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_13.setIcon(icon13)
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/loading.gif"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_13.setIcon(icon14)
         self.pushButton_13.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_13.setObjectName("pushButton_13")
         self.gridLayout_25.addWidget(self.pushButton_13, 1, 4, 1, 1)
         self.pushButton_14 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_14.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_14.setText("")
-        self.pushButton_14.setIcon(icon13)
+        self.pushButton_14.setIcon(icon14)
         self.pushButton_14.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_14.setObjectName("pushButton_14")
         self.gridLayout_25.addWidget(self.pushButton_14, 2, 4, 1, 1)
         self.pushButton_5 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_5.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_5.setText("")
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/forge.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_5.setIcon(icon14)
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/forge.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_5.setIcon(icon15)
         self.pushButton_5.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_5.setObjectName("pushButton_5")
         self.gridLayout_25.addWidget(self.pushButton_5, 0, 0, 1, 1)
@@ -1323,16 +1325,16 @@ class Ui_MOS(object):
         self.pushButton_7 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_7.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_7.setText("")
-        icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/optifine.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_7.setIcon(icon15)
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/optifine.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_7.setIcon(icon16)
         self.pushButton_7.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_7.setObjectName("pushButton_7")
         self.gridLayout_25.addWidget(self.pushButton_7, 2, 0, 1, 1)
         self.pushButton_15 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_15.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_15.setText("")
-        self.pushButton_15.setIcon(icon13)
+        self.pushButton_15.setIcon(icon14)
         self.pushButton_15.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_15.setObjectName("pushButton_15")
         self.gridLayout_25.addWidget(self.pushButton_15, 3, 4, 1, 1)
@@ -1353,16 +1355,16 @@ class Ui_MOS(object):
         self.pushButton_6 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_6.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_6.setText("")
-        icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/fabric.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_6.setIcon(icon16)
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/fabric.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_6.setIcon(icon17)
         self.pushButton_6.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_6.setObjectName("pushButton_6")
         self.gridLayout_25.addWidget(self.pushButton_6, 1, 0, 1, 1)
         self.pushButton_12 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_12.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_12.setText("")
-        self.pushButton_12.setIcon(icon13)
+        self.pushButton_12.setIcon(icon14)
         self.pushButton_12.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_12.setObjectName("pushButton_12")
         self.gridLayout_25.addWidget(self.pushButton_12, 0, 4, 1, 1)
@@ -1490,6 +1492,7 @@ class Ui_MOS(object):
         self.label_29.setObjectName("label_29")
         self.gridLayout_41.addWidget(self.label_29, 0, 0, 1, 1)
         self.widget_16 = QtWidgets.QWidget(self.page_18)
+        self.widget_16.setEnabled(True)
         self.widget_16.setStyleSheet("#listWidget_3{border-style:none;}\n"
 "QListView::item {\n"
 "    height: 25px;\n"
@@ -1509,6 +1512,8 @@ class Ui_MOS(object):
 "#pushButton_24{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 250, 146);color: rgb(33, 33, 33);}\n"
 "#pushButton_24::hover{color: rgb(0, 250, 146);}\n"
 "#pushButton_24::pressed{background-color: rgb(128, 255, 202);color: rgb(255, 255, 255);}\n"
+"/*禁用*/\n"
+"#pushButton_24:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);color: rgb(145, 145, 145);}\n"
 "\n"
 "/*设置垂直滚动条基本样式*/\n"
 "QScrollBar:vertical\n"
@@ -1536,25 +1541,25 @@ class Ui_MOS(object):
 "QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    border-image:url(:/img/caret-down_1.png);\n"
 "    subcontrol-position:bottom;\n"
 "}\n"
 "QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    border-image:url(:/img/caret-up_1.png);\n"
 "    subcontrol-position:top;\n"
 "}\n"
 "QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-down.png);\n"
+"    border-image:url(:/img/caret-down.png);\n"
 "    subcontrol-position:bottom;\n"
 "}\n"
 "QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
 "{\n"
 "    height:9px;width:8px;\n"
-"    border-image:url(:/img/picture/caret-up.png);\n"
+"    border-image:url(:/img/caret-up.png);\n"
 "    subcontrol-position:top;\n"
 "}\n"
 "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
@@ -1587,6 +1592,7 @@ class Ui_MOS(object):
         self.listWidget_3.addItem(item)
         self.gridLayout_40.addWidget(self.listWidget_3, 0, 0, 1, 1)
         self.pushButton_24 = QtWidgets.QPushButton(self.widget_16)
+        self.pushButton_24.setEnabled(False)
         self.pushButton_24.setStyleSheet("font-size: 14px;")
         self.pushButton_24.setObjectName("pushButton_24")
         self.gridLayout_40.addWidget(self.pushButton_24, 1, 0, 1, 1)
@@ -1703,7 +1709,7 @@ class Ui_MOS(object):
 "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
 "QComboBox::down-arrow\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_down.png);\n"
+"    image: url(:/img/back_blue_down.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -1712,7 +1718,7 @@ class Ui_MOS(object):
 "}\n"
 "QComboBox::down-arrow:on\n"
 "{\n"
-"    image: url(:/img/picture/back_blue_up.png);\n"
+"    image: url(:/img/back_blue_up.png);\n"
 "    width: 25px;\n"
 "    height: 35px;\n"
 "    right:6px;\n"
@@ -2130,48 +2136,80 @@ class Ui_MOS(object):
         self.gridLayout_14 = QtWidgets.QGridLayout(self.page_6)
         self.gridLayout_14.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_14.setObjectName("gridLayout_14")
-        self.widget_10 = QtWidgets.QWidget(self.page_6)
-        self.widget_10.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
-        self.widget_10.setObjectName("widget_10")
-        self.gridLayout_43 = QtWidgets.QGridLayout(self.widget_10)
+        spacerItem33 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_14.addItem(spacerItem33, 0, 0, 1, 2)
+        self.line_6 = QtWidgets.QFrame(self.page_6)
+        self.line_6.setStyleSheet("color:rgb(214, 214, 214)")
+        self.line_6.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
+        self.line_6.setMidLineWidth(1)
+        self.line_6.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.line_6.setObjectName("line_6")
+        self.gridLayout_14.addWidget(self.line_6, 2, 0, 1, 2)
+        self.scrollArea_3 = QtWidgets.QScrollArea(self.page_6)
+        self.scrollArea_3.setStyleSheet("QScrollArea{border-style:none;}\n"
+"/*设置垂直滚动条基本样式*/\n"
+"QScrollBar:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,0%);\n"
+"    margin:0px,0px,0px,0px;\n"
+"    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
+"    padding-bottom:9px;\n"
+"}\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,25%);\n"
+"    border-radius:4px;   /*滚动条两端变成椭圆*/\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::handle:vertical:hover\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,50%);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
+"    border-radius:4px;\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background:rgba(0,0,0,10%);\n"
+"    border-radius:4px;\n"
+"}\n"
+"")
+        self.scrollArea_3.setWidgetResizable(True)
+        self.scrollArea_3.setObjectName("scrollArea_3")
+        self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 832, 800))
+        self.scrollAreaWidgetContents_4.setStyleSheet("")
+        self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
+        self.gridLayout_43 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_4)
+        self.gridLayout_43.setContentsMargins(-1, 12, -1, -1)
         self.gridLayout_43.setObjectName("gridLayout_43")
-        self.widget_19 = QtWidgets.QWidget(self.widget_10)
-        self.widget_19.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
-"QLabel{border-style:none;}")
-        self.widget_19.setObjectName("widget_19")
-        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.widget_19)
-        self.verticalLayout_8.setObjectName("verticalLayout_8")
-        self.label_30 = QtWidgets.QLabel(self.widget_19)
-        self.label_30.setStyleSheet("font-size: 13px;")
-        self.label_30.setObjectName("label_30")
-        self.verticalLayout_8.addWidget(self.label_30)
-        self.widget_23 = QtWidgets.QWidget(self.widget_19)
-        self.widget_23.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
-"#pushButton_27{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-"#pushButton_27::hover{background-color: rgb(255, 255, 255);}\n"
-"#pushButton_27::pressed{background-color: rgba(0, 150, 255, 51);}\n"
-"#pushButton_29{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-"#pushButton_29::hover{background-color: rgb(255, 255, 255);}\n"
-"#pushButton_29::pressed{background-color: rgba(0, 150, 255, 51);}")
-        self.widget_23.setObjectName("widget_23")
-        self.gridLayout_19 = QtWidgets.QGridLayout(self.widget_23)
-        self.gridLayout_19.setHorizontalSpacing(7)
-        self.gridLayout_19.setObjectName("gridLayout_19")
-        self.pushButton_29 = QtWidgets.QPushButton(self.widget_23)
-        self.pushButton_29.setObjectName("pushButton_29")
-        self.gridLayout_19.addWidget(self.pushButton_29, 1, 3, 1, 1)
-        self.label_31 = QtWidgets.QLabel(self.widget_23)
-        self.label_31.setStyleSheet("font-size: 13px;")
-        self.label_31.setObjectName("label_31")
-        self.gridLayout_19.addWidget(self.label_31, 1, 0, 1, 1)
-        spacerItem33 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_19.addItem(spacerItem33, 1, 1, 1, 1)
-        self.pushButton_27 = QtWidgets.QPushButton(self.widget_23)
-        self.pushButton_27.setObjectName("pushButton_27")
-        self.gridLayout_19.addWidget(self.pushButton_27, 1, 2, 1, 1)
-        self.verticalLayout_8.addWidget(self.widget_23)
-        self.gridLayout_43.addWidget(self.widget_19, 1, 0, 1, 1)
-        self.widget_13 = QtWidgets.QWidget(self.widget_10)
+        self.widget_13 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
         self.widget_13.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
 "QLabel{border-style:none;}")
         self.widget_13.setObjectName("widget_13")
@@ -2196,7 +2234,7 @@ class Ui_MOS(object):
         self.pushButton = QtWidgets.QPushButton(self.widget_11)
         self.pushButton.setStyleSheet("border-style:none;")
         self.pushButton.setText("")
-        self.pushButton.setIcon(icon)
+        self.pushButton.setIcon(icon1)
         self.pushButton.setIconSize(QtCore.QSize(40, 40))
         self.pushButton.setObjectName("pushButton")
         self.gridLayout_12.addWidget(self.pushButton, 1, 0, 1, 1)
@@ -2219,9 +2257,9 @@ class Ui_MOS(object):
         self.pushButton_4 = QtWidgets.QPushButton(self.widget_12)
         self.pushButton_4.setStyleSheet("border-style:none;")
         self.pushButton_4.setText("")
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/david.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_4.setIcon(icon17)
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/david.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_4.setIcon(icon18)
         self.pushButton_4.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_4.setObjectName("pushButton_4")
         self.gridLayout_17.addWidget(self.pushButton_4, 0, 0, 1, 1)
@@ -2249,9 +2287,9 @@ class Ui_MOS(object):
         self.pushButton_9 = QtWidgets.QPushButton(self.widget_14)
         self.pushButton_9.setStyleSheet("border-style:none;")
         self.pushButton_9.setText("")
-        icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/../picture/heimnad.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_9.setIcon(icon18)
+        icon19 = QtGui.QIcon()
+        icon19.addPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/heimnad.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_9.setIcon(icon19)
         self.pushButton_9.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_9.setObjectName("pushButton_9")
         self.gridLayout_18.addWidget(self.pushButton_9, 0, 0, 1, 1)
@@ -2265,18 +2303,138 @@ class Ui_MOS(object):
         self.gridLayout_18.addWidget(self.pushButton_10, 0, 4, 1, 1)
         self.verticalLayout_3.addWidget(self.widget_14)
         self.gridLayout_43.addWidget(self.widget_13, 0, 0, 1, 1)
-        spacerItem37 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_43.addItem(spacerItem37, 2, 0, 1, 1)
-        self.gridLayout_14.addWidget(self.widget_10, 3, 0, 1, 2)
-        self.line_6 = QtWidgets.QFrame(self.page_6)
-        self.line_6.setStyleSheet("color:rgb(214, 214, 214)")
-        self.line_6.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-        self.line_6.setMidLineWidth(1)
-        self.line_6.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-        self.line_6.setObjectName("line_6")
-        self.gridLayout_14.addWidget(self.line_6, 2, 0, 1, 2)
-        spacerItem38 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_14.addItem(spacerItem38, 0, 0, 1, 2)
+        self.widget_19 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
+        self.widget_19.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
+"QLabel{border-style:none;}")
+        self.widget_19.setObjectName("widget_19")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.widget_19)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.label_30 = QtWidgets.QLabel(self.widget_19)
+        self.label_30.setStyleSheet("font-size: 13px;")
+        self.label_30.setObjectName("label_30")
+        self.verticalLayout_8.addWidget(self.label_30)
+        self.widget_23 = QtWidgets.QWidget(self.widget_19)
+        self.widget_23.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_27{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_27::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_27::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_29{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_29::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_29::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_23.setObjectName("widget_23")
+        self.gridLayout_19 = QtWidgets.QGridLayout(self.widget_23)
+        self.gridLayout_19.setHorizontalSpacing(7)
+        self.gridLayout_19.setObjectName("gridLayout_19")
+        self.pushButton_27 = QtWidgets.QPushButton(self.widget_23)
+        self.pushButton_27.setObjectName("pushButton_27")
+        self.gridLayout_19.addWidget(self.pushButton_27, 1, 2, 1, 1)
+        self.pushButton_29 = QtWidgets.QPushButton(self.widget_23)
+        self.pushButton_29.setObjectName("pushButton_29")
+        self.gridLayout_19.addWidget(self.pushButton_29, 1, 3, 1, 1)
+        self.label_31 = QtWidgets.QLabel(self.widget_23)
+        self.label_31.setStyleSheet("font-size: 13px;")
+        self.label_31.setObjectName("label_31")
+        self.gridLayout_19.addWidget(self.label_31, 1, 0, 1, 1)
+        spacerItem37 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_19.addItem(spacerItem37, 1, 1, 1, 1)
+        self.verticalLayout_8.addWidget(self.widget_23)
+        self.gridLayout_43.addWidget(self.widget_19, 2, 0, 1, 1)
+        self.widget_10 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
+        self.widget_10.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
+"QLabel{border-style:none;}")
+        self.widget_10.setObjectName("widget_10")
+        self.gridLayout_46 = QtWidgets.QGridLayout(self.widget_10)
+        self.gridLayout_46.setObjectName("gridLayout_46")
+        self.label_32 = QtWidgets.QLabel(self.widget_10)
+        self.label_32.setStyleSheet("font-size: 13px;")
+        self.label_32.setObjectName("label_32")
+        self.gridLayout_46.addWidget(self.label_32, 0, 0, 1, 1)
+        self.widget_24 = QtWidgets.QWidget(self.widget_10)
+        self.widget_24.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_28{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_28::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_28::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_30{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_30::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_30::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_24.setObjectName("widget_24")
+        self.gridLayout_44 = QtWidgets.QGridLayout(self.widget_24)
+        self.gridLayout_44.setHorizontalSpacing(7)
+        self.gridLayout_44.setObjectName("gridLayout_44")
+        self.label_33 = QtWidgets.QLabel(self.widget_24)
+        self.label_33.setStyleSheet("font-size: 13px;")
+        self.label_33.setObjectName("label_33")
+        self.gridLayout_44.addWidget(self.label_33, 2, 0, 1, 1)
+        self.pushButton_30 = QtWidgets.QPushButton(self.widget_24)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_30.sizePolicy().hasHeightForWidth())
+        self.pushButton_30.setSizePolicy(sizePolicy)
+        self.pushButton_30.setObjectName("pushButton_30")
+        self.gridLayout_44.addWidget(self.pushButton_30, 2, 3, 1, 1)
+        self.pushButton_28 = QtWidgets.QPushButton(self.widget_24)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_28.sizePolicy().hasHeightForWidth())
+        self.pushButton_28.setSizePolicy(sizePolicy)
+        self.pushButton_28.setObjectName("pushButton_28")
+        self.gridLayout_44.addWidget(self.pushButton_28, 2, 2, 1, 1)
+        spacerItem38 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_44.addItem(spacerItem38, 2, 1, 1, 1)
+        self.gridLayout_46.addWidget(self.widget_24, 1, 0, 1, 1)
+        self.widget_25 = QtWidgets.QWidget(self.widget_10)
+        self.widget_25.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_25{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_25::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_25::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_31{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_31::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_31::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_32{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_32::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_32::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_25.setObjectName("widget_25")
+        self.gridLayout_45 = QtWidgets.QGridLayout(self.widget_25)
+        self.gridLayout_45.setHorizontalSpacing(7)
+        self.gridLayout_45.setObjectName("gridLayout_45")
+        spacerItem39 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Policy.Ignored, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_45.addItem(spacerItem39, 0, 1, 5, 1)
+        self.label_34 = QtWidgets.QLabel(self.widget_25)
+        self.label_34.setStyleSheet("font-size: 13px;")
+        self.label_34.setScaledContents(False)
+        self.label_34.setWordWrap(True)
+        self.label_34.setObjectName("label_34")
+        self.gridLayout_45.addWidget(self.label_34, 0, 0, 5, 1)
+        self.pushButton_25 = QtWidgets.QPushButton(self.widget_25)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_25.sizePolicy().hasHeightForWidth())
+        self.pushButton_25.setSizePolicy(sizePolicy)
+        self.pushButton_25.setObjectName("pushButton_25")
+        self.gridLayout_45.addWidget(self.pushButton_25, 4, 2, 1, 2)
+        self.pushButton_31 = QtWidgets.QPushButton(self.widget_25)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_31.sizePolicy().hasHeightForWidth())
+        self.pushButton_31.setSizePolicy(sizePolicy)
+        self.pushButton_31.setObjectName("pushButton_31")
+        self.gridLayout_45.addWidget(self.pushButton_31, 0, 2, 1, 2)
+        self.pushButton_32 = QtWidgets.QPushButton(self.widget_25)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_32.sizePolicy().hasHeightForWidth())
+        self.pushButton_32.setSizePolicy(sizePolicy)
+        self.pushButton_32.setObjectName("pushButton_32")
+        self.gridLayout_45.addWidget(self.pushButton_32, 1, 2, 3, 2)
+        self.gridLayout_46.addWidget(self.widget_25, 2, 0, 1, 1)
+        self.gridLayout_43.addWidget(self.widget_10, 1, 0, 1, 1)
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_4)
+        self.gridLayout_14.addWidget(self.scrollArea_3, 3, 0, 1, 2)
         self.label_17 = QtWidgets.QLabel(self.page_6)
         self.label_17.setStyleSheet("font-size: 17px;")
         self.label_17.setIndent(10)
@@ -2297,6 +2455,7 @@ class Ui_MOS(object):
         self.stackedWidget.setCurrentIndex(0)
         self.fontComboBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MOS)
+
 
 
 
@@ -3519,7 +3678,7 @@ class Ui_MOS(object):
         item = self.listWidget_3.item(5)
         item.setText(_translate("MOS", "免安装版 Java 17"))
         self.listWidget_3.setSortingEnabled(__sortingEnabled)
-        self.pushButton_24.setText(_translate("MOS", "下载"))
+        self.pushButton_24.setText(_translate("MOS", "下载 - 请选择要下载的Java"))
         self.treeWidget_5.headerItem().setText(0, _translate("MOS", "任务"))
         self.treeWidget_5.headerItem().setText(1, _translate("MOS", "进度"))
         self.treeWidget_5.headerItem().setText(2, _translate("MOS", "已用时间/剩余时间"))
@@ -3564,10 +3723,6 @@ class Ui_MOS(object):
         self.label_15.setText(_translate("MOS", "设置"))
         self.comboBox.setItemText(0, _translate("MOS", "启动器设置"))
         self.comboBox.setItemText(1, _translate("MOS", "全局游戏设置"))
-        self.label_30.setText(_translate("MOS", "法律声明"))
-        self.pushButton_29.setText(_translate("MOS", "项目地址(GitHub)"))
-        self.label_31.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">开源 </span></p><p><span style=\" color:#212121;\">开源协议：GPL-3.0</span></p></body></html>"))
-        self.pushButton_27.setText(_translate("MOS", "项目地址(Gitee)"))
         self.label.setText(_translate("MOS", "关于"))
         self.label_16.setText(_translate("MOS", "MOS启动器\n"
 "版本V2.0.5-alpha"))
@@ -3575,6 +3730,18 @@ class Ui_MOS(object):
         self.pushButton_3.setText(_translate("MOS", "赞助作者"))
         self.label_22.setText(_translate("MOS", "MOS网站支持、测试小组负责人 HeimNad"))
         self.pushButton_10.setText(_translate("MOS", "打开博客"))
+        self.label_30.setText(_translate("MOS", "法律声明"))
+        self.pushButton_27.setText(_translate("MOS", "项目地址(Gitee)"))
+        self.pushButton_29.setText(_translate("MOS", "项目地址(GitHub)"))
+        self.label_31.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">开源 </span></p><p><span style=\" color:#212121;\">开源协议：GPL-3.0</span></p></body></html>"))
+        self.label_32.setText(_translate("MOS", "建议Bug反馈"))
+        self.label_33.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">提出建议</span></p><p>仓库Issue反馈</p></body></html>"))
+        self.pushButton_30.setText(_translate("MOS", "项目地址(GitHub 推荐)"))
+        self.pushButton_28.setText(_translate("MOS", "项目地址(Gitee 不推荐)"))
+        self.label_34.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">反馈Bug/沸腾</span></p><p>• 仓库Issue反馈 • 问卷星反馈</p><p>注：这两种反馈方式有区别 </p><p>第一种是在您知道Bug/沸腾出现的具体原因(如：快速点击某按钮) </p><p>第二种是您不知道Bug/沸腾的原因</p><p>第一种处理较快</p><p>第二种处理较慢(开发者需要进行分析，分析后会在GitHub发起Issue)</p><p>不管哪种方式 都请您认真填写 感谢配合</p></body></html>"))
+        self.pushButton_25.setText(_translate("MOS", "问卷星"))
+        self.pushButton_31.setText(_translate("MOS", "项目地址(GitHub 推荐)"))
+        self.pushButton_32.setText(_translate("MOS", "项目地址(Gitee 不推荐)"))
         self.label_17.setText(_translate("MOS", "关于"))
 
 
