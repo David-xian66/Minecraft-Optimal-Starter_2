@@ -17,9 +17,20 @@ import sys
 from requests import get,head
 from concurrent.futures import ThreadPoolExecutor,wait
 
+r_ = 0 #存储当前下载的数量
+def r_h():
+    """获取当前下载的数量"""
+    return r_
+
+j = {}
+#进度（全局变量
+def j_h():
+    """获取进度"""
+    return j
 
 class Dowmloader():
-    def __init__(self, url, nums, file):
+    def __init__(self, int_,url, nums, file):
+        self.int = int_ # 任务编号
         self.url = url      # url链接
         self.num = nums     # 线程数
         self.name = file    # 文件名字
@@ -59,7 +70,8 @@ class Dowmloader():
         raw_start = start
         for _ in range(10):
             try:
-                headers = {'Range': 'bytes={}-{}'.format(start, end)}
+                headers = {'User-Agent':'Mozilla/55.0 (Macintosh; Intel Mac OS X 55.55; rv:101.0) Gecko/20100101 Firefox/101.0',
+                'Range': 'bytes={}-{}'.format(start, end)}
                 r = get(self.url, headers=headers, timeout=10, stream=True)
                 print(f"线程{thread_id}连接成功")
                 size = 0
@@ -93,6 +105,11 @@ class Dowmloader():
             progress = round(self.getSize / self.size * 100, 2)
             self.info['main']['progress'] = progress
             self.info['main']['speed'] = speed
+            b = self.info['main']
+            b_2 = b['progress']
+            global j #声明全局变量
+            j[self.int] = b_2
+            print(j)
             print(self.info)
             if progress >= 100:
                 break
@@ -118,6 +135,9 @@ class Dowmloader():
         futures.append(pool.submit(self.show))
         print(f"正在使用{self.num}个线程进行下载...")
 
+        global r_
+        r_ += 1
+
         start = time.perf_counter()
         
         wait(futures)
@@ -131,8 +151,10 @@ class Dowmloader():
 
         end_time_1 = time.perf_counter()
         print("用时" + str(end_time_1))
-        a = 'OK'
-        return a
+
+        global j #声明全局变量
+        del j[self.int]
+        return self.name
 
 
 if __name__ == '__main__':

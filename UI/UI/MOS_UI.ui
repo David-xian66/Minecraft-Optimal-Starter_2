@@ -3193,7 +3193,12 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_6">
                 <item>
-                 <widget class="QTreeWidget" name="treeWidget_5">
+                 <widget class="QTableWidget" name="tableWidget">
+                  <column>
+                   <property name="text">
+                    <string>新建列</string>
+                   </property>
+                  </column>
                   <column>
                    <property name="text">
                     <string>任务</string>
@@ -3201,25 +3206,9 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                   </column>
                   <column>
                    <property name="text">
-                    <string>进度</string>
+                    <string>已用时间</string>
                    </property>
                   </column>
-                  <column>
-                   <property name="text">
-                    <string>已用时间/剩余时间</string>
-                   </property>
-                  </column>
-                  <item>
-                   <property name="text">
-                    <string>任务1</string>
-                   </property>
-                   <property name="text">
-                    <string>70%</string>
-                   </property>
-                   <property name="text">
-                    <string>1:20/1:50</string>
-                   </property>
-                  </item>
                  </widget>
                 </item>
                </layout>
@@ -3230,33 +3219,17 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_7">
                 <item>
-                 <widget class="QTreeWidget" name="treeWidget_6">
+                 <widget class="QTableWidget" name="tableWidget_2">
                   <column>
                    <property name="text">
-                    <string>任务</string>
+                    <string>新建列</string>
                    </property>
                   </column>
                   <column>
                    <property name="text">
-                    <string>用时 (时/分/秒)</string>
+                    <string>用时</string>
                    </property>
                   </column>
-                  <column>
-                   <property name="text">
-                    <string>状态 (成功/失败)</string>
-                   </property>
-                  </column>
-                  <item>
-                   <property name="text">
-                    <string>任务1</string>
-                   </property>
-                   <property name="text">
-                    <string>1:00</string>
-                   </property>
-                   <property name="text">
-                    <string>成功</string>
-                   </property>
-                  </item>
                  </widget>
                 </item>
                </layout>

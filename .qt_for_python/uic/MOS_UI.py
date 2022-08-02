@@ -20,8 +20,8 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFontComboBox, QFrame,
     QLineEdit, QListView, QListWidget, QListWidgetItem,
     QMainWindow, QProgressBar, QPushButton, QRadioButton,
     QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
-    QTabWidget, QTextBrowser, QTreeWidget, QTreeWidgetItem,
-    QVBoxLayout, QWidget)
+    QTabWidget, QTableWidget, QTableWidgetItem, QTextBrowser,
+    QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 import MOS_rc
 
 class Ui_MOS(object):
@@ -1819,22 +1819,34 @@ class Ui_MOS(object):
         self.tab.setObjectName(u"tab")
         self.verticalLayout_6 = QVBoxLayout(self.tab)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.treeWidget_5 = QTreeWidget(self.tab)
-        QTreeWidgetItem(self.treeWidget_5)
-        self.treeWidget_5.setObjectName(u"treeWidget_5")
+        self.tableWidget = QTableWidget(self.tab)
+        if (self.tableWidget.columnCount() < 3):
+            self.tableWidget.setColumnCount(3)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        self.tableWidget.setObjectName(u"tableWidget")
 
-        self.verticalLayout_6.addWidget(self.treeWidget_5)
+        self.verticalLayout_6.addWidget(self.tableWidget)
 
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName(u"tab_2")
         self.verticalLayout_7 = QVBoxLayout(self.tab_2)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.treeWidget_6 = QTreeWidget(self.tab_2)
-        QTreeWidgetItem(self.treeWidget_6)
-        self.treeWidget_6.setObjectName(u"treeWidget_6")
+        self.tableWidget_2 = QTableWidget(self.tab_2)
+        if (self.tableWidget_2.columnCount() < 2):
+            self.tableWidget_2.setColumnCount(2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(0, __qtablewidgetitem3)
+        __qtablewidgetitem4 = QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(1, __qtablewidgetitem4)
+        self.tableWidget_2.setObjectName(u"tableWidget_2")
 
-        self.verticalLayout_7.addWidget(self.treeWidget_6)
+        self.verticalLayout_7.addWidget(self.tableWidget_2)
 
         self.tabWidget.addTab(self.tab_2, "")
 
@@ -2933,33 +2945,17 @@ class Ui_MOS(object):
         self.listWidget_3.setSortingEnabled(__sortingEnabled1)
 
         self.pushButton_24.setText(QCoreApplication.translate("MOS", u"\u4e0b\u8f7d - \u8bf7\u9009\u62e9\u8981\u4e0b\u8f7d\u7684Java", None))
-        ___qtreewidgetitem4 = self.treeWidget_5.headerItem()
-        ___qtreewidgetitem4.setText(2, QCoreApplication.translate("MOS", u"\u5df2\u7528\u65f6\u95f4/\u5269\u4f59\u65f6\u95f4", None));
-        ___qtreewidgetitem4.setText(1, QCoreApplication.translate("MOS", u"\u8fdb\u5ea6", None));
-        ___qtreewidgetitem4.setText(0, QCoreApplication.translate("MOS", u"\u4efb\u52a1", None));
-
-        __sortingEnabled2 = self.treeWidget_5.isSortingEnabled()
-        self.treeWidget_5.setSortingEnabled(False)
-        ___qtreewidgetitem5 = self.treeWidget_5.topLevelItem(0)
-        ___qtreewidgetitem5.setText(2, QCoreApplication.translate("MOS", u"1:20/1:50", None));
-        ___qtreewidgetitem5.setText(1, QCoreApplication.translate("MOS", u"70%", None));
-        ___qtreewidgetitem5.setText(0, QCoreApplication.translate("MOS", u"\u4efb\u52a11", None));
-        self.treeWidget_5.setSortingEnabled(__sortingEnabled2)
-
+        ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MOS", u"\u65b0\u5efa\u5217", None));
+        ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MOS", u"\u4efb\u52a1", None));
+        ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MOS", u"\u5df2\u7528\u65f6\u95f4", None));
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MOS", u"\u4e0b\u8f7d/\u5b89\u88c5", None))
-        ___qtreewidgetitem6 = self.treeWidget_6.headerItem()
-        ___qtreewidgetitem6.setText(2, QCoreApplication.translate("MOS", u"\u72b6\u6001 (\u6210\u529f/\u5931\u8d25)", None));
-        ___qtreewidgetitem6.setText(1, QCoreApplication.translate("MOS", u"\u7528\u65f6 (\u65f6/\u5206/\u79d2)", None));
-        ___qtreewidgetitem6.setText(0, QCoreApplication.translate("MOS", u"\u4efb\u52a1", None));
-
-        __sortingEnabled3 = self.treeWidget_6.isSortingEnabled()
-        self.treeWidget_6.setSortingEnabled(False)
-        ___qtreewidgetitem7 = self.treeWidget_6.topLevelItem(0)
-        ___qtreewidgetitem7.setText(2, QCoreApplication.translate("MOS", u"\u6210\u529f", None));
-        ___qtreewidgetitem7.setText(1, QCoreApplication.translate("MOS", u"1:00", None));
-        ___qtreewidgetitem7.setText(0, QCoreApplication.translate("MOS", u"\u4efb\u52a11", None));
-        self.treeWidget_6.setSortingEnabled(__sortingEnabled3)
-
+        ___qtablewidgetitem3 = self.tableWidget_2.horizontalHeaderItem(0)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MOS", u"\u65b0\u5efa\u5217", None));
+        ___qtablewidgetitem4 = self.tableWidget_2.horizontalHeaderItem(1)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MOS", u"\u7528\u65f6", None));
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MOS", u"\u5df2\u5b8c\u6210", None))
         self.comboBox_2.setItemText(0, QCoreApplication.translate("MOS", u"\u6e38\u620f\u4e0b\u8f7d", None))
         self.comboBox_2.setItemText(1, QCoreApplication.translate("MOS", u"Mod\u4e0b\u8f7d", None))
