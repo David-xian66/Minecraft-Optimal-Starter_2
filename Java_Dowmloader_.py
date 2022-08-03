@@ -1,4 +1,6 @@
 import traceback
+
+import requests
 from Java_Dowmloader_UI import Ui_Dialog as Ui_Java_Dowmloader
 from Java_Dowmloader_OK import Java_OK_UI as Ui_Java_Dowmloader_OK_
 
@@ -97,7 +99,10 @@ class Java_d(QThread):
         self.file = file
     def run(self):
         from MOS_Dowmloader import Dowmloader
-        a = Dowmloader(self.url, 100, self.file)
+        try:
+            a = Dowmloader(self.url, 100, self.file)
+        except requests.exceptions.MissingSchema:
+            pass
         self.sinOut_d_j.emit("D") #告诉槽 已经开始下载
         a.run()
         self.sinOut_d_j.emit("P_1") #开始配置
@@ -116,6 +121,8 @@ class Java_d(QThread):
         #关闭gzip对象
 
         self.sinOut_d_j.emit("P_3") #配置03
+
+
         import tarfile
         tar = tarfile.open(self.file)
         names = tar.getnames()
@@ -123,6 +130,13 @@ class Java_d(QThread):
         a = str(self.file).split('.tar.gz')
         a_1 = a[0]
         self.file = a_1
+
+        import shutil
+        if os.path.exists(self.file):
+            shutil.rmtree(self.file)
+        else:
+            pass
+
         if os.path.isdir(self.file):
             pass
         else:
@@ -134,7 +148,12 @@ class Java_d(QThread):
         tar.close()
         
         from MOS_UI_Main import file_h
-        import shutil
-        shutil.move(self.file,os.path.join(file_h(),'.MOS','Java'))
+
+        file_2 = os.path.join(file_h(),'.MOS','Java')
+
+        if os.path.exists(file_2):
+            shutil.rmtree(file_2)
+        else:
+            shutil.move(self.file,file_2)
 
         self.sinOut_d_j.emit("OK") #OK

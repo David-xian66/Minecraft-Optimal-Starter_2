@@ -1323,6 +1323,10 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         self.xy_size = self.geometry()  #获取主界面 初始坐标
         try:
             self.a_ok.move(self.xy_size.x()+284,self.xy_size.y()+177) #子界面移动到 居中
+        except AttributeError:
+            pass
+        
+        try:
             self.a.move(self.xy_size.x()+284,self.xy_size.y()+177) #子界面移动到 居中
         except AttributeError:
             pass
