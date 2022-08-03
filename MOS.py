@@ -44,15 +44,8 @@ try:
         MOS_print("info","Ui程序已开始运行！")
         sys.excepthook = except_hook
         MOS_print("info","请稍等...")
-        MOS_print("info","创建窗口对象成功！")
         ui = MOS_UI_Main.start()
-        MOS_print("info","创建PyQt窗口对象成功！")
-        MOS_print("info","初始化设置成功！")
-        MOS_print("info","已成功显示窗体")
 
-
-        MOS_print("info",str("加速进程执行时间" + str(time.time()-start_time)))
-        MOS_print("info", "加速进程已退出")
 except KeyboardInterrupt:
     MOS_print("info","程序以强行退出")
 except:

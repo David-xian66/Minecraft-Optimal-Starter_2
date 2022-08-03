@@ -3,6 +3,23 @@ MOS的print
 由于文件名和模块一摸一样会报错 所以我加了个下划线
 """
 import datetime
+
+# 日志系统 这个列表是暂存的 主窗口会定时 获取 -> 写入 -> 清空 (全局变量)
+r = []
+
+def r_h():
+    """获取日志"""
+    global r
+    return r
+
+def q_h():
+    """清空日志"""
+    global r
+    r = []
+
+
+
+
 class MOS_print_colour:
     '''
         HEADER:偏粉的紫色(?)
@@ -31,6 +48,7 @@ class MOS_print_colour:
 
 def MOS_print(type_,MOS_print_1):
     '''type_{[error,错误]  [info,提示]}'''
+    global r
     MOS_print = str(MOS_print_1)
     MOS_time = datetime.datetime.now().strftime('%H:%M:%S.%f')
     if type_ == 'error':
@@ -39,11 +57,18 @@ def MOS_print(type_,MOS_print_1):
         MOS_time_2 = MOS_print_colour.FAIL_3 + MOS_time + MOS_print_colour.ENDC
         left = MOS_print_colour.FAIL + '[' + MOS_print_colour.ENDC
         right = MOS_print_colour.FAIL + ']' +MOS_print_colour.ENDC
-        print(left + MOS_time_2 + right + left + tybe_2 + right + MOS_print_colour.FAIL_2 + MOS_print + MOS_print_colour.ENDC)
+        p = left + MOS_time_2 + right + left + tybe_2 + right + MOS_print_colour.FAIL_2 + MOS_print + MOS_print_colour.ENDC
+        print(p)
+        p_1 = MOS_time + tybe_1 + MOS_print + '\n'
+
     elif type_ == 'info':
         tybe_1 = 'INFO'
         left = MOS_print_colour.ENDC + '[' + MOS_print_colour.ENDC
         right = MOS_print_colour.ENDC + ']' +MOS_print_colour.ENDC
         tybe_2 = MOS_print_colour.UNDERLINE + tybe_1 + MOS_print_colour.ENDC
         MOS_time_2 = MOS_print_colour.UNDERLINE + MOS_time + MOS_print_colour.ENDC
-        print(left + MOS_time_2 + right + left + tybe_2 + right + MOS_print_colour.ENDC + MOS_print + MOS_print_colour.ENDC)
+        p = left + MOS_time_2 + right + left + tybe_2 + right + MOS_print_colour.ENDC + MOS_print + MOS_print_colour.ENDC
+        print(p)
+        p_1 = '[' + MOS_time + '][' + tybe_1 + ']' + MOS_print + '\n'
+
+    r.append(p_1)

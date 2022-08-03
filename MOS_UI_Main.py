@@ -1,3 +1,4 @@
+import imp
 import json
 from multiprocessing.dummy import Manager
 import os
@@ -14,7 +15,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QIcon
 from Java_Dowmloader_ import Java_Dowmloader__
 from Java_Dowmloader_OK import Java_OK_UI
-from MOS_print_ import MOS_print
+from MOS_print_ import MOS_print, q_h
 from MOS_UI import Ui_MOS
 import MOS_rc
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
@@ -123,6 +124,33 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         # =============================================================================#
 
     # =================================分割线===================================#
+
+    def logs_start(self):
+        self.logs_s = QTimer() #创建计时器对象
+        self.logs_s.start(2000) #开始计时器
+        self.logs_s.timeout.connect(self.logs) #要执行的槽
+
+
+    def logs(self):
+        """定时获取+写入日志"""
+        import MOS_print_,datetime
+        from MOS_UI_Main import file_h
+        import pytz
+        a = MOS_print_.r_h()
+        time_2 = datetime.datetime.now(pytz.timezone('Etc/GMT-8')).strftime('%Y%m%d')
+        time = time_2 + '.log'
+
+        file = os.path.join(file_h(),'.MOS','Logs',time)
+        if os.path.exists(file):
+            with open(file,'a',encoding='utf-8') as f:
+                for b in a:
+                    f.write(b)
+        else:
+            with open(file,'w',encoding='utf-8') as f:
+                for b in a:
+                    f.write(b)
+        q_h()
+
 
     def click_pushButton_home(self):
         self.stackedWidget_mos_right.setCurrentIndex(0)
@@ -1703,6 +1731,9 @@ class MOS_file(QThread):
 
             MOS_file_1 =os.path.join(file,".MOS","Download")
             os.makedirs(MOS_file_1, exist_ok=True)
+            
+            MOS_file_1 =os.path.join(file,".MOS","Logs")
+            os.makedirs(MOS_file_1, exist_ok=True)
 
             MOS_file_json =os.path.join(file,".MOS","MOS.json")
 
@@ -2145,6 +2176,7 @@ def start():
 
     app = QApplication(sys.argv)
     mos = Ui_MOS_Main()
+    mos.logs_start()
 
     p.kill()
 
