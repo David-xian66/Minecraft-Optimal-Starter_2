@@ -3277,10 +3277,7 @@ class Ui_MOS(object):
                 d_file_name = 'n_java16.zip'
                 d_file = os.path.join(file_h(),'.MOS','Download',d_file_name)
             java_v = 'Java 8'
-            #self.j_d = MOS_java_dowmloader(self.d_i,url,50,d_file,java_v)
-            #self.j_d.sinOut_java_start.connect(self.click_pushButton_java_sinOut_java_dowmloader_start)
-            #self.j_d.sinOut_java_d.connect(self.click_pushButton_java_sinOut_java_dowmloader)
-            #self.j_d.start()
+            self.java_d(java_v,url,d_file)
 
         elif a == '下载 - 免安装版 Java 16':
             self.pushButton_24.setEnabled(False)
@@ -3295,10 +3292,7 @@ class Ui_MOS(object):
                 d_file_name = 'n_java16.zip'
                 d_file = os.path.join(file_h(),'.MOS','Download',d_file_name)
             java_v = 'Java 16'
-            #self.j_d = MOS_java_dowmloader(self.d_i,url,50,d_file,java_v)
-            #self.j_d.sinOut_java_start.connect(self.click_pushButton_java_sinOut_java_dowmloader_start)
-            #self.j_d.sinOut_java_d.connect(self.click_pushButton_java_sinOut_java_dowmloader)
-            #self.j_d.start()
+            self.java_d(java_v,url,d_file)
 
         elif a == '下载 - 免安装版 Java 17':
             self.pushButton_24.setEnabled(False)
@@ -3313,10 +3307,7 @@ class Ui_MOS(object):
                 d_file_name = 'n_java17.zip'
                 d_file = os.path.join(file_h(),'.MOS','Download',d_file_name)
             java_v = 'Java 17'
-            #self.j_d = MOS_java_dowmloader(self.d_i,url,50,d_file,java_v)
-            #self.j_d.sinOut_java_start.connect(self.click_pushButton_java_sinOut_java_dowmloader_start)
-            #self.j_d.sinOut_java_d.connect(self.click_pushButton_java_sinOut_java_dowmloader)
-            #self.j_d.start()
+            self.java_d(java_v,url,d_file)
         
         elif a == '已开始下载 点击查看':
             self.comboBox_2.setCurrentIndex(5)
@@ -3443,15 +3434,6 @@ class Ui_MOS(object):
             MOS_print("error","json数据异常")
         except FileNotFoundError:
             pass
-            #with open(MOS_file_json, 'w') as f:
-            #    print("000")
-            #with open(MOS_file_json, 'r+', encoding='utf-8') as f:
-            #    b = json.load(f)
-            #    b['font'] = self.fontComboBox.currentText()
-            #with open(MOS_file_json, 'w+', encoding='utf-8') as f:
-            #    json.dump(b, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
-            #    b1 = str(b)
-            #    print('默认字体：' + b1)
 
     
     def setfont_size(self):
@@ -3705,7 +3687,8 @@ class Ui_MOS(object):
             if a == QMessageBox.StandardButton.Yes: #检查是否点了OK按钮
                 quit()
 
-    
+    def java_d(self,v,url,file):
+        MOS_print("info",str('Java下载模块 下载版本：' + v + '链接：' + url + '存储路径：' + file))
     
     # =================================分割线===================================#
 
