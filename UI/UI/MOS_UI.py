@@ -888,7 +888,7 @@ class Ui_MOS(object):
         self.pushButton_41.setObjectName("pushButton_41")
         self.gridLayout_22.addWidget(self.pushButton_41, 0, 0, 1, 1)
         self.widget_3 = QtWidgets.QWidget(self.page_25)
-        self.widget_3.setEnabled(False)
+        self.widget_3.setEnabled(True)
         self.widget_3.setMinimumSize(QtCore.QSize(602, 44))
         self.widget_3.setStyleSheet("QWiget{background-color: rgba(255, 255, 255, 0);}\n"
 "QPushButton\n"
@@ -1963,7 +1963,7 @@ class Ui_MOS(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 258, 845))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 832, 469))
         self.scrollAreaWidgetContents_3.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.gridLayout_30 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_3)
