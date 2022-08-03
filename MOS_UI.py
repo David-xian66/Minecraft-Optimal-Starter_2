@@ -424,7 +424,7 @@ class Ui_MOS(object):
         self.label_3 = QtWidgets.QLabel(self.widget_scrollArea_page_gonggao_statring)
         self.label_3.setStyleSheet("border-style:none;background-color: rgba(255, 255, 255, 0);")
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/loading_3.gif"))
+        self.label_3.setPixmap(QtGui.QPixmap(MOS_catalogue_picture_loading_3_png))
         self.label_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.gridLayout_2.addWidget(self.label_3, 0, 1, 2, 3)
@@ -1030,7 +1030,7 @@ class Ui_MOS(object):
         self.gridLayout_54.setObjectName("gridLayout_54")
         self.label_26 = QtWidgets.QLabel(self.page_23)
         self.label_26.setText("")
-        self.label_26.setPixmap(QtGui.QPixmap("/Users/xyj/.npm/ssh/UI/UI/../../picture/loading.gif"))
+        self.label_26.setPixmap(QtGui.QPixmap(MOS_catalogue_picture_loading_png))
         self.label_26.setScaledContents(False)
         self.label_26.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_26.setWordWrap(False)
@@ -2994,13 +2994,11 @@ class Ui_MOS(object):
                 self.label_46.setText(str(MOS_banbenwenjianjia_file_1))
             if self.lineEdit_4.text() == '':
                 self.pushButton_18.setEnabled(False)
+                QApplication.processEvents()
             else:
                 self.pushButton_18.setEnabled(True)
+                QApplication.processEvents()
 
-        #写法二
-        #fname = QFileDialog.getOpenFileName(None, 'Open file', 'l(*.png)')
-        '''QWidget = None, caption: str = '', directory: str = '', filter: str = '', initial Filter: str = '''
-        '''QWidget = None，标题:str = "，      目录:str = "，         过滤器:str = "，   初始过滤器:str = '''
 
     def click_pushButton_youximululeibiao_add_back(self):
         '''当点击“添加版本文件夹”页面上方的“返回”按钮后……'''
@@ -3163,7 +3161,7 @@ class Ui_MOS(object):
                 self.v.start()
 
         else:
-            self.pushButton_18.setEnabled(True)
+            self.pushButton_19.setEnabled(True)
         
     
     def click_pushButton_jianchagengxin_sinOut(self,text):
@@ -3209,80 +3207,12 @@ class Ui_MOS(object):
     def click_pushButton_java_sinOut_java_dowmloader_start(self,text):
         """开始下载后……"""
         
-        #headItem = self.tableWidget.horizontalHeaderItem(x)   #获得水平方向表头的Item对象 
-        import MOS_Dowmloader
-        self.tableWidget.insertRow(r_h())
-        newItem=QTableWidgetItem(str(text) + ' 下载')
-        self.tableWidget.setItem(r_h(),0,newItem)
-        newItem=QTableWidgetItem('0%')
-        self.tableWidget.setItem(r_h(),1,newItem)
-        newItem=QTableWidgetItem('0:00:00')
-        self.tableWidget.setItem(r_h(),2,newItem)
-        
-        #时间
-        self.d_t=QTimer() #创建计时器对象
-        self.d_t.start(1000) #开始计时器
-        self.d_t.timeout.connect(self.d_t_) #要执行的槽
-        #进度
-        self.j_h=QTimer() #创建计时器对象
-        self.j_h.start(90) #开始计时器
-        self.j_h.timeout.connect(self.j_h_) #要执行的槽
         
         self.pushButton_24.setText("已开始下载 点击查看")
         self.pushButton_24.setEnabled(True)
-
-
-    def d_t_(self):
-        """在开始下载后 刷新每一个时间"""
-        a_1 = self.d_i #看看有几个在下载
-        for a in range(a_1+1):
-            try:
-                b = self.tableWidget.item(a,2).text()
-                b_1_1,b_2_1,b_3_1 = b.split(':')
-                b_1 = int(b_1_1)
-                b_2 = int(b_2_1)
-                b_3 = int(b_3_1)
-                # 时 分 秒
-                b_l_1 = b_1 + 1 #时
-                b_l_2 = b_2 + 1 #分
-                b_l_3 = b_3 + 1 #秒
-                if b_l_3 >= 60:
-                    #如果秒+1到60了 就……
-                    b_3 = 00
-                    if b_l_2 >= 60:
-                        # 如果分+1过60了就……
-                        b_1 += 1 #时+1
-                        b_2 = 00
-                    else:
-                        #如果秒+1没过60
-                        b_2 += 1
-                else:
-                    #如果分+1没过60
-                    b_3 += 1
-                self.tableWidget.item(a,2).setText(str(str(b_1).zfill(2) + ':' +str(b_2).zfill(2) + ':' + str(b_3).zfill(2)))
-            except AttributeError:
-                pass
-
-
-
-    def j_h_(self):
-        """在开始下载后 刷新进度"""
-        import MOS_Dowmloader
-        try:
-            for a in range(r_h()):
-                b = j_h()
-                j_1 = b[a]
-                if j_1 >= 100:
-                    j_1 = 100
-                j = str(j_1) + '%'
-                self.tableWidget.item(a,1).setText(j)
-        except KeyError:
-            pass
-        except AttributeError:
-            pass
         
 
-    def click_pushButton_java_sinOut_java_dowmloader(self,file_name,int_):
+    def click_pushButton_java_sinOut_java_dowmloader(self,file_name):
         """下载完成后…… file_name:文件名 int:第几行的"""
         f_name = file_name.replace(".gz", "")
         #获取文件的名称，去掉
@@ -3304,20 +3234,6 @@ class Ui_MOS(object):
         for name in names:
             tar.extract(name, file_name + "_files/")
         tar.close()
-
-        self.d_i -= 1
-        print(str(int_)+"pppp")
-        a_1 = self.tableWidget.item(int_,0).text()
-        a_3 = self.tableWidget.item(int_,2).text() #因为第二列不用 所有没有a_2
-        print(a_1 + a_3)
-
-        self.tableWidget_2.insertRow(r_h())
-        newItem=QTableWidgetItem(a_1)
-        self.tableWidget_2.setItem(r_h(),0,newItem)
-        newItem=QTableWidgetItem(a_3)
-        self.tableWidget_2.setItem(r_h(),1,newItem)
-        
-        self.tableWidget.removeRow(int_)
 
 
 
@@ -4320,23 +4236,6 @@ class MOS_versions_dowmloader(QThread):
         a.run()
         self.sinOut_versions_d.emit()
 
-class MOS_java_dowmloader(QThread):
-    """Java的下载"""
-    sinOut_java_d = pyqtSignal(str,int)
-    sinOut_java_start = pyqtSignal(str)
-    def __init__(self,int_,url,thread_num,file,java_v):
-        self.int = int_
-        self.url = url
-        self.thread_num = thread_num
-        self.file = file
-        self.java_v = java_v
-        super(MOS_java_dowmloader, self).__init__()
-    def run(self):
-        from MOS_Dowmloader import Dowmloader
-        a = Dowmloader(self.int,self.url, self.thread_num, self.file)
-        self.sinOut_java_start.emit(self.java_v)
-        b = a.run()
-        self.sinOut_java_d.emit(b,self.int)
 
 class MOS_file(QThread):
     '''初始化文件/设置'''

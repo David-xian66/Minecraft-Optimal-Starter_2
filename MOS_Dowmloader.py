@@ -17,16 +17,6 @@ import sys
 from requests import get,head
 from concurrent.futures import ThreadPoolExecutor,wait
 
-r_ = 0 #存储当前下载的数量
-def r_h():
-    """获取当前下载的数量"""
-    return r_
-
-j = {}
-#进度（全局变量
-def j_h():
-    """获取进度"""
-    return j
 
 class Dowmloader():
     def __init__(self, int_,url, nums, file):
@@ -135,9 +125,6 @@ class Dowmloader():
         futures.append(pool.submit(self.show))
         print(f"正在使用{self.num}个线程进行下载...")
 
-        global r_
-        r_ += 1
-
         start = time.perf_counter()
         
         wait(futures)
@@ -152,9 +139,6 @@ class Dowmloader():
         end_time_1 = time.perf_counter()
         print("用时" + str(end_time_1))
 
-        global j #声明全局变量
-        del j[self.int]
-        return self.name
 
 
 if __name__ == '__main__':

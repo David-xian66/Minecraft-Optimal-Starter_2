@@ -1019,7 +1019,7 @@ class Ui_MOS(object):
 
         self.widget_3 = QWidget(self.page_25)
         self.widget_3.setObjectName(u"widget_3")
-        self.widget_3.setEnabled(False)
+        self.widget_3.setEnabled(True)
         self.widget_3.setMinimumSize(QSize(602, 44))
         self.widget_3.setStyleSheet(u"QWiget{background-color: rgba(255, 255, 255, 0);}\n"
 "QPushButton\n"
@@ -2274,7 +2274,7 @@ class Ui_MOS(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 258, 845))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 832, 469))
         self.scrollAreaWidgetContents_3.setStyleSheet(u"background-color: rgba(255, 255, 255, 0);")
         self.gridLayout_30 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_30.setObjectName(u"gridLayout_30")
