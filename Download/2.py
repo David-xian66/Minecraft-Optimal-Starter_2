@@ -124,8 +124,8 @@ if __name__ == '__main__':
         #url = 'https://download.visualstudio.microsoft.com/download/pr/cc04076c-d188-4c20-9b4f-89be06f1a39c/32da746ef46fbeedb4f609b67cb451c3/windowsdesktop-runtime-6.0.6-win-x86.exe'
         #url = 'https://visualstudio.microsoft.com/aabf4bb0-b5f4-4e42-8aae-6ad17ec46db2'
         #url = 'https://file.skyworldstudio.top/d/SoftwareRelease/MOS/Publish/2.0.4-alpha/2.0.4-alpha-win.zip'
-        #url = 'https://download.visualstudio.microsoft.com/download/pr/ca7c7580-dd29-42d8-a0b1-3223e61f1623/b38739f51587806a5751419435d6c4ad/visualstudioformacinstaller-17.0.4.5.dmg'
-        url = 'https://file.skyworldstudio.top/d/MSJM/S2/Vanilla/vanilla-1.9.jar'
+        url = 'https://download.visualstudio.microsoft.com/download/pr/ca7c7580-dd29-42d8-a0b1-3223e61f1623/b38739f51587806a5751419435d6c4ad/visualstudioformacinstaller-17.0.4.5.dmg'
+        #url = 'https://file.skyworldstudio.top/d/MSJM/S2/Vanilla/vanilla-1.9.jar'
         down = Dowmloader(url, 8, os.path.basename(url))
     else:
         # 命令行执行方式

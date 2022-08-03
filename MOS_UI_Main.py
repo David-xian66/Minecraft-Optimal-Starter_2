@@ -1,7 +1,6 @@
 import json
 import os
 import sys
-from tkinter.messagebox import NO
 import traceback
 import webbrowser
 
@@ -824,31 +823,6 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__):
         self.pushButton_24.setEnabled(True)
         
 
-    def click_pushButton_java_sinOut_java_dowmloader(self,file_name):
-        """下载完成后…… file_name:文件名 int:第几行的"""
-        f_name = file_name.replace(".gz", "")
-        #获取文件的名称，去掉
-        import gzip
-        g_file = gzip.GzipFile(file_name)
-        #创建gzip对象
-        open(f_name, "w+").write(str(g_file.read()))
-        #gzip对象用read()打开后，写入open()建立的文件里。
-        g_file.close()
-        #关闭gzip对象
-        import tarfile
-        tar = tarfile.open(file_name)
-        names = tar.getnames()
-        if os.path.isdir(file_name + "_files"):
-            pass
-        else:
-            os.mkdir(file_name + "_files")
-        #因为解压后是很多文件，预先建立同名目录
-        for name in names:
-            tar.extract(name, file_name + "_files/")
-        tar.close()
-
-
-
     def click_pushButton_jianchagengxin_sinOut_versions_dowmloader_ok(self):
         self.pushButton_19.setText("下载完成 - 点击打开下载目录 请进行手动安装(启动器会自动退出)")
         self.pushButton_19.setEnabled(True)
@@ -1312,7 +1286,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__):
         MOS_print("info",str('Java下载模块 下载版本：' + v + ' 链接：' + url + ' 存储路径：' + file))
 
         self.a = Java_Dowmloader__(v,url,file)
-        
+
         self.xy_size = self.geometry()  #获取主界面 初始坐标
         self.a.move(self.xy_size.x()+284,self.xy_size.y()+177) #子界面移动到 居中
 

@@ -17,10 +17,22 @@ import sys
 from requests import get,head
 from concurrent.futures import ThreadPoolExecutor,wait
 
+j = 0 #进度
+w = "0 KB/s - 正在准备下载" #网速
+
+
+#网速获取和 进度获取
+
+def w_h():
+    return w
+
+def j_h():
+    return j
+
+
 
 class Dowmloader():
-    def __init__(self, int_,url, nums, file):
-        self.int = int_ # 任务编号
+    def __init__(self, url, nums, file):
         self.url = url      # url链接
         self.num = nums     # 线程数
         self.name = file    # 文件名字
@@ -56,7 +68,7 @@ class Dowmloader():
     # ************************************************** #
 
 
-    def down(self, start, end, thread_id, chunk_size = 10240):
+    def down(self, start, end, thread_id, chunk_size = 99200):
         raw_start = start
         for _ in range(10):
             try:
@@ -86,23 +98,48 @@ class Dowmloader():
     def show(self):
         while True:
             speed = self.getSize
+            print(speed)
             time.sleep(0.5)
             speed = int((self.getSize - speed) * 2 / 1024)
             if speed > 1024:
-                speed = f"{round(speed / 1024, 2)} M/s"
+                speed = f"{round(speed / 1024, 2)} MB/s"
             else:
                 speed = f"{speed} KB/s"
             progress = round(self.getSize / self.size * 100, 2)
             self.info['main']['progress'] = progress
             self.info['main']['speed'] = speed
             b = self.info['main']
-            b_2 = b['progress']
-            global j #声明全局变量
-            j[self.int] = b_2
-            print(j)
+            b_2 = int(b['progress'])
+            b_3 = str(b['speed'])
+            
+            global j,w
+            j = b_2
+            w = b_3
             print(self.info)
+
             if progress >= 100:
+                print(self.info)
                 break
+                """
+                c = self.info['sub']['progress']
+                d = len(c) #计算有多少个
+                e = 0 #存储列表中所有值
+                for a in c:
+                    e += a
+                f = e/d
+                g = 0
+                for a in c:
+                    #再次循环 看看每一个值是不是和平均值相等
+                    if a == f:
+                        g += 1 #如果是就+1
+                    else:
+                        pass # 如果不是 不做处理
+                if g == d:
+                    #如果相等的等于 d（值得数量
+                    break #打破循环
+                else:
+                    pass #继续循环
+                """
 
     def run(self):
         # 创建一个要下载的文件
