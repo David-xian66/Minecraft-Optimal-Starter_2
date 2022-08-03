@@ -15,19 +15,22 @@ class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
         self.url = url
         self.file = file
         self.setupUi(self)
-        #self.show()
-        try:
-            self.pushButton.clicked.connect(self.clicked_pushButton_close)
-            self.progressBar.setValue(0)
-            self.progressBar_2.setValue(0)
-            self.progressBar_2.setMaximum(0)
-            #QApplication.processEvents()
-            #启动线程
-            self.d = Java_d(self.url,self.file)
-            self.d.sinOut_d_j.connect(self.sinOut_d_j_) #下载进度
-            self.d.start()
-        except:
-            traceback.print_exc()
+
+
+    def start_(self):
+        self.progressBar.setValue(0)
+        self.pushButton.clicked.connect(self.clicked_pushButton_close)
+        self.pushButton.clicked.connect(self.clicked_pushButton_close)
+        self.progressBar.setValue(0)
+        self.progressBar_2.setValue(0)
+        self.progressBar_2.setMaximum(0)
+        #QApplication.processEvents()
+        #启动线程
+        self.d = Java_d(self.url,self.file)
+        self.d.sinOut_d_j.connect(self.sinOut_d_j_) #下载进度
+        self.d.start()
+
+
 
     def clicked_pushButton_close(self):
         self.pushButton.setEnabled(False) #为了防止重复操作 直接禁用按钮
@@ -43,13 +46,13 @@ class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
         if j == 'D':
             #这个计时器用来更新 进度+网速
             self.j_h = QTimer() #创建计时器对象
-            self.j_h.start(50) #开始计时器
             self.j_h.timeout.connect(self.Java_d_j) #要执行的槽
+            self.j_h.start(50) #开始计时器
 
         elif j == 'P_1':
             #配置第1步
             self.j_h.stop() #停止刷新进度的计时器
-            self.progressBar.setValue(120)
+            self.progressBar.setValue(110)
             self.progressBar_2.setMaximum(100)
             self.label_5.setText("正在解压……(1/6)")
         elif j == 'P_2':
@@ -73,11 +76,9 @@ class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
             self.progressBar_2.setValue(100)
             self.label_5.setText("正在解压……(6/6)")
             self.sinOut.emit()
+            self.progressBar.setValue(0)
             self.clicked_pushButton_close()
 
-
-    def sinOut_d_s(self,s):
-        pass
 
     def Java_d_j(self):
         import MOS_Dowmloader

@@ -1297,6 +1297,8 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         self.a.setWindowFlags(QtCore.Qt.WindowType.WindowCloseButtonHint | QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint | QtCore.Qt.WindowType.WindowStaysOnTopHint | QtCore.Qt.WindowType.FramelessWindowHint| QtCore.Qt.WindowType.Tool)
         self.a.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
         self.a.sinOut.connect(self.Java_D_OK)
+
+        self.a.start_()
         self.a.show()
         self.a_w = QTimer() #创建计时器对象
         self.a_w.start(0) #开始计时器
