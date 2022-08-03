@@ -1,10 +1,12 @@
 import traceback
-from Java_Dowmloader_UI import Ui_Form as Ui_Java_Dowmloader
+from Java_Dowmloader_UI import Ui_Dialog as Ui_Java_Dowmloader
+from Java_Dowmloader_OK import Java_OK_UI as Ui_Java_Dowmloader_OK_
 
 from PyQt6.QtWidgets import  QApplication, QLabel,QDialogButtonBox,QDialog
 from PyQt6.QtCore import QPropertyAnimation, QTimer,QThread,pyqtSignal
-
+from PyQt6 import QtCore
 class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
+    sinOut = pyqtSignal()
     def __init__(self,v=None,url=None,file=None):
         super().__init__()
         self.v = v
@@ -45,7 +47,7 @@ class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
         elif j == 'P_1':
             #配置第1步
             self.j_h.stop() #停止刷新进度的计时器
-            self.progressBar.setValue(100)
+            self.progressBar.setValue(120)
             self.progressBar_2.setMaximum(100)
             self.label_5.setText("正在解压……(1/6)")
         elif j == 'P_2':
@@ -68,6 +70,8 @@ class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
             #配置OK
             self.progressBar_2.setValue(100)
             self.label_5.setText("正在解压……(6/6)")
+            self.sinOut.emit()
+            self.clicked_pushButton_close()
 
 
     def sinOut_d_s(self,s):
@@ -92,9 +96,8 @@ class Java_d(QThread):
         self.url = url
         self.file = file
     def run(self):
-        print("1111111")
         from MOS_Dowmloader import Dowmloader
-        a = Dowmloader(self.url, 80, self.file)
+        a = Dowmloader(self.url, 100, self.file)
         self.sinOut_d_j.emit("D") #告诉槽 已经开始下载
         a.run()
         self.sinOut_d_j.emit("P_1") #开始配置
@@ -117,14 +120,21 @@ class Java_d(QThread):
         tar = tarfile.open(self.file)
         names = tar.getnames()
         self.sinOut_d_j.emit("P_4") #配置04
-        if os.path.isdir(self.file + "_files"):
+        a = str(self.file).split('.tar.gz')
+        a_1 = a[0]
+        self.file = a_1
+        if os.path.isdir(self.file):
             pass
         else:
-            os.mkdir(self.file + "_files")
+            os.mkdir(self.file)
         self.sinOut_d_j.emit("P_5") #配置05
         #因为解压后是很多文件，预先建立同名目录
         for name in names:
-            tar.extract(name, self.file + "_files/")
+            tar.extract(name, self.file)
         tar.close()
+        
+        from MOS_UI_Main import file_h
+        import shutil
+        shutil.move(self.file,os.path.join(file_h(),'.MOS','Java'))
 
         self.sinOut_d_j.emit("OK") #OK

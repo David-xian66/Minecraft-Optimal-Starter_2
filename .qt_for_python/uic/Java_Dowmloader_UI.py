@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QLabel,
     QProgressBar, QPushButton, QScrollArea, QSizePolicy,
     QSpacerItem, QVBoxLayout, QWidget)
+import Java_Dowmloader_rc
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -88,7 +89,7 @@ class Ui_Dialog(object):
         self.progressBar = QProgressBar(self.scrollAreaWidgetContents)
         self.progressBar.setObjectName(u"progressBar")
         self.progressBar.setMinimum(0)
-        self.progressBar.setMaximum(100)
+        self.progressBar.setMaximum(110)
         self.progressBar.setValue(50)
         self.progressBar.setTextVisible(False)
 
@@ -117,7 +118,7 @@ class Ui_Dialog(object):
         self.label.setText(QCoreApplication.translate("Dialog", u"\u6b63\u5728\u4e0b\u8f7dJava", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"\u4e0b\u8f7dJava", None))
         self.label_3.setText(QCoreApplication.translate("Dialog", u"\u914d\u7f6eJava", None))
-        self.label_5.setText(QCoreApplication.translate("Dialog", u"0 MB/S", None))
+        self.label_5.setText(QCoreApplication.translate("Dialog", u"0 MB/S - \u6b63\u5728\u51c6\u5907\u4e0b\u8f7d", None))
         self.pushButton.setText(QCoreApplication.translate("Dialog", u"\u53d6\u6d88", None))
     # retranslateUi
 

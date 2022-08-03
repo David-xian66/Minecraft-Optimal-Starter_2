@@ -95,7 +95,7 @@ QProgressBar::chunk{
        <item row="5" column="0">
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>0 MB/S</string>
+          <string>0 MB/S - 正在准备下载</string>
          </property>
         </widget>
        </item>
@@ -130,7 +130,7 @@ QProgressBar::chunk{
           <number>0</number>
          </property>
          <property name="maximum">
-          <number>100</number>
+          <number>110</number>
          </property>
          <property name="value">
           <number>50</number>
@@ -159,6 +159,8 @@ QProgressBar::chunk{
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../qrc/Java_Dowmloader.qrc"/>
+ </resources>
  <connections/>
 </ui>

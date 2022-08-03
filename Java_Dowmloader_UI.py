@@ -9,19 +9,19 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(568, 255)
-        Form.setMinimumSize(QtCore.QSize(568, 255))
-        Form.setMaximumSize(QtCore.QSize(568, 255))
-        Form.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.verticalLayout = QtWidgets.QVBoxLayout(Form)
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(568, 255)
+        Dialog.setMinimumSize(QtCore.QSize(568, 255))
+        Dialog.setMaximumSize(QtCore.QSize(568, 255))
+        Dialog.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.label = QtWidgets.QLabel(Form)
+        self.label = QtWidgets.QLabel(Dialog)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
-        self.scrollArea = QtWidgets.QScrollArea(Form)
+        self.scrollArea = QtWidgets.QScrollArea(Dialog)
         self.scrollArea.setStyleSheet("QScrollArea{border-style:none;}\n"
 "QPushButton{border:2px solid rgba(235, 235, 235,0);height:25px;border-radius:5px;}\n"
 "QPushButton::hover{background-color: rgb(192, 192, 192);}\n"
@@ -64,7 +64,7 @@ class Ui_Form(object):
         self.gridLayout.addWidget(self.pushButton, 5, 1, 1, 1)
         self.progressBar = QtWidgets.QProgressBar(self.scrollAreaWidgetContents)
         self.progressBar.setMinimum(0)
-        self.progressBar.setMaximum(100)
+        self.progressBar.setMaximum(110)
         self.progressBar.setProperty("value", 50)
         self.progressBar.setTextVisible(False)
         self.progressBar.setObjectName("progressBar")
@@ -78,14 +78,14 @@ class Ui_Form(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout.addWidget(self.scrollArea)
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "正在下载Java"))
-        self.label_2.setText(_translate("Form", "下载Java"))
-        self.label_3.setText(_translate("Form", "配置Java"))
-        self.label_5.setText(_translate("Form", "0 MB/S"))
-        self.pushButton.setText(_translate("Form", "取消"))
+        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        self.label.setText(_translate("Dialog", "正在下载Java"))
+        self.label_2.setText(_translate("Dialog", "下载Java"))
+        self.label_3.setText(_translate("Dialog", "配置Java"))
+        self.label_5.setText(_translate("Dialog", "0 MB/S - 正在准备下载"))
+        self.pushButton.setText(_translate("Dialog", "取消"))

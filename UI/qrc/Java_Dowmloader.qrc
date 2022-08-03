@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="ing">
+    <file>OK.png</file>
+  </qresource>
+</RCC>

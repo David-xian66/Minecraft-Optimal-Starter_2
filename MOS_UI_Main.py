@@ -1,4 +1,5 @@
 import json
+from multiprocessing.dummy import Manager
 import os
 import sys
 import traceback
@@ -12,13 +13,14 @@ from PyQt6.QtWidgets import *
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QIcon
 from Java_Dowmloader_ import Java_Dowmloader__
+from Java_Dowmloader_OK import Java_OK_UI
 from MOS_print_ import MOS_print
 from MOS_UI import Ui_MOS
 import MOS_rc
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__):
+class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
     def __init__(self):
         super(Ui_MOS_Main, self).__init__()
         self.setupUi(self)
@@ -643,7 +645,9 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__):
         self.game.start()
 
 
-            
+    def Main_W(self):
+        global Main_Window
+        Main_Window = self.xy_size = self.geometry()  #获取主界面 初始坐标
 
 
 
@@ -1291,16 +1295,37 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__):
         self.a.move(self.xy_size.x()+284,self.xy_size.y()+177) #子界面移动到 居中
 
         self.a.setWindowFlags(QtCore.Qt.WindowType.WindowCloseButtonHint | QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint | QtCore.Qt.WindowType.WindowStaysOnTopHint | QtCore.Qt.WindowType.FramelessWindowHint| QtCore.Qt.WindowType.Tool)
-        self.a.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal) 
+        self.a.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
+        self.a.sinOut.connect(self.Java_D_OK)
         self.a.show()
         self.a_w = QTimer() #创建计时器对象
         self.a_w.start(0) #开始计时器
         self.a_w.timeout.connect(self.a_w_) #要执行的槽
     
+    def Java_D_OK(self):
+        self.a.close()
+        self.a_ok = Java_OK_UI()
+
+        self.xy_size = self.geometry()  #获取主界面 初始坐标
+        self.a_ok.move(self.xy_size.x()+284,self.xy_size.y()+177) #子界面移动到 居中
+
+        self.a_ok.setWindowFlags(QtCore.Qt.WindowType.WindowCloseButtonHint | QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint | QtCore.Qt.WindowType.WindowStaysOnTopHint | QtCore.Qt.WindowType.FramelessWindowHint| QtCore.Qt.WindowType.Tool)
+        self.a_ok.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
+        self.a_ok.sinOut.connect(self.J_D_OK)
+        self.a_ok.show()
+    
+    def J_D_OK(self):
+        """在下载Java完成的弹框中点 “好的” 后暂停计时器"""
+        self.a_w.stop()
+
     def a_w_(self):
         """检测主窗口位置 并移动下载Java的窗口 到主窗口中央"""
         self.xy_size = self.geometry()  #获取主界面 初始坐标
-        self.a.move(self.xy_size.x()+284,self.xy_size.y()+177) #子界面移动到 居中
+        try:
+            self.a_ok.move(self.xy_size.x()+284,self.xy_size.y()+177) #子界面移动到 居中
+            self.a.move(self.xy_size.x()+284,self.xy_size.y()+177) #子界面移动到 居中
+        except AttributeError:
+            pass
     
 
     # =================================分割线===================================#
@@ -2069,6 +2094,11 @@ def versions():
     return versions
 
 
+Main_Window = ''
+
+def Main_Windown_h():
+    Main_Window = Ui_MOS_Main.Main_W()
+    return Main_Window
 
 def except_hook(cls, exception, traceback):
     '''报错显示'''
