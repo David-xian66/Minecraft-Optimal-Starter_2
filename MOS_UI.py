@@ -4,7 +4,6 @@ import sys
 import traceback
 import webbrowser
 
-from MOS_Dowmloader import j_h, r_h
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
@@ -16,16 +15,8 @@ from MOS_print_ import MOS_print
 import MOS_rc
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
 
-#设置下载页面的任务数量
-d_i = -1
-d_time = {}
 
 class Ui_MOS(object):
-    def __init__(self) -> None:
-        global d_i #声明全局变量
-        global d_time
-        self.d_i = d_i
-        self.d_time = d_time
     def setupUi(self, MOS):
 
         MOS_catalogue_picture_ico_png = os.path.join("picture", "ico.png")
@@ -3286,11 +3277,10 @@ class Ui_MOS(object):
                 d_file_name = 'n_java16.zip'
                 d_file = os.path.join(file_h(),'.MOS','Download',d_file_name)
             java_v = 'Java 8'
-            self.d_i += 1
-            self.j_d = MOS_java_dowmloader(self.d_i,url,50,d_file,java_v)
-            self.j_d.sinOut_java_start.connect(self.click_pushButton_java_sinOut_java_dowmloader_start)
-            self.j_d.sinOut_java_d.connect(self.click_pushButton_java_sinOut_java_dowmloader)
-            self.j_d.start()
+            #self.j_d = MOS_java_dowmloader(self.d_i,url,50,d_file,java_v)
+            #self.j_d.sinOut_java_start.connect(self.click_pushButton_java_sinOut_java_dowmloader_start)
+            #self.j_d.sinOut_java_d.connect(self.click_pushButton_java_sinOut_java_dowmloader)
+            #self.j_d.start()
 
         elif a == '下载 - 免安装版 Java 16':
             self.pushButton_24.setEnabled(False)
@@ -3305,11 +3295,10 @@ class Ui_MOS(object):
                 d_file_name = 'n_java16.zip'
                 d_file = os.path.join(file_h(),'.MOS','Download',d_file_name)
             java_v = 'Java 16'
-            self.d_i += 1
-            self.j_d = MOS_java_dowmloader(self.d_i,url,50,d_file,java_v)
-            self.j_d.sinOut_java_start.connect(self.click_pushButton_java_sinOut_java_dowmloader_start)
-            self.j_d.sinOut_java_d.connect(self.click_pushButton_java_sinOut_java_dowmloader)
-            self.j_d.start()
+            #self.j_d = MOS_java_dowmloader(self.d_i,url,50,d_file,java_v)
+            #self.j_d.sinOut_java_start.connect(self.click_pushButton_java_sinOut_java_dowmloader_start)
+            #self.j_d.sinOut_java_d.connect(self.click_pushButton_java_sinOut_java_dowmloader)
+            #self.j_d.start()
 
         elif a == '下载 - 免安装版 Java 17':
             self.pushButton_24.setEnabled(False)
@@ -3324,11 +3313,10 @@ class Ui_MOS(object):
                 d_file_name = 'n_java17.zip'
                 d_file = os.path.join(file_h(),'.MOS','Download',d_file_name)
             java_v = 'Java 17'
-            self.d_i += 1
-            self.j_d = MOS_java_dowmloader(self.d_i,url,50,d_file,java_v)
-            self.j_d.sinOut_java_start.connect(self.click_pushButton_java_sinOut_java_dowmloader_start)
-            self.j_d.sinOut_java_d.connect(self.click_pushButton_java_sinOut_java_dowmloader)
-            self.j_d.start()
+            #self.j_d = MOS_java_dowmloader(self.d_i,url,50,d_file,java_v)
+            #self.j_d.sinOut_java_start.connect(self.click_pushButton_java_sinOut_java_dowmloader_start)
+            #self.j_d.sinOut_java_d.connect(self.click_pushButton_java_sinOut_java_dowmloader)
+            #self.j_d.start()
         
         elif a == '已开始下载 点击查看':
             self.comboBox_2.setCurrentIndex(5)
