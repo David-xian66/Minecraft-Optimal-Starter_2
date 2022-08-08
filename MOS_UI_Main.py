@@ -10,7 +10,7 @@ os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtGui import QIcon
+from PyQt6.QtGui import QIcon,QMouseEvent,QCursor
 from Java_Dowmloader_ import Java_Dowmloader__
 from Java_Dowmloader_OK import Java_OK_UI
 from MOS_print_ import MOS_print, q_h
@@ -24,6 +24,9 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         super(Ui_MOS_Main, self).__init__()
         self.setupUi(self)
         self.show()
+
+        self.move_Flag = False
+        
         # =================================分割线===================================#
 
         self.pushButton_home.clicked.connect(self.click_pushButton_home)
@@ -64,11 +67,21 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         self.pushButton_32.clicked.connect(self.click_pushButton_about_b_gitee)
         self.pushButton_25.clicked.connect(self.click_pushButton_about_b_wenjuan)
 
-
         self.comboBox_gonggao_right.clear()
         self.listWidget.clear()
         self.pushButton_18.setEnabled(False)
 
+        # 页面渲染加速
+        self.c = QTimer() #创建计时器对象
+        self.c.start(200) #开始计时器
+        self.c.timeout.connect(self.c_) #要执行的槽
+        
+        # =============================================================================#
+
+    # =================================分割线===================================#
+
+    def c_(self):
+        self.c.stop()
         self.progressBar_2.setMinimum(0)
         self.progressBar_2.setMaximum(99)
         self.progressBar_2.setValue(0)
@@ -81,16 +94,9 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         self.a.sinOut_font.connect(self.MOS_file_return_font)
         self.a.start()
 
-        # self.setfont_size()
-
-        
-        # =============================================================================#
-
-    # =================================分割线===================================#
 
     def Win_start(self):
         pass
-
 
 
     def logs_start(self):
@@ -817,8 +823,6 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
     
     def click_pushButton_java_sinOut_java_dowmloader_start(self,text):
         """开始下载后……"""
-        
-        
         self.pushButton_24.setText("已开始下载 点击查看")
         self.pushButton_24.setEnabled(True)
         
@@ -2172,20 +2176,15 @@ def start():
     MOS_print("info","开始导入库")
     MOS_print("info","导入进程库完成")
     MOS_print("info","设置加速进程完成")
-    import time
+    #import time
 
-    start_time=time.time()
-
-    import threading
-    thread = run_ui()
-    thread.start()
+    #start_time=time.time()
 
     app = QApplication(sys.argv)
     mos = Ui_MOS_Main()
     mos.logs_start()
 
-    MOS_print("info",str("加速进程执行时间" + str(time.time()-start_time)))
-    MOS_print("info", "加速进程已退出")
-
+    #MOS_print("info",str("加速进程执行时间" + str(time.time()-start_time)))
+    #MOS_print("info", "加速进程已退出")
 
     sys.exit(app.exec())

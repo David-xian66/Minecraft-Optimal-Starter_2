@@ -7,10 +7,11 @@
 
 import os
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtWidgets import QMainWindow
+
 
 class Ui_MOS(object):
     def setupUi(self, MOS):
+
 
         MOS_catalogue_picture_ico_png = os.path.join("picture", "ico.png")
         MOS_catalogue_picture_home_png = os.path.join("picture", "home.png")
@@ -48,10 +49,10 @@ class Ui_MOS(object):
 
         MOS.setObjectName("MOS")
         MOS.setWindowModality(QtCore.Qt.WindowModality.NonModal)
-        MOS.resize(1000, 533)
+        MOS.resize(1000, 583)
         MOS.setMinimumSize(QtCore.QSize(1000, 533))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_ico_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_ico_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MOS.setWindowIcon(icon)
         MOS.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MOS)
@@ -59,209 +60,18 @@ class Ui_MOS(object):
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_13 = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout_13.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout_13.setHorizontalSpacing(0)
+        self.gridLayout_13.setSpacing(0)
         self.gridLayout_13.setObjectName("gridLayout_13")
-        self.widget_mos_left = QtWidgets.QWidget(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.widget_mos_left.sizePolicy().hasHeightForWidth())
-        self.widget_mos_left.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.widget_mos_left.setFont(font)
-        self.widget_mos_left.setAutoFillBackground(False)
-        self.widget_mos_left.setStyleSheet("QWidget\n"
-"{\n"
-"    background-color: rgb(231, 230, 228);\n"
-"}\n"
-"#widget_mos_left_top\n"
-"{\n"
-"    background-color: rgb(231, 230, 228);\n"
-"    border-style:none;\n"
-"    border-radius:15px;\n"
-"}\n"
-"#widget_mos_left_top::hover\n"
-"{\n"
-"    background-color: rgba(0, 150, 255, 51);\n"
-"}\n"
-"#widget_mos_left_top::pressed\n"
-"{\n"
-"    background-color: rgba(0, 150, 255, 51);\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"    color: blue;\n"
-"    height:35px;\n"
-"    color: rgb(0, 150, 255);\n"
-"    background-position: left;\n"
-"    text-align: left;\n"
-"    padding-right:15px;\n"
-"    padding-left:5px;\n"
-"    border-style:none;\n"
-"    border-radius:8px;\n"
-"    border:2px solid rgba(229, 228, 226,0);\n"
-"}\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(192, 192, 192);\n"
-"}\n"
-"QPushButton::pressed\n"
-"{\n"
-"    border:2px solid rgb(0, 150, 255);\n"
-"}\n"
-"\n"
-"#pushButton_home\n"
-"{\n"
-"    color: blue;\n"
-"    height:35px;\n"
-"    color: rgb(0, 150, 255);\n"
-"    background-position: left;\n"
-"    text-align: left;\n"
-"    padding-right:15px;\n"
-"    padding-left:5px;\n"
-"    border-style:none;\n"
-"    border-radius:8px;\n"
-"    border:2px solid rgba(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
-"}\n"
-"#pushButton_home::hover\n"
-"{\n"
-"    background-color: rgb(192, 192, 192);\n"
-"}\n"
-"#pushButton_home::pressed\n"
-"{\n"
-"    border:2px solid rgb(0, 150, 255);\n"
-"}")
-        self.widget_mos_left.setObjectName("widget_mos_left")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget_mos_left)
-        self.verticalLayout_2.setContentsMargins(9, -1, 9, -1)
-        self.verticalLayout_2.setSpacing(2)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.widget_mos_left_top = QtWidgets.QWidget(self.widget_mos_left)
-        self.widget_mos_left_top.setStyleSheet("#label_mos_left_top_user{background-color: rgba(255, 255, 255, 0);}\n"
-"#label_mos_left_top_add{background-color: rgba(255, 255, 255, 0);}\n"
-"QWidget\n"
-"{\n"
-"    background-color: rgb(231, 230, 228);\n"
-"    border-style:none;\n"
-"    border-radius:15px;\n"
-"}\n"
-"QWidget::hover\n"
-"{\n"
-"    background-color: rgba(0, 150, 255, 51);\n"
-"}\n"
-"QWidget::pressed\n"
-"{\n"
-"    background-color: rgba(0, 150, 255, 51);\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"    background-position: left;\n"
-"    text-align: left;\n"
-"    padding-right:0px;\n"
-"    padding-left:0px;\n"
-"}\n"
-"")
-        self.widget_mos_left_top.setObjectName("widget_mos_left_top")
-        self.gridLayout_4 = QtWidgets.QGridLayout(self.widget_mos_left_top)
-        self.gridLayout_4.setObjectName("gridLayout_4")
-        self.label_mos_left_top_add = QtWidgets.QLabel(self.widget_mos_left_top)
-        self.label_mos_left_top_add.setStyleSheet("font-size: 13px;")
-        self.label_mos_left_top_add.setObjectName("label_mos_left_top_add")
-        self.gridLayout_4.addWidget(self.label_mos_left_top_add, 1, 1, 1, 1)
-        self.pushButton_mos_left_top = QtWidgets.QPushButton(self.widget_mos_left_top)
-        self.pushButton_mos_left_top.setStyleSheet("width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);")
-        self.pushButton_mos_left_top.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_ico_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_mos_left_top.setIcon(icon1)
-        self.pushButton_mos_left_top.setIconSize(QtCore.QSize(50, 50))
-        self.pushButton_mos_left_top.setObjectName("pushButton_mos_left_top")
-        self.gridLayout_4.addWidget(self.pushButton_mos_left_top, 0, 0, 2, 1)
-        self.label_mos_left_top_user = QtWidgets.QLabel(self.widget_mos_left_top)
-        self.label_mos_left_top_user.setStyleSheet("font-size: 13px;")
-        self.label_mos_left_top_user.setObjectName("label_mos_left_top_user")
-        self.gridLayout_4.addWidget(self.label_mos_left_top_user, 0, 1, 1, 1)
-        self.verticalLayout_2.addWidget(self.widget_mos_left_top)
-        self.line_2 = QtWidgets.QFrame(self.widget_mos_left)
-        self.line_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
-        self.line_2.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-        self.line_2.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
-        self.line_2.setObjectName("line_2")
-        self.verticalLayout_2.addWidget(self.line_2)
-        self.pushButton_home = QtWidgets.QPushButton(self.widget_mos_left)
-        self.pushButton_home.setMinimumSize(QtCore.QSize(150, 0))
-        self.pushButton_home.setFocusPolicy(QtCore.Qt.FocusPolicy.TabFocus)
-        self.pushButton_home.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-        self.pushButton_home.setStyleSheet("font-size: 15px;")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_home_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_home.setIcon(icon2)
-        self.pushButton_home.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_home.setObjectName("pushButton_home")
-        self.verticalLayout_2.addWidget(self.pushButton_home)
-        self.pushButton_lianji = QtWidgets.QPushButton(self.widget_mos_left)
-        self.pushButton_lianji.setMinimumSize(QtCore.QSize(150, 0))
-        self.pushButton_lianji.setStyleSheet("font-size: 15px;")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_online_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_lianji.setIcon(icon3)
-        self.pushButton_lianji.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_lianji.setObjectName("pushButton_lianji")
-        self.verticalLayout_2.addWidget(self.pushButton_lianji)
-        self.pushButton_xiazai = QtWidgets.QPushButton(self.widget_mos_left)
-        self.pushButton_xiazai.setMinimumSize(QtCore.QSize(150, 0))
-        self.pushButton_xiazai.setStyleSheet("font-size: 15px;")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_download_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_xiazai.setIcon(icon4)
-        self.pushButton_xiazai.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_xiazai.setObjectName("pushButton_xiazai")
-        self.verticalLayout_2.addWidget(self.pushButton_xiazai)
-        self.pushButton_music = QtWidgets.QPushButton(self.widget_mos_left)
-        self.pushButton_music.setMinimumSize(QtCore.QSize(150, 0))
-        self.pushButton_music.setStyleSheet("font-size: 15px;")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_music_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_music.setIcon(icon5)
-        self.pushButton_music.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_music.setObjectName("pushButton_music")
-        self.verticalLayout_2.addWidget(self.pushButton_music)
-        self.pushButton_shezhi = QtWidgets.QPushButton(self.widget_mos_left)
-        self.pushButton_shezhi.setMinimumSize(QtCore.QSize(150, 0))
-        self.pushButton_shezhi.setStyleSheet("font-size: 15px;")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_settings_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_shezhi.setIcon(icon6)
-        self.pushButton_shezhi.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_shezhi.setObjectName("pushButton_shezhi")
-        self.verticalLayout_2.addWidget(self.pushButton_shezhi)
-        self.pushButton_about = QtWidgets.QPushButton(self.widget_mos_left)
-        self.pushButton_about.setMinimumSize(QtCore.QSize(150, 0))
-        self.pushButton_about.setStyleSheet("font-size: 15px;")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_about_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_about.setIcon(icon7)
-        self.pushButton_about.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_about.setObjectName("pushButton_about")
-        self.verticalLayout_2.addWidget(self.pushButton_about)
-        spacerItem = QtWidgets.QSpacerItem(20, 184, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.verticalLayout_2.addItem(spacerItem)
-        self.label_mosll = QtWidgets.QLabel(self.widget_mos_left)
-        self.label_mosll.setStyleSheet("color: rgb(0, 150, 255);font-size: 17px;font: 75 17pt \"Yuanti SC\";background-color: rgba(240, 239, 238,0);")
-        self.label_mosll.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_mosll.setObjectName("label_mosll")
-        self.verticalLayout_2.addWidget(self.label_mosll)
-        self.gridLayout_13.addWidget(self.widget_mos_left, 0, 0, 1, 1)
         self.stackedWidget_mos_right = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget_mos_right.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.stackedWidget_mos_right.setObjectName("stackedWidget_mos_right")
         self.page_gonggao = QtWidgets.QWidget()
         self.page_gonggao.setStyleSheet("")
         self.page_gonggao.setObjectName("page_gonggao")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.page_gonggao)
-        self.horizontalLayout.setContentsMargins(12, -1, -1, -1)
-        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.gridLayout_16 = QtWidgets.QGridLayout(self.page_gonggao)
+        self.gridLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_16.setSpacing(0)
+        self.gridLayout_16.setObjectName("gridLayout_16")
         self.scrollArea_page_gonggao = QtWidgets.QScrollArea(self.page_gonggao)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -273,92 +83,11 @@ class Ui_MOS(object):
         self.scrollArea_page_gonggao.setWidgetResizable(True)
         self.scrollArea_page_gonggao.setObjectName("scrollArea_page_gonggao")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 808, 509))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 832, 583))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.gridLayout_16 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
-        self.gridLayout_16.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout_16.setObjectName("gridLayout_16")
-        self.widget_scrollArea_page_gonggao_left = QtWidgets.QWidget(self.scrollAreaWidgetContents)
-        self.widget_scrollArea_page_gonggao_left.setMinimumSize(QtCore.QSize(399, 509))
-        self.widget_scrollArea_page_gonggao_left.setStyleSheet("QWidget{border:2px solid rgb(0, 150, 255);border-radius:15px;}\n"
-"QLabel{border-style:none;}")
-        self.widget_scrollArea_page_gonggao_left.setObjectName("widget_scrollArea_page_gonggao_left")
-        self.gridLayout_5 = QtWidgets.QGridLayout(self.widget_scrollArea_page_gonggao_left)
-        self.gridLayout_5.setContentsMargins(10, -1, 10, -1)
-        self.gridLayout_5.setHorizontalSpacing(0)
-        self.gridLayout_5.setObjectName("gridLayout_5")
-        self.stackedWidget_gonggao = QtWidgets.QStackedWidget(self.widget_scrollArea_page_gonggao_left)
-        self.stackedWidget_gonggao.setStyleSheet("border-style:none;")
-        self.stackedWidget_gonggao.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.stackedWidget_gonggao.setLineWidth(2)
-        self.stackedWidget_gonggao.setObjectName("stackedWidget_gonggao")
-        self.page_gonggao_jiazai = QtWidgets.QWidget()
-        self.page_gonggao_jiazai.setStyleSheet("QTextBrowser{border-style:none;background-color: rgba(255, 255, 255, 0);}")
-        self.page_gonggao_jiazai.setObjectName("page_gonggao_jiazai")
-        self.gridLayout_20 = QtWidgets.QGridLayout(self.page_gonggao_jiazai)
-        self.gridLayout_20.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout_20.setObjectName("gridLayout_20")
-        self.textBrowser_gonggao_left_txt = QtWidgets.QTextBrowser(self.page_gonggao_jiazai)
-        self.textBrowser_gonggao_left_txt.setStyleSheet("")
-        self.textBrowser_gonggao_left_txt.setObjectName("textBrowser_gonggao_left_txt")
-        self.gridLayout_20.addWidget(self.textBrowser_gonggao_left_txt, 0, 0, 1, 1)
-        self.stackedWidget_gonggao.addWidget(self.page_gonggao_jiazai)
-        self.page_gonggao_jiazai_ing = QtWidgets.QWidget()
-        self.page_gonggao_jiazai_ing.setStyleSheet("QProgressBar{\n"
-"    text-align: center;border-style:none;border-radius:7px;background-color: rgba(0, 150, 255, 10);height:15px;color: rgb(66, 66, 66);\n"
-"}\n"
-"QProgressBar::chunk{\n"
-"    border-radius:7px;\n"
-"    background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(53, 244, 252, 255), stop:1 rgba(222, 255, 255, 255));\n"
-"}\n"
-"QLabel{color: rgb(0, 150, 255);}")
-        self.page_gonggao_jiazai_ing.setObjectName("page_gonggao_jiazai_ing")
-        self.gridLayout_21 = QtWidgets.QGridLayout(self.page_gonggao_jiazai_ing)
-        self.gridLayout_21.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout_21.setObjectName("gridLayout_21")
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_21.addItem(spacerItem1, 0, 0, 1, 1)
-        self.label_2 = QtWidgets.QLabel(self.page_gonggao_jiazai_ing)
-        self.label_2.setStyleSheet("font-size: 13px;")
-        self.label_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_2.setWordWrap(True)
-        self.label_2.setObjectName("label_2")
-        self.gridLayout_21.addWidget(self.label_2, 1, 0, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(40, 30, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_21.addItem(spacerItem2, 3, 0, 1, 1)
-        self.progressBar_2 = QtWidgets.QProgressBar(self.page_gonggao_jiazai_ing)
-        self.progressBar_2.setStyleSheet("font-size: 13px;")
-        self.progressBar_2.setMinimum(0)
-        self.progressBar_2.setMaximum(100)
-        self.progressBar_2.setProperty("value", 25)
-        self.progressBar_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.progressBar_2.setTextVisible(True)
-        self.progressBar_2.setOrientation(QtCore.Qt.Orientation.Horizontal)
-        self.progressBar_2.setInvertedAppearance(False)
-        self.progressBar_2.setTextDirection(QtWidgets.QProgressBar.Direction.TopToBottom)
-        self.progressBar_2.setObjectName("progressBar_2")
-        self.gridLayout_21.addWidget(self.progressBar_2, 2, 0, 1, 1)
-        self.stackedWidget_gonggao.addWidget(self.page_gonggao_jiazai_ing)
-        self.gridLayout_5.addWidget(self.stackedWidget_gonggao, 2, 0, 1, 2)
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_5.addItem(spacerItem3, 3, 0, 1, 1)
-        self.line_7 = QtWidgets.QFrame(self.widget_scrollArea_page_gonggao_left)
-        self.line_7.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-        self.line_7.setAutoFillBackground(False)
-        self.line_7.setStyleSheet("background-color: rgb(169, 169, 169);border:none;")
-        self.line_7.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
-        self.line_7.setLineWidth(1)
-        self.line_7.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-        self.line_7.setObjectName("line_7")
-        self.gridLayout_5.addWidget(self.line_7, 1, 0, 1, 2)
-        self.label_gonggao_left_txt = QtWidgets.QLabel(self.widget_scrollArea_page_gonggao_left)
-        self.label_gonggao_left_txt.setStyleSheet("font-size: 14px;")
-        self.label_gonggao_left_txt.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_gonggao_left_txt.setWordWrap(True)
-        self.label_gonggao_left_txt.setObjectName("label_gonggao_left_txt")
-        self.gridLayout_5.addWidget(self.label_gonggao_left_txt, 0, 0, 1, 1)
-        self.gridLayout_16.addWidget(self.widget_scrollArea_page_gonggao_left, 0, 0, 1, 1)
+        self.gridLayout_47 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
+        self.gridLayout_47.setObjectName("gridLayout_47")
         self.widget_scrollArea_page_gonggao_right = QtWidgets.QWidget(self.scrollAreaWidgetContents)
         self.widget_scrollArea_page_gonggao_right.setMinimumSize(QtCore.QSize(399, 509))
         self.widget_scrollArea_page_gonggao_right.setStyleSheet("QWidget{border:2px solid rgb(0, 150, 255);border-radius:15px;}\n"
@@ -401,14 +130,14 @@ class Ui_MOS(object):
         self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName("progressBar")
         self.gridLayout_2.addWidget(self.progressBar, 2, 0, 1, 5)
-        spacerItem4 = QtWidgets.QSpacerItem(10, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_2.addItem(spacerItem4, 0, 0, 1, 1)
-        spacerItem5 = QtWidgets.QSpacerItem(10, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_2.addItem(spacerItem5, 0, 4, 2, 1)
+        spacerItem = QtWidgets.QSpacerItem(10, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_2.addItem(spacerItem, 0, 0, 1, 1)
+        spacerItem1 = QtWidgets.QSpacerItem(10, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_2.addItem(spacerItem1, 0, 4, 2, 1)
         self.label_3 = QtWidgets.QLabel(self.widget_scrollArea_page_gonggao_statring)
         self.label_3.setStyleSheet("border-style:none;background-color: rgba(255, 255, 255, 0);")
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap(MOS_catalogue_picture_loading_3_png))
+        self.label_3.setPixmap(QtGui.QPixmap( MOS_catalogue_picture_loading_3_png))
         self.label_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.gridLayout_2.addWidget(self.label_3, 0, 1, 2, 3)
@@ -427,7 +156,7 @@ class Ui_MOS(object):
         self.widget_9.setStyleSheet("QWidget{border-style:none;}\n"
 "QPushButton{border:2px solid rgb(192, 192, 192);border-radius:8px;}\n"
 "#pushButton__gonggao_start{border:2px solid rgb(0, 150, 255);height:25px;border-radius:8px;}\n"
-"#pushButton__gonggao_start::hover{color: rgb(0, 150, 255,100);}\n"
+"#pushButton__gonggao_start::hover{color: rgba(0, 150, 255,100);}\n"
 "#pushButton__gonggao_start::pressed{background-color: rgba(0, 150, 255, 50);}\n"
 "\n"
 "QComboBox {\n"
@@ -549,9 +278,89 @@ class Ui_MOS(object):
         self.pushButton__gonggao_start.setObjectName("pushButton__gonggao_start")
         self.gridLayout_6.addWidget(self.pushButton__gonggao_start, 1, 1, 1, 1)
         self.gridLayout_28.addWidget(self.widget_9, 3, 0, 1, 1)
-        self.gridLayout_16.addWidget(self.widget_scrollArea_page_gonggao_right, 0, 1, 1, 1)
+        self.gridLayout_47.addWidget(self.widget_scrollArea_page_gonggao_right, 0, 1, 1, 1)
+        self.widget_scrollArea_page_gonggao_left = QtWidgets.QWidget(self.scrollAreaWidgetContents)
+        self.widget_scrollArea_page_gonggao_left.setMinimumSize(QtCore.QSize(399, 509))
+        self.widget_scrollArea_page_gonggao_left.setStyleSheet("QWidget{border:2px solid rgb(0, 150, 255);border-radius:15px;}\n"
+"QLabel{border-style:none;}")
+        self.widget_scrollArea_page_gonggao_left.setObjectName("widget_scrollArea_page_gonggao_left")
+        self.gridLayout_5 = QtWidgets.QGridLayout(self.widget_scrollArea_page_gonggao_left)
+        self.gridLayout_5.setContentsMargins(10, -1, 10, -1)
+        self.gridLayout_5.setHorizontalSpacing(0)
+        self.gridLayout_5.setObjectName("gridLayout_5")
+        self.label_gonggao_left_txt = QtWidgets.QLabel(self.widget_scrollArea_page_gonggao_left)
+        self.label_gonggao_left_txt.setStyleSheet("font-size: 14px;")
+        self.label_gonggao_left_txt.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_gonggao_left_txt.setWordWrap(True)
+        self.label_gonggao_left_txt.setObjectName("label_gonggao_left_txt")
+        self.gridLayout_5.addWidget(self.label_gonggao_left_txt, 0, 0, 1, 1)
+        self.stackedWidget_gonggao = QtWidgets.QStackedWidget(self.widget_scrollArea_page_gonggao_left)
+        self.stackedWidget_gonggao.setStyleSheet("border-style:none;")
+        self.stackedWidget_gonggao.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.stackedWidget_gonggao.setLineWidth(2)
+        self.stackedWidget_gonggao.setObjectName("stackedWidget_gonggao")
+        self.page_gonggao_jiazai = QtWidgets.QWidget()
+        self.page_gonggao_jiazai.setStyleSheet("QTextBrowser{border-style:none;background-color: rgba(255, 255, 255, 0);}")
+        self.page_gonggao_jiazai.setObjectName("page_gonggao_jiazai")
+        self.gridLayout_20 = QtWidgets.QGridLayout(self.page_gonggao_jiazai)
+        self.gridLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_20.setObjectName("gridLayout_20")
+        self.textBrowser_gonggao_left_txt = QtWidgets.QTextBrowser(self.page_gonggao_jiazai)
+        self.textBrowser_gonggao_left_txt.setStyleSheet("")
+        self.textBrowser_gonggao_left_txt.setObjectName("textBrowser_gonggao_left_txt")
+        self.gridLayout_20.addWidget(self.textBrowser_gonggao_left_txt, 0, 0, 1, 1)
+        self.stackedWidget_gonggao.addWidget(self.page_gonggao_jiazai)
+        self.page_gonggao_jiazai_ing = QtWidgets.QWidget()
+        self.page_gonggao_jiazai_ing.setStyleSheet("QProgressBar{\n"
+"    text-align: center;border-style:none;border-radius:7px;background-color: rgba(0, 150, 255, 10);height:15px;color: rgb(66, 66, 66);\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"    border-radius:7px;\n"
+"    background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(53, 244, 252, 255), stop:1 rgba(222, 255, 255, 255));\n"
+"}\n"
+"QLabel{color: rgb(0, 150, 255);}")
+        self.page_gonggao_jiazai_ing.setObjectName("page_gonggao_jiazai_ing")
+        self.gridLayout_21 = QtWidgets.QGridLayout(self.page_gonggao_jiazai_ing)
+        self.gridLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_21.setObjectName("gridLayout_21")
+        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_21.addItem(spacerItem2, 0, 0, 1, 1)
+        self.label_2 = QtWidgets.QLabel(self.page_gonggao_jiazai_ing)
+        self.label_2.setStyleSheet("font-size: 13px;")
+        self.label_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_2.setWordWrap(True)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout_21.addWidget(self.label_2, 1, 0, 1, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(40, 30, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_21.addItem(spacerItem3, 3, 0, 1, 1)
+        self.progressBar_2 = QtWidgets.QProgressBar(self.page_gonggao_jiazai_ing)
+        self.progressBar_2.setStyleSheet("font-size: 13px;")
+        self.progressBar_2.setMinimum(0)
+        self.progressBar_2.setMaximum(100)
+        self.progressBar_2.setProperty("value", 25)
+        self.progressBar_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.progressBar_2.setTextVisible(True)
+        self.progressBar_2.setOrientation(QtCore.Qt.Orientation.Horizontal)
+        self.progressBar_2.setInvertedAppearance(False)
+        self.progressBar_2.setTextDirection(QtWidgets.QProgressBar.Direction.TopToBottom)
+        self.progressBar_2.setObjectName("progressBar_2")
+        self.gridLayout_21.addWidget(self.progressBar_2, 2, 0, 1, 1)
+        self.stackedWidget_gonggao.addWidget(self.page_gonggao_jiazai_ing)
+        self.gridLayout_5.addWidget(self.stackedWidget_gonggao, 2, 0, 1, 2)
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_5.addItem(spacerItem4, 3, 0, 1, 1)
+        self.line_7 = QtWidgets.QFrame(self.widget_scrollArea_page_gonggao_left)
+        self.line_7.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.line_7.setAutoFillBackground(False)
+        self.line_7.setStyleSheet("background-color: rgb(169, 169, 169);border:none;")
+        self.line_7.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.line_7.setLineWidth(1)
+        self.line_7.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.line_7.setObjectName("line_7")
+        self.gridLayout_5.addWidget(self.line_7, 1, 0, 1, 2)
+        self.gridLayout_47.addWidget(self.widget_scrollArea_page_gonggao_left, 0, 0, 1, 1)
         self.scrollArea_page_gonggao.setWidget(self.scrollAreaWidgetContents)
-        self.horizontalLayout.addWidget(self.scrollArea_page_gonggao)
+        self.gridLayout_16.addWidget(self.scrollArea_page_gonggao, 0, 0, 1, 1)
         self.stackedWidget_mos_right.addWidget(self.page_gonggao)
         self.page_8 = QtWidgets.QWidget()
         self.page_8.setStyleSheet("QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}")
@@ -595,10 +404,10 @@ class Ui_MOS(object):
         self.gridLayout_33.setContentsMargins(5, 0, 5, 5)
         self.gridLayout_33.setHorizontalSpacing(0)
         self.gridLayout_33.setObjectName("gridLayout_33")
-        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_33.addItem(spacerItem6, 1, 3, 1, 1)
-        spacerItem7 = QtWidgets.QSpacerItem(805, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_33.addItem(spacerItem7, 0, 0, 1, 4)
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_33.addItem(spacerItem5, 1, 3, 1, 1)
+        spacerItem6 = QtWidgets.QSpacerItem(805, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_33.addItem(spacerItem6, 0, 0, 1, 4)
         self.line_11 = QtWidgets.QFrame(self.page_12)
         self.line_11.setStyleSheet("color:rgb(214, 214, 214)")
         self.line_11.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
@@ -718,31 +527,33 @@ class Ui_MOS(object):
         self.listWidget.setIconSize(QtCore.QSize(24, 24))
         self.listWidget.setObjectName("listWidget")
         item = QtWidgets.QListWidgetItem()
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_folder_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        item.setIcon(icon8)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_folder_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        item.setIcon(icon1)
         self.listWidget.addItem(item)
         self.verticalLayout.addWidget(self.listWidget)
         self.pushButton_38 = QtWidgets.QPushButton(self.widget_7)
         self.pushButton_38.setMinimumSize(QtCore.QSize(0, 30))
         self.pushButton_38.setStyleSheet("font-size: 13px;")
-        self.pushButton_38.setIcon(icon6)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_settings_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_38.setIcon(icon2)
         self.pushButton_38.setObjectName("pushButton_38")
         self.verticalLayout.addWidget(self.pushButton_38)
         self.pushButton_36 = QtWidgets.QPushButton(self.widget_7)
         self.pushButton_36.setMinimumSize(QtCore.QSize(0, 30))
         self.pushButton_36.setStyleSheet("font-size: 13px;")
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_folder_add_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_36.setIcon(icon9)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_folder_add_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_36.setIcon(icon3)
         self.pushButton_36.setObjectName("pushButton_36")
         self.verticalLayout.addWidget(self.pushButton_36)
         self.pushButton_37 = QtWidgets.QPushButton(self.widget_7)
         self.pushButton_37.setMinimumSize(QtCore.QSize(0, 30))
         self.pushButton_37.setStyleSheet("font-size: 13px;")
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_add_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_37.setIcon(icon10)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_add_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_37.setIcon(icon4)
         self.pushButton_37.setObjectName("pushButton_37")
         self.verticalLayout.addWidget(self.pushButton_37)
         self.gridLayout_55.addWidget(self.widget_7, 0, 0, 1, 1)
@@ -862,16 +673,16 @@ class Ui_MOS(object):
         self.lineEdit_4.setReadOnly(False)
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.gridLayout_58.addWidget(self.lineEdit_4, 0, 1, 1, 1)
-        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_58.addItem(spacerItem8, 1, 0, 1, 1)
+        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_58.addItem(spacerItem7, 1, 0, 1, 1)
         self.label_47 = QtWidgets.QLabel(self.widget_22)
         self.label_47.setStyleSheet("font-size: 14px;")
         self.label_47.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_47.setObjectName("label_47")
         self.gridLayout_58.addWidget(self.label_47, 1, 1, 1, 1)
         self.gridLayout_22.addWidget(self.widget_22, 2, 0, 1, 4)
-        spacerItem9 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_22.addItem(spacerItem9, 5, 0, 1, 4)
+        spacerItem8 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_22.addItem(spacerItem8, 5, 0, 1, 4)
         self.label_43 = QtWidgets.QLabel(self.page_25)
         self.label_43.setStyleSheet("font-size: 17px;")
         self.label_43.setLineWidth(1)
@@ -901,7 +712,7 @@ class Ui_MOS(object):
         self.pushButton_42 = QtWidgets.QPushButton(self.widget_21)
         self.pushButton_42.setMinimumSize(QtCore.QSize(0, 28))
         self.pushButton_42.setStyleSheet("font-size: 14px;")
-        self.pushButton_42.setIcon(icon8)
+        self.pushButton_42.setIcon(icon1)
         self.pushButton_42.setObjectName("pushButton_42")
         self.gridLayout_57.addWidget(self.pushButton_42, 0, 2, 2, 1)
         self.label_46 = QtWidgets.QLabel(self.widget_21)
@@ -913,9 +724,9 @@ class Ui_MOS(object):
         self.pushButton_41 = QtWidgets.QPushButton(self.page_25)
         self.pushButton_41.setStyleSheet("")
         self.pushButton_41.setText("")
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_back_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_41.setIcon(icon11)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_back_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_41.setIcon(icon5)
         self.pushButton_41.setIconSize(QtCore.QSize(27, 30))
         self.pushButton_41.setAutoDefault(False)
         self.pushButton_41.setDefault(False)
@@ -945,12 +756,12 @@ class Ui_MOS(object):
         self.widget_3.setObjectName("widget_3")
         self.gridLayout_27 = QtWidgets.QGridLayout(self.widget_3)
         self.gridLayout_27.setObjectName("gridLayout_27")
+        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_27.addItem(spacerItem9, 1, 3, 1, 1)
         spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_27.addItem(spacerItem10, 1, 3, 1, 1)
+        self.gridLayout_27.addItem(spacerItem10, 1, 1, 1, 1)
         spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_27.addItem(spacerItem11, 1, 1, 1, 1)
-        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_27.addItem(spacerItem12, 1, 2, 1, 1)
+        self.gridLayout_27.addItem(spacerItem11, 1, 2, 1, 1)
         self.pushButton_18 = QtWidgets.QPushButton(self.widget_3)
         self.pushButton_18.setEnabled(False)
         self.pushButton_18.setMinimumSize(QtCore.QSize(0, 28))
@@ -963,11 +774,11 @@ class Ui_MOS(object):
         self.pushButton_18.setDefault(False)
         self.pushButton_18.setObjectName("pushButton_18")
         self.gridLayout_27.addWidget(self.pushButton_18, 0, 1, 1, 2)
-        spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_27.addItem(spacerItem13, 1, 0, 1, 1)
+        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_27.addItem(spacerItem12, 1, 0, 1, 1)
         self.gridLayout_22.addWidget(self.widget_3, 3, 0, 1, 4)
-        spacerItem14 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_22.addItem(spacerItem14, 0, 3, 1, 1)
+        spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_22.addItem(spacerItem13, 0, 3, 1, 1)
         self.stackedWidget_5.addWidget(self.page_25)
         self.page_22 = QtWidgets.QWidget()
         self.page_22.setStyleSheet("QLineEdit{height:23px;border-radius:8px;border:2px solid rgb(192, 192, 192);}\n"
@@ -981,9 +792,9 @@ class Ui_MOS(object):
         self.gridLayout_53.setObjectName("gridLayout_53")
         self.pushButton_40 = QtWidgets.QPushButton(self.page_22)
         self.pushButton_40.setStyleSheet("font-size: 13px;")
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_trash_red_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_40.setIcon(icon12)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_trash_red_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_40.setIcon(icon6)
         self.pushButton_40.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_40.setCheckable(False)
         self.pushButton_40.setObjectName("pushButton_40")
@@ -992,20 +803,20 @@ class Ui_MOS(object):
         self.lineEdit_3.setStyleSheet("font-size: 13px;")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.gridLayout_53.addWidget(self.lineEdit_3, 1, 0, 1, 2)
+        spacerItem14 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_53.addItem(spacerItem14, 6, 0, 1, 2)
         spacerItem15 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_53.addItem(spacerItem15, 6, 0, 1, 2)
+        self.gridLayout_53.addItem(spacerItem15, 0, 0, 1, 4)
         spacerItem16 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_53.addItem(spacerItem16, 0, 0, 1, 4)
+        self.gridLayout_53.addItem(spacerItem16, 3, 0, 1, 4)
         spacerItem17 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_53.addItem(spacerItem17, 3, 0, 1, 4)
-        spacerItem18 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_53.addItem(spacerItem18, 6, 2, 1, 2)
+        self.gridLayout_53.addItem(spacerItem17, 6, 2, 1, 2)
         self.pushButton_39 = QtWidgets.QPushButton(self.page_22)
         self.pushButton_39.setStyleSheet("font-size: 14px;")
         self.pushButton_39.setObjectName("pushButton_39")
         self.gridLayout_53.addWidget(self.pushButton_39, 1, 2, 1, 2)
-        spacerItem19 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_53.addItem(spacerItem19, 5, 0, 1, 4)
+        spacerItem18 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_53.addItem(spacerItem18, 5, 0, 1, 4)
         self.stackedWidget_5.addWidget(self.page_22)
         self.page_23 = QtWidgets.QWidget()
         self.page_23.setObjectName("page_23")
@@ -1014,7 +825,7 @@ class Ui_MOS(object):
         self.gridLayout_54.setObjectName("gridLayout_54")
         self.label_26 = QtWidgets.QLabel(self.page_23)
         self.label_26.setText("")
-        self.label_26.setPixmap(QtGui.QPixmap(MOS_catalogue_picture_loading_png))
+        self.label_26.setPixmap(QtGui.QPixmap( MOS_catalogue_picture_loading_png))
         self.label_26.setScaledContents(False)
         self.label_26.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_26.setWordWrap(False)
@@ -1027,7 +838,7 @@ class Ui_MOS(object):
         self.pushButton_35 = QtWidgets.QPushButton(self.page_12)
         self.pushButton_35.setStyleSheet("")
         self.pushButton_35.setText("")
-        self.pushButton_35.setIcon(icon11)
+        self.pushButton_35.setIcon(icon5)
         self.pushButton_35.setIconSize(QtCore.QSize(27, 30))
         self.pushButton_35.setObjectName("pushButton_35")
         self.gridLayout_33.addWidget(self.pushButton_35, 1, 0, 1, 1)
@@ -1040,8 +851,8 @@ class Ui_MOS(object):
         self.gridLayout_7 = QtWidgets.QGridLayout(self.page_2)
         self.gridLayout_7.setContentsMargins(5, 0, 5, 0)
         self.gridLayout_7.setObjectName("gridLayout_7")
-        spacerItem20 = QtWidgets.QSpacerItem(20, 30, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_7.addItem(spacerItem20, 4, 0, 1, 2)
+        spacerItem19 = QtWidgets.QSpacerItem(20, 30, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_7.addItem(spacerItem19, 4, 0, 1, 2)
         self.label_9 = QtWidgets.QLabel(self.page_2)
         self.label_9.setStyleSheet("font-size: 17px;")
         self.label_9.setIndent(10)
@@ -1066,8 +877,8 @@ class Ui_MOS(object):
         self.label_8.setObjectName("label_8")
         self.gridLayout_8.addWidget(self.label_8, 1, 0, 1, 1)
         self.gridLayout_7.addWidget(self.widget_5, 3, 0, 1, 2)
-        spacerItem21 = QtWidgets.QSpacerItem(49, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_7.addItem(spacerItem21, 0, 0, 1, 1)
+        spacerItem20 = QtWidgets.QSpacerItem(49, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_7.addItem(spacerItem20, 0, 0, 1, 1)
         self.stackedWidget_mos_right.addWidget(self.page_2)
         self.page_3 = QtWidgets.QWidget()
         font = QtGui.QFont()
@@ -1148,8 +959,8 @@ class Ui_MOS(object):
         self.label_10.setIndent(10)
         self.label_10.setObjectName("label_10")
         self.gridLayout.addWidget(self.label_10, 2, 0, 2, 1)
-        spacerItem22 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout.addItem(spacerItem22, 0, 0, 1, 2)
+        spacerItem21 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout.addItem(spacerItem21, 0, 0, 1, 2)
         self.line_3 = QtWidgets.QFrame(self.page_3)
         self.line_3.setStyleSheet("color:rgb(214, 214, 214)")
         self.line_3.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
@@ -1258,26 +1069,26 @@ class Ui_MOS(object):
         self.widget_2.setObjectName("widget_2")
         self.gridLayout_25 = QtWidgets.QGridLayout(self.widget_2)
         self.gridLayout_25.setObjectName("gridLayout_25")
-        spacerItem23 = QtWidgets.QSpacerItem(199, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_25.addItem(spacerItem23, 0, 2, 1, 2)
+        spacerItem22 = QtWidgets.QSpacerItem(199, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_25.addItem(spacerItem22, 0, 2, 1, 2)
         self.pushButton_8 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_8.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_8.setText("")
-        icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_quilt_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_8.setIcon(icon13)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_quilt_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_8.setIcon(icon7)
         self.pushButton_8.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_8.setObjectName("pushButton_8")
         self.gridLayout_25.addWidget(self.pushButton_8, 3, 0, 1, 1)
-        spacerItem24 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_25.addItem(spacerItem24, 2, 2, 1, 2)
+        spacerItem23 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_25.addItem(spacerItem23, 2, 2, 1, 2)
         self.comboBox_5 = QtWidgets.QComboBox(self.widget_2)
         self.comboBox_5.setMinimumSize(QtCore.QSize(120, 25))
         self.comboBox_5.setStyleSheet("font-size: 13px;")
         self.comboBox_5.setObjectName("comboBox_5")
         self.gridLayout_25.addWidget(self.comboBox_5, 2, 5, 1, 1)
-        spacerItem25 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_25.addItem(spacerItem25, 1, 2, 1, 2)
+        spacerItem24 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_25.addItem(spacerItem24, 1, 2, 1, 2)
         self.label_21 = QtWidgets.QLabel(self.widget_2)
         self.label_21.setStyleSheet("font-size: 15px;")
         self.label_21.setObjectName("label_21")
@@ -1289,25 +1100,25 @@ class Ui_MOS(object):
         self.pushButton_13 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_13.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_13.setText("")
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_loading_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_13.setIcon(icon14)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_loading_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_13.setIcon(icon8)
         self.pushButton_13.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_13.setObjectName("pushButton_13")
         self.gridLayout_25.addWidget(self.pushButton_13, 1, 4, 1, 1)
         self.pushButton_14 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_14.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_14.setText("")
-        self.pushButton_14.setIcon(icon14)
+        self.pushButton_14.setIcon(icon8)
         self.pushButton_14.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_14.setObjectName("pushButton_14")
         self.gridLayout_25.addWidget(self.pushButton_14, 2, 4, 1, 1)
         self.pushButton_5 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_5.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_5.setText("")
-        icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_forge_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_5.setIcon(icon15)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_forge_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_5.setIcon(icon9)
         self.pushButton_5.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_5.setObjectName("pushButton_5")
         self.gridLayout_25.addWidget(self.pushButton_5, 0, 0, 1, 1)
@@ -1318,16 +1129,16 @@ class Ui_MOS(object):
         self.pushButton_7 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_7.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_7.setText("")
-        icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_optifine_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_7.setIcon(icon16)
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_optifine_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_7.setIcon(icon10)
         self.pushButton_7.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_7.setObjectName("pushButton_7")
         self.gridLayout_25.addWidget(self.pushButton_7, 2, 0, 1, 1)
         self.pushButton_15 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_15.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_15.setText("")
-        self.pushButton_15.setIcon(icon14)
+        self.pushButton_15.setIcon(icon8)
         self.pushButton_15.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_15.setObjectName("pushButton_15")
         self.gridLayout_25.addWidget(self.pushButton_15, 3, 4, 1, 1)
@@ -1348,16 +1159,16 @@ class Ui_MOS(object):
         self.pushButton_6 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_6.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_6.setText("")
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_fabric_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_6.setIcon(icon17)
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_fabric_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_6.setIcon(icon11)
         self.pushButton_6.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_6.setObjectName("pushButton_6")
         self.gridLayout_25.addWidget(self.pushButton_6, 1, 0, 1, 1)
         self.pushButton_12 = QtWidgets.QPushButton(self.widget_2)
         self.pushButton_12.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_12.setText("")
-        self.pushButton_12.setIcon(icon14)
+        self.pushButton_12.setIcon(icon8)
         self.pushButton_12.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_12.setObjectName("pushButton_12")
         self.gridLayout_25.addWidget(self.pushButton_12, 0, 4, 1, 1)
@@ -1366,11 +1177,11 @@ class Ui_MOS(object):
         self.comboBox_4.setStyleSheet("font-size: 13px;")
         self.comboBox_4.setObjectName("comboBox_4")
         self.gridLayout_25.addWidget(self.comboBox_4, 1, 5, 1, 1)
-        spacerItem26 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_25.addItem(spacerItem26, 3, 2, 1, 1)
+        spacerItem25 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_25.addItem(spacerItem25, 3, 2, 1, 1)
         self.gridLayout_26.addWidget(self.widget_2, 0, 0, 1, 3)
-        spacerItem27 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_26.addItem(spacerItem27, 1, 0, 1, 1)
+        spacerItem26 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_26.addItem(spacerItem26, 1, 0, 1, 1)
         self.lineEdit = QtWidgets.QLineEdit(self.page_10)
         self.lineEdit.setStyleSheet("font-size: 13px;")
         self.lineEdit.setInputMask("")
@@ -1604,13 +1415,21 @@ class Ui_MOS(object):
         self.tableWidget = QtWidgets.QTableWidget(self.tab)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(3)
-        self.tableWidget.setRowCount(0)
+        self.tableWidget.setRowCount(1)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 2, item)
         self.verticalLayout_6.addWidget(self.tableWidget)
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
@@ -1620,11 +1439,17 @@ class Ui_MOS(object):
         self.tableWidget_2 = QtWidgets.QTableWidget(self.tab_2)
         self.tableWidget_2.setObjectName("tableWidget_2")
         self.tableWidget_2.setColumnCount(2)
-        self.tableWidget_2.setRowCount(0)
+        self.tableWidget_2.setRowCount(1)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_2.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_2.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setItem(0, 1, item)
         self.verticalLayout_7.addWidget(self.tableWidget_2)
         self.tabWidget.addTab(self.tab_2, "")
         self.gridLayout_42.addWidget(self.tabWidget, 0, 0, 1, 1)
@@ -1652,8 +1477,8 @@ class Ui_MOS(object):
         self.gridLayout_3 = QtWidgets.QGridLayout(self.page_4)
         self.gridLayout_3.setContentsMargins(5, 0, 5, 0)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        spacerItem28 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_3.addItem(spacerItem28, 0, 0, 1, 1)
+        spacerItem27 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_3.addItem(spacerItem27, 0, 0, 1, 1)
         self.label_12 = QtWidgets.QLabel(self.page_4)
         self.label_12.setStyleSheet("font-size: 17px;")
         self.label_12.setIndent(10)
@@ -1678,8 +1503,8 @@ class Ui_MOS(object):
         self.label_13.setObjectName("label_13")
         self.gridLayout_10.addWidget(self.label_13, 1, 0, 1, 1)
         self.gridLayout_3.addWidget(self.widget_8, 3, 0, 1, 1)
-        spacerItem29 = QtWidgets.QSpacerItem(832, 393, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_3.addItem(spacerItem29, 4, 0, 1, 1)
+        spacerItem28 = QtWidgets.QSpacerItem(832, 393, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_3.addItem(spacerItem28, 4, 0, 1, 1)
         self.stackedWidget_mos_right.addWidget(self.page_4)
         self.page_5 = QtWidgets.QWidget()
         self.page_5.setStyleSheet("QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}\n"
@@ -1760,7 +1585,59 @@ class Ui_MOS(object):
         self.line_5.setObjectName("line_5")
         self.gridLayout_15.addWidget(self.line_5, 3, 0, 1, 2)
         self.stackedWidget = QtWidgets.QStackedWidget(self.page_5)
-        self.stackedWidget.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.stackedWidget.setStyleSheet("QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}\n"
+"/*设置垂直滚动条基本样式*/\n"
+"QScrollBar:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,0%);\n"
+"    margin:0px,0px,0px,0px;\n"
+"    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
+"    padding-bottom:9px;\n"
+"}\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,25%);\n"
+"    border-radius:4px;   /*滚动条两端变成椭圆*/\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::handle:vertical:hover\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,50%);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
+"    border-radius:4px;\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background:rgba(0,0,0,10%);\n"
+"    border-radius:4px;\n"
+"}")
         self.stackedWidget.setObjectName("stackedWidget")
         self.page = QtWidgets.QWidget()
         self.page.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
@@ -1773,11 +1650,100 @@ class Ui_MOS(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 832, 456))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, -15, 832, 521))
         self.scrollAreaWidgetContents_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
-        self.gridLayout_23 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.widget_28 = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
+        self.widget_28.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
+"QLabel{border-style:none;}\n"
+"#label_6{text-decoration: underline;}\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */\n"
+"    height:27px;\n"
+"    background-color: rgba(235, 235, 235, 128);\n"
+"    border-radius:10px;\n"
+"}\n"
+"\n"
+"/*下拉框的样式*/\n"
+"QComboBox QAbstractItemView \n"
+"{\n"
+"    outline: 0px solid gray;  /*取消选中虚线*/\n"
+"    border: 1px solid rgb(31, 156, 255);\n"
+"    color: rgb(66, 66, 66);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    selection-background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"    height:150px;\n"
+"}\n"
+" /*选中每一项高度*/\n"
+"QComboBox QAbstractItemView::item\n"
+"{ \n"
+"    height: 25px;\n"
+"    border-radius:5px;\n"
+" }\n"
+"/*选中每一项的字体颜色和背景颜色*/\n"
+"QComboBox QAbstractItemView::item:selected \n"
+"{\n"
+"    color: rgb(31,163,246);\n"
+"    background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"}\n"
+"/*QComboBox::down-arrow\n"
+"是 右面那个 \n"
+"*/\n"
+"\n"
+"\n"
+"\n"
+"/* QComboBox中的垂直滚动条 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    height: 8px;\n"
+"    background-color: #d0d2d4;   /* 空白区域的背景色*/\n"
+"    border-style:none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* 圆角 */\n"
+"    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
+"}\n"
+"\n"
+"QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
+"QPushButton::hover{color: rgb(255, 59, 0)}\n"
+"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}")
+        self.widget_28.setObjectName("widget_28")
+        self.gridLayout_23 = QtWidgets.QGridLayout(self.widget_28)
         self.gridLayout_23.setObjectName("gridLayout_23")
+        self.label_35 = QtWidgets.QLabel(self.widget_28)
+        self.label_35.setStyleSheet("font-size: 13px;")
+        self.label_35.setScaledContents(False)
+        self.label_35.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.label_35.setWordWrap(True)
+        self.label_35.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
+        self.label_35.setObjectName("label_35")
+        self.gridLayout_23.addWidget(self.label_35, 0, 0, 2, 1)
+        self.comboBox_8 = QtWidgets.QComboBox(self.widget_28)
+        self.comboBox_8.setObjectName("comboBox_8")
+        self.gridLayout_23.addWidget(self.comboBox_8, 0, 1, 1, 1)
+        self.pushButton_43 = QtWidgets.QPushButton(self.widget_28)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_43.sizePolicy().hasHeightForWidth())
+        self.pushButton_43.setSizePolicy(sizePolicy)
+        self.pushButton_43.setMinimumSize(QtCore.QSize(0, 0))
+        self.pushButton_43.setSizeIncrement(QtCore.QSize(0, 0))
+        self.pushButton_43.setBaseSize(QtCore.QSize(0, 0))
+        self.pushButton_43.setStyleSheet("font-size: 14px;")
+        self.pushButton_43.setIconSize(QtCore.QSize(16, 16))
+        self.pushButton_43.setObjectName("pushButton_43")
+        self.gridLayout_23.addWidget(self.pushButton_43, 1, 1, 1, 1)
+        self.verticalLayout_9.addWidget(self.widget_28)
         self.widget = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
         self.widget.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
 "QLabel{border-style:none;}\n"
@@ -1880,7 +1846,64 @@ class Ui_MOS(object):
         self.fontComboBox.setDuplicatesEnabled(False)
         self.fontComboBox.setObjectName("fontComboBox")
         self.gridLayout_24.addWidget(self.fontComboBox, 0, 1, 1, 3)
-        self.gridLayout_23.addWidget(self.widget, 0, 0, 1, 1)
+        self.verticalLayout_9.addWidget(self.widget)
+        self.widget_29 = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
+        self.widget_29.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
+"QLabel{border-style:none;}\n"
+"#label_6{text-decoration: underline;}\n"
+"QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
+"QPushButton::hover{color: rgb(255, 59, 0)}\n"
+"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}\n"
+"\n"
+"#pushButton_33{border:2px solid rgb(0, 250, 146);}\n"
+"#pushButton_33::hover{color: rgb(0, 250, 146);}\n"
+"#pushButton_33::pressed{background-color: rgb(128, 255, 202);color: rgb(255, 255, 255);}\n"
+"\n"
+"#pushButton_26{border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_26::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"\n"
+"QLineEdit{height:34px;border-radius:8px;border:2px solid rgb(192, 192, 192);}")
+        self.widget_29.setObjectName("widget_29")
+        self.gridLayout_48 = QtWidgets.QGridLayout(self.widget_29)
+        self.gridLayout_48.setObjectName("gridLayout_48")
+        self.label_36 = QtWidgets.QLabel(self.widget_29)
+        self.label_36.setStyleSheet("font-size: 13px;")
+        self.label_36.setScaledContents(False)
+        self.label_36.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.label_36.setWordWrap(True)
+        self.label_36.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
+        self.label_36.setObjectName("label_36")
+        self.gridLayout_48.addWidget(self.label_36, 0, 0, 2, 1)
+        self.pushButton_44 = QtWidgets.QPushButton(self.widget_29)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_44.sizePolicy().hasHeightForWidth())
+        self.pushButton_44.setSizePolicy(sizePolicy)
+        self.pushButton_44.setMinimumSize(QtCore.QSize(0, 0))
+        self.pushButton_44.setSizeIncrement(QtCore.QSize(0, 0))
+        self.pushButton_44.setBaseSize(QtCore.QSize(0, 0))
+        self.pushButton_44.setStyleSheet("font-size: 14px;")
+        self.pushButton_44.setIconSize(QtCore.QSize(16, 16))
+        self.pushButton_44.setObjectName("pushButton_44")
+        self.gridLayout_48.addWidget(self.pushButton_44, 1, 2, 1, 1)
+        self.pushButton_26 = QtWidgets.QPushButton(self.widget_29)
+        self.pushButton_26.setObjectName("pushButton_26")
+        self.gridLayout_48.addWidget(self.pushButton_26, 1, 1, 1, 1)
+        self.pushButton_33 = QtWidgets.QPushButton(self.widget_29)
+        self.pushButton_33.setObjectName("pushButton_33")
+        self.gridLayout_48.addWidget(self.pushButton_33, 0, 2, 1, 1)
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.widget_29)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEdit_2.sizePolicy().hasHeightForWidth())
+        self.lineEdit_2.setSizePolicy(sizePolicy)
+        self.lineEdit_2.setInputMask("")
+        self.lineEdit_2.setReadOnly(False)
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.gridLayout_48.addWidget(self.lineEdit_2, 0, 1, 1, 1)
+        self.verticalLayout_9.addWidget(self.widget_29)
         self.widget_4 = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
         self.widget_4.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
 "QLabel{border-style:none;}\n"
@@ -1982,9 +2005,7 @@ class Ui_MOS(object):
         self.pushButton_20.setStyleSheet("font-size: 14px;")
         self.pushButton_20.setObjectName("pushButton_20")
         self.gridLayout_29.addWidget(self.pushButton_20, 2, 2, 1, 1)
-        self.gridLayout_23.addWidget(self.widget_4, 1, 0, 1, 1)
-        spacerItem30 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_23.addItem(spacerItem30, 2, 0, 1, 1)
+        self.verticalLayout_9.addWidget(self.widget_4)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents_2)
         self.gridLayout_11.addWidget(self.scrollArea, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.page)
@@ -1998,7 +2019,7 @@ class Ui_MOS(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 832, 469))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 832, 506))
         self.scrollAreaWidgetContents_3.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.gridLayout_30 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_3)
@@ -2108,8 +2129,8 @@ class Ui_MOS(object):
         self.pushButton_21.setObjectName("pushButton_21")
         self.gridLayout_31.addWidget(self.pushButton_21, 3, 2, 1, 2)
         self.gridLayout_30.addWidget(self.widget_15, 0, 0, 1, 1)
-        spacerItem31 = QtWidgets.QSpacerItem(20, 282, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_30.addItem(spacerItem31, 1, 0, 1, 1)
+        spacerItem29 = QtWidgets.QSpacerItem(20, 282, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_30.addItem(spacerItem29, 1, 0, 1, 1)
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_3)
         self.gridLayout_32.addWidget(self.scrollArea_2, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.page_7)
@@ -2119,8 +2140,8 @@ class Ui_MOS(object):
         self.label_15.setIndent(10)
         self.label_15.setObjectName("label_15")
         self.gridLayout_15.addWidget(self.label_15, 1, 0, 1, 1)
-        spacerItem32 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_15.addItem(spacerItem32, 0, 0, 1, 2)
+        spacerItem30 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_15.addItem(spacerItem30, 0, 0, 1, 2)
         self.widget_17 = QtWidgets.QWidget(self.page_5)
         self.widget_17.setObjectName("widget_17")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.widget_17)
@@ -2141,8 +2162,8 @@ class Ui_MOS(object):
         self.gridLayout_14 = QtWidgets.QGridLayout(self.page_6)
         self.gridLayout_14.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_14.setObjectName("gridLayout_14")
-        spacerItem33 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_14.addItem(spacerItem33, 0, 0, 1, 2)
+        spacerItem31 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_14.addItem(spacerItem31, 0, 0, 1, 2)
         self.line_6 = QtWidgets.QFrame(self.page_6)
         self.line_6.setStyleSheet("color:rgb(214, 214, 214)")
         self.line_6.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
@@ -2230,8 +2251,8 @@ class Ui_MOS(object):
         self.gridLayout_12 = QtWidgets.QGridLayout(self.widget_11)
         self.gridLayout_12.setHorizontalSpacing(7)
         self.gridLayout_12.setObjectName("gridLayout_12")
-        spacerItem34 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_12.addItem(spacerItem34, 1, 2, 1, 1)
+        spacerItem32 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_12.addItem(spacerItem32, 1, 2, 1, 1)
         self.label_16 = QtWidgets.QLabel(self.widget_11)
         self.label_16.setStyleSheet("font-size: 13px;")
         self.label_16.setObjectName("label_16")
@@ -2239,7 +2260,9 @@ class Ui_MOS(object):
         self.pushButton = QtWidgets.QPushButton(self.widget_11)
         self.pushButton.setStyleSheet("border-style:none;")
         self.pushButton.setText("")
-        self.pushButton.setIcon(icon1)
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_ico_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton.setIcon(icon12)
         self.pushButton.setIconSize(QtCore.QSize(40, 40))
         self.pushButton.setObjectName("pushButton")
         self.gridLayout_12.addWidget(self.pushButton, 1, 0, 1, 1)
@@ -2257,14 +2280,14 @@ class Ui_MOS(object):
         self.label_18.setStyleSheet("font-size: 13px;")
         self.label_18.setObjectName("label_18")
         self.gridLayout_17.addWidget(self.label_18, 0, 1, 1, 1)
-        spacerItem35 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_17.addItem(spacerItem35, 0, 2, 1, 1)
+        spacerItem33 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_17.addItem(spacerItem33, 0, 2, 1, 1)
         self.pushButton_4 = QtWidgets.QPushButton(self.widget_12)
         self.pushButton_4.setStyleSheet("border-style:none;")
         self.pushButton_4.setText("")
-        icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_david_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_4.setIcon(icon18)
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_david_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_4.setIcon(icon13)
         self.pushButton_4.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_4.setObjectName("pushButton_4")
         self.gridLayout_17.addWidget(self.pushButton_4, 0, 0, 1, 1)
@@ -2283,8 +2306,8 @@ class Ui_MOS(object):
         self.gridLayout_18.setHorizontalSpacing(2)
         self.gridLayout_18.setVerticalSpacing(6)
         self.gridLayout_18.setObjectName("gridLayout_18")
-        spacerItem36 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_18.addItem(spacerItem36, 0, 3, 1, 1)
+        spacerItem34 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_18.addItem(spacerItem34, 0, 3, 1, 1)
         self.label_25 = QtWidgets.QLabel(self.widget_14)
         self.label_25.setText("")
         self.label_25.setObjectName("label_25")
@@ -2292,9 +2315,9 @@ class Ui_MOS(object):
         self.pushButton_9 = QtWidgets.QPushButton(self.widget_14)
         self.pushButton_9.setStyleSheet("border-style:none;")
         self.pushButton_9.setText("")
-        icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_heimnad_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_9.setIcon(icon19)
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_heimnad_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_9.setIcon(icon14)
         self.pushButton_9.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_9.setObjectName("pushButton_9")
         self.gridLayout_18.addWidget(self.pushButton_9, 0, 0, 1, 1)
@@ -2340,8 +2363,8 @@ class Ui_MOS(object):
         self.label_31.setStyleSheet("font-size: 13px;")
         self.label_31.setObjectName("label_31")
         self.gridLayout_19.addWidget(self.label_31, 1, 0, 1, 1)
-        spacerItem37 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_19.addItem(spacerItem37, 1, 1, 1, 1)
+        spacerItem35 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_19.addItem(spacerItem35, 1, 1, 1, 1)
         self.verticalLayout_8.addWidget(self.widget_23)
         self.gridLayout_43.addWidget(self.widget_19, 2, 0, 1, 1)
         self.widget_10 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
@@ -2386,8 +2409,8 @@ class Ui_MOS(object):
         self.pushButton_28.setSizePolicy(sizePolicy)
         self.pushButton_28.setObjectName("pushButton_28")
         self.gridLayout_44.addWidget(self.pushButton_28, 2, 2, 1, 1)
-        spacerItem38 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_44.addItem(spacerItem38, 2, 1, 1, 1)
+        spacerItem36 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_44.addItem(spacerItem36, 2, 1, 1, 1)
         self.gridLayout_46.addWidget(self.widget_24, 1, 0, 1, 1)
         self.widget_25 = QtWidgets.QWidget(self.widget_10)
         self.widget_25.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
@@ -2404,8 +2427,8 @@ class Ui_MOS(object):
         self.gridLayout_45 = QtWidgets.QGridLayout(self.widget_25)
         self.gridLayout_45.setHorizontalSpacing(7)
         self.gridLayout_45.setObjectName("gridLayout_45")
-        spacerItem39 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Policy.Ignored, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_45.addItem(spacerItem39, 0, 1, 5, 1)
+        spacerItem37 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Policy.Ignored, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_45.addItem(spacerItem37, 0, 1, 5, 1)
         self.label_34 = QtWidgets.QLabel(self.widget_25)
         self.label_34.setStyleSheet("font-size: 13px;")
         self.label_34.setScaledContents(False)
@@ -2446,17 +2469,206 @@ class Ui_MOS(object):
         self.label_17.setObjectName("label_17")
         self.gridLayout_14.addWidget(self.label_17, 1, 0, 1, 2)
         self.stackedWidget_mos_right.addWidget(self.page_6)
-        self.gridLayout_13.addWidget(self.stackedWidget_mos_right, 0, 1, 1, 1)
+        self.gridLayout_13.addWidget(self.stackedWidget_mos_right, 1, 1, 1, 1)
+        self.widget_mos_left = QtWidgets.QWidget(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_mos_left.sizePolicy().hasHeightForWidth())
+        self.widget_mos_left.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.widget_mos_left.setFont(font)
+        self.widget_mos_left.setAutoFillBackground(False)
+        self.widget_mos_left.setStyleSheet("QWidget\n"
+"{\n"
+"    background-color: rgb(231, 230, 228);\n"
+"}\n"
+"#widget_mos_left_top\n"
+"{\n"
+"    background-color: rgb(231, 230, 228);\n"
+"    border-style:none;\n"
+"    border-radius:15px;\n"
+"}\n"
+"#widget_mos_left_top::hover\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}\n"
+"#widget_mos_left_top::pressed\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"    color: blue;\n"
+"    height:35px;\n"
+"    color: rgb(0, 150, 255);\n"
+"    background-position: left;\n"
+"    text-align: left;\n"
+"    padding-right:15px;\n"
+"    padding-left:5px;\n"
+"    border-style:none;\n"
+"    border-radius:8px;\n"
+"    border:2px solid rgba(229, 228, 226,0);\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(192, 192, 192);\n"
+"}\n"
+"QPushButton::pressed\n"
+"{\n"
+"    border:2px solid rgb(0, 150, 255);\n"
+"}\n"
+"\n"
+"#pushButton_home\n"
+"{\n"
+"    color: blue;\n"
+"    height:35px;\n"
+"    color: rgb(0, 150, 255);\n"
+"    background-position: left;\n"
+"    text-align: left;\n"
+"    padding-right:15px;\n"
+"    padding-left:5px;\n"
+"    border-style:none;\n"
+"    border-radius:8px;\n"
+"    border:2px solid rgba(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
+"}\n"
+"#pushButton_home::hover\n"
+"{\n"
+"    background-color: rgb(192, 192, 192);\n"
+"}\n"
+"#pushButton_home::pressed\n"
+"{\n"
+"    border:2px solid rgb(0, 150, 255);\n"
+"}")
+        self.widget_mos_left.setObjectName("widget_mos_left")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget_mos_left)
+        self.verticalLayout_2.setContentsMargins(9, 12, 9, -1)
+        self.verticalLayout_2.setSpacing(1)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.widget_mos_left_top = QtWidgets.QWidget(self.widget_mos_left)
+        self.widget_mos_left_top.setStyleSheet("#label_mos_left_top_user{background-color: rgba(255, 255, 255, 0);}\n"
+"#label_mos_left_top_add{background-color: rgba(255, 255, 255, 0);}\n"
+"QWidget\n"
+"{\n"
+"    background-color: rgb(231, 230, 228);\n"
+"    border-style:none;\n"
+"    border-radius:15px;\n"
+"}\n"
+"QWidget::hover\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}\n"
+"QWidget::pressed\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"    background-position: left;\n"
+"    text-align: left;\n"
+"    padding-right:0px;\n"
+"    padding-left:0px;\n"
+"}\n"
+"")
+        self.widget_mos_left_top.setObjectName("widget_mos_left_top")
+        self.gridLayout_4 = QtWidgets.QGridLayout(self.widget_mos_left_top)
+        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.pushButton_mos_left_top = QtWidgets.QPushButton(self.widget_mos_left_top)
+        self.pushButton_mos_left_top.setStyleSheet("width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);")
+        self.pushButton_mos_left_top.setText("")
+        self.pushButton_mos_left_top.setIcon(icon12)
+        self.pushButton_mos_left_top.setIconSize(QtCore.QSize(50, 50))
+        self.pushButton_mos_left_top.setObjectName("pushButton_mos_left_top")
+        self.gridLayout_4.addWidget(self.pushButton_mos_left_top, 1, 0, 2, 1)
+        self.label_mos_left_top_add = QtWidgets.QLabel(self.widget_mos_left_top)
+        self.label_mos_left_top_add.setStyleSheet("font-size: 13px;")
+        self.label_mos_left_top_add.setObjectName("label_mos_left_top_add")
+        self.gridLayout_4.addWidget(self.label_mos_left_top_add, 2, 1, 1, 1)
+        self.label_mos_left_top_user = QtWidgets.QLabel(self.widget_mos_left_top)
+        self.label_mos_left_top_user.setStyleSheet("font-size: 13px;")
+        self.label_mos_left_top_user.setObjectName("label_mos_left_top_user")
+        self.gridLayout_4.addWidget(self.label_mos_left_top_user, 1, 1, 1, 1)
+        self.verticalLayout_2.addWidget(self.widget_mos_left_top)
+        self.line_2 = QtWidgets.QFrame(self.widget_mos_left)
+        self.line_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.line_2.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.verticalLayout_2.addWidget(self.line_2)
+        self.pushButton_home = QtWidgets.QPushButton(self.widget_mos_left)
+        self.pushButton_home.setMinimumSize(QtCore.QSize(150, 0))
+        self.pushButton_home.setFocusPolicy(QtCore.Qt.FocusPolicy.TabFocus)
+        self.pushButton_home.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.pushButton_home.setStyleSheet("font-size: 15px;")
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_home_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_home.setIcon(icon15)
+        self.pushButton_home.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_home.setObjectName("pushButton_home")
+        self.verticalLayout_2.addWidget(self.pushButton_home)
+        self.pushButton_lianji = QtWidgets.QPushButton(self.widget_mos_left)
+        self.pushButton_lianji.setMinimumSize(QtCore.QSize(150, 0))
+        self.pushButton_lianji.setStyleSheet("font-size: 15px;")
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_online_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_lianji.setIcon(icon16)
+        self.pushButton_lianji.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_lianji.setObjectName("pushButton_lianji")
+        self.verticalLayout_2.addWidget(self.pushButton_lianji)
+        self.pushButton_xiazai = QtWidgets.QPushButton(self.widget_mos_left)
+        self.pushButton_xiazai.setMinimumSize(QtCore.QSize(150, 0))
+        self.pushButton_xiazai.setStyleSheet("font-size: 15px;")
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_download_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_xiazai.setIcon(icon17)
+        self.pushButton_xiazai.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_xiazai.setObjectName("pushButton_xiazai")
+        self.verticalLayout_2.addWidget(self.pushButton_xiazai)
+        self.pushButton_music = QtWidgets.QPushButton(self.widget_mos_left)
+        self.pushButton_music.setMinimumSize(QtCore.QSize(150, 0))
+        self.pushButton_music.setStyleSheet("font-size: 15px;")
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_music_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_music.setIcon(icon18)
+        self.pushButton_music.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_music.setObjectName("pushButton_music")
+        self.verticalLayout_2.addWidget(self.pushButton_music)
+        self.pushButton_shezhi = QtWidgets.QPushButton(self.widget_mos_left)
+        self.pushButton_shezhi.setMinimumSize(QtCore.QSize(150, 0))
+        self.pushButton_shezhi.setStyleSheet("font-size: 15px;")
+        self.pushButton_shezhi.setIcon(icon2)
+        self.pushButton_shezhi.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_shezhi.setObjectName("pushButton_shezhi")
+        self.verticalLayout_2.addWidget(self.pushButton_shezhi)
+        self.pushButton_about = QtWidgets.QPushButton(self.widget_mos_left)
+        self.pushButton_about.setMinimumSize(QtCore.QSize(150, 0))
+        self.pushButton_about.setStyleSheet("font-size: 15px;")
+        icon19 = QtGui.QIcon()
+        icon19.addPixmap(QtGui.QPixmap( MOS_catalogue_picture_about_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_about.setIcon(icon19)
+        self.pushButton_about.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_about.setObjectName("pushButton_about")
+        self.verticalLayout_2.addWidget(self.pushButton_about)
+        spacerItem38 = QtWidgets.QSpacerItem(20, 184, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem38)
+        self.label_mosll = QtWidgets.QLabel(self.widget_mos_left)
+        self.label_mosll.setStyleSheet("color: rgb(0, 150, 255);font-size: 17px;font: 75 17pt \"Yuanti SC\";background-color: rgba(240, 239, 238,0);")
+        self.label_mosll.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_mosll.setWordWrap(True)
+        self.label_mosll.setObjectName("label_mosll")
+        self.verticalLayout_2.addWidget(self.label_mosll)
+        self.gridLayout_13.addWidget(self.widget_mos_left, 1, 0, 1, 1)
         MOS.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MOS)
         self.stackedWidget_mos_right.setCurrentIndex(0)
-        self.stackedWidget_gonggao.setCurrentIndex(1)
         self.comboBox_gonggao_right.setCurrentIndex(-1)
+        self.stackedWidget_gonggao.setCurrentIndex(1)
         self.stackedWidget_mos_right_2.setCurrentIndex(0)
         self.stackedWidget_5.setCurrentIndex(0)
         self.stackedWidget_2.setCurrentIndex(0)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         self.stackedWidget.setCurrentIndex(0)
         self.fontComboBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MOS)
@@ -2464,25 +2676,16 @@ class Ui_MOS(object):
     def retranslateUi(self, MOS):
         _translate = QtCore.QCoreApplication.translate
         MOS.setWindowTitle(_translate("MOS", "MOS ll 启动器"))
-        self.label_mos_left_top_add.setText(_translate("MOS", "点击添加"))
-        self.label_mos_left_top_user.setText(_translate("MOS", "无用户"))
-        self.pushButton_home.setText(_translate("MOS", "主页"))
-        self.pushButton_lianji.setText(_translate("MOS", "联机"))
-        self.pushButton_xiazai.setText(_translate("MOS", "下载"))
-        self.pushButton_music.setText(_translate("MOS", "音乐"))
-        self.pushButton_shezhi.setText(_translate("MOS", "设置"))
-        self.pushButton_about.setText(_translate("MOS", "关于"))
-        self.label_mosll.setText(_translate("MOS", "MOS II"))
-        self.label_2.setText(_translate("MOS", "正在加载\n"
-"\n"
-"当前步骤：下载公告……请稍后\n"
-""))
-        self.label_gonggao_left_txt.setText(_translate("MOS", "<html><head/><body><p>官方公告 <span style=\" color:#55f976;\">•正在加载中</span></p></body></html>"))
         self.label__gonggao_right_txt.setText(_translate("MOS", "<html><head/><body><p>启动游戏 <span style=\" color:#0096ff;\">•等待启动</span></p></body></html>"))
         self.label_7.setText(_translate("MOS", "启动君：待命中……"))
         self.pushButton_16.setText(_translate("MOS", "版本列表"))
         self.pushButton_17.setText(_translate("MOS", "版本设置"))
         self.pushButton__gonggao_start.setText(_translate("MOS", "启动游戏"))
+        self.label_gonggao_left_txt.setText(_translate("MOS", "<html><head/><body><p>官方公告 <span style=\" color:#55f976;\">•正在加载中</span></p></body></html>"))
+        self.label_2.setText(_translate("MOS", "正在加载\n"
+"\n"
+"当前步骤：下载公告……请稍后\n"
+""))
         self.label_24.setText(_translate("MOS", "版本列表"))
         __sortingEnabled = self.listWidget.isSortingEnabled()
         self.listWidget.setSortingEnabled(False)
@@ -2549,17 +2752,37 @@ class Ui_MOS(object):
         item.setText(_translate("MOS", "免安装版 Java 17"))
         self.listWidget_3.setSortingEnabled(__sortingEnabled)
         self.pushButton_24.setText(_translate("MOS", "下载 - 请选择要下载的Java"))
+        item = self.tableWidget.verticalHeaderItem(0)
+        item.setText(_translate("MOS", "1"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MOS", "新建列"))
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("MOS", "任务"))
         item = self.tableWidget.horizontalHeaderItem(2)
         item.setText(_translate("MOS", "已用时间"))
+        __sortingEnabled = self.tableWidget.isSortingEnabled()
+        self.tableWidget.setSortingEnabled(False)
+        item = self.tableWidget.item(0, 0)
+        item.setText(_translate("MOS", "已弃用"))
+        item = self.tableWidget.item(0, 1)
+        item.setText(_translate("MOS", "已弃用"))
+        item = self.tableWidget.item(0, 2)
+        item.setText(_translate("MOS", "已弃用"))
+        self.tableWidget.setSortingEnabled(__sortingEnabled)
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MOS", "下载/安装"))
+        item = self.tableWidget_2.verticalHeaderItem(0)
+        item.setText(_translate("MOS", "1"))
         item = self.tableWidget_2.horizontalHeaderItem(0)
         item.setText(_translate("MOS", "新建列"))
         item = self.tableWidget_2.horizontalHeaderItem(1)
         item.setText(_translate("MOS", "用时"))
+        __sortingEnabled = self.tableWidget_2.isSortingEnabled()
+        self.tableWidget_2.setSortingEnabled(False)
+        item = self.tableWidget_2.item(0, 0)
+        item.setText(_translate("MOS", "新建列"))
+        item = self.tableWidget_2.item(0, 1)
+        item.setText(_translate("MOS", "新建列"))
+        self.tableWidget_2.setSortingEnabled(__sortingEnabled)
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MOS", "已完成"))
         self.comboBox_2.setItemText(0, _translate("MOS", "游戏下载"))
         self.comboBox_2.setItemText(1, _translate("MOS", "Mod下载"))
@@ -2570,9 +2793,16 @@ class Ui_MOS(object):
         self.label_12.setText(_translate("MOS", "音乐"))
         self.label_13.setText(_translate("MOS", "音乐 正在开发中……\n"
 "不要着急啦 你的赞助就是我更新的动力！嘻嘻～"))
+        self.label_35.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">下载源设置</span></p><p>在这里 你可以选择下载源</p><p><br/></p></body></html>"))
+        self.pushButton_43.setText(_translate("MOS", "恢复默认"))
         self.pushButton_11.setText(_translate("MOS", "恢复默认"))
         self.label_4.setText(_translate("MOS", "<html><head/><body style=\"line-height:1px;\"><p style=\"line-height:1px;\"><span style=\" font-size:20pt;\">启动器字体</span></p><p  style=\"line-height:1px;\">在这里 你可以自定义启动器字体 有的字体相差很小，导致有人可能认为<span style=\" font-style:italic;line-height:1px;\">字体没有更改</span>，其实不是的</p></body></html>"))
         self.label_6.setText(_translate("MOS", "Hello Minecraft Optimal Starter 2 !"))
+        self.label_36.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">左下角文字设置</span></p><p>在这里 你可以自定义左下角显示的文字以及字体、字号</p><p><br/></p></body></html>"))
+        self.pushButton_44.setText(_translate("MOS", "恢复默认"))
+        self.pushButton_26.setText(_translate("MOS", "选择字体&字体大小"))
+        self.pushButton_33.setText(_translate("MOS", "确认"))
+        self.lineEdit_2.setPlaceholderText(_translate("MOS", "请输入您要自定义的文字"))
         self.pushButton_19.setText(_translate("MOS", "检查更新"))
         self.label_5.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:20pt;\">启动器更新</span></p><p>在这里 你可以更新启动器</p><p>你可以在“关于”中查看当前版本</p></body></html>"))
         self.radioButton.setText(_translate("MOS", "自动为您检查更新"))
@@ -2587,7 +2817,7 @@ class Ui_MOS(object):
         self.comboBox.setItemText(1, _translate("MOS", "全局游戏设置"))
         self.label.setText(_translate("MOS", "关于"))
         self.label_16.setText(_translate("MOS", "MOS启动器\n"
-"版本V2.0.5-alpha"))
+"版本V2.0.6-alpha"))
         self.label_18.setText(_translate("MOS", "MOS唯一开发者 David"))
         self.pushButton_3.setText(_translate("MOS", "赞助作者"))
         self.label_22.setText(_translate("MOS", "MOS网站支持、测试小组负责人 HeimNad"))
@@ -2605,3 +2835,12 @@ class Ui_MOS(object):
         self.pushButton_31.setText(_translate("MOS", "项目地址(GitHub 推荐)"))
         self.pushButton_32.setText(_translate("MOS", "项目地址(Gitee 不推荐)"))
         self.label_17.setText(_translate("MOS", "关于"))
+        self.label_mos_left_top_add.setText(_translate("MOS", "点击添加"))
+        self.label_mos_left_top_user.setText(_translate("MOS", "无用户"))
+        self.pushButton_home.setText(_translate("MOS", "主页"))
+        self.pushButton_lianji.setText(_translate("MOS", "联机"))
+        self.pushButton_xiazai.setText(_translate("MOS", "下载"))
+        self.pushButton_music.setText(_translate("MOS", "音乐"))
+        self.pushButton_shezhi.setText(_translate("MOS", "设置"))
+        self.pushButton_about.setText(_translate("MOS", "关于"))
+        self.label_mosll.setText(_translate("MOS", "MOS II"))

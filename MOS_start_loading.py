@@ -8,6 +8,7 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtCore import QTimer
+from PyQt6.QtWidgets import QMainWindow
 import MOS_start_loading_rc
 
 class Ui_MainWindow(object):

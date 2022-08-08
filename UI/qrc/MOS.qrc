@@ -1,6 +1,8 @@
 <RCC>
   <qresource prefix="img">
     <file>caret-down_1.png</file>
+    <file>hide.png</file>
+    <file>close.png</file>
     <file>caret-down.png</file>
     <file>caret-up.png</file>
     <file>caret-up_1.png</file>

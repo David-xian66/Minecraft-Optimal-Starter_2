@@ -30,10 +30,11 @@ if __name__ == '__main__':
         from MOS_print_ import MOS_print
         import sys,os
         import MOS_UI_Main
+        from MOS_start_loading import Ui_MainWindow
 
         a = str(sys.platform)
         if a == "darwin":
-            MOS_print("info",'当前系统为Mac')
+            MOS_print("info",'当0前系统为Mac')
             user_name = os.getlogin()
             # 获取当前系统用户目录
             user_home = os.path.expanduser('~')
@@ -44,6 +45,7 @@ if __name__ == '__main__':
         MOS_print("info","Ui程序已开始运行！")
         sys.excepthook = except_hook
         MOS_print("info","请稍等...")
+
         ui = MOS_UI_Main.start()
 
     except KeyboardInterrupt:
