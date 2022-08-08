@@ -1881,7 +1881,7 @@ class Ui_MOS(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, -15, 832, 521))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 832, 521))
         self.scrollAreaWidgetContents_2.setStyleSheet(u"background-color: rgba(255, 255, 255, 0);")
         self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
@@ -2289,7 +2289,7 @@ class Ui_MOS(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 832, 506))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 258, 845))
         self.scrollAreaWidgetContents_3.setStyleSheet(u"background-color: rgba(255, 255, 255, 0);")
         self.gridLayout_30 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_30.setObjectName(u"gridLayout_30")
@@ -2530,7 +2530,7 @@ class Ui_MOS(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 832, 800))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 504, 832))
         self.scrollAreaWidgetContents_4.setStyleSheet(u"")
         self.gridLayout_43 = QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout_43.setObjectName(u"gridLayout_43")
@@ -2903,6 +2903,12 @@ class Ui_MOS(object):
 "#pushButton_home::pressed\n"
 "{\n"
 "	border:2px solid rgb(0, 150, 255);\n"
+"}\n"
+"\n"
+"ToolTip{\n"
+"    border: 1px solid rgb(28, 28, 28);\n"
+"    border-radius: 5px;\n"
+"    background-color: rgb(43, 43, 43);\n"
 "}")
         self.verticalLayout_2 = QVBoxLayout(self.widget_mos_left)
         self.verticalLayout_2.setSpacing(1)
@@ -3264,6 +3270,9 @@ class Ui_MOS(object):
         self.pushButton_mos_left_top.setText("")
         self.label_mos_left_top_add.setText(QCoreApplication.translate("MOS", u"\u70b9\u51fb\u6dfb\u52a0", None))
         self.label_mos_left_top_user.setText(QCoreApplication.translate("MOS", u"\u65e0\u7528\u6237", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_home.setToolTip(QCoreApplication.translate("MOS", u"<html><head/><body><p>1</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_home.setText(QCoreApplication.translate("MOS", u"\u4e3b\u9875", None))
         self.pushButton_lianji.setText(QCoreApplication.translate("MOS", u"\u8054\u673a", None))
         self.pushButton_xiazai.setText(QCoreApplication.translate("MOS", u"\u4e0b\u8f7d", None))

@@ -1831,7 +1831,7 @@ class Ui_MOS(object):
         self.gridLayout_24.addWidget(self.label_4, 0, 0, 2, 1)
         self.label_6 = QtWidgets.QLabel(self.widget)
         font = QtGui.QFont()
-        font.setPointSize(-1)
+        #font.setPointSize(-1)
         font.setItalic(True)
         font.setUnderline(True)
         self.label_6.setFont(font)

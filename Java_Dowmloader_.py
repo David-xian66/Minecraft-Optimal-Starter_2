@@ -7,7 +7,7 @@ from Java_Dowmloader_OK import Java_OK_UI as Ui_Java_Dowmloader_OK_
 
 from PyQt6.QtWidgets import  QApplication, QLabel,QDialogButtonBox,QDialog
 from PyQt6.QtCore import QPropertyAnimation, QTimer,QThread,pyqtSignal
-from PyQt6 import QtCore
+from PyQt6 import QtWidgets,QtCore
 class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
     sinOut = pyqtSignal()
     def __init__(self,v=None,url=None,file=None):
@@ -16,6 +16,13 @@ class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
         self.url = url
         self.file = file
         self.setupUi(self)
+
+        # 添加阴影
+        self.effect_shadow = QtWidgets.QGraphicsDropShadowEffect(self)
+        self.effect_shadow.setOffset(0,0) # 偏移
+        self.effect_shadow.setBlurRadius(15) # 阴影半径
+        self.effect_shadow.setColor(QtCore.Qt.GlobalColor.gray) # 阴影颜色
+        self.setGraphicsEffect(self.effect_shadow) # 将设置套用到窗口中
 
 
     def start_(self):

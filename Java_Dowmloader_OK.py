@@ -1,5 +1,5 @@
 from Java_Dowmloader_OK_UI import Ui_Dialog_2 as Java_Dowmloader_OK_UI
-
+from PyQt6 import QtWidgets,QtCore
 from PyQt6.QtWidgets import QApplication, QLabel,QDialogButtonBox,QDialog
 from PyQt6.QtCore import QPropertyAnimation, QTimer,QThread,pyqtSignal
 
@@ -12,6 +12,12 @@ class Java_OK_UI(QDialog,Java_Dowmloader_OK_UI):
         self.show()
         self.pushButton.clicked.connect(self.clicked_pushButton_close)
 
+        # 添加阴影
+        self.effect_shadow = QtWidgets.QGraphicsDropShadowEffect(self)
+        self.effect_shadow.setOffset(0,0) # 偏移
+        self.effect_shadow.setBlurRadius(155) # 阴影半径
+        self.effect_shadow.setColor(QtCore.Qt.GlobalColor.gray) # 阴影颜色
+        self.setGraphicsEffect(self.effect_shadow) # 将设置套用到窗口中
 
     def clicked_pushButton_close(self):
         self.pushButton.setEnabled(False) #为了防止重复操作 直接禁用按钮

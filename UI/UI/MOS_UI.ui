@@ -3258,7 +3258,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>-15</y>
+                 <y>0</y>
                  <width>832</width>
                  <height>521</height>
                 </rect>
@@ -3869,8 +3869,8 @@ QRadioButton{border-style:none;}</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>832</width>
-                 <height>506</height>
+                 <width>258</width>
+                 <height>845</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -4240,8 +4240,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>832</width>
-             <height>800</height>
+             <width>504</width>
+             <height>832</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -4825,6 +4825,12 @@ QPushButton::pressed
 #pushButton_home::pressed
 {
 	border:2px solid rgb(0, 150, 255);
+}
+
+ToolTip{
+    border: 1px solid rgb(28, 28, 28);
+    border-radius: 5px;
+    background-color: rgb(43, 43, 43);
 }</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -4932,6 +4938,9 @@ QPushButton
          </property>
          <property name="focusPolicy">
           <enum>Qt::TabFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="layoutDirection">
           <enum>Qt::LeftToRight</enum>
