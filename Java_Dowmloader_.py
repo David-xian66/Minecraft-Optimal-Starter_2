@@ -1,3 +1,4 @@
+from telnetlib import DO
 import traceback
 
 import requests
@@ -19,8 +20,7 @@ class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
 
     def start_(self):
         self.progressBar.setValue(0)
-        self.pushButton.clicked.connect(self.clicked_pushButton_close)
-        self.pushButton.clicked.connect(self.clicked_pushButton_close)
+        self.pushButton.clicked.connect(self.J_D_stop)
         self.progressBar.setValue(0)
         self.progressBar_2.setValue(0)
         self.progressBar_2.setMaximum(0)
@@ -31,6 +31,13 @@ class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
         self.d.start()
 
 
+    def J_D_stop(self):
+        """暂停&取消下载"""
+        from MOS_Dowmloader import Dowmloader
+        Dowmloader.q_()
+        self.d.terminate() # 强行终止
+        self.d.wait()
+        self.clicked_pushButton_close()
 
     def clicked_pushButton_close(self):
         self.pushButton.setEnabled(False) #为了防止重复操作 直接禁用按钮
@@ -100,6 +107,7 @@ class Java_d(QThread):
         self.file = file
     def run(self):
         from MOS_Dowmloader import Dowmloader
+        from multiprocessing import Process
         try:
             a = Dowmloader(self.url, 100, self.file)
         except requests.exceptions.MissingSchema:

@@ -7,7 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
+from PyQt6.QtCore import QTimer
 import MOS_start_loading_rc
 
 class Ui_MainWindow(object):
@@ -55,3 +55,11 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+
+        self.a = QTimer()
+        self.a.start(5000) #开始计时器
+        self.a.timeout.connect(self.A) #要执行的槽
+
+    def A(self):
+        quit()
+

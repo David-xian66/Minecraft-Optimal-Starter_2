@@ -1,11 +1,9 @@
-import imp
 import json
-from multiprocessing.dummy import Manager
 import os
 import sys
 import traceback
 import webbrowser
-
+import threading
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
@@ -26,41 +24,6 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         super(Ui_MOS_Main, self).__init__()
         self.setupUi(self)
         self.show()
-        MOS_catalogue_picture_ico_png = os.path.join("picture", "ico.png")
-        MOS_catalogue_picture_home_png = os.path.join("picture", "home.png")
-        MOS_catalogue_picture_online_png = os.path.join("picture", "online.png")
-        MOS_catalogue_picture_download_png = os.path.join("picture", "download.png")
-        MOS_catalogue_picture_music_png = os.path.join("picture", "music.png")
-        MOS_catalogue_picture_settings_png = os.path.join("picture", "settings.png")
-        MOS_catalogue_picture_about_png = os.path.join("picture", "about.png")
-        MOS_catalogue_picture_david_png = os.path.join("picture", "david.png")
-        MOS_catalogue_picture_heimnad_png = os.path.join("picture", "heimnad.png")
-        MOS_catalogue_picture_fabric_png = os.path.join("picture", "fabric.png")
-        MOS_catalogue_picture_forge_png = os.path.join("picture", "forge.png")
-        MOS_catalogue_picture_loading_png = os.path.join("picture", "loading.gif")
-        MOS_catalogue_picture_loading_black_png = os.path.join("picture", "loading_black.gif")
-        MOS_catalogue_picture_loading_2_png = os.path.join("picture", "loading_2.gif")
-        MOS_catalogue_picture_loading_2_black_png = os.path.join("picture", "loading_2_black.gif")
-        MOS_catalogue_picture_loading_3_png = os.path.join("picture", "loading_3.gif")
-        MOS_catalogue_picture_loading_3_black_png = os.path.join("picture", "loading_3_black.gif")
-        MOS_catalogue_picture_quilt_png = os.path.join("picture", "quilt.png")
-        MOS_catalogue_picture_optifine_png = os.path.join("picture", "optifine.png")
-        MOS_catalogue_picture_add_png = os.path.join("picture", "add.png")
-        MOS_catalogue_picture_back_png = os.path.join("picture", "back.png")
-        MOS_catalogue_picture_back_blue_up_png = os.path.join("picture", "back_blue_up.png")
-        MOS_catalogue_picture_back_up_png = os.path.join("picture", "back_up.png")
-        MOS_catalogue_picture_back_down_png = os.path.join("picture", "back_down.png")
-        MOS_catalogue_picture_back_blue_down_png = os.path.join("picture", "back_blue_down.png")
-        MOS_catalogue_picture_folder_add_png = os.path.join("picture", "folder_add.png")
-        MOS_catalogue_picture_folder_minus_png = os.path.join("picture", "folder_minus.png")
-        MOS_catalogue_picture_folder_open_png = os.path.join("picture", "folder_open.png")
-        MOS_catalogue_picture_folder_png = os.path.join("picture", "folder.png")
-        MOS_catalogue_picture_trash_red_png = os.path.join("picture", "trash_red.png")
-        MOS_catalogue_picture_trash_png = os.path.join("picture", "trash.png")
-        MOS_catalogue_picture_user_add_png = os.path.join("picture", "user_add.png")
-        MOS_catalogue_picture_user_png = os.path.join("picture", "picture_user.png")
-
-
         # =================================分割线===================================#
 
         self.pushButton_home.clicked.connect(self.click_pushButton_home)
@@ -124,6 +87,11 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         # =============================================================================#
 
     # =================================分割线===================================#
+
+    def Win_start(self):
+        pass
+
+
 
     def logs_start(self):
         self.logs_s = QTimer() #创建计时器对象
@@ -1087,7 +1055,15 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
 
     def click_pushButton_shezhi_fond_moren(self):
         '''当用户点击字体设置的“恢复默认”后……'''
-        str1 = 'FangSong'
+        if system_h() == 'win32' or system_h() == 'cygwin':
+            str1 = 'Microsoft YaHei'
+
+        elif system_h() == 'darwin':
+            str1 = 'FangSong'
+
+        else:
+            str1 = 'FangSong'
+
         self.label_4.setFont(QtGui.QFont(str1))
         self.label_6.setFont(QtGui.QFont(str1))
         self.label_mos_left_top_user.setFont(QtGui.QFont(str1))
@@ -1751,11 +1727,30 @@ class MOS_file(QThread):
                 #如果是第一次
                 with open(MOS_file_json, 'w+', encoding='utf-8') as f:
                     MOS_file_1 =os.path.join(file,".minecraft")
-                    a = {'font':'FangSong',
-                        'font_default':'Yes',
-                        'Automatically_checking_for_updates':'True',
-                        'game_file_name':['默认目录'],
-                        '默认目录':MOS_file_1}
+                    if system_h() == 'win32' or system_h() == 'cygwin':
+                        a = {
+                            'font':'Microsoft YaHei',
+                            'font_default':'Yes',
+                            'Automatically_checking_for_updates':'True',
+                            'game_file_name':['默认目录'],
+                            '默认目录':MOS_file_1
+                            }
+                    elif system_h() == 'darwin':
+                        a = {
+                            'font':'FangSong',
+                            'font_default':'Yes',
+                            'Automatically_checking_for_updates':'True',
+                            'game_file_name':['默认目录'],
+                            '默认目录':MOS_file_1
+                            }
+                    else:
+                        a = {
+                            'font':'FangSong',
+                            'font_default':'Yes',
+                            'Automatically_checking_for_updates':'True',
+                            'game_file_name':['默认目录'],
+                            '默认目录':MOS_file_1
+                            }
                     json.dump(a, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
                     b = json.load(f)
@@ -2143,44 +2138,54 @@ def except_hook(cls, exception, traceback):
 
 
 # 子进程要执行的代码
-def run_ui():
-    from MOS_print_ import MOS_print
-    MOS_print("info","加速进程开始导入库！")
-    import sys
-    from PyQt6.QtWidgets import QApplication,QMainWindow
-    import MOS_start_loading
-    MOS_print("info","加速进程的Ui程序已开始运行！")
-    app = QApplication(sys.argv)
-    sys.excepthook = except_hook
-    MOS_print("info","加速进程正在运行……请稍等...")
-    MainWindow = QMainWindow()
-    MOS_print("info","加速进程 创建窗口对象成功！")
-    ui = MOS_start_loading.Ui_MainWindow()
-    MOS_print("info","加速进程 创建PyQt窗口对象成功！")
-    ui.setupUi(MainWindow)
-    MOS_print("info","加速进程 初始化设置成功！")
-    MainWindow.show()
-    MOS_print("info","加速进程 已成功显示窗体")
-    sys.exit(app.exec())
+class run_ui(threading.Thread):
+    def __init__(self):
+        # 重写threading.Thread的__init__方法时，确保在所有操作之前先调用threading.Thread.__init__方法
+        super().__init__()
+    
+    def run(self):
+        from MOS_print_ import MOS_print
+        MOS_print("info","加速进程开始导入库！")
+        import sys
+        from PyQt6.QtWidgets import QApplication,QMainWindow
+        import MOS_start_loading
+        MOS_print("info","加速进程的Ui程序已开始运行！")
+        app = QApplication(sys.argv)
+        sys.excepthook = except_hook
+        MOS_print("info","加速进程正在运行……请稍等...")
+        MainWindow = QMainWindow()
+        MOS_print("info","加速进程 创建窗口对象成功！")
+        ui = MOS_start_loading.Ui_MainWindow()
+        MOS_print("info","加速进程 创建PyQt窗口对象成功！")
+        ui.setupUi(MainWindow)
+        MOS_print("info","加速进程 初始化设置成功！")
+        MainWindow.show()
+        MOS_print("info","加速进程 已成功显示窗体")
+        sys.exit(app.exec())
+
+
+
 
 def start():
+    sys.excepthook = except_hook
     MOS_print("info","程序已开始运行！")
     MOS_print("info","开始导入库")
-    from multiprocessing import Process
     MOS_print("info","导入进程库完成")
-    p = Process(target=run_ui) #设置进程参数
     MOS_print("info","设置加速进程完成")
     import time
+
     start_time=time.time()
-    p.start()
+
+    import threading
+    thread = run_ui()
+    thread.start()
 
     app = QApplication(sys.argv)
     mos = Ui_MOS_Main()
     mos.logs_start()
 
-    p.kill()
-
     MOS_print("info",str("加速进程执行时间" + str(time.time()-start_time)))
     MOS_print("info", "加速进程已退出")
+
 
     sys.exit(app.exec())

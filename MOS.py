@@ -23,12 +23,12 @@ def run_ui():
     MOS_print("info","加速进程 已成功显示窗体")
     sys.exit(app.exec())
 
-try:
-    if __name__ == '__main__':
+
+if __name__ == '__main__':
+    try:
         import time,traceback
         from MOS_print_ import MOS_print
         import sys,os
-        from PyQt6.QtWidgets import QApplication,QMainWindow
         import MOS_UI_Main
 
         a = str(sys.platform)
@@ -40,18 +40,18 @@ try:
             file = user_home + '/Documents'
         else:
             file = ''
- 
+    
         MOS_print("info","Ui程序已开始运行！")
         sys.excepthook = except_hook
         MOS_print("info","请稍等...")
         ui = MOS_UI_Main.start()
 
-except KeyboardInterrupt:
-    MOS_print("info","程序以强行退出")
-except:
-    error = traceback.print_exc()
-    if error == None:
-        MOS_print("error","出现了一个None，如果您确定这是在您退出窗口后出现的，那么请忽略。如果不是，建议提交反馈。错误已打印")
-        MOS_print("error",error)
-    else:
-        MOS_print("error",error)
+    except KeyboardInterrupt:
+        MOS_print("info","程序以强行退出")
+    except:
+        error = traceback.print_exc()
+        if error == None:
+            MOS_print("error","出现了一个None，如果您确定这是在您退出窗口后出现的，那么请忽略。如果不是，建议提交反馈。错误已打印")
+            MOS_print("error",error)
+        else:
+            MOS_print("error",error)
