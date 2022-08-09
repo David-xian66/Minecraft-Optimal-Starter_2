@@ -1,4 +1,5 @@
 import json
+from math import dist
 import os
 import sys
 import traceback
@@ -66,6 +67,8 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         self.pushButton_31.clicked.connect(self.click_pushButton_about_b_github)
         self.pushButton_32.clicked.connect(self.click_pushButton_about_b_gitee)
         self.pushButton_25.clicked.connect(self.click_pushButton_about_b_wenjuan)
+        self.pushButton_21.clicked.connect(self.click_pushButton_java_moren)
+        self.comboBox_7.currentIndexChanged.connect(self.click_comboBox_java)
 
         self.comboBox_gonggao_right.clear()
         self.listWidget.clear()
@@ -831,9 +834,21 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         self.pushButton_19.setText("下载完成 - 点击打开下载目录 请进行手动安装(启动器会自动退出)")
         self.pushButton_19.setEnabled(True)
 
+    def click_comboBox_java(self):
+        pass
+
 
     def chick_pushButton_Java_check(self):
-        a = Java_check()
+        """点击“刷新Java”按钮后"""
+        self.pushButton_22.setEnabled(False)
+        self.pushButton_22.setText("正在获取……")
+
+        self.j = Java_check()
+        self.j.sinOut.connect(self.chick_pushButton_Java_check_sinOut)
+        self.j.start()
+
+    def chick_pushButton_Java_check_sinOut(self,a):
+        """在检查Java的线程完成后"""
         MOS_print("info",a)
         self.comboBox_7.clear()
         self.comboBox_7.addItem("让MOS自动为您选择")
@@ -846,6 +861,14 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         else:
             java_json['Java'] = a
         MOS_json_write(java_json)
+        self.pushButton_22.setText("获取完成")
+        self.pushButton_22.setEnabled(True)
+
+    def click_pushButton_java_moren(self):
+        """当点击 设置中的“Java 恢复默认”按钮后"""
+        self.pushButton_21.setEnabled(False)
+        self.comboBox_7.setCurrentIndex(0)
+
 
     def chick_pushButton_Java_shezhi_xiazai(self):
         self.stackedWidget_2.setCurrentIndex(8)
@@ -1041,7 +1064,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
     def click_pushButton_shezhi_fond_moren(self):
         '''当用户点击字体设置的“恢复默认”后……'''
         if system_h() == 'win32' or system_h() == 'cygwin':
-            str1 = 'Microsoft YaHei'
+            str1 = '微软雅黑'
 
         elif system_h() == 'darwin':
             str1 = 'PingFang SC'
@@ -1579,7 +1602,7 @@ class MOS_file(QThread):
                     MOS_file_1 =os.path.join(file,".minecraft")
                     if system_h() == 'win32' or system_h() == 'cygwin':
                         a = {
-                            'font':'Microsoft YaHei',
+                            'font':'微软雅黑',
                             'font_default':'Yes',
                             'Automatically_checking_for_updates':'True',
                             'game_file_name':['默认目录'],
@@ -1587,7 +1610,7 @@ class MOS_file(QThread):
                             }
                     elif system_h() == 'darwin':
                         a = {
-                            'font':'FangSong',
+                            'font':'PingFang SC',
                             'font_default':'Yes',
                             'Automatically_checking_for_updates':'True',
                             'game_file_name':['默认目录'],
@@ -1831,40 +1854,61 @@ class game_first_initialize(QThread):
 
 
 
-def Java_check():
-    import subprocess
-    Java_1 = os.environ.get('JAVA_HOM')
-    Java_2 = os.environ.get('JDK_HOME')
-    file_java_2 = [Java_1,Java_2]
-    if system_h() == 'darwin':
-        Java_file = "/usr/bin/java"
-        if os.path.exists(Java_file):
-            file_java_2.append(Java_file)
-        java_mac = subprocess.getoutput('/usr/libexec/java_home -V')
-        java_mac_1 = java_mac.split('\n') # ['Matching Java Virtual Machines (2):', '    1.8.321.07 (x86_64) "Oracle Corporation" - "Java" /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home', '    1.8.0_321 (x86_64) "Oracle Corporation" - "Java SE 8" /Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home', '/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home']
-        java_mac_2 = java_mac_1[1:-1] #['    1.8.321.07 (x86_64) "Oracle Corporation" - "Java" /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home', '    1.8.0_321 (x86_64) "Oracle Corporation" - "Java SE 8" /Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home']
-        for java_mac_2_1 in java_mac_2:
-            java_mac_2_2 = java_mac_2_1.split('"') # ['    1.8.321.07 (x86_64) ', 'Oracle Corporation', ' - ', 'Java', ' /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home']
-            java_mac_2_3 = java_mac_2_2[-1] + '/bin/java'
-            java_mac_2_4 = java_mac_2_3[1:] #删除前面的空格
-            file_java_2.append(java_mac_2_4)
-    file_java = {}
-    for file_java_1 in file_java_2:
-        if file_java_1 == None:
-            pass
-        else:
-            file_java_1_2 = '"' + file_java_1 + '"' +' -version'
-            #print(file_java_1_2)
-            # https://blog.csdn.net/henghenghalala/article/details/98868979
-            # https://www.runoob.com/w3cnote/python3-subprocess.html
-            # https://blog.csdn.net/u013019701/article/details/121205743
-            result = subprocess.getoutput(file_java_1_2)
-            k_2 = str(result).split('\n') # ['java version "1.8.0_321"', 'Java(TM) SE Runtime Environment (build 1.8.0_321-b07)', 'Java HotSpot(TM) 64-Bit Server VM (build 25.321-b07, mixed mode)']
-            k_1 = k_2[0].split('"') # ['java version ', '1.8.0_321', '']
-            k = k_1[1]
-            file_java[file_java_1] = k
-            
-    return file_java
+class Java_check(QThread):
+    sinOut = pyqtSignal(dict)
+    def __init__(self):
+        super(Java_check, self).__init__()
+
+    def run(self):
+        import subprocess
+        #Java_1 = os.environ.get('JAVA_HOM') # 获取全局变量(已弃用)
+        #Java_2 = os.environ.get('JDK_HOME') # ……
+        file_java_2 = []
+        if system_h() == 'darwin':
+            Java_file = "/usr/bin/java"
+            if os.path.exists(Java_file):
+                file_java_2.append(Java_file)
+            java_mac = subprocess.getoutput('/usr/libexec/java_home -V')
+            java_mac_1 = java_mac.split('\n') # ['Matching Java Virtual Machines (2):', '    1.8.321.07 (x86_64) "Oracle Corporation" - "Java" /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home', '    1.8.0_321 (x86_64) "Oracle Corporation" - "Java SE 8" /Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home', '/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home']
+            java_mac_2 = java_mac_1[1:-1] #['    1.8.321.07 (x86_64) "Oracle Corporation" - "Java" /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home', '    1.8.0_321 (x86_64) "Oracle Corporation" - "Java SE 8" /Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home']
+            for java_mac_2_1 in java_mac_2:
+                java_mac_2_2 = java_mac_2_1.split('"') # ['    1.8.321.07 (x86_64) ', 'Oracle Corporation', ' - ', 'Java', ' /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home']
+                java_mac_2_3 = java_mac_2_2[-1] + '/bin/java'
+                java_mac_2_4 = java_mac_2_3[1:] #删除前面的空格
+                file_java_2.append(java_mac_2_4)
+        elif system_h() == 'win32' or system_h() == 'cygwin':
+            file = 'C://Program Files//Java'
+            # 遍历
+            all_file_ = os.listdir(file)
+            for all_file_1 in all_file_:
+                all_file_1_1 = os.path.join(file,all_file_1)
+                if os.path.isdir(all_file_1_1):
+                    # 如果是文件夹
+                    all_file_2 = os.path.join(all_file_1_1,'bin','javaw.exe')
+                    if os.path.exists(all_file_2):
+                        # 如果有这个文件
+                        file_java_2.append(all_file_2)
+
+        file_java = {}
+        for file_java_1 in file_java_2:
+            if file_java_1 == None:
+                pass
+            else:
+                file_java_1_2 = '"' + file_java_1 + '"' +' -version'
+                #print(file_java_1_2)
+                # https://blog.csdn.net/henghenghalala/article/details/98868979
+                # https://www.runoob.com/w3cnote/python3-subprocess.html
+                # https://blog.csdn.net/u013019701/article/details/121205743
+                try:
+                    result = subprocess.getoutput(file_java_1_2)
+                    k_2 = str(result).split('\n') # ['java version "1.8.0_321"', 'Java(TM) SE Runtime Environment (build 1.8.0_321-b07)', 'Java HotSpot(TM) 64-Bit Server VM (build 25.321-b07, mixed mode)']
+                    k_1 = k_2[0].split('"') # ['java version ', '1.8.0_321', '']
+                    k = k_1[1]
+                    file_java[file_java_1] = k
+                except IndexError:
+                    MOS_print("error","在检查更新时出现IndexError错误")
+
+        self.sinOut.emit(file_java)
 
 def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = None, MOS_game_name_dir = None, MOS_game_dir_to_name = None,file = None):
     '''All: 是否获取Json的全部数据？(直接输出全部的Json内容) 'Yes'
@@ -1885,7 +1929,23 @@ def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = No
             file = ''
         MOS_file_json =os.path.join(file,".MOS","MOS.json")
         with open(MOS_file_json, 'r', encoding='utf-8') as f:
-            b = json.load(f)
+            try:
+                b = json.load(f)
+            except json.decoder.JSONDecodeError:
+                MOS_print('error','JSON解析出现问题 正在准备重试……')
+                a = 0
+                while True:
+                    if a <= 5:
+                        a += 1
+                        MOS_print('info',str('正在重试第' + a + '次'))
+                        try:
+                            b = json.load(f)
+                            break
+                        except:
+                            pass
+                    else:
+                        MOS_print('error',str('重试结束 失败  json数据：' + f.readlines()))
+
             if All == "Yes":
                 return b
             else:

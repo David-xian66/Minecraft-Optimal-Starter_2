@@ -3260,7 +3260,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                  <x>0</x>
                  <y>0</y>
                  <width>832</width>
-                 <height>521</height>
+                 <height>506</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -3272,7 +3272,6 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                   <property name="styleSheet">
                    <string notr="true">QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}
 QLabel{border-style:none;}
-#label_6{text-decoration: underline;}
 QComboBox {
 	border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */
 	height:27px;
@@ -3338,13 +3337,13 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                       <string notr="true">font-size: 13px;</string>
                      </property>
                      <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;下载源设置&lt;/span&gt;&lt;/p&gt;&lt;p&gt;在这里 你可以选择下载源&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;下载源设置&lt;/span&gt;&lt;/p&gt;&lt;p&gt;在这里 你可以选择下载源&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
                      <property name="scaledContents">
                       <bool>false</bool>
                      </property>
                      <property name="alignment">
-                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                      </property>
                      <property name="wordWrap">
                       <bool>true</bool>
@@ -3517,7 +3516,7 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                       <bool>false</bool>
                      </property>
                      <property name="alignment">
-                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                      </property>
                      <property name="wordWrap">
                       <bool>true</bool>
@@ -3574,7 +3573,6 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                   <property name="styleSheet">
                    <string notr="true">QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}
 QLabel{border-style:none;}
-#label_6{text-decoration: underline;}
 QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}
 QPushButton::hover{color: rgb(255, 59, 0)}
 QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
@@ -3601,7 +3599,7 @@ QLineEdit{height:34px;border-radius:8px;border:2px solid rgb(192, 192, 192);}</s
                       <bool>false</bool>
                      </property>
                      <property name="alignment">
-                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                      </property>
                      <property name="wordWrap">
                       <bool>true</bool>
@@ -3869,8 +3867,8 @@ QRadioButton{border-style:none;}</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>258</width>
-                 <height>845</height>
+                 <width>832</width>
+                 <height>506</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -3950,16 +3948,6 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
 #pushButton_23::pressed{background-color: rgb(255, 238, 203);color: rgb(255, 255, 255);}</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_31">
-                   <item row="2" column="2">
-                    <widget class="QPushButton" name="pushButton_22">
-                     <property name="styleSheet">
-                      <string notr="true">font-size: 14px;</string>
-                     </property>
-                     <property name="text">
-                      <string>刷新</string>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="0" column="0" rowspan="4">
                     <widget class="QLabel" name="label_14">
                      <property name="styleSheet">
@@ -3984,18 +3972,22 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
                    </item>
                    <item row="2" column="3">
                     <widget class="QPushButton" name="pushButton_23">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 14px;</string>
+                     </property>
                      <property name="text">
                       <string>下载Java</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="2" rowspan="2" colspan="2">
-                    <widget class="QComboBox" name="comboBox_7">
-                     <item>
-                      <property name="text">
-                       <string>让MOS自动为您选择</string>
-                      </property>
-                     </item>
+                   <item row="2" column="2">
+                    <widget class="QPushButton" name="pushButton_22">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 14px;</string>
+                     </property>
+                     <property name="text">
+                      <string>刷新</string>
+                     </property>
                     </widget>
                    </item>
                    <item row="3" column="2" colspan="2">
@@ -4035,6 +4027,31 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
                        <width>16</width>
                        <height>16</height>
                       </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2" rowspan="2">
+                    <widget class="QComboBox" name="comboBox_7">
+                     <item>
+                      <property name="text">
+                       <string>让MOS自动为您选择</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item row="0" column="3" rowspan="2">
+                    <widget class="QLabel" name="label_37">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 14px;</string>
+                     </property>
+                     <property name="text">
+                      <string>Java版本：自动</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
                      </property>
                     </widget>
                    </item>
@@ -4240,8 +4257,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>504</width>
-             <height>832</height>
+             <width>832</width>
+             <height>800</height>
             </rect>
            </property>
            <property name="styleSheet">
