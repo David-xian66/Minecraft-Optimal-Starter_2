@@ -2353,23 +2353,40 @@ class Ui_MOS(object):
 "\n"
 "QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7p"
                         "x;border:2px solid rgb(255, 59, 0);}\n"
-"QPushButton::hover{color: rgb(255, 59, 0)}\n"
+"QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}\n"
 "QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}\n"
 "\n"
-"#pushButton_22{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(115, 250, 121);}\n"
-"#pushButton_22::hover{color: rgb(115, 250, 121)}\n"
+"#pushButton_22{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(120, 240, 125);}\n"
+"#pushButton_22::hover{color: rgb(255, 255, 255);background-color:  rgb(120, 240, 125);}\n"
 "#pushButton_22::pressed{background-color: rgb(178, 255, 182);color: rgb(255, 255, 255);}\n"
 "\n"
 "#pushButton_23{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 212, 121);}\n"
-"#pushButton_23::hover{color: rgb(255, 212, 121)}\n"
-"#pushButton_23::pressed{background-color: rgb(255, 238, 203);color: rgb(255, 255, 255);}")
+"#pushButton_23::hover{color: rgb(255, 255, 255);background-color: rgb(255, 212, 121);}\n"
+"#pushButton_23::pressed{background-color: rgb(255, 198, 76);border:2px solid rgb(255, 198, 76);}\n"
+"\n"
+"#pushButton_34{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(118, 214, 255);}\n"
+"#pushButton_34::hover{background-color: rgb(118, 214, 255);c"
+                        "olor: rgb(255, 255, 255)}\n"
+"#pushButton_34::pressed{background-color: rgb(76, 201, 255);border:2px solid rgb(76, 201, 255);}")
         self.gridLayout_31 = QGridLayout(self.widget_15)
         self.gridLayout_31.setObjectName(u"gridLayout_31")
+        self.pushButton_21 = QPushButton(self.widget_15)
+        self.pushButton_21.setObjectName(u"pushButton_21")
+        sizePolicy5.setHeightForWidth(self.pushButton_21.sizePolicy().hasHeightForWidth())
+        self.pushButton_21.setSizePolicy(sizePolicy5)
+        self.pushButton_21.setMinimumSize(QSize(0, 0))
+        self.pushButton_21.setSizeIncrement(QSize(0, 0))
+        self.pushButton_21.setBaseSize(QSize(0, 0))
+        self.pushButton_21.setStyleSheet(u"font-size: 14px;")
+        self.pushButton_21.setIconSize(QSize(16, 16))
+
+        self.gridLayout_31.addWidget(self.pushButton_21, 3, 3, 1, 1)
+
         self.label_14 = QLabel(self.widget_15)
         self.label_14.setObjectName(u"label_14")
         self.label_14.setStyleSheet(u"font-size: 13px;")
         self.label_14.setScaledContents(False)
-        self.label_14.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_14.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.label_14.setWordWrap(True)
         self.label_14.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
 
@@ -2383,35 +2400,24 @@ class Ui_MOS(object):
 
         self.pushButton_22 = QPushButton(self.widget_15)
         self.pushButton_22.setObjectName(u"pushButton_22")
+        font2 = QFont()
+        font2.setStyleStrategy(QFont.PreferDefault)
+        self.pushButton_22.setFont(font2)
         self.pushButton_22.setStyleSheet(u"font-size: 14px;")
 
         self.gridLayout_31.addWidget(self.pushButton_22, 2, 2, 1, 1)
 
-        self.pushButton_21 = QPushButton(self.widget_15)
-        self.pushButton_21.setObjectName(u"pushButton_21")
-        sizePolicy5.setHeightForWidth(self.pushButton_21.sizePolicy().hasHeightForWidth())
-        self.pushButton_21.setSizePolicy(sizePolicy5)
-        self.pushButton_21.setMinimumSize(QSize(0, 0))
-        self.pushButton_21.setSizeIncrement(QSize(0, 0))
-        self.pushButton_21.setBaseSize(QSize(0, 0))
-        self.pushButton_21.setStyleSheet(u"font-size: 14px;")
-        self.pushButton_21.setIconSize(QSize(16, 16))
+        self.pushButton_34 = QPushButton(self.widget_15)
+        self.pushButton_34.setObjectName(u"pushButton_34")
+        self.pushButton_34.setStyleSheet(u"font-size: 14px;")
 
-        self.gridLayout_31.addWidget(self.pushButton_21, 3, 2, 1, 2)
+        self.gridLayout_31.addWidget(self.pushButton_34, 3, 2, 1, 1)
 
         self.comboBox_7 = QComboBox(self.widget_15)
         self.comboBox_7.addItem("")
         self.comboBox_7.setObjectName(u"comboBox_7")
 
-        self.gridLayout_31.addWidget(self.comboBox_7, 0, 2, 2, 1)
-
-        self.label_37 = QLabel(self.widget_15)
-        self.label_37.setObjectName(u"label_37")
-        self.label_37.setStyleSheet(u"font-size: 14px;")
-        self.label_37.setAlignment(Qt.AlignCenter)
-        self.label_37.setWordWrap(True)
-
-        self.gridLayout_31.addWidget(self.label_37, 0, 3, 2, 1)
+        self.gridLayout_31.addWidget(self.comboBox_7, 0, 2, 2, 2)
 
 
         self.gridLayout_30.addWidget(self.widget_15, 0, 0, 1, 1)
@@ -2435,10 +2441,6 @@ class Ui_MOS(object):
 
         self.gridLayout_15.addWidget(self.label_15, 1, 0, 1, 1)
 
-        self.horizontalSpacer_6 = QSpacerItem(832, 13, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_15.addItem(self.horizontalSpacer_6, 0, 0, 1, 2)
-
         self.widget_17 = QWidget(self.page_5)
         self.widget_17.setObjectName(u"widget_17")
         self.verticalLayout_4 = QVBoxLayout(self.widget_17)
@@ -2455,6 +2457,10 @@ class Ui_MOS(object):
 
 
         self.gridLayout_15.addWidget(self.widget_17, 1, 1, 1, 1)
+
+        self.horizontalSpacer_6 = QSpacerItem(832, 13, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_15.addItem(self.horizontalSpacer_6, 0, 0, 1, 2)
 
         self.stackedWidget_mos_right.addWidget(self.page_5)
         self.page_6 = QWidget()
@@ -2845,9 +2851,9 @@ class Ui_MOS(object):
         self.widget_mos_left.setObjectName(u"widget_mos_left")
         sizePolicy1.setHeightForWidth(self.widget_mos_left.sizePolicy().hasHeightForWidth())
         self.widget_mos_left.setSizePolicy(sizePolicy1)
-        font2 = QFont()
-        font2.setPointSize(15)
-        self.widget_mos_left.setFont(font2)
+        font3 = QFont()
+        font3.setPointSize(15)
+        self.widget_mos_left.setFont(font3)
         self.widget_mos_left.setAutoFillBackground(False)
         self.widget_mos_left.setStyleSheet(u"QWidget\n"
 "{\n"
@@ -3240,13 +3246,13 @@ class Ui_MOS(object):
         self.label_5.setText(QCoreApplication.translate("MOS", u"<html><head/><body><p><span style=\" font-size:20pt;\">\u542f\u52a8\u5668\u66f4\u65b0</span></p><p>\u5728\u8fd9\u91cc \u4f60\u53ef\u4ee5\u66f4\u65b0\u542f\u52a8\u5668</p><p>\u4f60\u53ef\u4ee5\u5728\u201c\u5173\u4e8e\u201d\u4e2d\u67e5\u770b\u5f53\u524d\u7248\u672c</p></body></html>", None))
         self.radioButton.setText(QCoreApplication.translate("MOS", u"\u81ea\u52a8\u4e3a\u60a8\u68c0\u67e5\u66f4\u65b0", None))
         self.pushButton_20.setText(QCoreApplication.translate("MOS", u"\u5f00\u59cb\u66f4\u65b0", None))
+        self.pushButton_21.setText(QCoreApplication.translate("MOS", u"\u6062\u590d\u9ed8\u8ba4", None))
         self.label_14.setText(QCoreApplication.translate("MOS", u"<html><head/><body><p><span style=\" font-size:20pt;\">Java\u8bbe\u7f6e</span></p><p>\u5728\u8fd9\u91cc \u4f60\u53ef\u4ee5\u8bbe\u7f6e\u542f\u52a8\u6e38\u620f\u65f6\u4f7f\u7528\u7684Java \u5efa\u8bae\u9009\u62e9 <span style=\" font-style:italic;\">\u8ba9MOS\u4e3a\u60a8\u81ea\u52a8\u9009\u62e9</span></p><p>\u6ce8\u610f\uff1a<span style=\" font-weight:600;\">\u4e0d\u8981\u4f7f\u7528</span><span style=\" font-weight:600; font-style:italic;\">\u7f51\u6613\u542f\u52a8\u5668</span><span style=\" font-weight:600;\">\u7684Java \u3001</span><span style=\" font-weight:600; font-style:italic;\">1.17</span><span style=\" font-weight:600;\">\u53ca\u4ee5\u4e0a\u7248\u672c\u9700\u7528</span><span style=\" font-weight:600; font-style:italic;\">Java16</span><span style=\" font-weight:600;\">\u53ca\u4ee5\u4e0a\u7248\u672c 1.17\u4e00\u4e0b\u9700\u7528Java8\u3001\u60a8\u4e5f\u53ef\u4ee5\u5728\u201c\u4e0b\u8f7d\u201d\u9875\u9762\u4e0b\u8f7dJava</span></p></body></html>", None))
         self.pushButton_23.setText(QCoreApplication.translate("MOS", u"\u4e0b\u8f7dJava", None))
         self.pushButton_22.setText(QCoreApplication.translate("MOS", u"\u5237\u65b0", None))
-        self.pushButton_21.setText(QCoreApplication.translate("MOS", u"\u6062\u590d\u9ed8\u8ba4", None))
+        self.pushButton_34.setText(QCoreApplication.translate("MOS", u"\u624b\u52a8\u6dfb\u52a0", None))
         self.comboBox_7.setItemText(0, QCoreApplication.translate("MOS", u"\u8ba9MOS\u81ea\u52a8\u4e3a\u60a8\u9009\u62e9", None))
 
-        self.label_37.setText(QCoreApplication.translate("MOS", u"Java\u7248\u672c\uff1a\u81ea\u52a8", None))
         self.label_15.setText(QCoreApplication.translate("MOS", u"\u8bbe\u7f6e", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("MOS", u"\u542f\u52a8\u5668\u8bbe\u7f6e", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("MOS", u"\u5168\u5c40\u6e38\u620f\u8bbe\u7f6e", None))

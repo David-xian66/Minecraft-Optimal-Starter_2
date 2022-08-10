@@ -835,13 +835,29 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
         self.pushButton_19.setEnabled(True)
 
     def click_comboBox_java(self):
-        pass
+        a = self.comboBox_7.currentText()
+        b = MOS_json_read(All='Yes')
+        if a == '让MOS自动为您选择':
+            b['Java_c'] = 'None'
+            MOS_print('info',str('选择了设置-Java Json文件改为：' + str(b)))
+        else:
+            a_1 = a.split('  ––>  ')
+            print(a_1)
+            try:
+                a_2 = a_1[1]
+            except IndexError:
+                pass
 
+            b['Java_c'] = a_2
+            MOS_print('info',str('选择了设置-Java Json文件改为：' + str(b)))
+        MOS_json_write(b)
 
     def chick_pushButton_Java_check(self):
         """点击“刷新Java”按钮后"""
         self.pushButton_22.setEnabled(False)
+        self.comboBox_7.setEnabled(False)
         self.pushButton_22.setText("正在获取……")
+        QApplication.processEvents() #刷新
 
         self.j = Java_check()
         self.j.sinOut.connect(self.chick_pushButton_Java_check_sinOut)
@@ -862,6 +878,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow,Ui_MOS,Java_Dowmloader__,Java_OK_UI):
             java_json['Java'] = a
         MOS_json_write(java_json)
         self.pushButton_22.setText("获取完成")
+        self.comboBox_7.setEnabled(True)
         self.pushButton_22.setEnabled(True)
 
     def click_pushButton_java_moren(self):
@@ -1606,7 +1623,8 @@ class MOS_file(QThread):
                             'font_default':'Yes',
                             'Automatically_checking_for_updates':'True',
                             'game_file_name':['默认目录'],
-                            '默认目录':MOS_file_1
+                            '默认目录':MOS_file_1,
+                            'Java_c':'None'
                             }
                     elif system_h() == 'darwin':
                         a = {
@@ -1614,7 +1632,8 @@ class MOS_file(QThread):
                             'font_default':'Yes',
                             'Automatically_checking_for_updates':'True',
                             'game_file_name':['默认目录'],
-                            '默认目录':MOS_file_1
+                            '默认目录':MOS_file_1,
+                            'Java_c': 'None'
                             }
                     else:
                         a = {
@@ -1622,7 +1641,8 @@ class MOS_file(QThread):
                             'font_default':'Yes',
                             'Automatically_checking_for_updates':'True',
                             'game_file_name':['默认目录'],
-                            '默认目录':MOS_file_1
+                            '默认目录':MOS_file_1,
+                            'Java_c': 'None'
                             }
                     json.dump(a, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:
@@ -1937,7 +1957,7 @@ def MOS_json_read(All = None, MOS_game_dir = None, MOS_game_dir_name_or_dir = No
                 while True:
                     if a <= 5:
                         a += 1
-                        MOS_print('info',str('正在重试第' + a + '次'))
+                        MOS_print('info',str('正在重试第' + str(a) + '次'))
                         try:
                             b = json.load(f)
                             break

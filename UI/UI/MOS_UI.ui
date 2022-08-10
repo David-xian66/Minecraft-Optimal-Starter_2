@@ -3327,7 +3327,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
 }
 
 QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}
-QPushButton::hover{color: rgb(255, 59, 0)}
+QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}
 QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_23">
@@ -3354,7 +3354,23 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                     </widget>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QComboBox" name="comboBox_8"/>
+                    <widget class="QComboBox" name="comboBox_8">
+                     <item>
+                      <property name="text">
+                       <string>官方源 (速度可能慢 但是最新的)</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>镜像源 - BMCLAPI (速度快 但可能不是最新的)</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>镜像源 - MCBBS (速度快 但可能不是最新的)</string>
+                      </property>
+                     </item>
+                    </widget>
                    </item>
                    <item row="1" column="1">
                     <widget class="QPushButton" name="pushButton_43">
@@ -3460,7 +3476,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
 }
 
 QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}
-QPushButton::hover{color: rgb(255, 59, 0)}
+QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}
 QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_24">
@@ -3573,16 +3589,18 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                   <property name="styleSheet">
                    <string notr="true">QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}
 QLabel{border-style:none;}
+
 QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}
-QPushButton::hover{color: rgb(255, 59, 0)}
+QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}
 QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
 
 #pushButton_33{border:2px solid rgb(0, 250, 146);}
-#pushButton_33::hover{color: rgb(0, 250, 146);}
-#pushButton_33::pressed{background-color: rgb(128, 255, 202);color: rgb(255, 255, 255);}
+#pushButton_33::hover{color: rgb(0, 250, 146);background-color: rgb(120, 240, 125);border:2px solid rgb(120, 240, 125);color: rgb(255, 255, 255);}
+#pushButton_33::pressed{background-color: rgb(128, 255, 202);}
 
-#pushButton_26{border:2px solid rgb(0, 150, 255);}
-#pushButton_26::pressed{background-color: rgba(0, 150, 255, 51);}
+#pushButton_26{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(118, 214, 255);}
+#pushButton_26::hover{background-color: rgb(118, 214, 255);color: rgb(255, 255, 255)}
+#pushButton_26::pressed{background-color: rgb(76, 201, 255);border:2px solid rgb(76, 201, 255);}
 
 QLineEdit{height:34px;border-radius:8px;border:2px solid rgb(192, 192, 192);}</string>
                   </property>
@@ -3651,6 +3669,9 @@ QLineEdit{height:34px;border-radius:8px;border:2px solid rgb(192, 192, 192);}</s
                    </item>
                    <item row="1" column="1">
                     <widget class="QPushButton" name="pushButton_26">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 14px;</string>
+                     </property>
                      <property name="text">
                       <string>选择字体&amp;字体大小</string>
                      </property>
@@ -3658,6 +3679,9 @@ QLineEdit{height:34px;border-radius:8px;border:2px solid rgb(192, 192, 192);}</s
                    </item>
                    <item row="0" column="2">
                     <widget class="QPushButton" name="pushButton_33">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 14px;</string>
+                     </property>
                      <property name="text">
                       <string>确认</string>
                      </property>
@@ -3749,8 +3773,8 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
 #pushButton_20::pressed{background-color: rgba(255, 0, 0, 100);}
 
 #pushButton_19{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 250, 146);color: rgb(33, 33, 33);}
-#pushButton_19::hover{color: rgb(0, 250, 146);}
-#pushButton_19::pressed{background-color: rgb(128, 255, 202);color: rgb(255, 255, 255);}
+#pushButton_19::hover{color: rgb(0, 250, 146);background-color: rgb(120, 240, 125);border:2px solid rgb(120, 240, 125);color: rgb(255, 255, 255);}
+#pushButton_19::pressed{background-color: rgb(128, 255, 202);}
 
 /*禁用*/
 #pushButton_20:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);}
@@ -3936,61 +3960,23 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
 }
 
 QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}
-QPushButton::hover{color: rgb(255, 59, 0)}
+QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}
 QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
 
-#pushButton_22{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(115, 250, 121);}
-#pushButton_22::hover{color: rgb(115, 250, 121)}
+#pushButton_22{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(120, 240, 125);}
+#pushButton_22::hover{color: rgb(255, 255, 255);background-color:  rgb(120, 240, 125);}
 #pushButton_22::pressed{background-color: rgb(178, 255, 182);color: rgb(255, 255, 255);}
 
 #pushButton_23{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 212, 121);}
-#pushButton_23::hover{color: rgb(255, 212, 121)}
-#pushButton_23::pressed{background-color: rgb(255, 238, 203);color: rgb(255, 255, 255);}</string>
+#pushButton_23::hover{color: rgb(255, 255, 255);background-color: rgb(255, 212, 121);}
+#pushButton_23::pressed{background-color: rgb(255, 198, 76);border:2px solid rgb(255, 198, 76);}
+
+#pushButton_34{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(118, 214, 255);}
+#pushButton_34::hover{background-color: rgb(118, 214, 255);color: rgb(255, 255, 255)}
+#pushButton_34::pressed{background-color: rgb(76, 201, 255);border:2px solid rgb(76, 201, 255);}</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_31">
-                   <item row="0" column="0" rowspan="4">
-                    <widget class="QLabel" name="label_14">
-                     <property name="styleSheet">
-                      <string notr="true">font-size: 13px;</string>
-                     </property>
-                     <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Java设置&lt;/span&gt;&lt;/p&gt;&lt;p&gt;在这里 你可以设置启动游戏时使用的Java 建议选择 &lt;span style=&quot; font-style:italic;&quot;&gt;让MOS为您自动选择&lt;/span&gt;&lt;/p&gt;&lt;p&gt;注意：&lt;span style=&quot; font-weight:600;&quot;&gt;不要使用&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;网易启动器&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;的Java 、&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;1.17&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;及以上版本需用&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Java16&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;及以上版本 1.17一下需用Java8、您也可以在“下载”页面下载Java&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                     </property>
-                     <property name="scaledContents">
-                      <bool>false</bool>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                     </property>
-                     <property name="wordWrap">
-                      <bool>true</bool>
-                     </property>
-                     <property name="textInteractionFlags">
-                      <set>Qt::LinksAccessibleByMouse</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="3">
-                    <widget class="QPushButton" name="pushButton_23">
-                     <property name="styleSheet">
-                      <string notr="true">font-size: 14px;</string>
-                     </property>
-                     <property name="text">
-                      <string>下载Java</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="2">
-                    <widget class="QPushButton" name="pushButton_22">
-                     <property name="styleSheet">
-                      <string notr="true">font-size: 14px;</string>
-                     </property>
-                     <property name="text">
-                      <string>刷新</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="2" colspan="2">
+                   <item row="3" column="3">
                     <widget class="QPushButton" name="pushButton_21">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -4030,29 +4016,71 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="2" rowspan="2">
+                   <item row="0" column="0" rowspan="4">
+                    <widget class="QLabel" name="label_14">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 13px;</string>
+                     </property>
+                     <property name="text">
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Java设置&lt;/span&gt;&lt;/p&gt;&lt;p&gt;在这里 你可以设置启动游戏时使用的Java 建议选择 &lt;span style=&quot; font-style:italic;&quot;&gt;让MOS为您自动选择&lt;/span&gt;&lt;/p&gt;&lt;p&gt;注意：&lt;span style=&quot; font-weight:600;&quot;&gt;不要使用&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;网易启动器&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;的Java 、&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;1.17&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;及以上版本需用&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Java16&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;及以上版本 1.17一下需用Java8、您也可以在“下载”页面下载Java&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>false</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
+                     </property>
+                     <property name="textInteractionFlags">
+                      <set>Qt::LinksAccessibleByMouse</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QPushButton" name="pushButton_23">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 14px;</string>
+                     </property>
+                     <property name="text">
+                      <string>下载Java</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QPushButton" name="pushButton_22">
+                     <property name="font">
+                      <font>
+                       <pointsize>-1</pointsize>
+                       <stylestrategy>PreferDefault</stylestrategy>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 14px;</string>
+                     </property>
+                     <property name="text">
+                      <string>刷新</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="2">
+                    <widget class="QPushButton" name="pushButton_34">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 14px;</string>
+                     </property>
+                     <property name="text">
+                      <string>手动添加</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2" rowspan="2" colspan="2">
                     <widget class="QComboBox" name="comboBox_7">
                      <item>
                       <property name="text">
                        <string>让MOS自动为您选择</string>
                       </property>
                      </item>
-                    </widget>
-                   </item>
-                   <item row="0" column="3" rowspan="2">
-                    <widget class="QLabel" name="label_37">
-                     <property name="styleSheet">
-                      <string notr="true">font-size: 14px;</string>
-                     </property>
-                     <property name="text">
-                      <string>Java版本：自动</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                     <property name="wordWrap">
-                      <bool>true</bool>
-                     </property>
                     </widget>
                    </item>
                   </layout>
@@ -4092,19 +4120,6 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
           </property>
          </widget>
         </item>
-        <item row="0" column="0" colspan="2">
-         <spacer name="horizontalSpacer_6">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>832</width>
-            <height>13</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
         <item row="1" column="1">
          <widget class="QWidget" name="widget_17" native="true">
           <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -4142,6 +4157,19 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
            </item>
           </layout>
          </widget>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>832</width>
+            <height>13</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </widget>
