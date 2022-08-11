@@ -849,6 +849,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.pushButton_19.setEnabled(True)
 
     def click_comboBox_java(self):
+        self.pushButton_21.setEnabled(True)
         a = self.comboBox_7.currentText()
         b = MOS_json_read(All='Yes')
         if a == '让MOS自动为您选择':
