@@ -2860,6 +2860,8 @@ class Ui_MOS(object):
         self.stackedWidget.setCurrentIndex(0)
         self.fontComboBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MOS)
+        self.listWidget_4.setIconSize(QtCore.QSize(45, 45))
+        self.listWidget_8.setIconSize(QtCore.QSize(45, 45))
 
     def retranslateUi(self, MOS):
         _translate = QtCore.QCoreApplication.translate

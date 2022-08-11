@@ -2410,7 +2410,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
           <widget class="QWidget" name="page_9">
            <property name="styleSheet">
             <string notr="true">QListWidget::item {
-    height: 40px;
+    height: 50px;
 }</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_9">
@@ -2448,7 +2448,14 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                   </attribute>
                   <layout class="QHBoxLayout" name="horizontalLayout">
                    <item>
-                    <widget class="QListWidget" name="listWidget_4"/>
+                    <widget class="QListWidget" name="listWidget_4">
+                     <property name="iconSize">
+                      <size>
+                       <width>45</width>
+                       <height>45</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </widget>
@@ -2466,7 +2473,14 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                   </attribute>
                   <layout class="QHBoxLayout" name="horizontalLayout_2">
                    <item>
-                    <widget class="QListWidget" name="listWidget_8"/>
+                    <widget class="QListWidget" name="listWidget_8">
+                     <property name="iconSize">
+                      <size>
+                       <width>45</width>
+                       <height>45</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </widget>
@@ -4249,8 +4263,8 @@ QRadioButton{border-style:none;}</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>832</width>
-                 <height>506</height>
+                 <width>258</width>
+                 <height>845</height>
                 </rect>
                </property>
                <property name="styleSheet">
