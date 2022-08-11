@@ -7,7 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-import Java_Dowmloader_OK_UI_rc
+import Java_Downloader_OK_UI_rc
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):

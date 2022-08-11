@@ -1,4 +1,4 @@
-from Java_Dowmloader_OK_UI import Ui_Dialog_2 as Java_Dowmloader_OK_UI
+from Java_Downloader_OK_UI import Ui_Dialog_2 as Java_Dowmloader_OK_UI
 from PyQt6 import QtWidgets,QtCore
 from PyQt6.QtWidgets import QApplication, QLabel,QDialogButtonBox,QDialog
 from PyQt6.QtCore import QPropertyAnimation, QTimer,QThread,pyqtSignal

@@ -2,13 +2,13 @@ from telnetlib import DO
 import traceback
 
 import requests
-from Java_Dowmloader_UI import Ui_Dialog as Ui_Java_Dowmloader
-from Java_Dowmloader_OK import Java_OK_UI as Ui_Java_Dowmloader_OK_
+from Java_Downloader_UI import Ui_Dialog as Ui_Java_Dowmloader
+from Java_Downloader_OK import Java_OK_UI as Ui_Java_Dowmloader_OK_
 
 from PyQt6.QtWidgets import  QApplication, QLabel,QDialogButtonBox,QDialog
 from PyQt6.QtCore import QPropertyAnimation, QTimer,QThread,pyqtSignal
 from PyQt6 import QtWidgets,QtCore
-class Java_Dowmloader__(QDialog, Ui_Java_Dowmloader):
+class Java_Downloader__(QDialog, Ui_Java_Dowmloader):
     sinOut = pyqtSignal()
     def __init__(self,v=None,url=None,file=None):
         super().__init__()

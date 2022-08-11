@@ -34,7 +34,7 @@ if __name__ == '__main__':
 
         a = str(sys.platform)
         if a == "darwin":
-            MOS_print("info",'当0前系统为Mac')
+            MOS_print("info",'当前系统为Mac')
             user_name = os.getlogin()
             # 获取当前系统用户目录
             user_home = os.path.expanduser('~')

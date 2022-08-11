@@ -5,6 +5,7 @@ import sys
 import traceback
 import webbrowser
 import threading
+import requests
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
@@ -12,8 +13,8 @@ from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QIcon, QMouseEvent, QCursor
-from Java_Dowmloader_ import Java_Dowmloader__
-from Java_Dowmloader_OK import Java_OK_UI
+from Java_Downloader_ import Java_Downloader__
+from Java_Downloader_OK import Java_OK_UI
 from MOS_print_ import MOS_print, q_h
 from MOS_UI import Ui_MOS
 import MOS_rc
@@ -22,7 +23,7 @@ import MOS_rc
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
+class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
     def __init__(self):
         super(Ui_MOS_Main, self).__init__()
         self.setupUi(self)
@@ -62,7 +63,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
         self.pushButton_27.clicked.connect(self.click_pushButton_Gitee)
         self.pushButton_29.clicked.connect(self.click_pushButton_GitHub)
         self.listWidget_3.itemClicked.connect(self.click_listWidget_Java_xiazai)
-        self.pushButton_24.clicked.connect(self.click_pushButton_Java_Dowmloader)
+        self.pushButton_24.clicked.connect(self.click_pushButton_Java_Downloader)
         self.radioButton.toggled.connect(self.click_radioButton_checking_updates)
         self.pushButton_28.clicked.connect(self.click_pushButton_about_j_gitee)
         self.pushButton_30.clicked.connect(self.click_pushButton_about_j_github)
@@ -729,6 +730,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
     def click_comboBox_xiazai(self):
         a = self.comboBox_2.currentIndex()
         if a == 0:
+            self.m_d()
             self.stackedWidget_2.setCurrentIndex(a)
         elif a == 1:
             self.stackedWidget_2.setCurrentIndex(2)
@@ -740,6 +742,20 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
             self.stackedWidget_2.setCurrentIndex(8)
         elif a == 5:
             self.stackedWidget_2.setCurrentIndex(9)
+
+    def m_d(self):
+        url = 'https://bmclapi2.bangbang93.com/mc/game/version_manifest_v2.json'
+        headers = {'User-Agent':'MOS/PyQt6'}
+        r = requests.get(url,headers=headers)
+        r_1 = r.json()['latest']['release'] #发行版
+        r_2 = r.json()['latest']['snapshot'] #快照版
+        r_3 = r.json()['versions']
+        ids = []
+        for r_3_1 in r_3:
+            ids.append(r_3_1['id'])
+            #self.treeWidget.addTopLevelItem(r_3_1['id'])
+        self.listWidget_4.addItems(ids)
+
 
     def click_comboBox_shezhi(self):
         """设置页"""
@@ -754,7 +770,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
         if self.pushButton_19.text() != '检查到更新，点击下载':
             if self.pushButton_19.text() == '下载完成 - 点击打开下载目录 请进行手动安装(启动器会自动退出)':
                 n_1 = file_h()
-                n = os.path.join(n_1, '.MOS', 'Dowmload')
+                n = os.path.join(n_1, '.MOS', 'Download')
                 if system_h() == 'darwin':
                     # 如果是Mac
                     os.system(str('open ' + n))
@@ -807,22 +823,22 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
             else:
                 d_name = 'MOS.zip'
             MOS_print('info', str('更新下载地址：' + url))
-            d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_name)
-            # from MOS_Dowmloader import Dowmloader_
-            # down = Dowmloader_(url,8,d_file)
+            d_file = os.path.join(file_h(), '.MOS', 'Download', d_name)
+            # from MOS_Downloader import Downloader_
+            # down = Downloader_(url,8,d_file)
             self.pushButton_19.setEnabled(False)
             self.pushButton_19.setText("正在下载中")
 
-            self.v_d = MOS_versions_dowmloader(url, 8, d_file)
-            self.v_d.sinOut_versions_d.connect(self.click_pushButton_jianchagengxin_sinOut_versions_dowmloader_ok)
+            self.v_d = MOS_versions_Downloader(url, 8, d_file)
+            self.v_d.sinOut_versions_d.connect(self.click_pushButton_jianchagengxin_sinOut_versions_Downloader_ok)
             self.v_d.start()
 
-    def click_pushButton_java_sinOut_java_dowmloader_start(self, text):
+    def click_pushButton_java_sinOut_java_Downloader_start(self, text):
         """开始下载后……"""
         self.pushButton_24.setText("已开始下载 点击查看")
         self.pushButton_24.setEnabled(True)
 
-    def click_pushButton_jianchagengxin_sinOut_versions_dowmloader_ok(self):
+    def click_pushButton_jianchagengxin_sinOut_versions_Downloader_ok(self):
         self.pushButton_19.setText("下载完成 - 点击打开下载目录 请进行手动安装(启动器会自动退出)")
         self.pushButton_19.setEnabled(True)
 
@@ -913,20 +929,20 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
             self.pushButton_24.setText(str("下载 - " + a))
             self.pushButton_24.setEnabled(True)
 
-    def click_pushButton_Java_Dowmloader(self):
+    def click_pushButton_Java_Downloader(self):
         a = self.pushButton_24.text()
         if a == '下载 - 免安装版 Java 8':
             self.pushButton_24.setEnabled(False)
             self.pushButton_24.setText("正在准备下载")
             if system_h() == 'darwin':
-                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%208/Java-8-x64%20Mac%20jre-8u333-macosx-x64.tar.gz'
+                url = 'https://moslauncher.tk/Download/java/version_grean/Java_8/Java-8-x64-Mac-jre-8u333-macosx-x64.tar.gz'
                 d_file_name = 'n_java8.tar.gz'
-                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
 
             elif system_h() == 'cygwin' or system_h() == 'win32':
-                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%208/Java-8%20Win%20openjdk-8u42-b03-windows-i586-14_jul_2022.zip'
+                url = 'https://moslauncher.tk/Download/java/version_grean/Java_8/Java-8-Win-openjdk-8u42-b03-windows-i586-14_jul_2022.zip'
                 d_file_name = 'n_java16.zip'
-                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
             java_v = 'Java 8'
             self.java_d(java_v, url, d_file)
 
@@ -934,14 +950,14 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
             self.pushButton_24.setEnabled(False)
             self.pushButton_24.setText("正在准备下载")
             if system_h() == 'darwin':
-                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%2016/Java-16-x64%20Mac%20jdk-16.0.2_osx-x64_bin.tar.gz'
+                url = 'https://moslauncher.tk/Download/java/version_grean/Java_16/Java-16-x64-Mac-jdk-16.0.2_osx-x64_bin.tar.gz'
                 d_file_name = 'n_java16.tar.gz'
-                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
 
             elif system_h() == 'cygwin' or system_h() == 'win32':
-                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%2016/Java-16-x64%20Win%20jdk-16.0.2_windows-x64_bin.zip'
+                url = 'https://moslauncher.tk/Download/java/version_grean/Java_16/Java-16-x64-Win-jdk-16.0.2_windows-x64_bin.zip'
                 d_file_name = 'n_java16.zip'
-                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
             java_v = 'Java 16'
             self.java_d(java_v, url, d_file)
 
@@ -949,14 +965,14 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
             self.pushButton_24.setEnabled(False)
             self.pushButton_24.setText("正在准备下载")
             if system_h() == 'darwin':
-                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%208/Java-8-x64%20Mac%20jre-8u333-macosx-x64.tar.gz'
+                url = 'https://moslauncher.tk/Download/java/version_grean/Java_8/Java-8-x64-Mac-jre-8u333-macosx-x64.tar.gz'
                 d_file_name = 'n_java17.tar.gz'
-                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
 
             elif system_h() == 'cygwin' or system_h() == 'win32':
-                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%208/Java-8%20Win%20openjdk-8u42-b03-windows-i586-14_jul_2022.zip'
+                url = 'https://moslauncher.tk/Download/java/version_grean/Java_8/Java-8-Win-openjdk-8u42-b03-windows-i586-14_jul_2022.zip'
                 d_file_name = 'n_java17.zip'
-                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
             java_v = 'Java 17'
             self.java_d(java_v, url, d_file)
 
@@ -1198,7 +1214,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
     def java_d(self, v, url, file):
         MOS_print("info", str('Java下载模块 下载版本：' + v + ' 链接：' + url + ' 存储路径：' + file))
 
-        self.a = Java_Dowmloader__(v, url, file)
+        self.a = Java_Downloader__(v, url, file)
 
         self.xy_size = self.geometry()  # 获取主界面 初始坐标
         self.a.move(self.xy_size.x() + 284, self.xy_size.y() + 177)  # 子界面移动到 居中
@@ -1577,18 +1593,18 @@ class MOS_versions(QThread):
             self.sinOut_versions_error.emit('', t)
 
 
-class MOS_versions_dowmloader(QThread):
+class MOS_versions_Downloader(QThread):
     sinOut_versions_d = pyqtSignal()
 
     def __init__(self, url, thread_num, file):
         self.url = url
         self.thread_num = thread_num
         self.file = file
-        super(MOS_versions_dowmloader, self).__init__()
+        super(MOS_versions_Downloader, self).__init__()
 
     def run(self):
-        from MOS_Dowmloader import Dowmloader
-        a = Dowmloader(self.url, self.thread_num, self.file)
+        from MOS_Downloader import Downloader
+        a = Downloader(self.url, self.thread_num, self.file)
         a.run()
         self.sinOut_versions_d.emit()
 
@@ -1632,7 +1648,7 @@ class MOS_file(QThread):
             MOS_file_1 = os.path.join(file, ".MOS", "Music")
             os.makedirs(MOS_file_1, exist_ok=True)
 
-            MOS_file_1 = os.path.join(file, ".MOS", "Dowmload")
+            MOS_file_1 = os.path.join(file, ".MOS", "Download")
             os.makedirs(MOS_file_1, exist_ok=True)
 
             MOS_file_1 = os.path.join(file, ".MOS", "Logs")
@@ -2008,7 +2024,7 @@ def MOS_json_read(All=None, MOS_game_dir=None, MOS_game_dir_name_or_dir=None, MO
             try:
                 b = json.load(f)
             except json.decoder.JSONDecodeError:
-                MOS_print('error', str('JSON解析出现问题' + str(f.readlines())))
+                MOS_print('error', str('JSON解析出现问题' + str(f.read())))
             if All == "Yes":
                 return b
             else:
