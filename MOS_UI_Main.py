@@ -750,11 +750,15 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         r_1 = r.json()['latest']['release'] #发行版
         r_2 = r.json()['latest']['snapshot'] #快照版
         r_3 = r.json()['versions']
-        ids = []
+        ids_1 = []
+        ids_2 = []
         for r_3_1 in r_3:
-            ids.append(r_3_1['id'])
-            #self.treeWidget.addTopLevelItem(r_3_1['id'])
-        self.listWidget_4.addItems(ids)
+            if r_3_1['type'] == 'release':
+                ids_1.append(r_3_1['id'])
+            else:
+                ids_2.append(r_3_1['id'])
+        self.listWidget_4.addItems(ids_1)
+        self.listWidget_8.addItems(ids_2)
 
 
     def click_comboBox_shezhi(self):
