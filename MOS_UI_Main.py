@@ -324,6 +324,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
                                   "    border:2px solid rgb(0, 150, 255);\n"
                                   "}")
         self.widget_mos_left.setStyleSheet(pushButton_xiazai_true)
+        self.m_d()
 
     def click_pushButton_music(self):
         self.stackedWidget_mos_right.setCurrentIndex(4)
@@ -744,6 +745,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
             self.stackedWidget_2.setCurrentIndex(9)
 
     def m_d(self):
+        """获取版本列表并分类&显示"""
         url = 'https://bmclapi2.bangbang93.com/mc/game/version_manifest_v2.json'
         headers = {'User-Agent':'MOS/PyQt6'}
         r = requests.get(url,headers=headers)
