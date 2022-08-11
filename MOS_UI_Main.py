@@ -916,11 +916,13 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.pushButton_22.setText("获取完成")
         self.comboBox_7.setEnabled(True)
         self.pushButton_22.setEnabled(True)
+        self.pushButton_21.setEnabled(False)
 
     def click_pushButton_java_moren(self):
         """当点击 设置中的“Java 恢复默认”按钮后"""
         self.pushButton_21.setEnabled(False)
         self.comboBox_7.setCurrentIndex(0)
+        self.pushButton_21.setEnabled(False)
 
     def chick_pushButton_Java_shezhi_xiazai(self):
         self.stackedWidget_2.setCurrentIndex(8)

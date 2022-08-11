@@ -3984,6 +3984,9 @@ QLineEdit{height:34px;border-radius:8px;border:2px solid rgb(192, 192, 192);}</s
                    </item>
                    <item row="1" column="2">
                     <widget class="QPushButton" name="pushButton_44">
+                     <property name="enabled">
+                      <bool>true</bool>
+                     </property>
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                        <horstretch>0</horstretch>
@@ -4333,6 +4336,9 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
                   <layout class="QGridLayout" name="gridLayout_31">
                    <item row="3" column="3">
                     <widget class="QPushButton" name="pushButton_21">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                        <horstretch>0</horstretch>
