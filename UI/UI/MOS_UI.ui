@@ -2464,8 +2464,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>808</width>
-                    <height>414</height>
+                    <width>100</width>
+                    <height>57</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2935,6 +2935,270 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
            </property>
            <layout class="QGridLayout" name="gridLayout_34">
             <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox">
+              <property name="styleSheet">
+               <string notr="true">QPushButton{background-color: rgb(118, 214, 255);border-radius:7px;color: rgb(255, 255, 255)}
+QPushButton::hover{background-color: rgb(118, 214, 255);}
+QPushButton::pressed{background-color: rgba(118, 214, 255,100);}</string>
+              </property>
+              <property name="title">
+               <string>搜索MOD</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_56">
+               <property name="leftMargin">
+                <number>8</number>
+               </property>
+               <property name="topMargin">
+                <number>8</number>
+               </property>
+               <property name="rightMargin">
+                <number>8</number>
+               </property>
+               <property name="bottomMargin">
+                <number>8</number>
+               </property>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="comboBox_9"/>
+               </item>
+               <item row="6" column="0" colspan="3">
+                <spacer name="horizontalSpacer_25">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="lineEdit_5">
+                 <property name="inputMask">
+                  <string/>
+                 </property>
+                 <property name="placeholderText">
+                  <string>支持中英文</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_39">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>下载源</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="2">
+                <spacer name="horizontalSpacer_23">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>384</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="6" column="5">
+                <widget class="QPushButton" name="pushButton_45">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 14px;</string>
+                 </property>
+                 <property name="text">
+                  <string>搜索</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_38">
+                 <property name="text">
+                  <string>安装在……</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2" colspan="4">
+                <spacer name="horizontalSpacer_24">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>386</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="label_41">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>游戏版本</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1" rowspan="2">
+                <widget class="QComboBox" name="comboBox_13">
+                 <item>
+                  <property name="text">
+                   <string>全部</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="6" column="4">
+                <spacer name="horizontalSpacer_26">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_40">
+                 <property name="text">
+                  <string>名称</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2" rowspan="2">
+                <widget class="QLabel" name="label_49">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>排序方法</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0" rowspan="2">
+                <widget class="QLabel" name="label_42">
+                 <property name="text">
+                  <string>类型</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="3">
+                <spacer name="horizontalSpacer_27">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="2" column="3" rowspan="2" colspan="3">
+                <widget class="QComboBox" name="comboBox_12">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>创建日期</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>热度</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>最近更新时间</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>名称</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>作者(名称)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>下载量</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="1" column="3" colspan="3">
+                <widget class="QComboBox" name="comboBox_11">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3" colspan="3">
+                <widget class="QComboBox" name="comboBox_10">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
              <widget class="QListWidget" name="listWidget_5"/>
             </item>
            </layout>
@@ -4664,8 +4928,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>832</width>
-             <height>800</height>
+             <width>504</width>
+             <height>832</height>
             </rect>
            </property>
            <property name="styleSheet">
