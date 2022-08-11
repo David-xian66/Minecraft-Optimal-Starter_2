@@ -754,7 +754,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
         if self.pushButton_19.text() != '检查到更新，点击下载':
             if self.pushButton_19.text() == '下载完成 - 点击打开下载目录 请进行手动安装(启动器会自动退出)':
                 n_1 = file_h()
-                n = os.path.join(n_1, '.MOS', 'Download')
+                n = os.path.join(n_1, '.MOS', 'Dowmload')
                 if system_h() == 'darwin':
                     # 如果是Mac
                     os.system(str('open ' + n))
@@ -807,7 +807,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
             else:
                 d_name = 'MOS.zip'
             MOS_print('info', str('更新下载地址：' + url))
-            d_file = os.path.join(file_h(), '.MOS', 'Download', d_name)
+            d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_name)
             # from MOS_Dowmloader import Dowmloader_
             # down = Dowmloader_(url,8,d_file)
             self.pushButton_19.setEnabled(False)
@@ -919,14 +919,14 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
             self.pushButton_24.setEnabled(False)
             self.pushButton_24.setText("正在准备下载")
             if system_h() == 'darwin':
-                url = 'https://moslauncher.tk/download/java/version_grean/Java%208/Java-8-x64%20Mac%20jre-8u333-macosx-x64.tar.gz'
+                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%208/Java-8-x64%20Mac%20jre-8u333-macosx-x64.tar.gz'
                 d_file_name = 'n_java8.tar.gz'
-                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
 
             elif system_h() == 'cygwin' or system_h() == 'win32':
-                url = 'https://moslauncher.tk/download/java/version_grean/Java%208/Java-8%20Win%20openjdk-8u42-b03-windows-i586-14_jul_2022.zip'
+                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%208/Java-8%20Win%20openjdk-8u42-b03-windows-i586-14_jul_2022.zip'
                 d_file_name = 'n_java16.zip'
-                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
             java_v = 'Java 8'
             self.java_d(java_v, url, d_file)
 
@@ -934,14 +934,14 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
             self.pushButton_24.setEnabled(False)
             self.pushButton_24.setText("正在准备下载")
             if system_h() == 'darwin':
-                url = 'https://moslauncher.tk/download/java/version_grean/Java%2016/Java-16-x64%20Mac%20jdk-16.0.2_osx-x64_bin.tar.gz'
+                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%2016/Java-16-x64%20Mac%20jdk-16.0.2_osx-x64_bin.tar.gz'
                 d_file_name = 'n_java16.tar.gz'
-                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
 
             elif system_h() == 'cygwin' or system_h() == 'win32':
-                url = 'https://moslauncher.tk/download/java/version_grean/Java%2016/Java-16-x64%20Win%20jdk-16.0.2_windows-x64_bin.zip'
+                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%2016/Java-16-x64%20Win%20jdk-16.0.2_windows-x64_bin.zip'
                 d_file_name = 'n_java16.zip'
-                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
             java_v = 'Java 16'
             self.java_d(java_v, url, d_file)
 
@@ -949,14 +949,14 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
             self.pushButton_24.setEnabled(False)
             self.pushButton_24.setText("正在准备下载")
             if system_h() == 'darwin':
-                url = 'https://moslauncher.tk/download/java/version_grean/Java%208/Java-8-x64%20Mac%20jre-8u333-macosx-x64.tar.gz'
+                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%208/Java-8-x64%20Mac%20jre-8u333-macosx-x64.tar.gz'
                 d_file_name = 'n_java17.tar.gz'
-                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
 
             elif system_h() == 'cygwin' or system_h() == 'win32':
-                url = 'https://moslauncher.tk/download/java/version_grean/Java%208/Java-8%20Win%20openjdk-8u42-b03-windows-i586-14_jul_2022.zip'
+                url = 'https://moslauncher.tk/Dowmload/java/version_grean/Java%208/Java-8%20Win%20openjdk-8u42-b03-windows-i586-14_jul_2022.zip'
                 d_file_name = 'n_java17.zip'
-                d_file = os.path.join(file_h(), '.MOS', 'Download', d_file_name)
+                d_file = os.path.join(file_h(), '.MOS', 'Dowmload', d_file_name)
             java_v = 'Java 17'
             self.java_d(java_v, url, d_file)
 
@@ -1091,7 +1091,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Dowmloader__, Java_OK_UI):
     def click_pushButton_shezhi_fond_moren(self):
         """当用户点击字体设置的“恢复默认”后……"""
         if system_h() == 'win32' or system_h() == 'cygwin':
-            str1 = '微软雅黑'
+            str1 = 'Microsoft Yahei UI'
 
         elif system_h() == 'darwin':
             str1 = 'PingFang SC'
@@ -1632,7 +1632,7 @@ class MOS_file(QThread):
             MOS_file_1 = os.path.join(file, ".MOS", "Music")
             os.makedirs(MOS_file_1, exist_ok=True)
 
-            MOS_file_1 = os.path.join(file, ".MOS", "Download")
+            MOS_file_1 = os.path.join(file, ".MOS", "Dowmload")
             os.makedirs(MOS_file_1, exist_ok=True)
 
             MOS_file_1 = os.path.join(file, ".MOS", "Logs")
@@ -1656,7 +1656,7 @@ class MOS_file(QThread):
                     MOS_file_1 = os.path.join(file, ".minecraft")
                     if system_h() == 'win32' or system_h() == 'cygwin':
                         a = {
-                            'font': '微软雅黑',
+                            'font': 'Microsoft Yahei UI',
                             'font_default': 'Yes',
                             'Automatically_checking_for_updates': 'True',
                             'game_file_name': ['默认目录'],
