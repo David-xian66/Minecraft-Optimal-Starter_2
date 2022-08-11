@@ -50,6 +50,383 @@
     <property name="spacing">
      <number>0</number>
     </property>
+    <item row="1" column="0">
+     <widget class="QWidget" name="widget_mos_left" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget
+{
+	background-color: rgb(231, 230, 228);
+}
+#widget_mos_left_top
+{
+	background-color: rgb(231, 230, 228);
+	border-style:none;
+	border-radius:15px;
+}
+#widget_mos_left_top::hover
+{
+	background-color: rgba(0, 150, 255, 51);
+}
+#widget_mos_left_top::pressed
+{
+	background-color: rgba(0, 150, 255, 51);
+}
+QPushButton
+{
+	color: blue;
+	height:35px;
+	color: rgb(0, 150, 255);
+	background-position: left;
+	text-align: left;
+	padding-right:15px;
+	padding-left:5px;
+	border-style:none;
+	border-radius:8px;
+	border:2px solid rgba(229, 228, 226,0);
+}
+QPushButton::hover
+{
+	background-color: rgb(192, 192, 192);
+}
+QPushButton::pressed
+{
+	border:2px solid rgb(0, 150, 255);
+}
+
+#pushButton_home
+{
+	color: blue;
+	height:35px;
+	color: rgb(0, 150, 255);
+	background-position: left;
+	text-align: left;
+	padding-right:15px;
+	padding-left:5px;
+	border-style:none;
+	border-radius:8px;
+	border:2px solid rgba(229, 228, 226,0);background-color: rgb(192, 192, 192);
+}
+#pushButton_home::hover
+{
+	background-color: rgb(192, 192, 192);
+}
+#pushButton_home::pressed
+{
+	border:2px solid rgb(0, 150, 255);
+}
+
+ToolTip{
+    border: 1px solid rgb(28, 28, 28);
+    border-radius: 5px;
+    background-color: rgb(43, 43, 43);
+}</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>1</number>
+       </property>
+       <property name="leftMargin">
+        <number>9</number>
+       </property>
+       <property name="topMargin">
+        <number>12</number>
+       </property>
+       <property name="rightMargin">
+        <number>9</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="widget_mos_left_top" native="true">
+         <property name="styleSheet">
+          <string notr="true">#label_mos_left_top_user{background-color: rgba(255, 255, 255, 0);}
+#label_mos_left_top_add{background-color: rgba(255, 255, 255, 0);}
+QWidget
+{
+	background-color: rgb(231, 230, 228);
+	border-style:none;
+	border-radius:15px;
+}
+QWidget::hover
+{
+	background-color: rgba(0, 150, 255, 51);
+}
+QWidget::pressed
+{
+	background-color: rgba(0, 150, 255, 51);
+}
+QPushButton
+{
+	background-position: left;
+	text-align: left;
+	padding-right:0px;
+	padding-left:0px;
+}
+</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="1" column="0" rowspan="2">
+           <widget class="QPushButton" name="pushButton_mos_left_top">
+            <property name="styleSheet">
+             <string notr="true">width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../picture/ico.png</normaloff>../../picture/ico.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_mos_left_top_add">
+            <property name="styleSheet">
+             <string notr="true">font-size: 13px;</string>
+            </property>
+            <property name="text">
+             <string>点击添加</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_mos_left_top_user">
+            <property name="styleSheet">
+             <string notr="true">font-size: 13px;</string>
+            </property>
+            <property name="text">
+             <string>无用户</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line_2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_home">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::TabFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 15px;</string>
+         </property>
+         <property name="text">
+          <string>主页</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../../picture/home.png</normaloff>../../picture/home.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_lianji">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 15px;</string>
+         </property>
+         <property name="text">
+          <string>联机</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../../picture/online.png</normaloff>../../picture/online.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_xiazai">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 15px;</string>
+         </property>
+         <property name="text">
+          <string>下载</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../../picture/download.png</normaloff>../../picture/download.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_music">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 15px;</string>
+         </property>
+         <property name="text">
+          <string>音乐</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../../picture/music.png</normaloff>../../picture/music.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_shezhi">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 15px;</string>
+         </property>
+         <property name="text">
+          <string>设置</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../../picture/settings.png</normaloff>../../picture/settings.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_about">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 15px;</string>
+         </property>
+         <property name="text">
+          <string>关于</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../../picture/about.png</normaloff>../../picture/about.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_11">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>184</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_mosll">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 150, 255);font-size: 17px;font: 75 17pt &quot;Yuanti SC&quot;;background-color: rgba(240, 239, 238,0);</string>
+         </property>
+         <property name="text">
+          <string>MOS II</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
     <item row="1" column="1">
      <widget class="QStackedWidget" name="stackedWidget_mos_right">
       <property name="styleSheet">
@@ -884,6 +1261,7 @@ QPushButton::pressed
 	background-color: rgba(0, 150, 255, 51);
 }
 
+QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}
 /*设置垂直滚动条基本样式*/
 QScrollBar:vertical
 {
@@ -896,14 +1274,14 @@ QScrollBar:vertical
 QScrollBar::handle:vertical
 {
     width:8px;
-    background:rgba(0,0,0,25%);
-    border-radius:4px;   /*滚动条两端变成椭圆*/
+    background: rgb(214, 214, 214);
+    border-radius:3px;   /*滚动条两端变成椭圆*/
     min-height:;
 }
 QScrollBar::handle:vertical:hover
 {
     width:8px;
-    background:rgba(0,0,0,50%);   /* 鼠标放到滚动条上的时候，颜色变深*/
+    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/
     border-radius:4px;
     min-height:;
 }
@@ -931,12 +1309,16 @@ QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/
     border-image:url(:/img/picture/caret-up.png);
     subcontrol-position:top;
 }
-QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
 {
-    background:rgba(0,0,0,10%);
+    background: rgba(235, 235, 235,150);
     border-radius:4px;
 }
-</string>
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+{
+    background: rgba(235, 235, 235,150);
+    border-radius:4px;
+}</string>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout">
                   <property name="spacing">
@@ -1084,6 +1466,7 @@ QListView::item:selected {
 	border-left: 3px solid rgb(0, 150, 255);
 }
 
+QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}
 /*设置垂直滚动条基本样式*/
 QScrollBar:vertical
 {
@@ -1096,14 +1479,14 @@ QScrollBar:vertical
 QScrollBar::handle:vertical
 {
     width:8px;
-    background:rgba(0,0,0,25%);
-    border-radius:4px;   /*滚动条两端变成椭圆*/
+    background: rgb(214, 214, 214);
+    border-radius:3px;   /*滚动条两端变成椭圆*/
     min-height:;
 }
 QScrollBar::handle:vertical:hover
 {
     width:8px;
-    background:rgba(0,0,0,50%);   /* 鼠标放到滚动条上的时候，颜色变深*/
+    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/
     border-radius:4px;
     min-height:;
 }
@@ -1131,12 +1514,16 @@ QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/
     border-image:url(:/img/picture/caret-up.png);
     subcontrol-position:top;
 }
-QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
 {
-    background:rgba(0,0,0,10%);
+    background: rgba(235, 235, 235,150);
     border-radius:4px;
 }
-</string>
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+{
+    background: rgba(235, 235, 235,150);
+    border-radius:4px;
+}</string>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_51">
                       <property name="leftMargin">
@@ -1891,6 +2278,67 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical {
 
 QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
     background: rgb(255, 255, 255);   /* 越过小方块的背景色*/
+}
+
+
+
+QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}
+/*设置垂直滚动条基本样式*/
+QScrollBar:vertical
+{
+    width:8px;
+    background:rgba(0,0,0,0%);
+    margin:0px,0px,0px,0px;
+    padding-top:9px;   /*留出9px给上面和下面的箭头*/
+    padding-bottom:9px;
+}
+QScrollBar::handle:vertical
+{
+    width:8px;
+    background: rgb(214, 214, 214);
+    border-radius:3px;   /*滚动条两端变成椭圆*/
+    min-height:;
+}
+QScrollBar::handle:vertical:hover
+{
+    width:8px;
+    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/
+    border-radius:4px;
+    min-height:;
+}
+QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-down_1.png);
+    subcontrol-position:bottom;
+}
+QScrollBar::sub-line:vertical   /*设置上箭头*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-up_1.png);
+    subcontrol-position:top;
+}
+QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-down.png);
+    subcontrol-position:bottom;
+}
+QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-up.png);
+    subcontrol-position:top;
+}
+QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+{
+    background: rgba(235, 235, 235,150);
+    border-radius:4px;
+}
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+{
+    background: rgba(235, 235, 235,150);
+    border-radius:4px;
 }</string>
        </property>
        <layout class="QGridLayout" name="gridLayout">
@@ -1961,56 +2409,70 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
           </property>
           <widget class="QWidget" name="page_9">
            <property name="styleSheet">
-            <string notr="true">QTreeWidget::item {
+            <string notr="true">QListWidget::item {
     height: 40px;
 }</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_9">
             <item row="0" column="0">
-             <widget class="QTreeWidget" name="treeWidget">
-              <property name="styleSheet">
-               <string notr="true">font-size: 13px;</string>
-              </property>
-              <property name="verticalScrollBarPolicy">
-               <enum>Qt::ScrollBarAlwaysOn</enum>
-              </property>
-              <property name="dragDropOverwriteMode">
-               <bool>false</bool>
-              </property>
-              <property name="alternatingRowColors">
-               <bool>true</bool>
-              </property>
-              <property name="uniformRowHeights">
-               <bool>true</bool>
-              </property>
-              <property name="sortingEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="animated">
-               <bool>true</bool>
-              </property>
-              <property name="allColumnsShowFocus">
-               <bool>false</bool>
-              </property>
-              <property name="wordWrap">
-               <bool>false</bool>
-              </property>
-              <property name="headerHidden">
-               <bool>false</bool>
-              </property>
-              <property name="columnCount">
-               <number>2</number>
-              </property>
-              <column>
-               <property name="text">
-                <string>版本列表</string>
+             <widget class="QWidget" name="widget_26" native="true">
+              <layout class="QGridLayout" name="gridLayout_49">
+               <property name="leftMargin">
+                <number>0</number>
                </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>种类</string>
+               <property name="topMargin">
+                <number>0</number>
                </property>
-              </column>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QToolBox" name="toolBox">
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <widget class="QWidget" name="page_20">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>808</width>
+                    <height>414</height>
+                   </rect>
+                  </property>
+                  <attribute name="label">
+                   <string>原版</string>
+                  </attribute>
+                  <layout class="QHBoxLayout" name="horizontalLayout">
+                   <item>
+                    <widget class="QListWidget" name="listWidget_4"/>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="page_24">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>808</width>
+                    <height>414</height>
+                   </rect>
+                  </property>
+                  <attribute name="label">
+                   <string>快照版</string>
+                  </attribute>
+                  <layout class="QHBoxLayout" name="horizontalLayout_2">
+                   <item>
+                    <widget class="QListWidget" name="listWidget_8"/>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -2459,51 +2921,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
            </property>
            <layout class="QGridLayout" name="gridLayout_34">
             <item row="0" column="0">
-             <widget class="QTreeWidget" name="treeWidget_2">
-              <property name="styleSheet">
-               <string notr="true">font-size: 13px;</string>
-              </property>
-              <property name="verticalScrollBarPolicy">
-               <enum>Qt::ScrollBarAlwaysOn</enum>
-              </property>
-              <property name="dragDropOverwriteMode">
-               <bool>false</bool>
-              </property>
-              <property name="alternatingRowColors">
-               <bool>true</bool>
-              </property>
-              <property name="uniformRowHeights">
-               <bool>true</bool>
-              </property>
-              <property name="sortingEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="animated">
-               <bool>true</bool>
-              </property>
-              <property name="allColumnsShowFocus">
-               <bool>false</bool>
-              </property>
-              <property name="wordWrap">
-               <bool>false</bool>
-              </property>
-              <property name="headerHidden">
-               <bool>false</bool>
-              </property>
-              <property name="columnCount">
-               <number>2</number>
-              </property>
-              <column>
-               <property name="text">
-                <string>Mod列表</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>种类</string>
-               </property>
-              </column>
-             </widget>
+             <widget class="QListWidget" name="listWidget_5"/>
             </item>
            </layout>
           </widget>
@@ -2526,51 +2944,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
            </property>
            <layout class="QGridLayout" name="gridLayout_36">
             <item row="0" column="0">
-             <widget class="QTreeWidget" name="treeWidget_3">
-              <property name="styleSheet">
-               <string notr="true">font-size: 13px;</string>
-              </property>
-              <property name="verticalScrollBarPolicy">
-               <enum>Qt::ScrollBarAlwaysOn</enum>
-              </property>
-              <property name="dragDropOverwriteMode">
-               <bool>false</bool>
-              </property>
-              <property name="alternatingRowColors">
-               <bool>true</bool>
-              </property>
-              <property name="uniformRowHeights">
-               <bool>true</bool>
-              </property>
-              <property name="sortingEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="animated">
-               <bool>true</bool>
-              </property>
-              <property name="allColumnsShowFocus">
-               <bool>false</bool>
-              </property>
-              <property name="wordWrap">
-               <bool>false</bool>
-              </property>
-              <property name="headerHidden">
-               <bool>false</bool>
-              </property>
-              <property name="columnCount">
-               <number>2</number>
-              </property>
-              <column>
-               <property name="text">
-                <string>整合包列表</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>种类</string>
-               </property>
-              </column>
-             </widget>
+             <widget class="QListWidget" name="listWidget_6"/>
             </item>
            </layout>
           </widget>
@@ -2593,51 +2967,7 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
            </property>
            <layout class="QGridLayout" name="gridLayout_38">
             <item row="0" column="0">
-             <widget class="QTreeWidget" name="treeWidget_4">
-              <property name="styleSheet">
-               <string notr="true">font-size: 13px;</string>
-              </property>
-              <property name="verticalScrollBarPolicy">
-               <enum>Qt::ScrollBarAlwaysOn</enum>
-              </property>
-              <property name="dragDropOverwriteMode">
-               <bool>false</bool>
-              </property>
-              <property name="alternatingRowColors">
-               <bool>true</bool>
-              </property>
-              <property name="uniformRowHeights">
-               <bool>true</bool>
-              </property>
-              <property name="sortingEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="animated">
-               <bool>true</bool>
-              </property>
-              <property name="allColumnsShowFocus">
-               <bool>false</bool>
-              </property>
-              <property name="wordWrap">
-               <bool>false</bool>
-              </property>
-              <property name="headerHidden">
-               <bool>false</bool>
-              </property>
-              <property name="columnCount">
-               <number>2</number>
-              </property>
-              <column>
-               <property name="text">
-                <string>世界列表</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>种类</string>
-               </property>
-              </column>
-             </widget>
+             <widget class="QListWidget" name="listWidget_7"/>
             </item>
            </layout>
           </widget>
@@ -2917,6 +3247,26 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
             </item>
            </layout>
           </widget>
+          <widget class="QWidget" name="page_26">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_37">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>../../picture/loading_2.gif</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
         <item row="2" column="1" rowspan="2">
@@ -3185,14 +3535,14 @@ QScrollBar:vertical
 QScrollBar::handle:vertical
 {
     width:8px;
-    background:rgba(0,0,0,25%);
-    border-radius:4px;   /*滚动条两端变成椭圆*/
+    background: rgb(214, 214, 214);
+    border-radius:3px;   /*滚动条两端变成椭圆*/
     min-height:;
 }
 QScrollBar::handle:vertical:hover
 {
     width:8px;
-    background:rgba(0,0,0,50%);   /* 鼠标放到滚动条上的时候，颜色变深*/
+    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/
     border-radius:4px;
     min-height:;
 }
@@ -3220,9 +3570,14 @@ QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/
     border-image:url(:/img/picture/caret-up.png);
     subcontrol-position:top;
 }
+QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+{
+    background: rgba(235, 235, 235,150);
+    border-radius:4px;
+}
 QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
 {
-    background:rgba(0,0,0,10%);
+    background: rgba(235, 235, 235,150);
     border-radius:4px;
 }</string>
           </property>
@@ -4222,7 +4577,7 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
         <item row="3" column="0" colspan="2">
          <widget class="QScrollArea" name="scrollArea_3">
           <property name="styleSheet">
-           <string notr="true">QScrollArea{border-style:none;}
+           <string notr="true">QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}
 /*设置垂直滚动条基本样式*/
 QScrollBar:vertical
 {
@@ -4235,14 +4590,14 @@ QScrollBar:vertical
 QScrollBar::handle:vertical
 {
     width:8px;
-    background:rgba(0,0,0,25%);
-    border-radius:4px;   /*滚动条两端变成椭圆*/
+    background: rgb(214, 214, 214);
+    border-radius:3px;   /*滚动条两端变成椭圆*/
     min-height:;
 }
 QScrollBar::handle:vertical:hover
 {
     width:8px;
-    background:rgba(0,0,0,50%);   /* 鼠标放到滚动条上的时候，颜色变深*/
+    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/
     border-radius:4px;
     min-height:;
 }
@@ -4270,12 +4625,16 @@ QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/
     border-image:url(:/img/picture/caret-up.png);
     subcontrol-position:top;
 }
-QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
 {
-    background:rgba(0,0,0,10%);
+    background: rgba(235, 235, 235,150);
     border-radius:4px;
 }
-</string>
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+{
+    background: rgba(235, 235, 235,150);
+    border-radius:4px;
+}</string>
           </property>
           <property name="widgetResizable">
            <bool>true</bool>
@@ -4791,383 +5150,6 @@ QLabel{border-style:none;}</string>
         </item>
        </layout>
       </widget>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QWidget" name="widget_mos_left" native="true">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QWidget
-{
-	background-color: rgb(231, 230, 228);
-}
-#widget_mos_left_top
-{
-	background-color: rgb(231, 230, 228);
-	border-style:none;
-	border-radius:15px;
-}
-#widget_mos_left_top::hover
-{
-	background-color: rgba(0, 150, 255, 51);
-}
-#widget_mos_left_top::pressed
-{
-	background-color: rgba(0, 150, 255, 51);
-}
-QPushButton
-{
-	color: blue;
-	height:35px;
-	color: rgb(0, 150, 255);
-	background-position: left;
-	text-align: left;
-	padding-right:15px;
-	padding-left:5px;
-	border-style:none;
-	border-radius:8px;
-	border:2px solid rgba(229, 228, 226,0);
-}
-QPushButton::hover
-{
-	background-color: rgb(192, 192, 192);
-}
-QPushButton::pressed
-{
-	border:2px solid rgb(0, 150, 255);
-}
-
-#pushButton_home
-{
-	color: blue;
-	height:35px;
-	color: rgb(0, 150, 255);
-	background-position: left;
-	text-align: left;
-	padding-right:15px;
-	padding-left:5px;
-	border-style:none;
-	border-radius:8px;
-	border:2px solid rgba(229, 228, 226,0);background-color: rgb(192, 192, 192);
-}
-#pushButton_home::hover
-{
-	background-color: rgb(192, 192, 192);
-}
-#pushButton_home::pressed
-{
-	border:2px solid rgb(0, 150, 255);
-}
-
-ToolTip{
-    border: 1px solid rgb(28, 28, 28);
-    border-radius: 5px;
-    background-color: rgb(43, 43, 43);
-}</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <property name="spacing">
-        <number>1</number>
-       </property>
-       <property name="leftMargin">
-        <number>9</number>
-       </property>
-       <property name="topMargin">
-        <number>12</number>
-       </property>
-       <property name="rightMargin">
-        <number>9</number>
-       </property>
-       <item>
-        <widget class="QWidget" name="widget_mos_left_top" native="true">
-         <property name="styleSheet">
-          <string notr="true">#label_mos_left_top_user{background-color: rgba(255, 255, 255, 0);}
-#label_mos_left_top_add{background-color: rgba(255, 255, 255, 0);}
-QWidget
-{
-	background-color: rgb(231, 230, 228);
-	border-style:none;
-	border-radius:15px;
-}
-QWidget::hover
-{
-	background-color: rgba(0, 150, 255, 51);
-}
-QWidget::pressed
-{
-	background-color: rgba(0, 150, 255, 51);
-}
-QPushButton
-{
-	background-position: left;
-	text-align: left;
-	padding-right:0px;
-	padding-left:0px;
-}
-</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="1" column="0" rowspan="2">
-           <widget class="QPushButton" name="pushButton_mos_left_top">
-            <property name="styleSheet">
-             <string notr="true">width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>../../picture/ico.png</normaloff>../../picture/ico.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="label_mos_left_top_add">
-            <property name="styleSheet">
-             <string notr="true">font-size: 13px;</string>
-            </property>
-            <property name="text">
-             <string>点击添加</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="label_mos_left_top_user">
-            <property name="styleSheet">
-             <string notr="true">font-size: 13px;</string>
-            </property>
-            <property name="text">
-             <string>无用户</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="Line" name="line_2">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_home">
-         <property name="minimumSize">
-          <size>
-           <width>150</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::TabFocus</enum>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">font-size: 15px;</string>
-         </property>
-         <property name="text">
-          <string>主页</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>../../picture/home.png</normaloff>../../picture/home.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_lianji">
-         <property name="minimumSize">
-          <size>
-           <width>150</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">font-size: 15px;</string>
-         </property>
-         <property name="text">
-          <string>联机</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>../../picture/online.png</normaloff>../../picture/online.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_xiazai">
-         <property name="minimumSize">
-          <size>
-           <width>150</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">font-size: 15px;</string>
-         </property>
-         <property name="text">
-          <string>下载</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>../../picture/download.png</normaloff>../../picture/download.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_music">
-         <property name="minimumSize">
-          <size>
-           <width>150</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">font-size: 15px;</string>
-         </property>
-         <property name="text">
-          <string>音乐</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>../../picture/music.png</normaloff>../../picture/music.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_shezhi">
-         <property name="minimumSize">
-          <size>
-           <width>150</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">font-size: 15px;</string>
-         </property>
-         <property name="text">
-          <string>设置</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>../../picture/settings.png</normaloff>../../picture/settings.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_about">
-         <property name="minimumSize">
-          <size>
-           <width>150</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">font-size: 15px;</string>
-         </property>
-         <property name="text">
-          <string>关于</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>../../picture/about.png</normaloff>../../picture/about.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_11">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>184</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_mosll">
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 150, 255);font-size: 17px;font: 75 17pt &quot;Yuanti SC&quot;;background-color: rgba(240, 239, 238,0);</string>
-         </property>
-         <property name="text">
-          <string>MOS II</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
    </layout>
