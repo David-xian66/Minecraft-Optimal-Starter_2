@@ -2464,8 +2464,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>57</height>
+                    <width>808</width>
+                    <height>414</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -3080,6 +3080,101 @@ QPushButton::pressed{background-color: rgba(118, 214, 255,100);}</string>
                    <string>全部</string>
                   </property>
                  </item>
+                 <item>
+                  <property name="text">
+                   <string>冒险</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>诅咒</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>装饰</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>经济</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>设备</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>食物</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>游戏机制</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>图书馆</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>魔法</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>管理</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>迷你游戏</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>暴徒</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>优化</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>社会的</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>贮存</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>技术</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>运输</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>效用</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>世界生成</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
                <item row="6" column="4">
@@ -3193,6 +3288,16 @@ QPushButton::pressed{background-color: rgba(118, 214, 255,100);}</string>
                    <verstretch>0</verstretch>
                   </sizepolicy>
                  </property>
+                 <item>
+                  <property name="text">
+                   <string>CurseForge</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Mcdrinth</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
               </layout>
@@ -4534,8 +4639,8 @@ QRadioButton{border-style:none;}</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>832</width>
-                 <height>506</height>
+                 <width>258</width>
+                 <height>845</height>
                 </rect>
                </property>
                <property name="styleSheet">

@@ -30,7 +30,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.show()
 
         self.move_Flag = False
-
+        self.xiazai_first = True
         # =================================分割线===================================#
 
         self.pushButton_home.clicked.connect(self.click_pushButton_home)
@@ -326,7 +326,12 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
                                   "    border:2px solid rgb(0, 150, 255);\n"
                                   "}")
         self.widget_mos_left.setStyleSheet(pushButton_xiazai_true)
-        self.m_d()
+        if self.xiazai_first == True:
+            """检测是不是第一次打开 如果是 则获取列表 如果不是 只切换页面"""
+            self.m_d()
+            self.xiazai_first = False
+        else:
+            pass
 
     def click_pushButton_music(self):
         self.stackedWidget_mos_right.setCurrentIndex(4)
@@ -758,18 +763,23 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
 
         self.m_d_t = m_d_()
         self.m_d_t.sinOut.connect(self.m_d_sinOut)
+        self.m_d_t.sinOut_Ok.connect(self.m_d_sinOut_Ok)
         self.m_d_t.start()
 
-    def m_d_sinOut(self, a, b):
-        """在获取版本列表线程启动后 获取之后传数据 原版,快照版"""
+    def m_d_sinOut(self,  a,  b):
+        """在获取版本列表线程启动后 获取之后传数据 原版,快照版 (为了防止页面卡顿 需一个一个进行传递)"""
         icon1 = os.path.join("picture", "grass.png")
         icon2 = os.path.join("picture", "grass.png")
-        for a_1 in a:
-            item = QListWidgetItem(QIcon(icon1), a_1)
+        if a != '':
+            item = QListWidgetItem(QIcon(icon1), a)
             self.listWidget_4.addItem(item)
-        for b_1 in b:
-            item = QListWidgetItem(QIcon(icon2), b_1)
+        else:
+            item = QListWidgetItem(QIcon(icon2), b)
             self.listWidget_8.addItem(item)
+
+
+    def m_d_sinOut_Ok(self):
+        """在获取版本列表线程完成后"""
         self.stackedWidget_2.setCurrentIndex(0)
         self.comboBox_2.setEnabled(True)
 
@@ -1578,7 +1588,8 @@ class gonggao(QThread):
 
 
 class m_d_(QThread):
-    sinOut = pyqtSignal(list, list)
+    sinOut = pyqtSignal(str, str)
+    sinOut_Ok = pyqtSignal()
 
     def __init__(self):
         super(m_d_, self).__init__()
@@ -1595,10 +1606,10 @@ class m_d_(QThread):
         ids_2 = []
         for r_3_1 in r_3:
             if r_3_1['type'] == 'release':
-                ids_1.append(r_3_1['id'])
+                self.sinOut.emit(r_3_1['id'],None)
             else:
-                ids_2.append(r_3_1['id'])
-        self.sinOut.emit(ids_1, ids_2)
+                self.sinOut.emit(None,r_3_1['id'])
+        self.sinOut_Ok.emit()
 
 
 class MOS_versions(QThread):

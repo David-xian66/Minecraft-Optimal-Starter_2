@@ -61,8 +61,7 @@ class Ui_MOS(object):
         self.gridLayout_13.setSpacing(0)
         self.gridLayout_13.setObjectName("gridLayout_13")
         self.widget_mos_left = QtWidgets.QWidget(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred,
-                                           QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget_mos_left.sizePolicy().hasHeightForWidth())
@@ -72,72 +71,72 @@ class Ui_MOS(object):
         self.widget_mos_left.setFont(font)
         self.widget_mos_left.setAutoFillBackground(False)
         self.widget_mos_left.setStyleSheet("QWidget\n"
-                                           "{\n"
-                                           "    background-color: rgb(231, 230, 228);\n"
-                                           "}\n"
-                                           "#widget_mos_left_top\n"
-                                           "{\n"
-                                           "    background-color: rgb(231, 230, 228);\n"
-                                           "    border-style:none;\n"
-                                           "    border-radius:15px;\n"
-                                           "}\n"
-                                           "#widget_mos_left_top::hover\n"
-                                           "{\n"
-                                           "    background-color: rgba(0, 150, 255, 51);\n"
-                                           "}\n"
-                                           "#widget_mos_left_top::pressed\n"
-                                           "{\n"
-                                           "    background-color: rgba(0, 150, 255, 51);\n"
-                                           "}\n"
-                                           "QPushButton\n"
-                                           "{\n"
-                                           "    color: blue;\n"
-                                           "    height:35px;\n"
-                                           "    color: rgb(0, 150, 255);\n"
-                                           "    background-position: left;\n"
-                                           "    text-align: left;\n"
-                                           "    padding-right:15px;\n"
-                                           "    padding-left:5px;\n"
-                                           "    border-style:none;\n"
-                                           "    border-radius:8px;\n"
-                                           "    border:2px solid rgba(229, 228, 226,0);\n"
-                                           "}\n"
-                                           "QPushButton::hover\n"
-                                           "{\n"
-                                           "    background-color: rgb(192, 192, 192);\n"
-                                           "}\n"
-                                           "QPushButton::pressed\n"
-                                           "{\n"
-                                           "    border:2px solid rgb(0, 150, 255);\n"
-                                           "}\n"
-                                           "\n"
-                                           "#pushButton_home\n"
-                                           "{\n"
-                                           "    color: blue;\n"
-                                           "    height:35px;\n"
-                                           "    color: rgb(0, 150, 255);\n"
-                                           "    background-position: left;\n"
-                                           "    text-align: left;\n"
-                                           "    padding-right:15px;\n"
-                                           "    padding-left:5px;\n"
-                                           "    border-style:none;\n"
-                                           "    border-radius:8px;\n"
-                                           "    border:2px solid rgba(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
-                                           "}\n"
-                                           "#pushButton_home::hover\n"
-                                           "{\n"
-                                           "    background-color: rgb(192, 192, 192);\n"
-                                           "}\n"
-                                           "#pushButton_home::pressed\n"
-                                           "{\n"
-                                           "    border:2px solid rgb(0, 150, 255);\n"
-                                           "}\n"
-                                           "\n"
-                                           "ToolTip{\n"
-                                           "    border: 1px solid rgb(28, 28, 28);\n"
-                                           "    border-radius: 5px;\n"
-                                           "    background-color: rgb(43, 43, 43);\n"
-                                           "}")
+"{\n"
+"    background-color: rgb(231, 230, 228);\n"
+"}\n"
+"#widget_mos_left_top\n"
+"{\n"
+"    background-color: rgb(231, 230, 228);\n"
+"    border-style:none;\n"
+"    border-radius:15px;\n"
+"}\n"
+"#widget_mos_left_top::hover\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}\n"
+"#widget_mos_left_top::pressed\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"    color: blue;\n"
+"    height:35px;\n"
+"    color: rgb(0, 150, 255);\n"
+"    background-position: left;\n"
+"    text-align: left;\n"
+"    padding-right:15px;\n"
+"    padding-left:5px;\n"
+"    border-style:none;\n"
+"    border-radius:8px;\n"
+"    border:2px solid rgba(229, 228, 226,0);\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(192, 192, 192);\n"
+"}\n"
+"QPushButton::pressed\n"
+"{\n"
+"    border:2px solid rgb(0, 150, 255);\n"
+"}\n"
+"\n"
+"#pushButton_home\n"
+"{\n"
+"    color: blue;\n"
+"    height:35px;\n"
+"    color: rgb(0, 150, 255);\n"
+"    background-position: left;\n"
+"    text-align: left;\n"
+"    padding-right:15px;\n"
+"    padding-left:5px;\n"
+"    border-style:none;\n"
+"    border-radius:8px;\n"
+"    border:2px solid rgba(229, 228, 226,0);background-color: rgb(192, 192, 192);\n"
+"}\n"
+"#pushButton_home::hover\n"
+"{\n"
+"    background-color: rgb(192, 192, 192);\n"
+"}\n"
+"#pushButton_home::pressed\n"
+"{\n"
+"    border:2px solid rgb(0, 150, 255);\n"
+"}\n"
+"\n"
+"ToolTip{\n"
+"    border: 1px solid rgb(28, 28, 28);\n"
+"    border-radius: 5px;\n"
+"    background-color: rgb(43, 43, 43);\n"
+"}")
         self.widget_mos_left.setObjectName("widget_mos_left")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget_mos_left)
         self.verticalLayout_2.setContentsMargins(9, 12, 9, -1)
@@ -145,35 +144,34 @@ class Ui_MOS(object):
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.widget_mos_left_top = QtWidgets.QWidget(self.widget_mos_left)
         self.widget_mos_left_top.setStyleSheet("#label_mos_left_top_user{background-color: rgba(255, 255, 255, 0);}\n"
-                                               "#label_mos_left_top_add{background-color: rgba(255, 255, 255, 0);}\n"
-                                               "QWidget\n"
-                                               "{\n"
-                                               "    background-color: rgb(231, 230, 228);\n"
-                                               "    border-style:none;\n"
-                                               "    border-radius:15px;\n"
-                                               "}\n"
-                                               "QWidget::hover\n"
-                                               "{\n"
-                                               "    background-color: rgba(0, 150, 255, 51);\n"
-                                               "}\n"
-                                               "QWidget::pressed\n"
-                                               "{\n"
-                                               "    background-color: rgba(0, 150, 255, 51);\n"
-                                               "}\n"
-                                               "QPushButton\n"
-                                               "{\n"
-                                               "    background-position: left;\n"
-                                               "    text-align: left;\n"
-                                               "    padding-right:0px;\n"
-                                               "    padding-left:0px;\n"
-                                               "}\n"
-                                               "")
+"#label_mos_left_top_add{background-color: rgba(255, 255, 255, 0);}\n"
+"QWidget\n"
+"{\n"
+"    background-color: rgb(231, 230, 228);\n"
+"    border-style:none;\n"
+"    border-radius:15px;\n"
+"}\n"
+"QWidget::hover\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}\n"
+"QWidget::pressed\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"    background-position: left;\n"
+"    text-align: left;\n"
+"    padding-right:0px;\n"
+"    padding-left:0px;\n"
+"}\n"
+"")
         self.widget_mos_left_top.setObjectName("widget_mos_left_top")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.widget_mos_left_top)
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.pushButton_mos_left_top = QtWidgets.QPushButton(self.widget_mos_left_top)
-        self.pushButton_mos_left_top.setStyleSheet(
-            "width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);")
+        self.pushButton_mos_left_top.setStyleSheet("width:50px;height:50px;border-radius: 23px;background-color: rgba(255, 255, 255, 0);")
         self.pushButton_mos_left_top.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_ico_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -220,8 +218,7 @@ class Ui_MOS(object):
         self.pushButton_xiazai.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_xiazai.setStyleSheet("font-size: 15px;")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_download_png), QtGui.QIcon.Mode.Normal,
-                        QtGui.QIcon.State.Off)
+        icon4.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_download_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_xiazai.setIcon(icon4)
         self.pushButton_xiazai.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_xiazai.setObjectName("pushButton_xiazai")
@@ -239,8 +236,7 @@ class Ui_MOS(object):
         self.pushButton_shezhi.setMinimumSize(QtCore.QSize(150, 0))
         self.pushButton_shezhi.setStyleSheet("font-size: 15px;")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_settings_png), QtGui.QIcon.Mode.Normal,
-                        QtGui.QIcon.State.Off)
+        icon6.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_settings_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_shezhi.setIcon(icon6)
         self.pushButton_shezhi.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_shezhi.setObjectName("pushButton_shezhi")
@@ -254,12 +250,10 @@ class Ui_MOS(object):
         self.pushButton_about.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_about.setObjectName("pushButton_about")
         self.verticalLayout_2.addWidget(self.pushButton_about)
-        spacerItem = QtWidgets.QSpacerItem(20, 184, QtWidgets.QSizePolicy.Policy.Minimum,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(20, 184, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_2.addItem(spacerItem)
         self.label_mosll = QtWidgets.QLabel(self.widget_mos_left)
-        self.label_mosll.setStyleSheet(
-            "color: rgb(0, 150, 255);font-size: 17px;font: 75 17pt \"Yuanti SC\";background-color: rgba(240, 239, 238,0);")
+        self.label_mosll.setStyleSheet("color: rgb(0, 150, 255);font-size: 17px;font: 75 17pt \"Yuanti SC\";background-color: rgba(240, 239, 238,0);")
         self.label_mosll.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_mosll.setWordWrap(True)
         self.label_mosll.setObjectName("label_mosll")
@@ -276,8 +270,7 @@ class Ui_MOS(object):
         self.gridLayout_16.setSpacing(0)
         self.gridLayout_16.setObjectName("gridLayout_16")
         self.scrollArea_page_gonggao = QtWidgets.QScrollArea(self.page_gonggao)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(1)
         sizePolicy.setHeightForWidth(self.scrollArea_page_gonggao.sizePolicy().hasHeightForWidth())
@@ -294,16 +287,15 @@ class Ui_MOS(object):
         self.gridLayout_47.setObjectName("gridLayout_47")
         self.widget_scrollArea_page_gonggao_right = QtWidgets.QWidget(self.scrollAreaWidgetContents)
         self.widget_scrollArea_page_gonggao_right.setMinimumSize(QtCore.QSize(399, 509))
-        self.widget_scrollArea_page_gonggao_right.setStyleSheet(
-            "QWidget{border:2px solid rgb(0, 150, 255);border-radius:15px;}\n"
-            "QLabel{border-style:none;}\n"
-            "QProgressBar{\n"
-            "    text-align: center;border-style:none;border-radius:7px;background-color: rgba(0, 150, 255, 10);height:15px;color: rgb(66, 66, 66);\n"
-            "}\n"
-            "QProgressBar::chunk{\n"
-            "    border-radius:7px;\n"
-            "    background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(53, 244, 252, 255), stop:1 rgba(222, 255, 255, 255));\n"
-            "}")
+        self.widget_scrollArea_page_gonggao_right.setStyleSheet("QWidget{border:2px solid rgb(0, 150, 255);border-radius:15px;}\n"
+"QLabel{border-style:none;}\n"
+"QProgressBar{\n"
+"    text-align: center;border-style:none;border-radius:7px;background-color: rgba(0, 150, 255, 10);height:15px;color: rgb(66, 66, 66);\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"    border-radius:7px;\n"
+"    background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(53, 244, 252, 255), stop:1 rgba(222, 255, 255, 255));\n"
+"}")
         self.widget_scrollArea_page_gonggao_right.setObjectName("widget_scrollArea_page_gonggao_right")
         self.gridLayout_28 = QtWidgets.QGridLayout(self.widget_scrollArea_page_gonggao_right)
         self.gridLayout_28.setObjectName("gridLayout_28")
@@ -320,8 +312,7 @@ class Ui_MOS(object):
         self.line_8.setObjectName("line_8")
         self.gridLayout_28.addWidget(self.line_8, 1, 0, 1, 1)
         self.widget_scrollArea_page_gonggao_statring = QtWidgets.QWidget(self.widget_scrollArea_page_gonggao_right)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred,
-                                           QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget_scrollArea_page_gonggao_statring.sizePolicy().hasHeightForWidth())
@@ -336,11 +327,9 @@ class Ui_MOS(object):
         self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName("progressBar")
         self.gridLayout_2.addWidget(self.progressBar, 2, 0, 1, 5)
-        spacerItem1 = QtWidgets.QSpacerItem(10, 40, QtWidgets.QSizePolicy.Policy.Minimum,
-                                            QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(10, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.gridLayout_2.addItem(spacerItem1, 0, 0, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(10, 40, QtWidgets.QSizePolicy.Policy.Minimum,
-                                            QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem2 = QtWidgets.QSpacerItem(10, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.gridLayout_2.addItem(spacerItem2, 0, 4, 2, 1)
         self.label_3 = QtWidgets.QLabel(self.widget_scrollArea_page_gonggao_statring)
         self.label_3.setStyleSheet("border-style:none;background-color: rgba(255, 255, 255, 0);")
@@ -356,83 +345,82 @@ class Ui_MOS(object):
         self.gridLayout_2.addWidget(self.label_7, 3, 0, 1, 5)
         self.gridLayout_28.addWidget(self.widget_scrollArea_page_gonggao_statring, 2, 0, 1, 1)
         self.widget_9 = QtWidgets.QWidget(self.widget_scrollArea_page_gonggao_right)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
-                                           QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget_9.sizePolicy().hasHeightForWidth())
         self.widget_9.setSizePolicy(sizePolicy)
         self.widget_9.setStyleSheet("QWidget{border-style:none;}\n"
-                                    "QPushButton{border:2px solid rgb(192, 192, 192);border-radius:8px;}\n"
-                                    "#pushButton__gonggao_start{border:2px solid rgb(0, 150, 255);height:25px;border-radius:8px;}\n"
-                                    "#pushButton__gonggao_start::hover{color: rgba(0, 150, 255,100);}\n"
-                                    "#pushButton__gonggao_start::pressed{background-color: rgba(0, 150, 255, 50);}\n"
-                                    "\n"
-                                    "QComboBox {\n"
-                                    "    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */\n"
-                                    "    height:25px;\n"
-                                    "    /*background-color: rgba(0, 150, 255, 150);*/\n"
-                                    "    background-color: rgba(214, 214, 214,100);\n"
-                                    "    border-radius:8px;\n"
-                                    "}\n"
-                                    "\n"
-                                    "/*下拉框的样式*/\n"
-                                    "QComboBox QAbstractItemView\n"
-                                    "{\n"
-                                    "    outline: 0px solid gray;  /*取消选中虚线*/\n"
-                                    "    border: 1px solid rgb(31, 156, 255);\n"
-                                    "    color: rgb(66, 66, 66);\n"
-                                    "    background-color: rgb(255, 255, 255);\n"
-                                    "    selection-background-color: rgb(0, 150, 255);\n"
-                                    "    border-radius:5px;\n"
-                                    "    height:35px;\n"
-                                    "    border:None;\n"
-                                    "}\n"
-                                    "/*选中每一项的字体颜色和背景颜色*/\n"
-                                    "QComboBox::item:selected \n"
-                                    "{\n"
-                                    "    color: rgb(255, 255, 255);\n"
-                                    "    background-color: rgb(0, 150, 255);\n"
-                                    "    border-radius:5px;\n"
-                                    "}\n"
-                                    "/*右边*/\n"
-                                    "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
-                                    "QComboBox::down-arrow\n"
-                                    "{\n"
-                                    "    image: url(:/img/back_blue_down.png);\n"
-                                    "    width: 25px;\n"
-                                    "    height: 35px;\n"
-                                    "    right:6px;\n"
-                                    "    border-left: 2px solid rgb(192, 192, 192);\n"
-                                    "    border-right: 1px solid rgba(214, 214, 214,0);\n"
-                                    "}\n"
-                                    "QComboBox::down-arrow:on\n"
-                                    "{\n"
-                                    "    image: url(:/img/back_blue_up.png);\n"
-                                    "    width: 25px;\n"
-                                    "    height: 35px;\n"
-                                    "    right:6px;\n"
-                                    "    border-left: 2px solid rgb(192, 192, 192);\n"
-                                    "    border-right: 1px solid rgba(214, 214, 214,0);\n"
-                                    "}\n"
-                                    "/*QComboBox::down-arrow::hover{}*\n"
-                                    "\n"
-                                    "/* QComboBox中的垂直滚动条 */\n"
-                                    "QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
-                                    "    width: 10px;\n"
-                                    "    height: 8px;\n"
-                                    "    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/\n"
-                                    "    border-style:none;\n"
-                                    "}\n"
-                                    "\n"
-                                    "QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
-                                    "    border-radius: 5px;   /* 圆角 */\n"
-                                    "    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
-                                    "}\n"
-                                    "\n"
-                                    "QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
-                                    "    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
-                                    "}")
+"QPushButton{border:2px solid rgb(192, 192, 192);border-radius:8px;}\n"
+"#pushButton__gonggao_start{border:2px solid rgb(0, 150, 255);height:25px;border-radius:8px;}\n"
+"#pushButton__gonggao_start::hover{color: rgba(0, 150, 255,100);}\n"
+"#pushButton__gonggao_start::pressed{background-color: rgba(0, 150, 255, 50);}\n"
+"\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */\n"
+"    height:25px;\n"
+"    /*background-color: rgba(0, 150, 255, 150);*/\n"
+"    background-color: rgba(214, 214, 214,100);\n"
+"    border-radius:8px;\n"
+"}\n"
+"\n"
+"/*下拉框的样式*/\n"
+"QComboBox QAbstractItemView\n"
+"{\n"
+"    outline: 0px solid gray;  /*取消选中虚线*/\n"
+"    border: 1px solid rgb(31, 156, 255);\n"
+"    color: rgb(66, 66, 66);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    selection-background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"    height:35px;\n"
+"    border:None;\n"
+"}\n"
+"/*选中每一项的字体颜色和背景颜色*/\n"
+"QComboBox::item:selected \n"
+"{\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"}\n"
+"/*右边*/\n"
+"QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
+"QComboBox::down-arrow\n"
+"{\n"
+"    image: url(:/img/back_blue_down.png);\n"
+"    width: 25px;\n"
+"    height: 35px;\n"
+"    right:6px;\n"
+"    border-left: 2px solid rgb(192, 192, 192);\n"
+"    border-right: 1px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"QComboBox::down-arrow:on\n"
+"{\n"
+"    image: url(:/img/back_blue_up.png);\n"
+"    width: 25px;\n"
+"    height: 35px;\n"
+"    right:6px;\n"
+"    border-left: 2px solid rgb(192, 192, 192);\n"
+"    border-right: 1px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"/*QComboBox::down-arrow::hover{}*\n"
+"\n"
+"/* QComboBox中的垂直滚动条 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    height: 8px;\n"
+"    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/\n"
+"    border-style:none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* 圆角 */\n"
+"    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
+"}")
         self.widget_9.setObjectName("widget_9")
         self.gridLayout_6 = QtWidgets.QGridLayout(self.widget_9)
         self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
@@ -490,9 +478,8 @@ class Ui_MOS(object):
         self.gridLayout_47.addWidget(self.widget_scrollArea_page_gonggao_right, 0, 1, 1, 1)
         self.widget_scrollArea_page_gonggao_left = QtWidgets.QWidget(self.scrollAreaWidgetContents)
         self.widget_scrollArea_page_gonggao_left.setMinimumSize(QtCore.QSize(399, 509))
-        self.widget_scrollArea_page_gonggao_left.setStyleSheet(
-            "QWidget{border:2px solid rgb(0, 150, 255);border-radius:15px;}\n"
-            "QLabel{border-style:none;}")
+        self.widget_scrollArea_page_gonggao_left.setStyleSheet("QWidget{border:2px solid rgb(0, 150, 255);border-radius:15px;}\n"
+"QLabel{border-style:none;}")
         self.widget_scrollArea_page_gonggao_left.setObjectName("widget_scrollArea_page_gonggao_left")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.widget_scrollArea_page_gonggao_left)
         self.gridLayout_5.setContentsMargins(10, -1, 10, -1)
@@ -510,8 +497,7 @@ class Ui_MOS(object):
         self.stackedWidget_gonggao.setLineWidth(2)
         self.stackedWidget_gonggao.setObjectName("stackedWidget_gonggao")
         self.page_gonggao_jiazai = QtWidgets.QWidget()
-        self.page_gonggao_jiazai.setStyleSheet(
-            "QTextBrowser{border-style:none;background-color: rgba(255, 255, 255, 0);}")
+        self.page_gonggao_jiazai.setStyleSheet("QTextBrowser{border-style:none;background-color: rgba(255, 255, 255, 0);}")
         self.page_gonggao_jiazai.setObjectName("page_gonggao_jiazai")
         self.gridLayout_20 = QtWidgets.QGridLayout(self.page_gonggao_jiazai)
         self.gridLayout_20.setContentsMargins(0, 0, 0, 0)
@@ -523,19 +509,18 @@ class Ui_MOS(object):
         self.stackedWidget_gonggao.addWidget(self.page_gonggao_jiazai)
         self.page_gonggao_jiazai_ing = QtWidgets.QWidget()
         self.page_gonggao_jiazai_ing.setStyleSheet("QProgressBar{\n"
-                                                   "    text-align: center;border-style:none;border-radius:7px;background-color: rgba(0, 150, 255, 10);height:15px;color: rgb(66, 66, 66);\n"
-                                                   "}\n"
-                                                   "QProgressBar::chunk{\n"
-                                                   "    border-radius:7px;\n"
-                                                   "    background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(53, 244, 252, 255), stop:1 rgba(222, 255, 255, 255));\n"
-                                                   "}\n"
-                                                   "QLabel{color: rgb(0, 150, 255);}")
+"    text-align: center;border-style:none;border-radius:7px;background-color: rgba(0, 150, 255, 10);height:15px;color: rgb(66, 66, 66);\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"    border-radius:7px;\n"
+"    background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(53, 244, 252, 255), stop:1 rgba(222, 255, 255, 255));\n"
+"}\n"
+"QLabel{color: rgb(0, 150, 255);}")
         self.page_gonggao_jiazai_ing.setObjectName("page_gonggao_jiazai_ing")
         self.gridLayout_21 = QtWidgets.QGridLayout(self.page_gonggao_jiazai_ing)
         self.gridLayout_21.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_21.setObjectName("gridLayout_21")
-        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum,
-                                            QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.gridLayout_21.addItem(spacerItem3, 0, 0, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.page_gonggao_jiazai_ing)
         self.label_2.setStyleSheet("font-size: 13px;")
@@ -543,16 +528,14 @@ class Ui_MOS(object):
         self.label_2.setWordWrap(True)
         self.label_2.setObjectName("label_2")
         self.gridLayout_21.addWidget(self.label_2, 1, 0, 1, 1)
-        spacerItem4 = QtWidgets.QSpacerItem(40, 30, QtWidgets.QSizePolicy.Policy.Minimum,
-                                            QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem4 = QtWidgets.QSpacerItem(40, 30, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.gridLayout_21.addItem(spacerItem4, 3, 0, 1, 1)
         self.progressBar_2 = QtWidgets.QProgressBar(self.page_gonggao_jiazai_ing)
         self.progressBar_2.setStyleSheet("font-size: 13px;")
         self.progressBar_2.setMinimum(0)
         self.progressBar_2.setMaximum(100)
         self.progressBar_2.setProperty("value", 25)
-        self.progressBar_2.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.progressBar_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.progressBar_2.setTextVisible(True)
         self.progressBar_2.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.progressBar_2.setInvertedAppearance(False)
@@ -561,8 +544,7 @@ class Ui_MOS(object):
         self.gridLayout_21.addWidget(self.progressBar_2, 2, 0, 1, 1)
         self.stackedWidget_gonggao.addWidget(self.page_gonggao_jiazai_ing)
         self.gridLayout_5.addWidget(self.stackedWidget_gonggao, 2, 0, 1, 2)
-        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                            QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_5.addItem(spacerItem5, 3, 0, 1, 1)
         self.line_7 = QtWidgets.QFrame(self.widget_scrollArea_page_gonggao_left)
         self.line_7.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
@@ -578,8 +560,7 @@ class Ui_MOS(object):
         self.gridLayout_16.addWidget(self.scrollArea_page_gonggao, 0, 0, 1, 1)
         self.stackedWidget_mos_right.addWidget(self.page_gonggao)
         self.page_8 = QtWidgets.QWidget()
-        self.page_8.setStyleSheet(
-            "QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}")
+        self.page_8.setStyleSheet("QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}")
         self.page_8.setObjectName("page_8")
         self.gridLayout_50 = QtWidgets.QGridLayout(self.page_8)
         self.gridLayout_50.setContentsMargins(0, 0, 0, 0)
@@ -590,41 +571,39 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right_2.setObjectName("stackedWidget_mos_right_2")
         self.page_12 = QtWidgets.QWidget()
         self.page_12.setStyleSheet("#pushButton_35\n"
-                                   "{\n"
-                                   "    width:30px;border-radius: 13px;background-color: rgba(255, 255, 255, 0);\n"
-                                   "}\n"
-                                   "#pushButton_35::hover\n"
-                                   "{\n"
-                                   "    border-radius: 13px;\n"
-                                   "    background-color: rgba(192, 192, 192, 128);\n"
-                                   "}\n"
-                                   "#pushButton_35::pressed\n"
-                                   "{\n"
-                                   "    background-color: rgba(0, 150, 255, 51);\n"
-                                   "}\n"
-                                   "#pushButton_41\n"
-                                   "{\n"
-                                   "    width:30px;border-radius: 13px;background-color: rgba(255, 255, 255, 0);\n"
-                                   "}\n"
-                                   "#pushButton_41::hover\n"
-                                   "{\n"
-                                   "    border-radius: 13px;\n"
-                                   "    background-color: rgba(192, 192, 192, 128);\n"
-                                   "}\n"
-                                   "#pushButton_41::pressed\n"
-                                   "{\n"
-                                   "    background-color: rgba(0, 150, 255, 51);\n"
-                                   "}")
+"{\n"
+"    width:30px;border-radius: 13px;background-color: rgba(255, 255, 255, 0);\n"
+"}\n"
+"#pushButton_35::hover\n"
+"{\n"
+"    border-radius: 13px;\n"
+"    background-color: rgba(192, 192, 192, 128);\n"
+"}\n"
+"#pushButton_35::pressed\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}\n"
+"#pushButton_41\n"
+"{\n"
+"    width:30px;border-radius: 13px;background-color: rgba(255, 255, 255, 0);\n"
+"}\n"
+"#pushButton_41::hover\n"
+"{\n"
+"    border-radius: 13px;\n"
+"    background-color: rgba(192, 192, 192, 128);\n"
+"}\n"
+"#pushButton_41::pressed\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}")
         self.page_12.setObjectName("page_12")
         self.gridLayout_33 = QtWidgets.QGridLayout(self.page_12)
         self.gridLayout_33.setContentsMargins(5, 0, 5, 5)
         self.gridLayout_33.setHorizontalSpacing(0)
         self.gridLayout_33.setObjectName("gridLayout_33")
-        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                            QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_33.addItem(spacerItem6, 1, 3, 1, 1)
-        spacerItem7 = QtWidgets.QSpacerItem(805, 13, QtWidgets.QSizePolicy.Policy.Expanding,
-                                            QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem7 = QtWidgets.QSpacerItem(805, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_33.addItem(spacerItem7, 0, 0, 1, 4)
         self.line_11 = QtWidgets.QFrame(self.page_12)
         self.line_11.setStyleSheet("color:rgb(214, 214, 214)")
@@ -654,92 +633,92 @@ class Ui_MOS(object):
         self.widget_7 = QtWidgets.QWidget(self.widget_20)
         self.widget_7.setMaximumSize(QtCore.QSize(185, 16777215))
         self.widget_7.setStyleSheet("#listWidget{border-style:none;}\n"
-                                    "QListView::item {\n"
-                                    "    height: 30px;\n"
-                                    "    padding: 10px;\n"
-                                    "    border-left: 3px solid rgba(214, 214, 214,0);\n"
-                                    "}\n"
-                                    "QListView::item:hover {\n"
-                                    "    border-left: 3px solid rgb(214, 214, 214);\n"
-                                    "    background-color: transparent;\n"
-                                    "}\n"
-                                    "QListView::item:selected {\n"
-                                    "    background-color: transparent;\n"
-                                    "    color: black;\n"
-                                    "    border-left: 3px solid rgb(0, 150, 255);\n"
-                                    "}\n"
-                                    "QPushButton\n"
-                                    "{\n"
-                                    "    border-radius: 2px;background-color: rgba(255, 255, 255, 0);border-style:none;\n"
-                                    "}\n"
-                                    "QPushButton::hover\n"
-                                    "{\n"
-                                    "    border-radius: 2px;\n"
-                                    "    background-color: rgba(192, 192, 192, 128);\n"
-                                    "}\n"
-                                    "QPushButton::pressed\n"
-                                    "{\n"
-                                    "    background-color: rgba(0, 150, 255, 51);\n"
-                                    "}\n"
-                                    "\n"
-                                    "QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}\n"
-                                    "/*设置垂直滚动条基本样式*/\n"
-                                    "QScrollBar:vertical\n"
-                                    "{\n"
-                                    "    width:8px;\n"
-                                    "    background:rgba(0,0,0,0%);\n"
-                                    "    margin:0px,0px,0px,0px;\n"
-                                    "    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
-                                    "    padding-bottom:9px;\n"
-                                    "}\n"
-                                    "QScrollBar::handle:vertical\n"
-                                    "{\n"
-                                    "    width:8px;\n"
-                                    "    background: rgb(214, 214, 214);\n"
-                                    "    border-radius:3px;   /*滚动条两端变成椭圆*/\n"
-                                    "    min-height:;\n"
-                                    "}\n"
-                                    "QScrollBar::handle:vertical:hover\n"
-                                    "{\n"
-                                    "    width:8px;\n"
-                                    "    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
-                                    "    border-radius:4px;\n"
-                                    "    min-height:;\n"
-                                    "}\n"
-                                    "QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
-                                    "{\n"
-                                    "    height:9px;width:8px;\n"
-                                    "    border-image:url(:/img/picture/caret-down_1.png);\n"
-                                    "    subcontrol-position:bottom;\n"
-                                    "}\n"
-                                    "QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
-                                    "{\n"
-                                    "    height:9px;width:8px;\n"
-                                    "    border-image:url(:/img/picture/caret-up_1.png);\n"
-                                    "    subcontrol-position:top;\n"
-                                    "}\n"
-                                    "QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
-                                    "{\n"
-                                    "    height:9px;width:8px;\n"
-                                    "    border-image:url(:/img/picture/caret-down.png);\n"
-                                    "    subcontrol-position:bottom;\n"
-                                    "}\n"
-                                    "QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
-                                    "{\n"
-                                    "    height:9px;width:8px;\n"
-                                    "    border-image:url(:/img/picture/caret-up.png);\n"
-                                    "    subcontrol-position:top;\n"
-                                    "}\n"
-                                    "QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-                                    "{\n"
-                                    "    background: rgba(235, 235, 235,150);\n"
-                                    "    border-radius:4px;\n"
-                                    "}\n"
-                                    "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-                                    "{\n"
-                                    "    background: rgba(235, 235, 235,150);\n"
-                                    "    border-radius:4px;\n"
-                                    "}")
+"QListView::item {\n"
+"    height: 30px;\n"
+"    padding: 10px;\n"
+"    border-left: 3px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"QListView::item:hover {\n"
+"    border-left: 3px solid rgb(214, 214, 214);\n"
+"    background-color: transparent;\n"
+"}\n"
+"QListView::item:selected {\n"
+"    background-color: transparent;\n"
+"    color: black;\n"
+"    border-left: 3px solid rgb(0, 150, 255);\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"    border-radius: 2px;background-color: rgba(255, 255, 255, 0);border-style:none;\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"    border-radius: 2px;\n"
+"    background-color: rgba(192, 192, 192, 128);\n"
+"}\n"
+"QPushButton::pressed\n"
+"{\n"
+"    background-color: rgba(0, 150, 255, 51);\n"
+"}\n"
+"\n"
+"QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}\n"
+"/*设置垂直滚动条基本样式*/\n"
+"QScrollBar:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,0%);\n"
+"    margin:0px,0px,0px,0px;\n"
+"    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
+"    padding-bottom:9px;\n"
+"}\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background: rgb(214, 214, 214);\n"
+"    border-radius:3px;   /*滚动条两端变成椭圆*/\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::handle:vertical:hover\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
+"    border-radius:4px;\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background: rgba(235, 235, 235,150);\n"
+"    border-radius:4px;\n"
+"}\n"
+"QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background: rgba(235, 235, 235,150);\n"
+"    border-radius:4px;\n"
+"}")
         self.widget_7.setObjectName("widget_7")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.widget_7)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -765,8 +744,7 @@ class Ui_MOS(object):
         self.pushButton_36.setMinimumSize(QtCore.QSize(0, 30))
         self.pushButton_36.setStyleSheet("font-size: 13px;")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_folder_add_png), QtGui.QIcon.Mode.Normal,
-                        QtGui.QIcon.State.Off)
+        icon9.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_folder_add_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_36.setIcon(icon9)
         self.pushButton_36.setObjectName("pushButton_36")
         self.verticalLayout.addWidget(self.pushButton_36)
@@ -790,80 +768,80 @@ class Ui_MOS(object):
         self.stackedWidget_5.setObjectName("stackedWidget_5")
         self.page_21 = QtWidgets.QWidget()
         self.page_21.setStyleSheet("#listWidget_2{border-style:none;}\n"
-                                   "QListView::item {\n"
-                                   "    height: 25px;\n"
-                                   "    padding: 8px;\n"
-                                   "    border-left: 3px solid rgba(214, 214, 214,0);\n"
-                                   "}\n"
-                                   "QListView::item:hover {\n"
-                                   "    border-left: 3px solid rgb(214, 214, 214);\n"
-                                   "    background-color: transparent;\n"
-                                   "}\n"
-                                   "QListView::item:selected {\n"
-                                   "    background-color: transparent;\n"
-                                   "    color: black;\n"
-                                   "    background-color: rgb(235, 235, 235);\n"
-                                   "    border-left: 3px solid rgb(0, 150, 255);\n"
-                                   "}\n"
-                                   "\n"
-                                   "QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}\n"
-                                   "/*设置垂直滚动条基本样式*/\n"
-                                   "QScrollBar:vertical\n"
-                                   "{\n"
-                                   "    width:8px;\n"
-                                   "    background:rgba(0,0,0,0%);\n"
-                                   "    margin:0px,0px,0px,0px;\n"
-                                   "    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
-                                   "    padding-bottom:9px;\n"
-                                   "}\n"
-                                   "QScrollBar::handle:vertical\n"
-                                   "{\n"
-                                   "    width:8px;\n"
-                                   "    background: rgb(214, 214, 214);\n"
-                                   "    border-radius:3px;   /*滚动条两端变成椭圆*/\n"
-                                   "    min-height:;\n"
-                                   "}\n"
-                                   "QScrollBar::handle:vertical:hover\n"
-                                   "{\n"
-                                   "    width:8px;\n"
-                                   "    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
-                                   "    border-radius:4px;\n"
-                                   "    min-height:;\n"
-                                   "}\n"
-                                   "QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
-                                   "{\n"
-                                   "    height:9px;width:8px;\n"
-                                   "    border-image:url(:/img/picture/caret-down_1.png);\n"
-                                   "    subcontrol-position:bottom;\n"
-                                   "}\n"
-                                   "QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
-                                   "{\n"
-                                   "    height:9px;width:8px;\n"
-                                   "    border-image:url(:/img/picture/caret-up_1.png);\n"
-                                   "    subcontrol-position:top;\n"
-                                   "}\n"
-                                   "QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
-                                   "{\n"
-                                   "    height:9px;width:8px;\n"
-                                   "    border-image:url(:/img/picture/caret-down.png);\n"
-                                   "    subcontrol-position:bottom;\n"
-                                   "}\n"
-                                   "QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
-                                   "{\n"
-                                   "    height:9px;width:8px;\n"
-                                   "    border-image:url(:/img/picture/caret-up.png);\n"
-                                   "    subcontrol-position:top;\n"
-                                   "}\n"
-                                   "QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-                                   "{\n"
-                                   "    background: rgba(235, 235, 235,150);\n"
-                                   "    border-radius:4px;\n"
-                                   "}\n"
-                                   "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-                                   "{\n"
-                                   "    background: rgba(235, 235, 235,150);\n"
-                                   "    border-radius:4px;\n"
-                                   "}")
+"QListView::item {\n"
+"    height: 25px;\n"
+"    padding: 8px;\n"
+"    border-left: 3px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"QListView::item:hover {\n"
+"    border-left: 3px solid rgb(214, 214, 214);\n"
+"    background-color: transparent;\n"
+"}\n"
+"QListView::item:selected {\n"
+"    background-color: transparent;\n"
+"    color: black;\n"
+"    background-color: rgb(235, 235, 235);\n"
+"    border-left: 3px solid rgb(0, 150, 255);\n"
+"}\n"
+"\n"
+"QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}\n"
+"/*设置垂直滚动条基本样式*/\n"
+"QScrollBar:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,0%);\n"
+"    margin:0px,0px,0px,0px;\n"
+"    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
+"    padding-bottom:9px;\n"
+"}\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background: rgb(214, 214, 214);\n"
+"    border-radius:3px;   /*滚动条两端变成椭圆*/\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::handle:vertical:hover\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
+"    border-radius:4px;\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background: rgba(235, 235, 235,150);\n"
+"    border-radius:4px;\n"
+"}\n"
+"QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background: rgba(235, 235, 235,150);\n"
+"    border-radius:4px;\n"
+"}")
         self.page_21.setObjectName("page_21")
         self.gridLayout_51 = QtWidgets.QGridLayout(self.page_21)
         self.gridLayout_51.setContentsMargins(0, 0, 0, 0)
@@ -875,15 +853,14 @@ class Ui_MOS(object):
         self.gridLayout_51.addWidget(self.listWidget_2, 0, 0, 1, 1)
         self.stackedWidget_5.addWidget(self.page_21)
         self.page_25 = QtWidgets.QWidget()
-        self.page_25.setStyleSheet(
-            "#label_43{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}")
+        self.page_25.setStyleSheet("#label_43{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}")
         self.page_25.setObjectName("page_25")
         self.gridLayout_22 = QtWidgets.QGridLayout(self.page_25)
         self.gridLayout_22.setObjectName("gridLayout_22")
         self.widget_22 = QtWidgets.QWidget(self.page_25)
         self.widget_22.setStyleSheet("QWidget{border-radius: 15px;background-color: rgb(249, 249, 249);}\n"
-                                     "QLineEdit{border-radius: 10px;border:2px solid rgb(192, 192, 192);background-color: rgb(255, 255, 255);}\n"
-                                     "QLineEdit::focus{border:2px solid rgb(0, 250, 146);}")
+"QLineEdit{border-radius: 10px;border:2px solid rgb(192, 192, 192);background-color: rgb(255, 255, 255);}\n"
+"QLineEdit::focus{border:2px solid rgb(0, 250, 146);}")
         self.widget_22.setObjectName("widget_22")
         self.gridLayout_58 = QtWidgets.QGridLayout(self.widget_22)
         self.gridLayout_58.setObjectName("gridLayout_58")
@@ -901,8 +878,7 @@ class Ui_MOS(object):
         self.lineEdit_4.setReadOnly(False)
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.gridLayout_58.addWidget(self.lineEdit_4, 0, 1, 1, 1)
-        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                            QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_58.addItem(spacerItem8, 1, 0, 1, 1)
         self.label_47 = QtWidgets.QLabel(self.widget_22)
         self.label_47.setStyleSheet("font-size: 14px;")
@@ -910,8 +886,7 @@ class Ui_MOS(object):
         self.label_47.setObjectName("label_47")
         self.gridLayout_58.addWidget(self.label_47, 1, 1, 1, 1)
         self.gridLayout_22.addWidget(self.widget_22, 2, 0, 1, 4)
-        spacerItem9 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum,
-                                            QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem9 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.gridLayout_22.addItem(spacerItem9, 5, 0, 1, 4)
         self.label_43 = QtWidgets.QLabel(self.page_25)
         self.label_43.setStyleSheet("font-size: 17px;")
@@ -922,8 +897,8 @@ class Ui_MOS(object):
         self.gridLayout_22.addWidget(self.label_43, 0, 1, 1, 1)
         self.widget_21 = QtWidgets.QWidget(self.page_25)
         self.widget_21.setStyleSheet("QWidget{border-radius: 15px;background-color: rgb(249, 249, 249);}\n"
-                                     "QPushButton{border-radius: 10px;border:2px solid rgb(192, 192, 192);background-color: rgb(255, 255, 255);}\n"
-                                     "QPushButton::hover{background-color: rgb(118, 214, 255);border:2px solid rgb(128, 217, 255);color: rgb(255, 255, 255);}")
+"QPushButton{border-radius: 10px;border:2px solid rgb(192, 192, 192);background-color: rgb(255, 255, 255);}\n"
+"QPushButton::hover{background-color: rgb(118, 214, 255);border:2px solid rgb(128, 217, 255);color: rgb(255, 255, 255);}")
         self.widget_21.setObjectName("widget_21")
         self.gridLayout_57 = QtWidgets.QGridLayout(self.widget_21)
         self.gridLayout_57.setObjectName("gridLayout_57")
@@ -967,33 +942,30 @@ class Ui_MOS(object):
         self.widget_3.setEnabled(True)
         self.widget_3.setMinimumSize(QtCore.QSize(602, 44))
         self.widget_3.setStyleSheet("QWiget{background-color: rgba(255, 255, 255, 0);}\n"
-                                    "QPushButton\n"
-                                    "{\n"
-                                    "    border-radius: 10px;border:2px solid rgb(115, 250, 121);background-color: rgb(255, 255, 255);\n"
-                                    "}\n"
-                                    "QPushButton::hover\n"
-                                    "{\n"
-                                    "    color: rgb(115, 250, 121);\n"
-                                    "}\n"
-                                    "QPushButton::pressed\n"
-                                    "{\n"
-                                    "    background-color: rgb(115, 250, 121);color: rgb(255, 255, 255);\n"
-                                    "}\n"
-                                    "QPushButton:disabled{\n"
-                                    "    /*禁用*/\n"
-                                    "    border-radius: 10px;border:2px solid rgb(214, 214, 214);background-color: rgb(255, 255, 255);\n"
-                                    "}")
+"QPushButton\n"
+"{\n"
+"    border-radius: 10px;border:2px solid rgb(115, 250, 121);background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"    color: rgb(115, 250, 121);\n"
+"}\n"
+"QPushButton::pressed\n"
+"{\n"
+"    background-color: rgb(115, 250, 121);color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:disabled{\n"
+"    /*禁用*/\n"
+"    border-radius: 10px;border:2px solid rgb(214, 214, 214);background-color: rgb(255, 255, 255);\n"
+"}")
         self.widget_3.setObjectName("widget_3")
         self.gridLayout_27 = QtWidgets.QGridLayout(self.widget_3)
         self.gridLayout_27.setObjectName("gridLayout_27")
-        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_27.addItem(spacerItem10, 1, 3, 1, 1)
-        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_27.addItem(spacerItem11, 1, 1, 1, 1)
-        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_27.addItem(spacerItem12, 1, 2, 1, 1)
         self.pushButton_18 = QtWidgets.QPushButton(self.widget_3)
         self.pushButton_18.setEnabled(False)
@@ -1007,20 +979,18 @@ class Ui_MOS(object):
         self.pushButton_18.setDefault(False)
         self.pushButton_18.setObjectName("pushButton_18")
         self.gridLayout_27.addWidget(self.pushButton_18, 0, 1, 1, 2)
-        spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_27.addItem(spacerItem13, 1, 0, 1, 1)
         self.gridLayout_22.addWidget(self.widget_3, 3, 0, 1, 4)
-        spacerItem14 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem14 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_22.addItem(spacerItem14, 0, 3, 1, 1)
         self.stackedWidget_5.addWidget(self.page_25)
         self.page_22 = QtWidgets.QWidget()
         self.page_22.setStyleSheet("QLineEdit{height:23px;border-radius:8px;border:2px solid rgb(192, 192, 192);}\n"
-                                   "#pushButton_39{height:23px;border-radius:8px;border:2px solid rgb(192, 192, 192);}\n"
-                                   "#pushButton_40{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);height:27px;}\n"
-                                   "#pushButton_40::hover{color: rgb(255, 59, 0)}\n"
-                                   "#pushButton_40::pressed{background-color: rgba(255, 0, 0, 100);}")
+"#pushButton_39{height:23px;border-radius:8px;border:2px solid rgb(192, 192, 192);}\n"
+"#pushButton_40{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);height:27px;}\n"
+"#pushButton_40::hover{color: rgb(255, 59, 0)}\n"
+"#pushButton_40::pressed{background-color: rgba(255, 0, 0, 100);}")
         self.page_22.setObjectName("page_22")
         self.gridLayout_53 = QtWidgets.QGridLayout(self.page_22)
         self.gridLayout_53.setContentsMargins(0, 0, 0, 0)
@@ -1028,8 +998,7 @@ class Ui_MOS(object):
         self.pushButton_40 = QtWidgets.QPushButton(self.page_22)
         self.pushButton_40.setStyleSheet("font-size: 13px;")
         icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_trash_red_png), QtGui.QIcon.Mode.Normal,
-                         QtGui.QIcon.State.Off)
+        icon12.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_trash_red_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_40.setIcon(icon12)
         self.pushButton_40.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_40.setCheckable(False)
@@ -1039,24 +1008,19 @@ class Ui_MOS(object):
         self.lineEdit_3.setStyleSheet("font-size: 13px;")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.gridLayout_53.addWidget(self.lineEdit_3, 1, 0, 1, 2)
-        spacerItem15 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem15 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_53.addItem(spacerItem15, 6, 0, 1, 2)
-        spacerItem16 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem16 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_53.addItem(spacerItem16, 0, 0, 1, 4)
-        spacerItem17 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem17 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_53.addItem(spacerItem17, 3, 0, 1, 4)
-        spacerItem18 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem18 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_53.addItem(spacerItem18, 6, 2, 1, 2)
         self.pushButton_39 = QtWidgets.QPushButton(self.page_22)
         self.pushButton_39.setStyleSheet("font-size: 14px;")
         self.pushButton_39.setObjectName("pushButton_39")
         self.gridLayout_53.addWidget(self.pushButton_39, 1, 2, 1, 2)
-        spacerItem19 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum,
-                                             QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem19 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.gridLayout_53.addItem(spacerItem19, 5, 0, 1, 4)
         self.stackedWidget_5.addWidget(self.page_22)
         self.page_23 = QtWidgets.QWidget()
@@ -1087,14 +1051,12 @@ class Ui_MOS(object):
         self.gridLayout_50.addWidget(self.stackedWidget_mos_right_2, 0, 0, 1, 1)
         self.stackedWidget_mos_right.addWidget(self.page_8)
         self.page_2 = QtWidgets.QWidget()
-        self.page_2.setStyleSheet(
-            "QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}")
+        self.page_2.setStyleSheet("QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}")
         self.page_2.setObjectName("page_2")
         self.gridLayout_7 = QtWidgets.QGridLayout(self.page_2)
         self.gridLayout_7.setContentsMargins(5, 0, 5, 0)
         self.gridLayout_7.setObjectName("gridLayout_7")
-        spacerItem20 = QtWidgets.QSpacerItem(20, 30, QtWidgets.QSizePolicy.Policy.Minimum,
-                                             QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem20 = QtWidgets.QSpacerItem(20, 30, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.gridLayout_7.addItem(spacerItem20, 4, 0, 1, 2)
         self.label_9 = QtWidgets.QLabel(self.page_2)
         self.label_9.setStyleSheet("font-size: 17px;")
@@ -1110,7 +1072,7 @@ class Ui_MOS(object):
         self.gridLayout_7.addWidget(self.line, 2, 0, 1, 2)
         self.widget_5 = QtWidgets.QWidget(self.page_2)
         self.widget_5.setStyleSheet("QWidget{border-radius:10px;border:2px solid rgb(0, 150, 255);}\n"
-                                    "QLabel{border-style:none;color:rgb(0, 150, 255);}")
+"QLabel{border-style:none;color:rgb(0, 150, 255);}")
         self.widget_5.setObjectName("widget_5")
         self.gridLayout_8 = QtWidgets.QGridLayout(self.widget_5)
         self.gridLayout_8.setContentsMargins(12, -1, -1, -1)
@@ -1120,142 +1082,140 @@ class Ui_MOS(object):
         self.label_8.setObjectName("label_8")
         self.gridLayout_8.addWidget(self.label_8, 1, 0, 1, 1)
         self.gridLayout_7.addWidget(self.widget_5, 3, 0, 1, 2)
-        spacerItem21 = QtWidgets.QSpacerItem(49, 13, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem21 = QtWidgets.QSpacerItem(49, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_7.addItem(spacerItem21, 0, 0, 1, 1)
         self.stackedWidget_mos_right.addWidget(self.page_2)
         self.page_3 = QtWidgets.QWidget()
         font = QtGui.QFont()
         font.setPointSize(13)
         self.page_3.setFont(font)
-        self.page_3.setStyleSheet(
-            "QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}\n"
-            "QComboBox {\n"
-            "    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */\n"
-            "    height:25px;\n"
-            "    /*background-color: rgba(0, 150, 255, 150);*/\n"
-            "    background-color: rgba(214, 214, 214,100);\n"
-            "    border-radius:10px;\n"
-            "}\n"
-            "\n"
-            "/*下拉框的样式*/\n"
-            "QComboBox QAbstractItemView\n"
-            "{\n"
-            "    outline: 0px solid gray;  /*取消选中虚线*/\n"
-            "    border: 1px solid rgb(31, 156, 255);\n"
-            "    color: rgb(66, 66, 66);\n"
-            "    background-color: rgb(255, 255, 255);\n"
-            "    selection-background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "    height:35px;\n"
-            "    border:None;\n"
-            "}\n"
-            "/*选中每一项的字体颜色和背景颜色*/\n"
-            "QComboBox::item:selected \n"
-            "{\n"
-            "    color: rgb(255, 255, 255);\n"
-            "    background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "}\n"
-            "/*右边*/\n"
-            "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
-            "QComboBox::down-arrow\n"
-            "{\n"
-            "    image: url(:/img/back_blue_down.png);\n"
-            "    width: 25px;\n"
-            "    height: 35px;\n"
-            "    right:6px;\n"
-            "    border-left: 2px solid rgb(192, 192, 192);\n"
-            "    border-right: 1px solid rgba(214, 214, 214,0);\n"
-            "}\n"
-            "QComboBox::down-arrow:on\n"
-            "{\n"
-            "    image: url(:/img/back_blue_up.png);\n"
-            "    width: 25px;\n"
-            "    height: 35px;\n"
-            "    right:6px;\n"
-            "    border-left: 2px solid rgb(192, 192, 192);\n"
-            "    border-right: 1px solid rgba(214, 214, 214,0);\n"
-            "}\n"
-            "/*QComboBox::down-arrow::hover{}*\n"
-            "\n"
-            "/* QComboBox中的垂直滚动条 */\n"
-            "QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
-            "    width: 10px;\n"
-            "    height: 8px;\n"
-            "    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/\n"
-            "    border-style:none;\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
-            "    border-radius: 5px;   /* 圆角 */\n"
-            "    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
-            "    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
-            "}\n"
-            "\n"
-            "\n"
-            "\n"
-            "QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}\n"
-            "/*设置垂直滚动条基本样式*/\n"
-            "QScrollBar:vertical\n"
-            "{\n"
-            "    width:8px;\n"
-            "    background:rgba(0,0,0,0%);\n"
-            "    margin:0px,0px,0px,0px;\n"
-            "    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
-            "    padding-bottom:9px;\n"
-            "}\n"
-            "QScrollBar::handle:vertical\n"
-            "{\n"
-            "    width:8px;\n"
-            "    background: rgb(214, 214, 214);\n"
-            "    border-radius:3px;   /*滚动条两端变成椭圆*/\n"
-            "    min-height:;\n"
-            "}\n"
-            "QScrollBar::handle:vertical:hover\n"
-            "{\n"
-            "    width:8px;\n"
-            "    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
-            "    border-radius:4px;\n"
-            "    min-height:;\n"
-            "}\n"
-            "QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
-            "{\n"
-            "    height:9px;width:8px;\n"
-            "    border-image:url(:/img/picture/caret-down_1.png);\n"
-            "    subcontrol-position:bottom;\n"
-            "}\n"
-            "QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
-            "{\n"
-            "    height:9px;width:8px;\n"
-            "    border-image:url(:/img/picture/caret-up_1.png);\n"
-            "    subcontrol-position:top;\n"
-            "}\n"
-            "QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
-            "{\n"
-            "    height:9px;width:8px;\n"
-            "    border-image:url(:/img/picture/caret-down.png);\n"
-            "    subcontrol-position:bottom;\n"
-            "}\n"
-            "QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
-            "{\n"
-            "    height:9px;width:8px;\n"
-            "    border-image:url(:/img/picture/caret-up.png);\n"
-            "    subcontrol-position:top;\n"
-            "}\n"
-            "QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-            "{\n"
-            "    background: rgba(235, 235, 235,150);\n"
-            "    border-radius:4px;\n"
-            "}\n"
-            "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-            "{\n"
-            "    background: rgba(235, 235, 235,150);\n"
-            "    border-radius:4px;\n"
-            "}")
+        self.page_3.setStyleSheet("QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */\n"
+"    height:25px;\n"
+"    /*background-color: rgba(0, 150, 255, 150);*/\n"
+"    background-color: rgba(214, 214, 214,100);\n"
+"    border-radius:10px;\n"
+"}\n"
+"\n"
+"/*下拉框的样式*/\n"
+"QComboBox QAbstractItemView\n"
+"{\n"
+"    outline: 0px solid gray;  /*取消选中虚线*/\n"
+"    border: 1px solid rgb(31, 156, 255);\n"
+"    color: rgb(66, 66, 66);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    selection-background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"    height:35px;\n"
+"    border:None;\n"
+"}\n"
+"/*选中每一项的字体颜色和背景颜色*/\n"
+"QComboBox::item:selected \n"
+"{\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"}\n"
+"/*右边*/\n"
+"QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
+"QComboBox::down-arrow\n"
+"{\n"
+"    image: url(:/img/back_blue_down.png);\n"
+"    width: 25px;\n"
+"    height: 35px;\n"
+"    right:6px;\n"
+"    border-left: 2px solid rgb(192, 192, 192);\n"
+"    border-right: 1px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"QComboBox::down-arrow:on\n"
+"{\n"
+"    image: url(:/img/back_blue_up.png);\n"
+"    width: 25px;\n"
+"    height: 35px;\n"
+"    right:6px;\n"
+"    border-left: 2px solid rgb(192, 192, 192);\n"
+"    border-right: 1px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"/*QComboBox::down-arrow::hover{}*\n"
+"\n"
+"/* QComboBox中的垂直滚动条 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    height: 8px;\n"
+"    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/\n"
+"    border-style:none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* 圆角 */\n"
+"    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}\n"
+"/*设置垂直滚动条基本样式*/\n"
+"QScrollBar:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,0%);\n"
+"    margin:0px,0px,0px,0px;\n"
+"    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
+"    padding-bottom:9px;\n"
+"}\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background: rgb(214, 214, 214);\n"
+"    border-radius:3px;   /*滚动条两端变成椭圆*/\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::handle:vertical:hover\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
+"    border-radius:4px;\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background: rgba(235, 235, 235,150);\n"
+"    border-radius:4px;\n"
+"}\n"
+"QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background: rgba(235, 235, 235,150);\n"
+"    border-radius:4px;\n"
+"}")
         self.page_3.setObjectName("page_3")
         self.gridLayout = QtWidgets.QGridLayout(self.page_3)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -1265,8 +1225,7 @@ class Ui_MOS(object):
         self.label_10.setIndent(10)
         self.label_10.setObjectName("label_10")
         self.gridLayout.addWidget(self.label_10, 2, 0, 2, 1)
-        spacerItem22 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem22 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout.addItem(spacerItem22, 0, 0, 1, 2)
         self.line_3 = QtWidgets.QFrame(self.page_3)
         self.line_3.setStyleSheet("color:rgb(214, 214, 214)")
@@ -1280,8 +1239,8 @@ class Ui_MOS(object):
         self.stackedWidget_2.setObjectName("stackedWidget_2")
         self.page_9 = QtWidgets.QWidget()
         self.page_9.setStyleSheet("QListWidget::item {\n"
-                                  "    height: 40px;\n"
-                                  "}")
+"    height: 50px;\n"
+"}")
         self.page_9.setObjectName("page_9")
         self.gridLayout_9 = QtWidgets.QGridLayout(self.page_9)
         self.gridLayout_9.setObjectName("gridLayout_9")
@@ -1298,6 +1257,7 @@ class Ui_MOS(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.page_20)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.listWidget_4 = QtWidgets.QListWidget(self.page_20)
+        self.listWidget_4.setIconSize(QtCore.QSize(45, 45))
         self.listWidget_4.setObjectName("listWidget_4")
         self.horizontalLayout.addWidget(self.listWidget_4)
         self.toolBox.addItem(self.page_20, "")
@@ -1307,6 +1267,7 @@ class Ui_MOS(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.page_24)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.listWidget_8 = QtWidgets.QListWidget(self.page_24)
+        self.listWidget_8.setIconSize(QtCore.QSize(45, 45))
         self.listWidget_8.setObjectName("listWidget_8")
         self.horizontalLayout_2.addWidget(self.listWidget_8)
         self.toolBox.addItem(self.page_24, "")
@@ -1314,89 +1275,86 @@ class Ui_MOS(object):
         self.gridLayout_9.addWidget(self.widget_26, 0, 0, 1, 1)
         self.stackedWidget_2.addWidget(self.page_9)
         self.page_10 = QtWidgets.QWidget()
-        self.page_10.setStyleSheet(
-            "#lineEdit{height:25px;border-radius: 5px;border:2px solid rgb(169, 169, 169);color: rgb(0, 0, 0);}\n"
-            "#pushButton_2{height:25px;border-radius: 5px;width:70px;border:2px solid rgb(169, 169, 169);}")
+        self.page_10.setStyleSheet("#lineEdit{height:25px;border-radius: 5px;border:2px solid rgb(169, 169, 169);color: rgb(0, 0, 0);}\n"
+"#pushButton_2{height:25px;border-radius: 5px;width:70px;border:2px solid rgb(169, 169, 169);}")
         self.page_10.setObjectName("page_10")
         self.gridLayout_26 = QtWidgets.QGridLayout(self.page_10)
         self.gridLayout_26.setObjectName("gridLayout_26")
         self.widget_2 = QtWidgets.QWidget(self.page_10)
         self.widget_2.setStyleSheet("QWidget{border-radius: 23px;border:2px solid rgb(0, 150, 255);}\n"
-                                    "QLabel{border-style:none;}\n"
-                                    "QComboBox {\n"
-                                    "    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */\n"
-                                    "    height:25px;\n"
-                                    "    /*background-color: rgba(0, 150, 255, 150);*/\n"
-                                    "    background-color: rgba(214, 214, 214,100);\n"
-                                    "    border-radius:10px;\n"
-                                    "}\n"
-                                    "\n"
-                                    "/*下拉框的样式*/\n"
-                                    "QComboBox QAbstractItemView\n"
-                                    "{\n"
-                                    "    outline: 0px solid gray;  /*取消选中虚线*/\n"
-                                    "    border: 1px solid rgb(31, 156, 255);\n"
-                                    "    color: rgb(66, 66, 66);\n"
-                                    "    background-color: rgb(255, 255, 255);\n"
-                                    "    selection-background-color: rgb(0, 150, 255);\n"
-                                    "    border-radius:5px;\n"
-                                    "    height:35px;\n"
-                                    "    border:None;\n"
-                                    "}\n"
-                                    "/*选中每一项的字体颜色和背景颜色*/\n"
-                                    "QComboBox::item:selected \n"
-                                    "{\n"
-                                    "    color: rgb(255, 255, 255);\n"
-                                    "    background-color: rgb(0, 150, 255);\n"
-                                    "    border-radius:5px;\n"
-                                    "}\n"
-                                    "/*右边*/\n"
-                                    "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
-                                    "QComboBox::down-arrow\n"
-                                    "{\n"
-                                    "    image: url(:/img/back_blue_down.png);\n"
-                                    "    width: 25px;\n"
-                                    "    height: 35px;\n"
-                                    "    right:6px;\n"
-                                    "    border-left: 2px solid rgb(192, 192, 192);\n"
-                                    "    border-right: 1px solid rgba(214, 214, 214,0);\n"
-                                    "}\n"
-                                    "QComboBox::down-arrow:on\n"
-                                    "{\n"
-                                    "    image: url(:/img/back_blue_up.png);\n"
-                                    "    width: 25px;\n"
-                                    "    height: 35px;\n"
-                                    "    right:6px;\n"
-                                    "    border-left: 2px solid rgb(192, 192, 192);\n"
-                                    "    border-right: 1px solid rgba(214, 214, 214,0);\n"
-                                    "}\n"
-                                    "/*QComboBox::down-arrow::hover{}*\n"
-                                    "\n"
-                                    "/* QComboBox中的垂直滚动条 */\n"
-                                    "QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
-                                    "    width: 10px;\n"
-                                    "    height: 8px;\n"
-                                    "    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/\n"
-                                    "    border-style:none;\n"
-                                    "}\n"
-                                    "\n"
-                                    "QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
-                                    "    border-radius: 5px;   /* 圆角 */\n"
-                                    "    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
-                                    "}\n"
-                                    "\n"
-                                    "QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
-                                    "    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
-                                    "}")
+"QLabel{border-style:none;}\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */\n"
+"    height:25px;\n"
+"    /*background-color: rgba(0, 150, 255, 150);*/\n"
+"    background-color: rgba(214, 214, 214,100);\n"
+"    border-radius:10px;\n"
+"}\n"
+"\n"
+"/*下拉框的样式*/\n"
+"QComboBox QAbstractItemView\n"
+"{\n"
+"    outline: 0px solid gray;  /*取消选中虚线*/\n"
+"    border: 1px solid rgb(31, 156, 255);\n"
+"    color: rgb(66, 66, 66);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    selection-background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"    height:35px;\n"
+"    border:None;\n"
+"}\n"
+"/*选中每一项的字体颜色和背景颜色*/\n"
+"QComboBox::item:selected \n"
+"{\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"}\n"
+"/*右边*/\n"
+"QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
+"QComboBox::down-arrow\n"
+"{\n"
+"    image: url(:/img/back_blue_down.png);\n"
+"    width: 25px;\n"
+"    height: 35px;\n"
+"    right:6px;\n"
+"    border-left: 2px solid rgb(192, 192, 192);\n"
+"    border-right: 1px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"QComboBox::down-arrow:on\n"
+"{\n"
+"    image: url(:/img/back_blue_up.png);\n"
+"    width: 25px;\n"
+"    height: 35px;\n"
+"    right:6px;\n"
+"    border-left: 2px solid rgb(192, 192, 192);\n"
+"    border-right: 1px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"/*QComboBox::down-arrow::hover{}*\n"
+"\n"
+"/* QComboBox中的垂直滚动条 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    height: 8px;\n"
+"    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/\n"
+"    border-style:none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* 圆角 */\n"
+"    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
+"}")
         self.widget_2.setObjectName("widget_2")
         self.gridLayout_25 = QtWidgets.QGridLayout(self.widget_2)
         self.gridLayout_25.setObjectName("gridLayout_25")
-        spacerItem23 = QtWidgets.QSpacerItem(199, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem23 = QtWidgets.QSpacerItem(199, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_25.addItem(spacerItem23, 0, 2, 1, 2)
         self.pushButton_8 = QtWidgets.QPushButton(self.widget_2)
-        self.pushButton_8.setStyleSheet(
-            "border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_8.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_8.setText("")
         icon13 = QtGui.QIcon()
         icon13.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_quilt_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -1404,16 +1362,14 @@ class Ui_MOS(object):
         self.pushButton_8.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_8.setObjectName("pushButton_8")
         self.gridLayout_25.addWidget(self.pushButton_8, 3, 0, 1, 1)
-        spacerItem24 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem24 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_25.addItem(spacerItem24, 2, 2, 1, 2)
         self.comboBox_5 = QtWidgets.QComboBox(self.widget_2)
         self.comboBox_5.setMinimumSize(QtCore.QSize(120, 25))
         self.comboBox_5.setStyleSheet("font-size: 13px;")
         self.comboBox_5.setObjectName("comboBox_5")
         self.gridLayout_25.addWidget(self.comboBox_5, 2, 5, 1, 1)
-        spacerItem25 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem25 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_25.addItem(spacerItem25, 1, 2, 1, 2)
         self.label_21 = QtWidgets.QLabel(self.widget_2)
         self.label_21.setStyleSheet("font-size: 15px;")
@@ -1424,27 +1380,23 @@ class Ui_MOS(object):
         self.label_20.setObjectName("label_20")
         self.gridLayout_25.addWidget(self.label_20, 2, 1, 1, 1)
         self.pushButton_13 = QtWidgets.QPushButton(self.widget_2)
-        self.pushButton_13.setStyleSheet(
-            "border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_13.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_13.setText("")
         icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_loading_png), QtGui.QIcon.Mode.Normal,
-                         QtGui.QIcon.State.Off)
+        icon14.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_loading_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_13.setIcon(icon14)
         self.pushButton_13.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_13.setObjectName("pushButton_13")
         self.gridLayout_25.addWidget(self.pushButton_13, 1, 4, 1, 1)
         self.pushButton_14 = QtWidgets.QPushButton(self.widget_2)
-        self.pushButton_14.setStyleSheet(
-            "border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_14.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_14.setText("")
         self.pushButton_14.setIcon(icon14)
         self.pushButton_14.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_14.setObjectName("pushButton_14")
         self.gridLayout_25.addWidget(self.pushButton_14, 2, 4, 1, 1)
         self.pushButton_5 = QtWidgets.QPushButton(self.widget_2)
-        self.pushButton_5.setStyleSheet(
-            "border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_5.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_5.setText("")
         icon15 = QtGui.QIcon()
         icon15.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_forge_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -1457,19 +1409,16 @@ class Ui_MOS(object):
         self.label_11.setObjectName("label_11")
         self.gridLayout_25.addWidget(self.label_11, 0, 1, 1, 1)
         self.pushButton_7 = QtWidgets.QPushButton(self.widget_2)
-        self.pushButton_7.setStyleSheet(
-            "border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_7.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_7.setText("")
         icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_optifine_png), QtGui.QIcon.Mode.Normal,
-                         QtGui.QIcon.State.Off)
+        icon16.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_optifine_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_7.setIcon(icon16)
         self.pushButton_7.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_7.setObjectName("pushButton_7")
         self.gridLayout_25.addWidget(self.pushButton_7, 2, 0, 1, 1)
         self.pushButton_15 = QtWidgets.QPushButton(self.widget_2)
-        self.pushButton_15.setStyleSheet(
-            "border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_15.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_15.setText("")
         self.pushButton_15.setIcon(icon14)
         self.pushButton_15.setIconSize(QtCore.QSize(40, 40))
@@ -1490,19 +1439,16 @@ class Ui_MOS(object):
         self.comboBox_3.setObjectName("comboBox_3")
         self.gridLayout_25.addWidget(self.comboBox_3, 0, 5, 1, 1)
         self.pushButton_6 = QtWidgets.QPushButton(self.widget_2)
-        self.pushButton_6.setStyleSheet(
-            "border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_6.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_6.setText("")
         icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_fabric_png), QtGui.QIcon.Mode.Normal,
-                         QtGui.QIcon.State.Off)
+        icon17.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_fabric_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_6.setIcon(icon17)
         self.pushButton_6.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_6.setObjectName("pushButton_6")
         self.gridLayout_25.addWidget(self.pushButton_6, 1, 0, 1, 1)
         self.pushButton_12 = QtWidgets.QPushButton(self.widget_2)
-        self.pushButton_12.setStyleSheet(
-            "border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
+        self.pushButton_12.setStyleSheet("border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);")
         self.pushButton_12.setText("")
         self.pushButton_12.setIcon(icon14)
         self.pushButton_12.setIconSize(QtCore.QSize(40, 40))
@@ -1513,19 +1459,16 @@ class Ui_MOS(object):
         self.comboBox_4.setStyleSheet("font-size: 13px;")
         self.comboBox_4.setObjectName("comboBox_4")
         self.gridLayout_25.addWidget(self.comboBox_4, 1, 5, 1, 1)
-        spacerItem26 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem26 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_25.addItem(spacerItem26, 3, 2, 1, 1)
         self.gridLayout_26.addWidget(self.widget_2, 0, 0, 1, 3)
-        spacerItem27 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem27 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_26.addItem(spacerItem27, 1, 0, 1, 1)
         self.lineEdit = QtWidgets.QLineEdit(self.page_10)
         self.lineEdit.setStyleSheet("font-size: 13px;")
         self.lineEdit.setInputMask("")
         self.lineEdit.setText("")
-        self.lineEdit.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.lineEdit.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.lineEdit.setObjectName("lineEdit")
         self.gridLayout_26.addWidget(self.lineEdit, 1, 1, 1, 1)
         self.pushButton_2 = QtWidgets.QPushButton(self.page_10)
@@ -1535,14 +1478,137 @@ class Ui_MOS(object):
         self.stackedWidget_2.addWidget(self.page_10)
         self.page_11 = QtWidgets.QWidget()
         self.page_11.setStyleSheet("QTreeWidget::item {\n"
-                                   "    height: 40px;\n"
-                                   "}")
+"    height: 40px;\n"
+"}")
         self.page_11.setObjectName("page_11")
         self.gridLayout_34 = QtWidgets.QGridLayout(self.page_11)
         self.gridLayout_34.setObjectName("gridLayout_34")
+        self.groupBox = QtWidgets.QGroupBox(self.page_11)
+        self.groupBox.setStyleSheet("QPushButton{background-color: rgb(118, 214, 255);border-radius:7px;color: rgb(255, 255, 255)}\n"
+"QPushButton::hover{background-color: rgb(118, 214, 255);}\n"
+"QPushButton::pressed{background-color: rgba(118, 214, 255,100);}")
+        self.groupBox.setFlat(False)
+        self.groupBox.setCheckable(False)
+        self.groupBox.setObjectName("groupBox")
+        self.gridLayout_56 = QtWidgets.QGridLayout(self.groupBox)
+        self.gridLayout_56.setContentsMargins(8, 8, 8, 8)
+        self.gridLayout_56.setObjectName("gridLayout_56")
+        self.comboBox_9 = QtWidgets.QComboBox(self.groupBox)
+        self.comboBox_9.setObjectName("comboBox_9")
+        self.gridLayout_56.addWidget(self.comboBox_9, 0, 1, 1, 1)
+        spacerItem28 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_56.addItem(spacerItem28, 6, 0, 1, 3)
+        self.lineEdit_5 = QtWidgets.QLineEdit(self.groupBox)
+        self.lineEdit_5.setInputMask("")
+        self.lineEdit_5.setObjectName("lineEdit_5")
+        self.gridLayout_56.addWidget(self.lineEdit_5, 1, 1, 1, 1)
+        self.label_39 = QtWidgets.QLabel(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_39.sizePolicy().hasHeightForWidth())
+        self.label_39.setSizePolicy(sizePolicy)
+        self.label_39.setObjectName("label_39")
+        self.gridLayout_56.addWidget(self.label_39, 0, 2, 1, 1)
+        spacerItem29 = QtWidgets.QSpacerItem(384, 2, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_56.addItem(spacerItem29, 5, 0, 1, 2)
+        self.pushButton_45 = QtWidgets.QPushButton(self.groupBox)
+        self.pushButton_45.setEnabled(True)
+        self.pushButton_45.setMinimumSize(QtCore.QSize(100, 30))
+        self.pushButton_45.setMaximumSize(QtCore.QSize(100, 30))
+        self.pushButton_45.setStyleSheet("font-size: 14px;")
+        self.pushButton_45.setObjectName("pushButton_45")
+        self.gridLayout_56.addWidget(self.pushButton_45, 6, 5, 1, 1)
+        self.label_38 = QtWidgets.QLabel(self.groupBox)
+        self.label_38.setObjectName("label_38")
+        self.gridLayout_56.addWidget(self.label_38, 0, 0, 1, 1)
+        spacerItem30 = QtWidgets.QSpacerItem(386, 2, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_56.addItem(spacerItem30, 5, 2, 1, 4)
+        self.label_41 = QtWidgets.QLabel(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_41.sizePolicy().hasHeightForWidth())
+        self.label_41.setSizePolicy(sizePolicy)
+        self.label_41.setObjectName("label_41")
+        self.gridLayout_56.addWidget(self.label_41, 1, 2, 1, 1)
+        self.comboBox_13 = QtWidgets.QComboBox(self.groupBox)
+        self.comboBox_13.setObjectName("comboBox_13")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.comboBox_13.addItem("")
+        self.gridLayout_56.addWidget(self.comboBox_13, 2, 1, 2, 1)
+        spacerItem31 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_56.addItem(spacerItem31, 6, 4, 1, 1)
+        self.label_40 = QtWidgets.QLabel(self.groupBox)
+        self.label_40.setObjectName("label_40")
+        self.gridLayout_56.addWidget(self.label_40, 1, 0, 1, 1)
+        self.label_49 = QtWidgets.QLabel(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_49.sizePolicy().hasHeightForWidth())
+        self.label_49.setSizePolicy(sizePolicy)
+        self.label_49.setObjectName("label_49")
+        self.gridLayout_56.addWidget(self.label_49, 2, 2, 2, 1)
+        self.label_42 = QtWidgets.QLabel(self.groupBox)
+        self.label_42.setObjectName("label_42")
+        self.gridLayout_56.addWidget(self.label_42, 2, 0, 2, 1)
+        spacerItem32 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_56.addItem(spacerItem32, 6, 3, 1, 1)
+        self.comboBox_12 = QtWidgets.QComboBox(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.MinimumExpanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.comboBox_12.sizePolicy().hasHeightForWidth())
+        self.comboBox_12.setSizePolicy(sizePolicy)
+        self.comboBox_12.setObjectName("comboBox_12")
+        self.comboBox_12.addItem("")
+        self.comboBox_12.addItem("")
+        self.comboBox_12.addItem("")
+        self.comboBox_12.addItem("")
+        self.comboBox_12.addItem("")
+        self.comboBox_12.addItem("")
+        self.gridLayout_56.addWidget(self.comboBox_12, 2, 3, 2, 3)
+        self.comboBox_11 = QtWidgets.QComboBox(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.MinimumExpanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.comboBox_11.sizePolicy().hasHeightForWidth())
+        self.comboBox_11.setSizePolicy(sizePolicy)
+        self.comboBox_11.setObjectName("comboBox_11")
+        self.gridLayout_56.addWidget(self.comboBox_11, 1, 3, 1, 3)
+        self.comboBox_10 = QtWidgets.QComboBox(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.MinimumExpanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.comboBox_10.sizePolicy().hasHeightForWidth())
+        self.comboBox_10.setSizePolicy(sizePolicy)
+        self.comboBox_10.setObjectName("comboBox_10")
+        self.comboBox_10.addItem("")
+        self.comboBox_10.addItem("")
+        self.gridLayout_56.addWidget(self.comboBox_10, 0, 3, 1, 3)
+        self.gridLayout_34.addWidget(self.groupBox, 0, 0, 1, 1)
         self.listWidget_5 = QtWidgets.QListWidget(self.page_11)
         self.listWidget_5.setObjectName("listWidget_5")
-        self.gridLayout_34.addWidget(self.listWidget_5, 0, 0, 1, 1)
+        self.gridLayout_34.addWidget(self.listWidget_5, 1, 0, 1, 1)
         self.stackedWidget_2.addWidget(self.page_11)
         self.page_13 = QtWidgets.QWidget()
         self.page_13.setObjectName("page_13")
@@ -1554,8 +1620,8 @@ class Ui_MOS(object):
         self.stackedWidget_2.addWidget(self.page_13)
         self.page_14 = QtWidgets.QWidget()
         self.page_14.setStyleSheet("QTreeWidget::item {\n"
-                                   "    height: 40px;\n"
-                                   "}")
+"    height: 40px;\n"
+"}")
         self.page_14.setObjectName("page_14")
         self.gridLayout_36 = QtWidgets.QGridLayout(self.page_14)
         self.gridLayout_36.setObjectName("gridLayout_36")
@@ -1573,8 +1639,8 @@ class Ui_MOS(object):
         self.stackedWidget_2.addWidget(self.page_15)
         self.page_16 = QtWidgets.QWidget()
         self.page_16.setStyleSheet("QTreeWidget::item {\n"
-                                   "    height: 40px;\n"
-                                   "}")
+"    height: 40px;\n"
+"}")
         self.page_16.setObjectName("page_16")
         self.gridLayout_38 = QtWidgets.QGridLayout(self.page_16)
         self.gridLayout_38.setObjectName("gridLayout_38")
@@ -1592,7 +1658,7 @@ class Ui_MOS(object):
         self.stackedWidget_2.addWidget(self.page_17)
         self.page_18 = QtWidgets.QWidget()
         self.page_18.setStyleSheet("#label_29{border-radius: 10px;border:2px solid rgb(255, 38, 0);}\n"
-                                   "#widget_16{border:2px solid rgb(0, 150, 255);border-radius: 10px;}")
+"#widget_16{border:2px solid rgb(0, 150, 255);border-radius: 10px;}")
         self.page_18.setObjectName("page_18")
         self.gridLayout_41 = QtWidgets.QGridLayout(self.page_18)
         self.gridLayout_41.setObjectName("gridLayout_41")
@@ -1607,80 +1673,80 @@ class Ui_MOS(object):
         self.widget_16 = QtWidgets.QWidget(self.page_18)
         self.widget_16.setEnabled(True)
         self.widget_16.setStyleSheet("#listWidget_3{border-style:none;}\n"
-                                     "QListView::item {\n"
-                                     "    height: 25px;\n"
-                                     "    padding: 8px;\n"
-                                     "    border-left: 3px solid rgba(214, 214, 214,0);\n"
-                                     "}\n"
-                                     "QListView::item:hover {\n"
-                                     "    border-left: 3px solid rgb(214, 214, 214);\n"
-                                     "    background-color: transparent;\n"
-                                     "}\n"
-                                     "QListView::item:selected {\n"
-                                     "    background-color: transparent;\n"
-                                     "    color: black;\n"
-                                     "    background-color: rgb(235, 235, 235);\n"
-                                     "    border-left: 3px solid rgb(0, 150, 255);\n"
-                                     "}\n"
-                                     "#pushButton_24{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 250, 146);color: rgb(33, 33, 33);}\n"
-                                     "#pushButton_24::hover{color: rgb(0, 250, 146);}\n"
-                                     "#pushButton_24::pressed{background-color: rgb(128, 255, 202);color: rgb(255, 255, 255);}\n"
-                                     "/*禁用*/\n"
-                                     "#pushButton_24:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);color: rgb(145, 145, 145);}\n"
-                                     "\n"
-                                     "/*设置垂直滚动条基本样式*/\n"
-                                     "QScrollBar:vertical\n"
-                                     "{\n"
-                                     "    width:8px;\n"
-                                     "    background:rgba(0,0,0,0%);\n"
-                                     "    margin:0px,0px,0px,0px;\n"
-                                     "    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
-                                     "    padding-bottom:9px;\n"
-                                     "}\n"
-                                     "QScrollBar::handle:vertical\n"
-                                     "{\n"
-                                     "    width:8px;\n"
-                                     "    background:rgba(0,0,0,25%);\n"
-                                     "    border-radius:4px;   /*滚动条两端变成椭圆*/\n"
-                                     "    min-height:;\n"
-                                     "}\n"
-                                     "QScrollBar::handle:vertical:hover\n"
-                                     "{\n"
-                                     "    width:8px;\n"
-                                     "    background:rgba(0,0,0,50%);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
-                                     "    border-radius:4px;\n"
-                                     "    min-height:;\n"
-                                     "}\n"
-                                     "QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
-                                     "{\n"
-                                     "    height:9px;width:8px;\n"
-                                     "    border-image:url(:/img/caret-down_1.png);\n"
-                                     "    subcontrol-position:bottom;\n"
-                                     "}\n"
-                                     "QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
-                                     "{\n"
-                                     "    height:9px;width:8px;\n"
-                                     "    border-image:url(:/img/caret-up_1.png);\n"
-                                     "    subcontrol-position:top;\n"
-                                     "}\n"
-                                     "QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
-                                     "{\n"
-                                     "    height:9px;width:8px;\n"
-                                     "    border-image:url(:/img/caret-down.png);\n"
-                                     "    subcontrol-position:bottom;\n"
-                                     "}\n"
-                                     "QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
-                                     "{\n"
-                                     "    height:9px;width:8px;\n"
-                                     "    border-image:url(:/img/caret-up.png);\n"
-                                     "    subcontrol-position:top;\n"
-                                     "}\n"
-                                     "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-                                     "{\n"
-                                     "    background:rgba(0,0,0,10%);\n"
-                                     "    border-radius:4px;\n"
-                                     "}\n"
-                                     "")
+"QListView::item {\n"
+"    height: 25px;\n"
+"    padding: 8px;\n"
+"    border-left: 3px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"QListView::item:hover {\n"
+"    border-left: 3px solid rgb(214, 214, 214);\n"
+"    background-color: transparent;\n"
+"}\n"
+"QListView::item:selected {\n"
+"    background-color: transparent;\n"
+"    color: black;\n"
+"    background-color: rgb(235, 235, 235);\n"
+"    border-left: 3px solid rgb(0, 150, 255);\n"
+"}\n"
+"#pushButton_24{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 250, 146);color: rgb(33, 33, 33);}\n"
+"#pushButton_24::hover{color: rgb(0, 250, 146);}\n"
+"#pushButton_24::pressed{background-color: rgb(128, 255, 202);color: rgb(255, 255, 255);}\n"
+"/*禁用*/\n"
+"#pushButton_24:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);color: rgb(145, 145, 145);}\n"
+"\n"
+"/*设置垂直滚动条基本样式*/\n"
+"QScrollBar:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,0%);\n"
+"    margin:0px,0px,0px,0px;\n"
+"    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
+"    padding-bottom:9px;\n"
+"}\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,25%);\n"
+"    border-radius:4px;   /*滚动条两端变成椭圆*/\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::handle:vertical:hover\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,50%);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
+"    border-radius:4px;\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/caret-down_1.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/caret-up_1.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/caret-down.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/caret-up.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background:rgba(0,0,0,10%);\n"
+"    border-radius:4px;\n"
+"}\n"
+"")
         self.widget_16.setObjectName("widget_16")
         self.gridLayout_40 = QtWidgets.QGridLayout(self.widget_16)
         self.gridLayout_40.setVerticalSpacing(15)
@@ -1798,9 +1864,8 @@ class Ui_MOS(object):
         self.gridLayout_3 = QtWidgets.QGridLayout(self.page_4)
         self.gridLayout_3.setContentsMargins(5, 0, 5, 0)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        spacerItem28 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_3.addItem(spacerItem28, 0, 0, 1, 1)
+        spacerItem33 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_3.addItem(spacerItem33, 0, 0, 1, 1)
         self.label_12 = QtWidgets.QLabel(self.page_4)
         self.label_12.setStyleSheet("font-size: 17px;")
         self.label_12.setIndent(10)
@@ -1815,7 +1880,7 @@ class Ui_MOS(object):
         self.gridLayout_3.addWidget(self.line_4, 2, 0, 1, 1)
         self.widget_8 = QtWidgets.QWidget(self.page_4)
         self.widget_8.setStyleSheet("QWidget{border-radius:10px;border:2px solid rgb(0, 150, 255);}\n"
-                                    "QLabel{border-style:none;color:rgb(0, 150, 255);}")
+"QLabel{border-style:none;color:rgb(0, 150, 255);}")
         self.widget_8.setObjectName("widget_8")
         self.gridLayout_10 = QtWidgets.QGridLayout(self.widget_8)
         self.gridLayout_10.setContentsMargins(12, -1, -1, -1)
@@ -1825,78 +1890,76 @@ class Ui_MOS(object):
         self.label_13.setObjectName("label_13")
         self.gridLayout_10.addWidget(self.label_13, 1, 0, 1, 1)
         self.gridLayout_3.addWidget(self.widget_8, 3, 0, 1, 1)
-        spacerItem29 = QtWidgets.QSpacerItem(832, 393, QtWidgets.QSizePolicy.Policy.Minimum,
-                                             QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_3.addItem(spacerItem29, 4, 0, 1, 1)
+        spacerItem34 = QtWidgets.QSpacerItem(832, 393, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_3.addItem(spacerItem34, 4, 0, 1, 1)
         self.stackedWidget_mos_right.addWidget(self.page_4)
         self.page_5 = QtWidgets.QWidget()
-        self.page_5.setStyleSheet(
-            "QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}\n"
-            "QComboBox {\n"
-            "    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */\n"
-            "    height:25px;\n"
-            "    /*background-color: rgba(0, 150, 255, 150);*/\n"
-            "    background-color: rgba(214, 214, 214,100);\n"
-            "    border-radius:10px;\n"
-            "}\n"
-            "\n"
-            "/*下拉框的样式*/\n"
-            "QComboBox QAbstractItemView\n"
-            "{\n"
-            "    outline: 0px solid gray;  /*取消选中虚线*/\n"
-            "    border: 1px solid rgb(31, 156, 255);\n"
-            "    color: rgb(66, 66, 66);\n"
-            "    background-color: rgb(255, 255, 255);\n"
-            "    selection-background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "    height:35px;\n"
-            "    border:None;\n"
-            "}\n"
-            "/*选中每一项的字体颜色和背景颜色*/\n"
-            "QComboBox::item:selected \n"
-            "{\n"
-            "    color: rgb(255, 255, 255);\n"
-            "    background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "}\n"
-            "/*右边*/\n"
-            "QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
-            "QComboBox::down-arrow\n"
-            "{\n"
-            "    image: url(:/img/back_blue_down.png);\n"
-            "    width: 25px;\n"
-            "    height: 35px;\n"
-            "    right:6px;\n"
-            "    border-left: 2px solid rgb(192, 192, 192);\n"
-            "    border-right: 1px solid rgba(214, 214, 214,0);\n"
-            "}\n"
-            "QComboBox::down-arrow:on\n"
-            "{\n"
-            "    image: url(:/img/back_blue_up.png);\n"
-            "    width: 25px;\n"
-            "    height: 35px;\n"
-            "    right:6px;\n"
-            "    border-left: 2px solid rgb(192, 192, 192);\n"
-            "    border-right: 1px solid rgba(214, 214, 214,0);\n"
-            "}\n"
-            "/*QComboBox::down-arrow::hover{}*\n"
-            "\n"
-            "/* QComboBox中的垂直滚动条 */\n"
-            "QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
-            "    width: 10px;\n"
-            "    height: 8px;\n"
-            "    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/\n"
-            "    border-style:none;\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
-            "    border-radius: 5px;   /* 圆角 */\n"
-            "    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
-            "    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
-            "}")
+        self.page_5.setStyleSheet("QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */\n"
+"    height:25px;\n"
+"    /*background-color: rgba(0, 150, 255, 150);*/\n"
+"    background-color: rgba(214, 214, 214,100);\n"
+"    border-radius:10px;\n"
+"}\n"
+"\n"
+"/*下拉框的样式*/\n"
+"QComboBox QAbstractItemView\n"
+"{\n"
+"    outline: 0px solid gray;  /*取消选中虚线*/\n"
+"    border: 1px solid rgb(31, 156, 255);\n"
+"    color: rgb(66, 66, 66);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    selection-background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"    height:35px;\n"
+"    border:None;\n"
+"}\n"
+"/*选中每一项的字体颜色和背景颜色*/\n"
+"QComboBox::item:selected \n"
+"{\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"}\n"
+"/*右边*/\n"
+"QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}\n"
+"QComboBox::down-arrow\n"
+"{\n"
+"    image: url(:/img/back_blue_down.png);\n"
+"    width: 25px;\n"
+"    height: 35px;\n"
+"    right:6px;\n"
+"    border-left: 2px solid rgb(192, 192, 192);\n"
+"    border-right: 1px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"QComboBox::down-arrow:on\n"
+"{\n"
+"    image: url(:/img/back_blue_up.png);\n"
+"    width: 25px;\n"
+"    height: 35px;\n"
+"    right:6px;\n"
+"    border-left: 2px solid rgb(192, 192, 192);\n"
+"    border-right: 1px solid rgba(214, 214, 214,0);\n"
+"}\n"
+"/*QComboBox::down-arrow::hover{}*\n"
+"\n"
+"/* QComboBox中的垂直滚动条 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    height: 8px;\n"
+"    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/\n"
+"    border-style:none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* 圆角 */\n"
+"    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
+"}")
         self.page_5.setObjectName("page_5")
         self.gridLayout_15 = QtWidgets.QGridLayout(self.page_5)
         self.gridLayout_15.setContentsMargins(0, 0, 0, 0)
@@ -1910,63 +1973,63 @@ class Ui_MOS(object):
         self.gridLayout_15.addWidget(self.line_5, 3, 0, 1, 2)
         self.stackedWidget = QtWidgets.QStackedWidget(self.page_5)
         self.stackedWidget.setStyleSheet("QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}\n"
-                                         "/*设置垂直滚动条基本样式*/\n"
-                                         "QScrollBar:vertical\n"
-                                         "{\n"
-                                         "    width:8px;\n"
-                                         "    background:rgba(0,0,0,0%);\n"
-                                         "    margin:0px,0px,0px,0px;\n"
-                                         "    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
-                                         "    padding-bottom:9px;\n"
-                                         "}\n"
-                                         "QScrollBar::handle:vertical\n"
-                                         "{\n"
-                                         "    width:8px;\n"
-                                         "    background: rgb(214, 214, 214);\n"
-                                         "    border-radius:3px;   /*滚动条两端变成椭圆*/\n"
-                                         "    min-height:;\n"
-                                         "}\n"
-                                         "QScrollBar::handle:vertical:hover\n"
-                                         "{\n"
-                                         "    width:8px;\n"
-                                         "    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
-                                         "    border-radius:4px;\n"
-                                         "    min-height:;\n"
-                                         "}\n"
-                                         "QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
-                                         "{\n"
-                                         "    height:9px;width:8px;\n"
-                                         "    border-image:url(:/img/picture/caret-down_1.png);\n"
-                                         "    subcontrol-position:bottom;\n"
-                                         "}\n"
-                                         "QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
-                                         "{\n"
-                                         "    height:9px;width:8px;\n"
-                                         "    border-image:url(:/img/picture/caret-up_1.png);\n"
-                                         "    subcontrol-position:top;\n"
-                                         "}\n"
-                                         "QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
-                                         "{\n"
-                                         "    height:9px;width:8px;\n"
-                                         "    border-image:url(:/img/picture/caret-down.png);\n"
-                                         "    subcontrol-position:bottom;\n"
-                                         "}\n"
-                                         "QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
-                                         "{\n"
-                                         "    height:9px;width:8px;\n"
-                                         "    border-image:url(:/img/picture/caret-up.png);\n"
-                                         "    subcontrol-position:top;\n"
-                                         "}\n"
-                                         "QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-                                         "{\n"
-                                         "    background: rgba(235, 235, 235,150);\n"
-                                         "    border-radius:4px;\n"
-                                         "}\n"
-                                         "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-                                         "{\n"
-                                         "    background: rgba(235, 235, 235,150);\n"
-                                         "    border-radius:4px;\n"
-                                         "}")
+"/*设置垂直滚动条基本样式*/\n"
+"QScrollBar:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,0%);\n"
+"    margin:0px,0px,0px,0px;\n"
+"    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
+"    padding-bottom:9px;\n"
+"}\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background: rgb(214, 214, 214);\n"
+"    border-radius:3px;   /*滚动条两端变成椭圆*/\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::handle:vertical:hover\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
+"    border-radius:4px;\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background: rgba(235, 235, 235,150);\n"
+"    border-radius:4px;\n"
+"}\n"
+"QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background: rgba(235, 235, 235,150);\n"
+"    border-radius:4px;\n"
+"}")
         self.stackedWidget.setObjectName("stackedWidget")
         self.page = QtWidgets.QWidget()
         self.page.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
@@ -1985,74 +2048,74 @@ class Ui_MOS(object):
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
         self.widget_28 = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
-        self.widget_28.setStyleSheet(
-            "QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
-            "QLabel{border-style:none;}\n"
-            "QComboBox {\n"
-            "    border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */\n"
-            "    height:27px;\n"
-            "    background-color: rgba(235, 235, 235, 128);\n"
-            "    border-radius:10px;\n"
-            "}\n"
-            "\n"
-            "/*下拉框的样式*/\n"
-            "QComboBox QAbstractItemView \n"
-            "{\n"
-            "    outline: 0px solid gray;  /*取消选中虚线*/\n"
-            "    border: 1px solid rgb(31, 156, 255);\n"
-            "    color: rgb(66, 66, 66);\n"
-            "    background-color: rgb(255, 255, 255);\n"
-            "    selection-background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "    height:150px;\n"
-            "}\n"
-            " /*选中每一项高度*/\n"
-            "QComboBox QAbstractItemView::item\n"
-            "{ \n"
-            "    height: 25px;\n"
-            "    border-radius:5px;\n"
-            " }\n"
-            "/*选中每一项的字体颜色和背景颜色*/\n"
-            "QComboBox QAbstractItemView::item:selected \n"
-            "{\n"
-            "    color: rgb(31,163,246);\n"
-            "    background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "}\n"
-            "/*QComboBox::down-arrow\n"
-            "是 右面那个 \n"
-            "*/\n"
-            "\n"
-            "\n"
-            "\n"
-            "/* QComboBox中的垂直滚动条 */\n"
-            "QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
-            "    width: 10px;\n"
-            "    height: 8px;\n"
-            "    background-color: #d0d2d4;   /* 空白区域的背景色*/\n"
-            "    border-style:none;\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
-            "    border-radius: 5px;   /* 圆角 */\n"
-            "    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
-            "    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
-            "}\n"
-            "\n"
-            "QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
-            "QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}\n"
-            "QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}")
+        self.widget_28.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
+"/*禁用*/\n"
+"QPushButton:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);}\n"
+"QLabel{border-style:none;}\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */\n"
+"    height:27px;\n"
+"    background-color: rgba(235, 235, 235, 128);\n"
+"    border-radius:10px;\n"
+"}\n"
+"\n"
+"/*下拉框的样式*/\n"
+"QComboBox QAbstractItemView \n"
+"{\n"
+"    outline: 0px solid gray;  /*取消选中虚线*/\n"
+"    border: 1px solid rgb(31, 156, 255);\n"
+"    color: rgb(66, 66, 66);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    selection-background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"    height:150px;\n"
+"}\n"
+" /*选中每一项高度*/\n"
+"QComboBox QAbstractItemView::item\n"
+"{ \n"
+"    height: 25px;\n"
+"    border-radius:5px;\n"
+" }\n"
+"/*选中每一项的字体颜色和背景颜色*/\n"
+"QComboBox QAbstractItemView::item:selected \n"
+"{\n"
+"    color: rgb(31,163,246);\n"
+"    background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"}\n"
+"/*QComboBox::down-arrow\n"
+"是 右面那个 \n"
+"*/\n"
+"\n"
+"\n"
+"\n"
+"/* QComboBox中的垂直滚动条 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    height: 8px;\n"
+"    background-color: #d0d2d4;   /* 空白区域的背景色*/\n"
+"    border-style:none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* 圆角 */\n"
+"    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
+"}\n"
+"\n"
+"QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
+"QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}\n"
+"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}")
         self.widget_28.setObjectName("widget_28")
         self.gridLayout_23 = QtWidgets.QGridLayout(self.widget_28)
         self.gridLayout_23.setObjectName("gridLayout_23")
         self.label_35 = QtWidgets.QLabel(self.widget_28)
         self.label_35.setStyleSheet("font-size: 13px;")
         self.label_35.setScaledContents(False)
-        self.label_35.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignTop)
+        self.label_35.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignTop)
         self.label_35.setWordWrap(True)
         self.label_35.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
         self.label_35.setObjectName("label_35")
@@ -2064,6 +2127,7 @@ class Ui_MOS(object):
         self.comboBox_8.addItem("")
         self.gridLayout_23.addWidget(self.comboBox_8, 0, 1, 1, 1)
         self.pushButton_43 = QtWidgets.QPushButton(self.widget_28)
+        self.pushButton_43.setEnabled(False)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -2078,67 +2142,66 @@ class Ui_MOS(object):
         self.gridLayout_23.addWidget(self.pushButton_43, 1, 1, 1, 1)
         self.verticalLayout_9.addWidget(self.widget_28)
         self.widget = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
-        self.widget.setStyleSheet(
-            "QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
-            "QLabel{border-style:none;}\n"
-            "#label_6{text-decoration: underline;}\n"
-            "QComboBox {\n"
-            "    border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */\n"
-            "    height:27px;\n"
-            "    background-color: rgba(235, 235, 235, 128);\n"
-            "    border-radius:10px;\n"
-            "}\n"
-            "\n"
-            "/*下拉框的样式*/\n"
-            "QComboBox QAbstractItemView \n"
-            "{\n"
-            "    outline: 0px solid gray;  /*取消选中虚线*/\n"
-            "    border: 1px solid rgb(31, 156, 255);\n"
-            "    color: rgb(66, 66, 66);\n"
-            "    background-color: rgb(255, 255, 255);\n"
-            "    selection-background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "    height:150px;\n"
-            "}\n"
-            " /*选中每一项高度*/\n"
-            "QComboBox QAbstractItemView::item\n"
-            "{ \n"
-            "    height: 25px;\n"
-            "    border-radius:5px;\n"
-            " }\n"
-            "/*选中每一项的字体颜色和背景颜色*/\n"
-            "QComboBox QAbstractItemView::item:selected \n"
-            "{\n"
-            "    color: rgb(31,163,246);\n"
-            "    background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "}\n"
-            "/*QComboBox::down-arrow\n"
-            "是 右面那个 \n"
-            "*/\n"
-            "\n"
-            "\n"
-            "\n"
-            "/* QComboBox中的垂直滚动条 */\n"
-            "QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
-            "    width: 10px;\n"
-            "    height: 8px;\n"
-            "    background-color: #d0d2d4;   /* 空白区域的背景色*/\n"
-            "    border-style:none;\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
-            "    border-radius: 5px;   /* 圆角 */\n"
-            "    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
-            "    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
-            "}\n"
-            "\n"
-            "QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
-            "QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}\n"
-            "QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}")
+        self.widget.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
+"QLabel{border-style:none;}\n"
+"#label_6{text-decoration: underline;}\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */\n"
+"    height:27px;\n"
+"    background-color: rgba(235, 235, 235, 128);\n"
+"    border-radius:10px;\n"
+"}\n"
+"\n"
+"/*下拉框的样式*/\n"
+"QComboBox QAbstractItemView \n"
+"{\n"
+"    outline: 0px solid gray;  /*取消选中虚线*/\n"
+"    border: 1px solid rgb(31, 156, 255);\n"
+"    color: rgb(66, 66, 66);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    selection-background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"    height:150px;\n"
+"}\n"
+" /*选中每一项高度*/\n"
+"QComboBox QAbstractItemView::item\n"
+"{ \n"
+"    height: 25px;\n"
+"    border-radius:5px;\n"
+" }\n"
+"/*选中每一项的字体颜色和背景颜色*/\n"
+"QComboBox QAbstractItemView::item:selected \n"
+"{\n"
+"    color: rgb(31,163,246);\n"
+"    background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"}\n"
+"/*QComboBox::down-arrow\n"
+"是 右面那个 \n"
+"*/\n"
+"\n"
+"\n"
+"\n"
+"/* QComboBox中的垂直滚动条 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    height: 8px;\n"
+"    background-color: #d0d2d4;   /* 空白区域的背景色*/\n"
+"    border-style:none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* 圆角 */\n"
+"    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
+"}\n"
+"\n"
+"QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
+"QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}\n"
+"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}")
         self.widget.setObjectName("widget")
         self.gridLayout_24 = QtWidgets.QGridLayout(self.widget)
         self.gridLayout_24.setObjectName("gridLayout_24")
@@ -2158,8 +2221,7 @@ class Ui_MOS(object):
         self.label_4 = QtWidgets.QLabel(self.widget)
         self.label_4.setStyleSheet("font-size: 13px;")
         self.label_4.setScaledContents(False)
-        self.label_4.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignTop)
+        self.label_4.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignTop)
         self.label_4.setWordWrap(True)
         self.label_4.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
         self.label_4.setObjectName("label_4")
@@ -2183,36 +2245,37 @@ class Ui_MOS(object):
         self.gridLayout_24.addWidget(self.fontComboBox, 0, 1, 1, 3)
         self.verticalLayout_9.addWidget(self.widget)
         self.widget_29 = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
-        self.widget_29.setStyleSheet(
-            "QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
-            "QLabel{border-style:none;}\n"
-            "\n"
-            "QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
-            "QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}\n"
-            "QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}\n"
-            "\n"
-            "#pushButton_33{border:2px solid rgb(0, 250, 146);}\n"
-            "#pushButton_33::hover{color: rgb(0, 250, 146);background-color: rgb(120, 240, 125);border:2px solid rgb(120, 240, 125);color: rgb(255, 255, 255);}\n"
-            "#pushButton_33::pressed{background-color: rgb(128, 255, 202);}\n"
-            "\n"
-            "#pushButton_26{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(118, 214, 255);}\n"
-            "#pushButton_26::hover{background-color: rgb(118, 214, 255);color: rgb(255, 255, 255)}\n"
-            "#pushButton_26::pressed{background-color: rgb(76, 201, 255);border:2px solid rgb(76, 201, 255);}\n"
-            "\n"
-            "QLineEdit{height:34px;border-radius:8px;border:2px solid rgb(192, 192, 192);}")
+        self.widget_29.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
+"/*禁用*/\n"
+"QPushButton:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);}\n"
+"QLabel{border-style:none;}\n"
+"\n"
+"QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
+"QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}\n"
+"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}\n"
+"\n"
+"#pushButton_33{border:2px solid rgb(0, 250, 146);}\n"
+"#pushButton_33::hover{color: rgb(0, 250, 146);background-color: rgb(120, 240, 125);border:2px solid rgb(120, 240, 125);color: rgb(255, 255, 255);}\n"
+"#pushButton_33::pressed{background-color: rgb(128, 255, 202);}\n"
+"\n"
+"#pushButton_26{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(118, 214, 255);}\n"
+"#pushButton_26::hover{background-color: rgb(118, 214, 255);color: rgb(255, 255, 255)}\n"
+"#pushButton_26::pressed{background-color: rgb(76, 201, 255);border:2px solid rgb(76, 201, 255);}\n"
+"\n"
+"QLineEdit{height:34px;border-radius:8px;border:2px solid rgb(192, 192, 192);}")
         self.widget_29.setObjectName("widget_29")
         self.gridLayout_48 = QtWidgets.QGridLayout(self.widget_29)
         self.gridLayout_48.setObjectName("gridLayout_48")
         self.label_36 = QtWidgets.QLabel(self.widget_29)
         self.label_36.setStyleSheet("font-size: 13px;")
         self.label_36.setScaledContents(False)
-        self.label_36.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignTop)
+        self.label_36.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignTop)
         self.label_36.setWordWrap(True)
         self.label_36.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
         self.label_36.setObjectName("label_36")
         self.gridLayout_48.addWidget(self.label_36, 0, 0, 2, 1)
         self.pushButton_44 = QtWidgets.QPushButton(self.widget_29)
+        self.pushButton_44.setEnabled(False)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -2245,75 +2308,74 @@ class Ui_MOS(object):
         self.gridLayout_48.addWidget(self.lineEdit_2, 0, 1, 1, 1)
         self.verticalLayout_9.addWidget(self.widget_29)
         self.widget_4 = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
-        self.widget_4.setStyleSheet(
-            "QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
-            "QLabel{border-style:none;}\n"
-            "QComboBox {\n"
-            "    border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */\n"
-            "    height:27px;\n"
-            "    background-color: rgba(235, 235, 235, 128);\n"
-            "    border-radius:10px;\n"
-            "}\n"
-            "\n"
-            "/*下拉框的样式*/\n"
-            "QComboBox QAbstractItemView \n"
-            "{\n"
-            "    outline: 0px solid gray;  /*取消选中虚线*/\n"
-            "    border: 1px solid rgb(31, 156, 255);\n"
-            "    color: rgb(66, 66, 66);\n"
-            "    background-color: rgb(255, 255, 255);\n"
-            "    selection-background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "    height:150px;\n"
-            "}\n"
-            " /*选中每一项高度*/\n"
-            "QComboBox QAbstractItemView::item\n"
-            "{ \n"
-            "    height: 25px;\n"
-            "    border-radius:5px;\n"
-            " }\n"
-            "/*选中每一项的字体颜色和背景颜色*/\n"
-            "QComboBox QAbstractItemView::item:selected \n"
-            "{\n"
-            "    color: rgb(31,163,246);\n"
-            "    background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "}\n"
-            "/*QComboBox::down-arrow\n"
-            "是 右面那个 \n"
-            "*/\n"
-            "\n"
-            "\n"
-            "\n"
-            "/* QComboBox中的垂直滚动条 */\n"
-            "QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
-            "    width: 10px;\n"
-            "    height: 8px;\n"
-            "    background-color: #d0d2d4;   /* 空白区域的背景色*/\n"
-            "    border-style:none;\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
-            "    border-radius: 5px;   /* 圆角 */\n"
-            "    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
-            "    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
-            "}\n"
-            "\n"
-            "#pushButton_20{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
-            "#pushButton_20::hover{color: rgb(255, 59, 0)}\n"
-            "#pushButton_20::pressed{background-color: rgba(255, 0, 0, 100);}\n"
-            "\n"
-            "#pushButton_19{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 250, 146);color: rgb(33, 33, 33);}\n"
-            "#pushButton_19::hover{color: rgb(0, 250, 146);background-color: rgb(120, 240, 125);border:2px solid rgb(120, 240, 125);color: rgb(255, 255, 255);}\n"
-            "#pushButton_19::pressed{background-color: rgb(128, 255, 202);}\n"
-            "\n"
-            "/*禁用*/\n"
-            "#pushButton_20:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);}\n"
-            "\n"
-            "QRadioButton{border-style:none;}")
+        self.widget_4.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
+"QLabel{border-style:none;}\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */\n"
+"    height:27px;\n"
+"    background-color: rgba(235, 235, 235, 128);\n"
+"    border-radius:10px;\n"
+"}\n"
+"\n"
+"/*下拉框的样式*/\n"
+"QComboBox QAbstractItemView \n"
+"{\n"
+"    outline: 0px solid gray;  /*取消选中虚线*/\n"
+"    border: 1px solid rgb(31, 156, 255);\n"
+"    color: rgb(66, 66, 66);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    selection-background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"    height:150px;\n"
+"}\n"
+" /*选中每一项高度*/\n"
+"QComboBox QAbstractItemView::item\n"
+"{ \n"
+"    height: 25px;\n"
+"    border-radius:5px;\n"
+" }\n"
+"/*选中每一项的字体颜色和背景颜色*/\n"
+"QComboBox QAbstractItemView::item:selected \n"
+"{\n"
+"    color: rgb(31,163,246);\n"
+"    background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"}\n"
+"/*QComboBox::down-arrow\n"
+"是 右面那个 \n"
+"*/\n"
+"\n"
+"\n"
+"\n"
+"/* QComboBox中的垂直滚动条 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    height: 8px;\n"
+"    background-color: #d0d2d4;   /* 空白区域的背景色*/\n"
+"    border-style:none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* 圆角 */\n"
+"    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
+"}\n"
+"\n"
+"#pushButton_20{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
+"#pushButton_20::hover{color: rgb(255, 59, 0)}\n"
+"#pushButton_20::pressed{background-color: rgba(255, 0, 0, 100);}\n"
+"\n"
+"#pushButton_19{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 250, 146);color: rgb(33, 33, 33);}\n"
+"#pushButton_19::hover{color: rgb(0, 250, 146);background-color: rgb(120, 240, 125);border:2px solid rgb(120, 240, 125);color: rgb(255, 255, 255);}\n"
+"#pushButton_19::pressed{background-color: rgb(128, 255, 202);}\n"
+"\n"
+"/*禁用*/\n"
+"#pushButton_20:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);}\n"
+"\n"
+"QRadioButton{border-style:none;}")
         self.widget_4.setObjectName("widget_4")
         self.gridLayout_29 = QtWidgets.QGridLayout(self.widget_4)
         self.gridLayout_29.setObjectName("gridLayout_29")
@@ -2329,8 +2391,7 @@ class Ui_MOS(object):
         self.label_5.setSizePolicy(sizePolicy)
         self.label_5.setStyleSheet("font-size: 13px;")
         self.label_5.setScaledContents(False)
-        self.label_5.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.label_5.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.label_5.setWordWrap(True)
         self.label_5.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
         self.label_5.setObjectName("label_5")
@@ -2361,89 +2422,91 @@ class Ui_MOS(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 832, 506))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 258, 845))
         self.scrollAreaWidgetContents_3.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.gridLayout_30 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_30.setObjectName("gridLayout_30")
         self.widget_15 = QtWidgets.QWidget(self.scrollAreaWidgetContents_3)
-        self.widget_15.setStyleSheet(
-            "QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
-            "QLabel{border-style:none;}\n"
-            "#label_6{text-decoration: underline;}\n"
-            "QComboBox {\n"
-            "    border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */\n"
-            "    height:27px;\n"
-            "    background-color: rgba(235, 235, 235, 128);\n"
-            "    border-radius:10px;\n"
-            "}\n"
-            "\n"
-            "/*下拉框的样式*/\n"
-            "QComboBox QAbstractItemView \n"
-            "{\n"
-            "    outline: 0px solid gray;  /*取消选中虚线*/\n"
-            "    border: 1px solid rgb(31, 156, 255);\n"
-            "    color: rgb(66, 66, 66);\n"
-            "    background-color: rgb(255, 255, 255);\n"
-            "    selection-background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "    height:150px;\n"
-            "}\n"
-            " /*选中每一项高度*/\n"
-            "QComboBox QAbstractItemView::item\n"
-            "{ \n"
-            "    height: 25px;\n"
-            "    border-radius:5px;\n"
-            " }\n"
-            "/*选中每一项的字体颜色和背景颜色*/\n"
-            "QComboBox QAbstractItemView::item:selected \n"
-            "{\n"
-            "    color: rgb(31,163,246);\n"
-            "    background-color: rgb(0, 150, 255);\n"
-            "    border-radius:5px;\n"
-            "}\n"
-            "/*QComboBox::down-arrow\n"
-            "是 右面那个 \n"
-            "*/\n"
-            "\n"
-            "\n"
-            "\n"
-            "/* QComboBox中的垂直滚动条 */\n"
-            "QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
-            "    width: 10px;\n"
-            "    height: 8px;\n"
-            "    background-color: #d0d2d4;   /* 空白区域的背景色*/\n"
-            "    border-style:none;\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
-            "    border-radius: 5px;   /* 圆角 */\n"
-            "    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
-            "}\n"
-            "\n"
-            "QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
-            "    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
-            "}\n"
-            "\n"
-            "QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
-            "QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}\n"
-            "QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}\n"
-            "\n"
-            "#pushButton_22{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(120, 240, 125);}\n"
-            "#pushButton_22::hover{color: rgb(255, 255, 255);background-color:  rgb(120, 240, 125);}\n"
-            "#pushButton_22::pressed{background-color: rgb(178, 255, 182);color: rgb(255, 255, 255);}\n"
-            "\n"
-            "#pushButton_23{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 212, 121);}\n"
-            "#pushButton_23::hover{color: rgb(255, 255, 255);background-color: rgb(255, 212, 121);}\n"
-            "#pushButton_23::pressed{background-color: rgb(255, 198, 76);border:2px solid rgb(255, 198, 76);}\n"
-            "\n"
-            "#pushButton_34{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(118, 214, 255);}\n"
-            "#pushButton_34::hover{background-color: rgb(118, 214, 255);color: rgb(255, 255, 255)}\n"
-            "#pushButton_34::pressed{background-color: rgb(76, 201, 255);border:2px solid rgb(76, 201, 255);}")
+        self.widget_15.setStyleSheet("QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}\n"
+"/*禁用*/\n"
+"QPushButton:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);}\n"
+"QLabel{border-style:none;}\n"
+"#label_6{text-decoration: underline;}\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */\n"
+"    height:27px;\n"
+"    background-color: rgba(235, 235, 235, 128);\n"
+"    border-radius:10px;\n"
+"}\n"
+"\n"
+"/*下拉框的样式*/\n"
+"QComboBox QAbstractItemView \n"
+"{\n"
+"    outline: 0px solid gray;  /*取消选中虚线*/\n"
+"    border: 1px solid rgb(31, 156, 255);\n"
+"    color: rgb(66, 66, 66);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    selection-background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"    height:150px;\n"
+"}\n"
+" /*选中每一项高度*/\n"
+"QComboBox QAbstractItemView::item\n"
+"{ \n"
+"    height: 25px;\n"
+"    border-radius:5px;\n"
+" }\n"
+"/*选中每一项的字体颜色和背景颜色*/\n"
+"QComboBox QAbstractItemView::item:selected \n"
+"{\n"
+"    color: rgb(31,163,246);\n"
+"    background-color: rgb(0, 150, 255);\n"
+"    border-radius:5px;\n"
+"}\n"
+"/*QComboBox::down-arrow\n"
+"是 右面那个 \n"
+"*/\n"
+"\n"
+"\n"
+"\n"
+"/* QComboBox中的垂直滚动条 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    height: 8px;\n"
+"    background-color: #d0d2d4;   /* 空白区域的背景色*/\n"
+"    border-style:none;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* 圆角 */\n"
+"    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */\n"
+"}\n"
+"\n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/\n"
+"}\n"
+"\n"
+"QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}\n"
+"QPushButton::hover{color: rgb(255, 255, 255);background-color: rgb(255, 59, 0);}\n"
+"QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}\n"
+"\n"
+"#pushButton_22{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(120, 240, 125);}\n"
+"#pushButton_22::hover{color: rgb(255, 255, 255);background-color:  rgb(120, 240, 125);}\n"
+"#pushButton_22::pressed{background-color: rgb(178, 255, 182);color: rgb(255, 255, 255);}\n"
+"\n"
+"#pushButton_23{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 212, 121);}\n"
+"#pushButton_23::hover{color: rgb(255, 255, 255);background-color: rgb(255, 212, 121);}\n"
+"#pushButton_23::pressed{background-color: rgb(255, 198, 76);border:2px solid rgb(255, 198, 76);}\n"
+"\n"
+"#pushButton_34{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(118, 214, 255);}\n"
+"#pushButton_34::hover{background-color: rgb(118, 214, 255);color: rgb(255, 255, 255)}\n"
+"#pushButton_34::pressed{background-color: rgb(76, 201, 255);border:2px solid rgb(76, 201, 255);}")
         self.widget_15.setObjectName("widget_15")
         self.gridLayout_31 = QtWidgets.QGridLayout(self.widget_15)
         self.gridLayout_31.setObjectName("gridLayout_31")
         self.pushButton_21 = QtWidgets.QPushButton(self.widget_15)
+        self.pushButton_21.setEnabled(False)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -2459,8 +2522,7 @@ class Ui_MOS(object):
         self.label_14 = QtWidgets.QLabel(self.widget_15)
         self.label_14.setStyleSheet("font-size: 13px;")
         self.label_14.setScaledContents(False)
-        self.label_14.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignTop)
+        self.label_14.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignTop)
         self.label_14.setWordWrap(True)
         self.label_14.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
         self.label_14.setObjectName("label_14")
@@ -2486,9 +2548,8 @@ class Ui_MOS(object):
         self.comboBox_7.addItem("")
         self.gridLayout_31.addWidget(self.comboBox_7, 0, 2, 2, 2)
         self.gridLayout_30.addWidget(self.widget_15, 0, 0, 1, 1)
-        spacerItem30 = QtWidgets.QSpacerItem(20, 282, QtWidgets.QSizePolicy.Policy.Minimum,
-                                             QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_30.addItem(spacerItem30, 1, 0, 1, 1)
+        spacerItem35 = QtWidgets.QSpacerItem(20, 282, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_30.addItem(spacerItem35, 1, 0, 1, 1)
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_3)
         self.gridLayout_32.addWidget(self.scrollArea_2, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.page_7)
@@ -2511,20 +2572,17 @@ class Ui_MOS(object):
         self.comboBox.addItem("")
         self.verticalLayout_4.addWidget(self.comboBox)
         self.gridLayout_15.addWidget(self.widget_17, 1, 1, 1, 1)
-        spacerItem31 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_15.addItem(spacerItem31, 0, 0, 1, 2)
+        spacerItem36 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_15.addItem(spacerItem36, 0, 0, 1, 2)
         self.stackedWidget_mos_right.addWidget(self.page_5)
         self.page_6 = QtWidgets.QWidget()
-        self.page_6.setStyleSheet(
-            "QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}")
+        self.page_6.setStyleSheet("QLabel{border-style:none;color:rgb(33, 33, 33);background-color: rgba(255, 255, 255, 0);}")
         self.page_6.setObjectName("page_6")
         self.gridLayout_14 = QtWidgets.QGridLayout(self.page_6)
         self.gridLayout_14.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_14.setObjectName("gridLayout_14")
-        spacerItem32 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_14.addItem(spacerItem32, 0, 0, 1, 2)
+        spacerItem37 = QtWidgets.QSpacerItem(832, 13, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_14.addItem(spacerItem37, 0, 0, 1, 2)
         self.line_6 = QtWidgets.QFrame(self.page_6)
         self.line_6.setStyleSheet("color:rgb(214, 214, 214)")
         self.line_6.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
@@ -2534,63 +2592,63 @@ class Ui_MOS(object):
         self.gridLayout_14.addWidget(self.line_6, 2, 0, 1, 2)
         self.scrollArea_3 = QtWidgets.QScrollArea(self.page_6)
         self.scrollArea_3.setStyleSheet("QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}\n"
-                                        "/*设置垂直滚动条基本样式*/\n"
-                                        "QScrollBar:vertical\n"
-                                        "{\n"
-                                        "    width:8px;\n"
-                                        "    background:rgba(0,0,0,0%);\n"
-                                        "    margin:0px,0px,0px,0px;\n"
-                                        "    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
-                                        "    padding-bottom:9px;\n"
-                                        "}\n"
-                                        "QScrollBar::handle:vertical\n"
-                                        "{\n"
-                                        "    width:8px;\n"
-                                        "    background: rgb(214, 214, 214);\n"
-                                        "    border-radius:3px;   /*滚动条两端变成椭圆*/\n"
-                                        "    min-height:;\n"
-                                        "}\n"
-                                        "QScrollBar::handle:vertical:hover\n"
-                                        "{\n"
-                                        "    width:8px;\n"
-                                        "    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
-                                        "    border-radius:4px;\n"
-                                        "    min-height:;\n"
-                                        "}\n"
-                                        "QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
-                                        "{\n"
-                                        "    height:9px;width:8px;\n"
-                                        "    border-image:url(:/img/picture/caret-down_1.png);\n"
-                                        "    subcontrol-position:bottom;\n"
-                                        "}\n"
-                                        "QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
-                                        "{\n"
-                                        "    height:9px;width:8px;\n"
-                                        "    border-image:url(:/img/picture/caret-up_1.png);\n"
-                                        "    subcontrol-position:top;\n"
-                                        "}\n"
-                                        "QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
-                                        "{\n"
-                                        "    height:9px;width:8px;\n"
-                                        "    border-image:url(:/img/picture/caret-down.png);\n"
-                                        "    subcontrol-position:bottom;\n"
-                                        "}\n"
-                                        "QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
-                                        "{\n"
-                                        "    height:9px;width:8px;\n"
-                                        "    border-image:url(:/img/picture/caret-up.png);\n"
-                                        "    subcontrol-position:top;\n"
-                                        "}\n"
-                                        "QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-                                        "{\n"
-                                        "    background: rgba(235, 235, 235,150);\n"
-                                        "    border-radius:4px;\n"
-                                        "}\n"
-                                        "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
-                                        "{\n"
-                                        "    background: rgba(235, 235, 235,150);\n"
-                                        "    border-radius:4px;\n"
-                                        "}")
+"/*设置垂直滚动条基本样式*/\n"
+"QScrollBar:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgba(0,0,0,0%);\n"
+"    margin:0px,0px,0px,0px;\n"
+"    padding-top:9px;   /*留出9px给上面和下面的箭头*/\n"
+"    padding-bottom:9px;\n"
+"}\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"    width:8px;\n"
+"    background: rgb(214, 214, 214);\n"
+"    border-radius:3px;   /*滚动条两端变成椭圆*/\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::handle:vertical:hover\n"
+"{\n"
+"    width:8px;\n"
+"    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/\n"
+"    border-radius:4px;\n"
+"    min-height:;\n"
+"}\n"
+"QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down_1.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical   /*设置上箭头*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up_1.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-down.png);\n"
+"    subcontrol-position:bottom;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/\n"
+"{\n"
+"    height:9px;width:8px;\n"
+"    border-image:url(:/img/picture/caret-up.png);\n"
+"    subcontrol-position:top;\n"
+"}\n"
+"QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background: rgba(235, 235, 235,150);\n"
+"    border-radius:4px;\n"
+"}\n"
+"QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/\n"
+"{\n"
+"    background: rgba(235, 235, 235,150);\n"
+"    border-radius:4px;\n"
+"}")
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollArea_3.setObjectName("scrollArea_3")
         self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
@@ -2602,7 +2660,7 @@ class Ui_MOS(object):
         self.gridLayout_43.setObjectName("gridLayout_43")
         self.widget_13 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
         self.widget_13.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
-                                     "QLabel{border-style:none;}")
+"QLabel{border-style:none;}")
         self.widget_13.setObjectName("widget_13")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.widget_13)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -2611,15 +2669,13 @@ class Ui_MOS(object):
         self.label.setObjectName("label")
         self.verticalLayout_3.addWidget(self.label)
         self.widget_11 = QtWidgets.QWidget(self.widget_13)
-        self.widget_11.setStyleSheet(
-            "QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}")
+        self.widget_11.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}")
         self.widget_11.setObjectName("widget_11")
         self.gridLayout_12 = QtWidgets.QGridLayout(self.widget_11)
         self.gridLayout_12.setHorizontalSpacing(7)
         self.gridLayout_12.setObjectName("gridLayout_12")
-        spacerItem33 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_12.addItem(spacerItem33, 1, 2, 1, 1)
+        spacerItem38 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_12.addItem(spacerItem38, 1, 2, 1, 1)
         self.label_16 = QtWidgets.QLabel(self.widget_11)
         self.label_16.setStyleSheet("font-size: 13px;")
         self.label_16.setObjectName("label_16")
@@ -2633,11 +2689,10 @@ class Ui_MOS(object):
         self.gridLayout_12.addWidget(self.pushButton, 1, 0, 1, 1)
         self.verticalLayout_3.addWidget(self.widget_11)
         self.widget_12 = QtWidgets.QWidget(self.widget_13)
-        self.widget_12.setStyleSheet(
-            "QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
-            "#pushButton_3{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-            "#pushButton_3::hover{background-color: rgb(255, 255, 255);}\n"
-            "#pushButton_3::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_12.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_3{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_3::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_3::pressed{background-color: rgba(0, 150, 255, 51);}")
         self.widget_12.setObjectName("widget_12")
         self.gridLayout_17 = QtWidgets.QGridLayout(self.widget_12)
         self.gridLayout_17.setHorizontalSpacing(7)
@@ -2646,9 +2701,8 @@ class Ui_MOS(object):
         self.label_18.setStyleSheet("font-size: 13px;")
         self.label_18.setObjectName("label_18")
         self.gridLayout_17.addWidget(self.label_18, 0, 1, 1, 1)
-        spacerItem34 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_17.addItem(spacerItem34, 0, 2, 1, 1)
+        spacerItem39 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_17.addItem(spacerItem39, 0, 2, 1, 1)
         self.pushButton_4 = QtWidgets.QPushButton(self.widget_12)
         self.pushButton_4.setStyleSheet("border-style:none;")
         self.pushButton_4.setText("")
@@ -2664,19 +2718,17 @@ class Ui_MOS(object):
         self.gridLayout_17.addWidget(self.pushButton_3, 0, 3, 1, 1)
         self.verticalLayout_3.addWidget(self.widget_12)
         self.widget_14 = QtWidgets.QWidget(self.widget_13)
-        self.widget_14.setStyleSheet(
-            "QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
-            "#pushButton_10{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-            "#pushButton_10::hover{background-color: rgb(255, 255, 255);}\n"
-            "#pushButton_10::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_14.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_10{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_10::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_10::pressed{background-color: rgba(0, 150, 255, 51);}")
         self.widget_14.setObjectName("widget_14")
         self.gridLayout_18 = QtWidgets.QGridLayout(self.widget_14)
         self.gridLayout_18.setHorizontalSpacing(2)
         self.gridLayout_18.setVerticalSpacing(6)
         self.gridLayout_18.setObjectName("gridLayout_18")
-        spacerItem35 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_18.addItem(spacerItem35, 0, 3, 1, 1)
+        spacerItem40 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_18.addItem(spacerItem40, 0, 3, 1, 1)
         self.label_25 = QtWidgets.QLabel(self.widget_14)
         self.label_25.setText("")
         self.label_25.setObjectName("label_25")
@@ -2685,8 +2737,7 @@ class Ui_MOS(object):
         self.pushButton_9.setStyleSheet("border-style:none;")
         self.pushButton_9.setText("")
         icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_heimnad_png), QtGui.QIcon.Mode.Normal,
-                         QtGui.QIcon.State.Off)
+        icon19.addPixmap(QtGui.QPixmap(MOS_catalogue_picture_heimnad_png), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_9.setIcon(icon19)
         self.pushButton_9.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_9.setObjectName("pushButton_9")
@@ -2703,7 +2754,7 @@ class Ui_MOS(object):
         self.gridLayout_43.addWidget(self.widget_13, 0, 0, 1, 1)
         self.widget_19 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
         self.widget_19.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
-                                     "QLabel{border-style:none;}")
+"QLabel{border-style:none;}")
         self.widget_19.setObjectName("widget_19")
         self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.widget_19)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
@@ -2712,14 +2763,13 @@ class Ui_MOS(object):
         self.label_30.setObjectName("label_30")
         self.verticalLayout_8.addWidget(self.label_30)
         self.widget_23 = QtWidgets.QWidget(self.widget_19)
-        self.widget_23.setStyleSheet(
-            "QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
-            "#pushButton_27{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-            "#pushButton_27::hover{background-color: rgb(255, 255, 255);}\n"
-            "#pushButton_27::pressed{background-color: rgba(0, 150, 255, 51);}\n"
-            "#pushButton_29{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-            "#pushButton_29::hover{background-color: rgb(255, 255, 255);}\n"
-            "#pushButton_29::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_23.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_27{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_27::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_27::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_29{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_29::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_29::pressed{background-color: rgba(0, 150, 255, 51);}")
         self.widget_23.setObjectName("widget_23")
         self.gridLayout_19 = QtWidgets.QGridLayout(self.widget_23)
         self.gridLayout_19.setHorizontalSpacing(7)
@@ -2734,14 +2784,13 @@ class Ui_MOS(object):
         self.label_31.setStyleSheet("font-size: 13px;")
         self.label_31.setObjectName("label_31")
         self.gridLayout_19.addWidget(self.label_31, 1, 0, 1, 1)
-        spacerItem36 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_19.addItem(spacerItem36, 1, 1, 1, 1)
+        spacerItem41 = QtWidgets.QSpacerItem(34, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_19.addItem(spacerItem41, 1, 1, 1, 1)
         self.verticalLayout_8.addWidget(self.widget_23)
         self.gridLayout_43.addWidget(self.widget_19, 2, 0, 1, 1)
         self.widget_10 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
         self.widget_10.setStyleSheet("QWidget{border-radius:15px;border:2px solid rgba(0, 150, 255, 230);}\n"
-                                     "QLabel{border-style:none;}")
+"QLabel{border-style:none;}")
         self.widget_10.setObjectName("widget_10")
         self.gridLayout_46 = QtWidgets.QGridLayout(self.widget_10)
         self.gridLayout_46.setObjectName("gridLayout_46")
@@ -2750,14 +2799,13 @@ class Ui_MOS(object):
         self.label_32.setObjectName("label_32")
         self.gridLayout_46.addWidget(self.label_32, 0, 0, 1, 1)
         self.widget_24 = QtWidgets.QWidget(self.widget_10)
-        self.widget_24.setStyleSheet(
-            "QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
-            "#pushButton_28{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-            "#pushButton_28::hover{background-color: rgb(255, 255, 255);}\n"
-            "#pushButton_28::pressed{background-color: rgba(0, 150, 255, 51);}\n"
-            "#pushButton_30{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-            "#pushButton_30::hover{background-color: rgb(255, 255, 255);}\n"
-            "#pushButton_30::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_24.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_28{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_28::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_28::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_30{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_30::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_30::pressed{background-color: rgba(0, 150, 255, 51);}")
         self.widget_24.setObjectName("widget_24")
         self.gridLayout_44 = QtWidgets.QGridLayout(self.widget_24)
         self.gridLayout_44.setHorizontalSpacing(7)
@@ -2782,29 +2830,26 @@ class Ui_MOS(object):
         self.pushButton_28.setSizePolicy(sizePolicy)
         self.pushButton_28.setObjectName("pushButton_28")
         self.gridLayout_44.addWidget(self.pushButton_28, 2, 2, 1, 1)
-        spacerItem37 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_44.addItem(spacerItem37, 2, 1, 1, 1)
+        spacerItem42 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_44.addItem(spacerItem42, 2, 1, 1, 1)
         self.gridLayout_46.addWidget(self.widget_24, 1, 0, 1, 1)
         self.widget_25 = QtWidgets.QWidget(self.widget_10)
-        self.widget_25.setStyleSheet(
-            "QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
-            "#pushButton_25{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-            "#pushButton_25::hover{background-color: rgb(255, 255, 255);}\n"
-            "#pushButton_25::pressed{background-color: rgba(0, 150, 255, 51);}\n"
-            "#pushButton_31{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-            "#pushButton_31::hover{background-color: rgb(255, 255, 255);}\n"
-            "#pushButton_31::pressed{background-color: rgba(0, 150, 255, 51);}\n"
-            "#pushButton_32{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
-            "#pushButton_32::hover{background-color: rgb(255, 255, 255);}\n"
-            "#pushButton_32::pressed{background-color: rgba(0, 150, 255, 51);}")
+        self.widget_25.setStyleSheet("QWidget{border-style:none;background-color: rgb(235, 235, 235);border-radius:15px;}\n"
+"#pushButton_25{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_25::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_25::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_31{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_31::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_31::pressed{background-color: rgba(0, 150, 255, 51);}\n"
+"#pushButton_32{width:120px;height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(0, 150, 255);}\n"
+"#pushButton_32::hover{background-color: rgb(255, 255, 255);}\n"
+"#pushButton_32::pressed{background-color: rgba(0, 150, 255, 51);}")
         self.widget_25.setObjectName("widget_25")
         self.gridLayout_45 = QtWidgets.QGridLayout(self.widget_25)
         self.gridLayout_45.setHorizontalSpacing(7)
         self.gridLayout_45.setObjectName("gridLayout_45")
-        spacerItem38 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Policy.Ignored,
-                                             QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_45.addItem(spacerItem38, 0, 1, 5, 1)
+        spacerItem43 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Policy.Ignored, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_45.addItem(spacerItem43, 0, 1, 5, 1)
         self.label_34 = QtWidgets.QLabel(self.widget_25)
         self.label_34.setStyleSheet("font-size: 13px;")
         self.label_34.setScaledContents(False)
@@ -2860,8 +2905,6 @@ class Ui_MOS(object):
         self.stackedWidget.setCurrentIndex(0)
         self.fontComboBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MOS)
-        self.listWidget_4.setIconSize(QtCore.QSize(45, 45))
-        self.listWidget_8.setIconSize(QtCore.QSize(45, 45))
 
     def retranslateUi(self, MOS):
         _translate = QtCore.QCoreApplication.translate
@@ -2876,18 +2919,16 @@ class Ui_MOS(object):
         self.pushButton_shezhi.setText(_translate("MOS", "设置"))
         self.pushButton_about.setText(_translate("MOS", "关于"))
         self.label_mosll.setText(_translate("MOS", "MOS II"))
-        self.label__gonggao_right_txt.setText(_translate("MOS",
-                                                         "<html><head/><body><p>启动游戏 <span style=\" color:#0096ff;\">•等待启动</span></p></body></html>"))
+        self.label__gonggao_right_txt.setText(_translate("MOS", "<html><head/><body><p>启动游戏 <span style=\" color:#0096ff;\">•等待启动</span></p></body></html>"))
         self.label_7.setText(_translate("MOS", "启动君：待命中……"))
         self.pushButton_16.setText(_translate("MOS", "版本列表"))
         self.pushButton_17.setText(_translate("MOS", "版本设置"))
         self.pushButton__gonggao_start.setText(_translate("MOS", "启动游戏"))
-        self.label_gonggao_left_txt.setText(_translate("MOS",
-                                                       "<html><head/><body><p>官方公告 <span style=\" color:#55f976;\">•正在加载中</span></p></body></html>"))
+        self.label_gonggao_left_txt.setText(_translate("MOS", "<html><head/><body><p>官方公告 <span style=\" color:#55f976;\">•正在加载中</span></p></body></html>"))
         self.label_2.setText(_translate("MOS", "正在加载\n"
-                                               "\n"
-                                               "当前步骤：下载公告……请稍后\n"
-                                               ""))
+"\n"
+"当前步骤：下载公告……请稍后\n"
+""))
         self.label_24.setText(_translate("MOS", "版本列表"))
         __sortingEnabled = self.listWidget.isSortingEnabled()
         self.listWidget.setSortingEnabled(False)
@@ -2910,25 +2951,61 @@ class Ui_MOS(object):
         self.pushButton_39.setText(_translate("MOS", "重命名版本文件夹"))
         self.label_9.setText(_translate("MOS", "联机模块"))
         self.label_8.setText(_translate("MOS", "联机模块正在开发中……\n"
-                                               "不要着急啦 你的赞助就是我更新的动力！嘻嘻～"))
+"不要着急啦 你的赞助就是我更新的动力！嘻嘻～"))
         self.label_10.setText(_translate("MOS", "下载"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_20), _translate("MOS", "原版"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_24), _translate("MOS", "快照版"))
         self.label_21.setText(_translate("MOS", "Quilt\n"
-                                                "模组加载器"))
+"模组加载器"))
         self.label_20.setText(_translate("MOS", "Optifine\n"
-                                                "高清修复"))
+"高清修复"))
         self.label_11.setText(_translate("MOS", "Forge\n"
-                                                "模组加载器"))
+"模组加载器"))
         self.label_19.setText(_translate("MOS", "Fabric\n"
-                                                "模组加载器"))
+"模组加载器"))
         self.lineEdit.setPlaceholderText(_translate("MOS", "版本名"))
         self.pushButton_2.setText(_translate("MOS", "安装"))
+        self.groupBox.setTitle(_translate("MOS", "搜索MOD"))
+        self.lineEdit_5.setPlaceholderText(_translate("MOS", "支持中英文"))
+        self.label_39.setText(_translate("MOS", "下载源"))
+        self.pushButton_45.setText(_translate("MOS", "搜索"))
+        self.label_38.setText(_translate("MOS", "安装在……"))
+        self.label_41.setText(_translate("MOS", "游戏版本"))
+        self.comboBox_13.setItemText(0, _translate("MOS", "全部"))
+        self.comboBox_13.setItemText(1, _translate("MOS", "冒险"))
+        self.comboBox_13.setItemText(2, _translate("MOS", "诅咒"))
+        self.comboBox_13.setItemText(3, _translate("MOS", "装饰"))
+        self.comboBox_13.setItemText(4, _translate("MOS", "经济"))
+        self.comboBox_13.setItemText(5, _translate("MOS", "设备"))
+        self.comboBox_13.setItemText(6, _translate("MOS", "食物"))
+        self.comboBox_13.setItemText(7, _translate("MOS", "游戏机制"))
+        self.comboBox_13.setItemText(8, _translate("MOS", "图书馆"))
+        self.comboBox_13.setItemText(9, _translate("MOS", "魔法"))
+        self.comboBox_13.setItemText(10, _translate("MOS", "管理"))
+        self.comboBox_13.setItemText(11, _translate("MOS", "迷你游戏"))
+        self.comboBox_13.setItemText(12, _translate("MOS", "暴徒"))
+        self.comboBox_13.setItemText(13, _translate("MOS", "优化"))
+        self.comboBox_13.setItemText(14, _translate("MOS", "社会的"))
+        self.comboBox_13.setItemText(15, _translate("MOS", "贮存"))
+        self.comboBox_13.setItemText(16, _translate("MOS", "技术"))
+        self.comboBox_13.setItemText(17, _translate("MOS", "运输"))
+        self.comboBox_13.setItemText(18, _translate("MOS", "效用"))
+        self.comboBox_13.setItemText(19, _translate("MOS", "世界生成"))
+        self.label_40.setText(_translate("MOS", "名称"))
+        self.label_49.setText(_translate("MOS", "排序方法"))
+        self.label_42.setText(_translate("MOS", "类型"))
+        self.comboBox_12.setItemText(0, _translate("MOS", "创建日期"))
+        self.comboBox_12.setItemText(1, _translate("MOS", "热度"))
+        self.comboBox_12.setItemText(2, _translate("MOS", "最近更新时间"))
+        self.comboBox_12.setItemText(3, _translate("MOS", "名称"))
+        self.comboBox_12.setItemText(4, _translate("MOS", "作者(名称)"))
+        self.comboBox_12.setItemText(5, _translate("MOS", "下载量"))
+        self.comboBox_10.setItemText(0, _translate("MOS", "CurseForge"))
+        self.comboBox_10.setItemText(1, _translate("MOS", "Mcdrinth"))
         self.label_23.setText(_translate("MOS", "Mod下载详情页"))
         self.label_27.setText(_translate("MOS", "整合包下载详情页"))
         self.label_28.setText(_translate("MOS", "世界下载详情页"))
-        self.label_29.setText(_translate("MOS",
-                                         "<html><head/><body><p><span style=\" font-size:18pt;\">说明：</span></p><p><span style=\" font-size:14pt;\">在这里，你可以下载Java。本页面提供的Java分为两种：原版Java和免安装Java</span></p><p><span style=\" font-size:14pt;\">原版Java：这类Java需要您自己在弹出的网页中下载、安装</span></p><p><span style=\" font-size:14pt;\">免安装Java：这类Java不需要进行安装，MOS会自动进行下载 这类Java来自于官网所提供给开发人员使用的</span><span style=\" font-family:\'OracleSansVF\',\'OracleSansVFCyGr\',\'-apple-system\',\'system-ui\',\'Segoe UI\',\'Helvetica Neue\',\'sans-serif\'; color:#161513; background-color:#ffffff;\">压缩存档</span></p><p><span style=\" font-family:\'OracleSansVF\',\'OracleSansVFCyGr\',\'-apple-system\',\'system-ui\',\'Segoe UI\',\'Helvetica Neue\',\'sans-serif\'; color:#161513; background-color:#ffffff;\">请放心，这里的Java都为 </span><a href=\"https://www.oracle.com/java/technologies/downloads/\"><span style=\" text-decoration: underline; color:#0068da;\">官网 </span></a><span style=\" font-family:\'OracleSansVF\',\'OracleSansVFCyGr\',\'-apple-system\',\'system-ui\',\'Segoe UI\',\'Helvetica Neue\',\'sans-serif\'; color:#161513; background-color:#ffffff;\">所提供。大家放心下载～</span></p></body></html>"))
+        self.label_29.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">说明：</span></p><p><span style=\" font-size:14pt;\">在这里，你可以下载Java。本页面提供的Java分为两种：原版Java和免安装Java</span></p><p><span style=\" font-size:14pt;\">原版Java：这类Java需要您自己在弹出的网页中下载、安装</span></p><p><span style=\" font-size:14pt;\">免安装Java：这类Java不需要进行安装，MOS会自动进行下载 这类Java来自于官网所提供给开发人员使用的</span><span style=\" font-family:\'OracleSansVF\',\'OracleSansVFCyGr\',\'-apple-system\',\'system-ui\',\'Segoe UI\',\'Helvetica Neue\',\'sans-serif\'; color:#161513; background-color:#ffffff;\">压缩存档</span></p><p><span style=\" font-family:\'OracleSansVF\',\'OracleSansVFCyGr\',\'-apple-system\',\'system-ui\',\'Segoe UI\',\'Helvetica Neue\',\'sans-serif\'; color:#161513; background-color:#ffffff;\">请放心，这里的Java都为 </span><a href=\"https://www.oracle.com/java/technologies/downloads/\"><span style=\" text-decoration: underline; color:#0068da;\">官网 </span></a><span style=\" font-family:\'OracleSansVF\',\'OracleSansVFCyGr\',\'-apple-system\',\'system-ui\',\'Segoe UI\',\'Helvetica Neue\',\'sans-serif\'; color:#161513; background-color:#ffffff;\">所提供。大家放心下载～</span></p></body></html>"))
         __sortingEnabled = self.listWidget_3.isSortingEnabled()
         self.listWidget_3.setSortingEnabled(False)
         item = self.listWidget_3.item(0)
@@ -2985,31 +3062,26 @@ class Ui_MOS(object):
         self.comboBox_2.setItemText(5, _translate("MOS", "下载/安装/已完成"))
         self.label_12.setText(_translate("MOS", "音乐"))
         self.label_13.setText(_translate("MOS", "音乐 正在开发中……\n"
-                                                "不要着急啦 你的赞助就是我更新的动力！嘻嘻～"))
-        self.label_35.setText(_translate("MOS",
-                                         "<html><head/><body><p><span style=\" font-size:18pt;\">下载源设置</span></p><p>在这里 你可以选择下载源</p></body></html>"))
+"不要着急啦 你的赞助就是我更新的动力！嘻嘻～"))
+        self.label_35.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">下载源设置</span></p><p>在这里 你可以选择下载源</p></body></html>"))
         self.comboBox_8.setItemText(0, _translate("MOS", "官方源 (速度可能慢 但是最新的)"))
         self.comboBox_8.setItemText(1, _translate("MOS", "镜像源 - BMCLAPI (速度快 但可能不是最新的)"))
         self.comboBox_8.setItemText(2, _translate("MOS", "镜像源 - MCBBS (速度快 但可能不是最新的)"))
         self.pushButton_43.setText(_translate("MOS", "恢复默认"))
         self.pushButton_11.setText(_translate("MOS", "恢复默认"))
-        self.label_4.setText(_translate("MOS",
-                                        "<html><head/><body style=\"line-height:1px;\"><p style=\"line-height:1px;\"><span style=\" font-size:20pt;\">启动器字体</span></p><p  style=\"line-height:1px;\">在这里 你可以自定义启动器字体 有的字体相差很小，导致有人可能认为<span style=\" font-style:italic;line-height:1px;\">字体没有更改</span>，其实不是的</p></body></html>"))
+        self.label_4.setText(_translate("MOS", "<html><head/><body style=\"line-height:1px;\"><p style=\"line-height:1px;\"><span style=\" font-size:20pt;\">启动器字体</span></p><p  style=\"line-height:1px;\">在这里 你可以自定义启动器字体 有的字体相差很小，导致有人可能认为<span style=\" font-style:italic;line-height:1px;\">字体没有更改</span>，其实不是的</p></body></html>"))
         self.label_6.setText(_translate("MOS", "Hello Minecraft Optimal Starter 2 !"))
-        self.label_36.setText(_translate("MOS",
-                                         "<html><head/><body><p><span style=\" font-size:18pt;\">左下角文字设置</span></p><p>在这里 你可以自定义左下角显示的文字以及字体、字号</p><p><br/></p></body></html>"))
+        self.label_36.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">左下角文字设置</span></p><p>在这里 你可以自定义左下角显示的文字以及字体、字号</p><p><br/></p></body></html>"))
         self.pushButton_44.setText(_translate("MOS", "恢复默认"))
         self.pushButton_26.setText(_translate("MOS", "选择字体&字体大小"))
         self.pushButton_33.setText(_translate("MOS", "确认"))
         self.lineEdit_2.setPlaceholderText(_translate("MOS", "请输入您要自定义的文字"))
         self.pushButton_19.setText(_translate("MOS", "检查更新"))
-        self.label_5.setText(_translate("MOS",
-                                        "<html><head/><body><p><span style=\" font-size:20pt;\">启动器更新</span></p><p>在这里 你可以更新启动器</p><p>你可以在“关于”中查看当前版本</p></body></html>"))
+        self.label_5.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:20pt;\">启动器更新</span></p><p>在这里 你可以更新启动器</p><p>你可以在“关于”中查看当前版本</p></body></html>"))
         self.radioButton.setText(_translate("MOS", "自动为您检查更新"))
         self.pushButton_20.setText(_translate("MOS", "开始更新"))
         self.pushButton_21.setText(_translate("MOS", "恢复默认"))
-        self.label_14.setText(_translate("MOS",
-                                         "<html><head/><body><p><span style=\" font-size:20pt;\">Java设置</span></p><p>在这里 你可以设置启动游戏时使用的Java 建议选择 <span style=\" font-style:italic;\">让MOS为您自动选择</span></p><p>注意：<span style=\" font-weight:600;\">不要使用</span><span style=\" font-weight:600; font-style:italic;\">网易启动器</span><span style=\" font-weight:600;\">的Java 、</span><span style=\" font-weight:600; font-style:italic;\">1.17</span><span style=\" font-weight:600;\">及以上版本需用</span><span style=\" font-weight:600; font-style:italic;\">Java16</span><span style=\" font-weight:600;\">及以上版本 1.17一下需用Java8、您也可以在“下载”页面下载Java</span></p></body></html>"))
+        self.label_14.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:20pt;\">Java设置</span></p><p>在这里 你可以设置启动游戏时使用的Java 建议选择 <span style=\" font-style:italic;\">让MOS为您自动选择</span></p><p>注意：<span style=\" font-weight:600;\">不要使用</span><span style=\" font-weight:600; font-style:italic;\">网易启动器</span><span style=\" font-weight:600;\">的Java 、</span><span style=\" font-weight:600; font-style:italic;\">1.17</span><span style=\" font-weight:600;\">及以上版本需用</span><span style=\" font-weight:600; font-style:italic;\">Java16</span><span style=\" font-weight:600;\">及以上版本 1.17一下需用Java8、您也可以在“下载”页面下载Java</span></p></body></html>"))
         self.pushButton_23.setText(_translate("MOS", "下载Java"))
         self.pushButton_22.setText(_translate("MOS", "刷新"))
         self.pushButton_34.setText(_translate("MOS", "手动添加"))
@@ -3019,7 +3091,7 @@ class Ui_MOS(object):
         self.comboBox.setItemText(1, _translate("MOS", "全局游戏设置"))
         self.label.setText(_translate("MOS", "关于"))
         self.label_16.setText(_translate("MOS", "MOS启动器\n"
-                                                "版本V2.0.6-alpha"))
+"版本V2.0.6-alpha"))
         self.label_18.setText(_translate("MOS", "MOS唯一开发者 David"))
         self.pushButton_3.setText(_translate("MOS", "赞助作者"))
         self.label_22.setText(_translate("MOS", "MOS网站支持、测试小组负责人 HeimNad"))
@@ -3027,15 +3099,12 @@ class Ui_MOS(object):
         self.label_30.setText(_translate("MOS", "法律声明"))
         self.pushButton_27.setText(_translate("MOS", "项目地址(Gitee)"))
         self.pushButton_29.setText(_translate("MOS", "项目地址(GitHub)"))
-        self.label_31.setText(_translate("MOS",
-                                         "<html><head/><body><p><span style=\" font-size:18pt;\">开源 </span></p><p><span style=\" color:#212121;\">开源协议：GPL-3.0</span></p></body></html>"))
+        self.label_31.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">开源 </span></p><p><span style=\" color:#212121;\">开源协议：GPL-3.0</span></p></body></html>"))
         self.label_32.setText(_translate("MOS", "建议Bug反馈"))
-        self.label_33.setText(_translate("MOS",
-                                         "<html><head/><body><p><span style=\" font-size:18pt;\">提出建议</span></p><p>仓库Issue反馈</p></body></html>"))
+        self.label_33.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">提出建议</span></p><p>仓库Issue反馈</p></body></html>"))
         self.pushButton_30.setText(_translate("MOS", "项目地址(GitHub 推荐)"))
         self.pushButton_28.setText(_translate("MOS", "项目地址(Gitee 不推荐)"))
-        self.label_34.setText(_translate("MOS",
-                                         "<html><head/><body><p><span style=\" font-size:18pt;\">反馈Bug/沸腾</span></p><p>• 仓库Issue反馈 • 问卷星反馈</p><p>注：这两种反馈方式有区别 </p><p>第一种是在您知道Bug/沸腾出现的具体原因(如：快速点击某按钮) </p><p>第二种是您不知道Bug/沸腾的原因</p><p>第一种处理较快</p><p>第二种处理较慢(开发者需要进行分析，分析后会在GitHub发起Issue)</p><p>不管哪种方式 都请您认真填写 感谢配合</p></body></html>"))
+        self.label_34.setText(_translate("MOS", "<html><head/><body><p><span style=\" font-size:18pt;\">反馈Bug/沸腾</span></p><p>• 仓库Issue反馈 • 问卷星反馈</p><p>注：这两种反馈方式有区别 </p><p>第一种是在您知道Bug/沸腾出现的具体原因(如：快速点击某按钮) </p><p>第二种是您不知道Bug/沸腾的原因</p><p>第一种处理较快</p><p>第二种处理较慢(开发者需要进行分析，分析后会在GitHub发起Issue)</p><p>不管哪种方式 都请您认真填写 感谢配合</p></body></html>"))
         self.pushButton_25.setText(_translate("MOS", "问卷星"))
         self.pushButton_31.setText(_translate("MOS", "项目地址(GitHub 推荐)"))
         self.pushButton_32.setText(_translate("MOS", "项目地址(Gitee 不推荐)"))
