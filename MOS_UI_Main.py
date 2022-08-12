@@ -1,10 +1,10 @@
 import json
-from math import dist
 import os
 import sys
+import threading
 import traceback
 import webbrowser
-import threading
+
 import requests
 
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
@@ -12,7 +12,7 @@ os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtGui import QIcon, QMouseEvent, QCursor
+from PyQt6.QtGui import QIcon
 from Java_Downloader_ import Java_Downloader__
 from Java_Downloader_OK import Java_OK_UI
 from MOS_print_ import MOS_print, q_h
@@ -73,7 +73,8 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.pushButton_21.clicked.connect(self.click_pushButton_java_moren)
         self.comboBox_7.currentIndexChanged.connect(self.click_comboBox_java)
         self.pushButton_34.clicked.connect(self.click_pushButton_java_add)
-
+        self.comboBox_8.currentIndexChanged.connect(self.click_comboBox_m_d_y)
+        self.pushButton_43.clicked.connect(self.click_pushButton_m_d_y_b)
 
         self.comboBox_gonggao_right.clear()
         self.listWidget.clear()
@@ -749,7 +750,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         """获取版本列表并分类&显示"""
         self.stackedWidget_2.setCurrentIndex(10)
         # 动图
-        gif_file = os.path.join('picture','loading_2.gif')
+        gif_file = os.path.join('picture', 'loading_2.gif')
         self.gif = QtGui.QMovie(gif_file)
         self.label_37.setMovie(self.gif)
         self.gif.start()
@@ -759,8 +760,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.m_d_t.sinOut.connect(self.m_d_sinOut)
         self.m_d_t.start()
 
-
-    def m_d_sinOut(self,a,b):
+    def m_d_sinOut(self, a, b):
         """在获取版本列表线程启动后 获取之后传数据 原版,快照版"""
         icon1 = os.path.join("picture", "grass.png")
         icon2 = os.path.join("picture", "grass.png")
@@ -773,7 +773,6 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.stackedWidget_2.setCurrentIndex(0)
         self.comboBox_2.setEnabled(True)
 
-
     def click_comboBox_shezhi(self):
         """设置页"""
         a = self.comboBox.currentText()
@@ -781,6 +780,38 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
             self.stackedWidget.setCurrentIndex(0)
         elif a == "全局游戏设置":
             self.stackedWidget.setCurrentIndex(1)
+
+    def click_comboBox_m_d_y(self):
+        """当下载源更改时"""
+        if self.comboBox_8.currentText() == '官方源 (速度可能慢 但是最新的)':
+            MOS_print('info', '选择下载源：官方源')
+            b = 'MC'
+            self.pushButton_43.setEnabled(False)
+        elif self.comboBox_8.currentText() == '镜像源 - BMCLAPI (速度快 但可能不是最新的)':
+            MOS_print('info', '选择下载源：镜像源 - BMCLAPI')
+            b = 'BMCLAPI'
+        elif self.comboBox_8.currentText() == '镜像源 - MCBBS (速度快 但可能不是最新的)':
+            MOS_print('info', '选择下载源：镜像源 - MCBBS')
+            b = 'MCBBS'
+        self.pushButton_43.setEnabled(False)
+        self.pushButton_43.setText('正在设置 请稍后……')
+        a = MOS_json_read(All='Yes')
+        a['MC_Download'] = b
+        MOS_json_write(a)
+        MOS_print('info','Json(下载源)修改成功')
+        self.pushButton_43.setText('恢复默认')
+        if self.comboBox_8.currentText() == '官方源 (速度可能慢 但是最新的)':
+            self.pushButton_43.setEnabled(False)
+        else:
+            self.pushButton_43.setEnabled(True)
+
+    def click_pushButton_m_d_y_b(self):
+        """点击 选择下载源的恢复默认按钮后"""
+        self.pushButton_43.setEnabled(False)
+        a = MOS_json_read(All='Yes')
+        a['MC_Download'] = 'MC'
+        MOS_json_write(a)
+        self.comboBox_8.setCurrentIndex(0)
 
     def click_pushButton_jianchagengxin(self):
         self.pushButton_19.setEnabled(False)
@@ -1547,16 +1578,18 @@ class gonggao(QThread):
 
 
 class m_d_(QThread):
-    sinOut = pyqtSignal(list,list)
+    sinOut = pyqtSignal(list, list)
+
     def __init__(self):
         super(m_d_, self).__init__()
+
     def run(self):
 
         url = 'https://bmclapi2.bangbang93.com/mc/game/version_manifest_v2.json'
-        headers = {'User-Agent':'MOS/PyQt6'}
-        r = requests.get(url,headers=headers)
-        r_1 = r.json()['latest']['release'] #发行版
-        r_2 = r.json()['latest']['snapshot'] #快照版
+        headers = {'User-Agent': 'MOS/PyQt6'}
+        r = requests.get(url, headers=headers)
+        r_1 = r.json()['latest']['release']  # 发行版
+        r_2 = r.json()['latest']['snapshot']  # 快照版
         r_3 = r.json()['versions']
         ids_1 = []
         ids_2 = []
@@ -1565,7 +1598,8 @@ class m_d_(QThread):
                 ids_1.append(r_3_1['id'])
             else:
                 ids_2.append(r_3_1['id'])
-        self.sinOut.emit(ids_1,ids_2)
+        self.sinOut.emit(ids_1, ids_2)
+
 
 class MOS_versions(QThread):
     """获取更新"""
@@ -1719,7 +1753,9 @@ class MOS_file(QThread):
                             'game_file_name': ['默认目录'],
                             '默认目录': MOS_file_1,
                             'Java_c': 'None',
-                            'Java_add': []
+                            'Java_add': [],
+                            'MC_Download': 'MC'
+
                         }
                     elif system_h() == 'darwin':
                         a = {
@@ -1729,7 +1765,8 @@ class MOS_file(QThread):
                             'game_file_name': ['默认目录'],
                             '默认目录': MOS_file_1,
                             'Java_c': 'None',
-                            'Java_add': []
+                            'Java_add': [],
+                            'MC_Download':'MC'
                         }
                     else:
                         a = {
@@ -1739,7 +1776,8 @@ class MOS_file(QThread):
                             'game_file_name': ['默认目录'],
                             '默认目录': MOS_file_1,
                             'Java_c': 'None',
-                            'Java_add': []
+                            'Java_add': [],
+                            'MC_Download': 'MC'
                         }
                     json.dump(a, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
                 with open(MOS_file_json, 'r', encoding='utf-8') as f:

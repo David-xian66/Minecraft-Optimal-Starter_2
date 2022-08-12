@@ -3904,6 +3904,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                  <widget class="QWidget" name="widget_28" native="true">
                   <property name="styleSheet">
                    <string notr="true">QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}
+/*禁用*/
+QPushButton:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);}
 QLabel{border-style:none;}
 QComboBox {
 	border: 2px solid rgb(192, 192, 192); /* border: 宽度 线类型 颜色 */
@@ -4007,6 +4009,9 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                    </item>
                    <item row="1" column="1">
                     <widget class="QPushButton" name="pushButton_43">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                        <horstretch>0</horstretch>
@@ -4221,6 +4226,8 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                  <widget class="QWidget" name="widget_29" native="true">
                   <property name="styleSheet">
                    <string notr="true">QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}
+/*禁用*/
+QPushButton:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);}
 QLabel{border-style:none;}
 
 QPushButton{height:30px;background-color: rgba(255, 255, 255,0);border-radius:7px;border:2px solid rgb(255, 59, 0);}
@@ -4263,7 +4270,7 @@ QLineEdit{height:34px;border-radius:8px;border:2px solid rgb(192, 192, 192);}</s
                    <item row="1" column="2">
                     <widget class="QPushButton" name="pushButton_44">
                      <property name="enabled">
-                      <bool>true</bool>
+                      <bool>false</bool>
                      </property>
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -4527,8 +4534,8 @@ QRadioButton{border-style:none;}</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>258</width>
-                 <height>845</height>
+                 <width>832</width>
+                 <height>506</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -4539,6 +4546,8 @@ QRadioButton{border-style:none;}</string>
                  <widget class="QWidget" name="widget_15" native="true">
                   <property name="styleSheet">
                    <string notr="true">QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}
+/*禁用*/
+QPushButton:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);}
 QLabel{border-style:none;}
 #label_6{text-decoration: underline;}
 QComboBox {
@@ -4928,8 +4937,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>504</width>
-             <height>832</height>
+             <width>832</width>
+             <height>800</height>
             </rect>
            </property>
            <property name="styleSheet">
