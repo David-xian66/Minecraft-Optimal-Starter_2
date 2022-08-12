@@ -74,6 +74,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.comboBox_7.currentIndexChanged.connect(self.click_comboBox_java)
         self.pushButton_34.clicked.connect(self.click_pushButton_java_add)
 
+
         self.comboBox_gonggao_right.clear()
         self.listWidget.clear()
         self.pushButton_18.setEnabled(False)
@@ -746,28 +747,31 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
 
     def m_d(self):
         """获取版本列表并分类&显示"""
-        url = 'https://bmclapi2.bangbang93.com/mc/game/version_manifest_v2.json'
-        headers = {'User-Agent':'MOS/PyQt6'}
-        r = requests.get(url,headers=headers)
-        r_1 = r.json()['latest']['release'] #发行版
-        r_2 = r.json()['latest']['snapshot'] #快照版
-        r_3 = r.json()['versions']
-        ids_1 = []
-        ids_2 = []
+        self.stackedWidget_2.setCurrentIndex(10)
+        # 动图
+        gif_file = os.path.join('picture','loading_2.gif')
+        self.gif = QtGui.QMovie(gif_file)
+        self.label_37.setMovie(self.gif)
+        self.gif.start()
+        self.comboBox_2.setEnabled(False)
+
+        self.m_d_t = m_d_()
+        self.m_d_t.sinOut.connect(self.m_d_sinOut)
+        self.m_d_t.start()
+
+
+    def m_d_sinOut(self,a,b):
+        """在获取版本列表线程启动后 获取之后传数据 原版,快照版"""
+        icon1 = os.path.join("picture", "grass.png")
         icon2 = os.path.join("picture", "grass.png")
-        for r_3_1 in r_3:
-            if r_3_1['type'] == 'release':
-                ids_1.append(r_3_1['id'])
-                item = QListWidgetItem(QIcon(icon2),r_3_1['id'])
-                self.listWidget_4.addItem(item)
-            else:
-                ids_2.append(r_3_1['id'])
-                item = QListWidgetItem(QIcon(icon2), r_3_1['id'])
-                self.listWidget_8.addItem(item)
-
-
-       # self.listWidget_4.addItems(ids_1)
-        #self.listWidget_8.addItems(ids_2)
+        for a_1 in a:
+            item = QListWidgetItem(QIcon(icon1), a_1)
+            self.listWidget_4.addItem(item)
+        for b_1 in b:
+            item = QListWidgetItem(QIcon(icon2), b_1)
+            self.listWidget_8.addItem(item)
+        self.stackedWidget_2.setCurrentIndex(0)
+        self.comboBox_2.setEnabled(True)
 
 
     def click_comboBox_shezhi(self):
@@ -1541,6 +1545,27 @@ class gonggao(QThread):
                 self.sinOut_gonggao_text.emit("MOS",
                                               "<html><head/><body><p>官方公告 <span style=\" color:rgb(255, 38, 0);\">•获取失败！✗ 未知错误 无缓存可加载</span></p></body></html>")
 
+
+class m_d_(QThread):
+    sinOut = pyqtSignal(list,list)
+    def __init__(self):
+        super(m_d_, self).__init__()
+    def run(self):
+
+        url = 'https://bmclapi2.bangbang93.com/mc/game/version_manifest_v2.json'
+        headers = {'User-Agent':'MOS/PyQt6'}
+        r = requests.get(url,headers=headers)
+        r_1 = r.json()['latest']['release'] #发行版
+        r_2 = r.json()['latest']['snapshot'] #快照版
+        r_3 = r.json()['versions']
+        ids_1 = []
+        ids_2 = []
+        for r_3_1 in r_3:
+            if r_3_1['type'] == 'release':
+                ids_1.append(r_3_1['id'])
+            else:
+                ids_2.append(r_3_1['id'])
+        self.sinOut.emit(ids_1,ids_2)
 
 class MOS_versions(QThread):
     """获取更新"""
