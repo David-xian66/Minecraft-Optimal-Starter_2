@@ -75,6 +75,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.pushButton_34.clicked.connect(self.click_pushButton_java_add)
         self.comboBox_8.currentIndexChanged.connect(self.click_comboBox_m_d_y)
         self.pushButton_43.clicked.connect(self.click_pushButton_m_d_y_b)
+        self.pushButton_45.clicked.connect(self.click_pushButton_m_d_modo)
 
         self.comboBox_gonggao_right.clear()
         self.listWidget.clear()
@@ -783,6 +784,14 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         """在获取版本列表线程完成后"""
         self.stackedWidget_2.setCurrentIndex(0)
         self.comboBox_2.setEnabled(True)
+
+    def click_pushButton_m_d_modo(self):
+        """mod下载页的"下载"按钮点击后"""
+        if self.comboBox_10.currentText() == 'CurseForge':
+            """判断下载源用哪个"""
+            url = ''
+        else:
+            url = '11'
 
     def click_comboBox_shezhi(self):
         """设置页"""
