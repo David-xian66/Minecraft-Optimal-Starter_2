@@ -787,11 +787,28 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
 
     def click_pushButton_m_d_modo(self):
         """mod下载页的"下载"按钮点击后"""
+        t = self.lineEdit_5.text() #获取要搜索的内容
+        l = self.comboBox_12.currentText() #获取排序方法
+
+        if l =='创建日期':
+            l_ = 'newest'
+        elif l == '热度':
+            l_  = 'follows'
+        elif l == '名称':
+            l_ = 'relevance'
+        elif l == '下载量':
+            l_ = 'downloads'
+
         if self.comboBox_10.currentText() == 'CurseForge':
             """判断下载源用哪个"""
-            url = ''
+            url_ = ''
         else:
-            url = '11'
+            url_ = 'https://api.modrinth.com/v2/search?limit=30&index=' + l_ + '&facets=[["project_type:mod"]]'
+            if t == '':
+                url = url_
+            else:
+                url = url_ + '?query=' + t
+        print(url)
 
     def click_comboBox_shezhi(self):
         """设置页"""
