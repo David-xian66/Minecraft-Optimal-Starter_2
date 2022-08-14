@@ -75,7 +75,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.pushButton_34.clicked.connect(self.click_pushButton_java_add)
         self.comboBox_8.currentIndexChanged.connect(self.click_comboBox_m_d_y)
         self.pushButton_43.clicked.connect(self.click_pushButton_m_d_y_b)
-        self.pushButton_45.clicked.connect(self.click_pushButton_m_d_modo)
+        self.pushButton_45.clicked.connect(self.click_pushButton_m_d_mod)
 
         self.comboBox_gonggao_right.clear()
         self.listWidget.clear()
@@ -781,11 +781,24 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
 
 
     def m_d_sinOut_Ok(self):
-        """在获取版本列表线程完成后"""
+        """在获取游戏列表完成后……"""
         self.stackedWidget_2.setCurrentIndex(0)
         self.comboBox_2.setEnabled(True)
 
-    def click_pushButton_m_d_modo(self):
+    def m_d_mod_sinOut(self, n):
+        """处理获取到的mod"""
+        q = os.path.join("picture", "white.png")
+        item = QListWidgetItem(QIcon(q), n)
+        self.listWidget_5.addItem(item)
+
+    def m_d_mod_sinOut_p(self):
+        pass
+
+
+    def m_d_mod_sinOut_Ok(self):
+        pass
+
+    def click_pushButton_m_d_mod(self):
         """mod下载页的"下载"按钮点击后"""
         t = self.lineEdit_5.text() #获取要搜索的内容
         l = self.comboBox_12.currentText() #获取排序方法
@@ -809,6 +822,11 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
             else:
                 url = url_ + '?query=' + t
         print(url)
+        self.m_d_mod = m_d_mod(url)
+        self.m_d_mod.sinOut.connect(self.m_d_mod_sinOut)
+        self.m_d_mod.sinOut_p.connect(self.m_d_mod_sinOut_p)
+        self.m_d_mod.sinOut_Ok.connect(self.m_d_mod_sinOut_Ok)
+        self.m_d_mod.start()
 
     def click_comboBox_shezhi(self):
         """设置页"""
@@ -1637,6 +1655,28 @@ class m_d_(QThread):
             else:
                 self.sinOut.emit(None,r_3_1['id'])
         self.sinOut_Ok.emit()
+
+
+class m_d_mod(QThread):
+    sinOut = pyqtSignal(str)
+    sinOut_p = pyqtSignal(list)
+    sinOut_Ok = pyqtSignal()
+
+    def __init__(self,url):
+        self.url = url
+        super(m_d_mod, self).__init__()
+    def run(self):
+        headers = {'User-Agent': 'MOS/PyQt6'}
+        r = requests.get(self.url, headers=headers)
+        r_1 = r.json()['hits']
+        r_3 = []
+        for r_1_ in r_1:
+            r_2_n = r_1_['title']
+            r_2_url = r_1_['icon_url']
+            self.sinOut.emit(r_2_n)
+            r_3.append(r_2_url)
+        self.sinOut_Ok.emit()
+        self.sinOut_p.emit(r_3)
 
 
 class MOS_versions(QThread):

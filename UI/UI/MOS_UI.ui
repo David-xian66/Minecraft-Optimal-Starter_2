@@ -34,7 +34,10 @@
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255,0);outline:0px;</string>
    </property>
-   <layout class="QGridLayout" name="gridLayout_13">
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -47,10 +50,7 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <item row="1" column="0">
+    <item>
      <widget class="QWidget" name="widget_mos_left" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -427,7 +427,7 @@ QPushButton
       </layout>
      </widget>
     </item>
-    <item row="1" column="1">
+    <item>
      <widget class="QStackedWidget" name="stackedWidget_mos_right">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -2464,8 +2464,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>808</width>
-                    <height>414</height>
+                    <width>100</width>
+                    <height>57</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2934,6 +2934,50 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
 }</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_34">
+            <item row="1" column="0">
+             <widget class="QScrollArea" name="scrollArea_4">
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <widget class="QWidget" name="scrollAreaWidgetContents_5">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>808</width>
+                 <height>275</height>
+                </rect>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_10">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QListWidget" name="listWidget_5"/>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_46">
+                  <property name="text">
+                   <string>加载更多……</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox">
               <property name="styleSheet">
@@ -3260,11 +3304,6 @@ QPushButton::pressed{background-color: rgba(118, 214, 255,100);}</string>
                  </item>
                  <item>
                   <property name="text">
-                   <string>作者(名称)</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
                    <string>下载量</string>
                   </property>
                  </item>
@@ -3302,9 +3341,6 @@ QPushButton::pressed{background-color: rgba(118, 214, 255,100);}</string>
                </item>
               </layout>
              </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QListWidget" name="listWidget_5"/>
             </item>
            </layout>
           </widget>
@@ -3997,8 +4033,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>832</width>
-                 <height>506</height>
+                 <width>377</width>
+                 <height>1182</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -5042,8 +5078,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>832</width>
-             <height>800</height>
+             <width>504</width>
+             <height>832</height>
             </rect>
            </property>
            <property name="styleSheet">
