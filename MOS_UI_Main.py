@@ -738,7 +738,8 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
     def click_comboBox_xiazai(self):
         a = self.comboBox_2.currentIndex()
         if a == 0:
-            self.m_d()
+            if self.xiazai_first:
+                self.m_d()
             self.stackedWidget_2.setCurrentIndex(a)
         elif a == 1:
             self.stackedWidget_2.setCurrentIndex(2)
