@@ -4059,8 +4059,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>377</width>
-                 <height>1182</height>
+                 <width>832</width>
+                 <height>506</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -4701,15 +4701,144 @@ QRadioButton{border-style:none;}</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>258</width>
-                 <height>845</height>
+                 <width>832</width>
+                 <height>506</height>
                 </rect>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
                </property>
-               <layout class="QGridLayout" name="gridLayout_30">
-                <item row="0" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_11">
+                <item>
+                 <widget class="QWidget" name="widget_27" native="true">
+                  <property name="styleSheet">
+                   <string notr="true">QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}
+/*禁用*/
+QPushButton:disabled{border-radius: 7px;border:2px solid rgb(214, 214, 214);}
+QLabel{border-style:none;}
+QSlider{border-style:none;}
+QSpinBox{border-style:none;}
+
+QSlider:horizontal {
+    height: 26px;
+    width: 188px;
+    background-color: transparent;
+}
+
+QSlider::groove:horizontal {
+    border: none;
+    height: 4px;
+}
+
+QSlider::handle:horizontal {
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    margin-top: -11px;
+    margin-bottom: -11px;
+    background-color: rgb(0, 153, 188);
+}
+
+QSlider::handle:horizontal:hover {
+    background-color: rgb(72, 210, 242);
+}
+
+QSlider::handle:horizontal:pressed {
+    background-color: rgb(0, 107, 131);
+}
+
+
+QSlider::sub-page:horizontal {
+    /*已划过部分的颜色*/
+    background: rgb(0, 153, 187);
+    height: 4px;
+    border-radius: 2px;
+}
+
+QSlider::add-page:horizontal {
+    background-color: rgb(153, 153, 153);
+    height: 4px;
+    border-radius: 2px;
+}</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_59">
+                   <item row="0" column="0" rowspan="4">
+                    <widget class="QLabel" name="label_50">
+                     <property name="styleSheet">
+                      <string notr="true">font-size: 13px;</string>
+                     </property>
+                     <property name="text">
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;使用内存设置&lt;/span&gt;&lt;/p&gt;&lt;p&gt;在这里 你可以设置启动游戏时使用的内存大小&lt;/p&gt;&lt;p&gt;注意：内存 过大/过小 都会导致报错 请注意合理分配&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>false</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
+                     </property>
+                     <property name="textInteractionFlags">
+                      <set>Qt::LinksAccessibleByMouse</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1" rowspan="2">
+                    <widget class="QLabel" name="label_51">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>当前值：</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1" colspan="2">
+                    <widget class="QSlider" name="horizontalSlider">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2" rowspan="2">
+                    <widget class="QSpinBox" name="spinBox">
+                     <property name="wrapping">
+                      <bool>false</bool>
+                     </property>
+                     <property name="frame">
+                      <bool>true</bool>
+                     </property>
+                     <property name="readOnly">
+                      <bool>false</bool>
+                     </property>
+                     <property name="buttonSymbols">
+                      <enum>QAbstractSpinBox::UpDownArrows</enum>
+                     </property>
+                     <property name="accelerated">
+                      <bool>false</bool>
+                     </property>
+                     <property name="singleStep">
+                      <number>1</number>
+                     </property>
+                     <property name="stepType">
+                      <enum>QAbstractSpinBox::DefaultStepType</enum>
+                     </property>
+                     <property name="value">
+                      <number>0</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
                  <widget class="QWidget" name="widget_15" native="true">
                   <property name="styleSheet">
                    <string notr="true">QWidget{background-color: rgba(255, 255, 255, 0);border-radius:15px;border: 2px solid rgb(0, 150, 255);}
@@ -4901,7 +5030,7 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="0">
+                <item>
                  <spacer name="verticalSpacer_9">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -4909,7 +5038,7 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>20</width>
-                    <height>282</height>
+                    <height>149</height>
                    </size>
                   </property>
                  </spacer>
@@ -5104,8 +5233,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>504</width>
-             <height>832</height>
+             <width>832</width>
+             <height>800</height>
             </rect>
            </property>
            <property name="styleSheet">

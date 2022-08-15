@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MOS_D_MC_Dialog</class>
+ <widget class="QDialog" name="MOS_D_MC_Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>561</width>
+    <height>249</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{background-color: rgb(255, 255, 255);}
+
+QScrollArea{border-style:none;}
+QPushButton{border:2px solid rgba(235, 235, 235,0);height:25px;border-radius:5px;}
+QPushButton::hover{background-color: rgb(192, 192, 192);}
+QPushButton::pressed{background-color: rgb(169, 169, 169);}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="2" column="1">
+    <widget class="QPushButton" name="pushButton">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>150</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>取消</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string>0 MB/S - 正在准备下载</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="styleSheet">
+      <string notr="true">QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}
+QPushButton{border:2px solid rgba(235, 235, 235,0);height:25px;border-radius:5px;}
+QPushButton::hover{background-color: rgb(192, 192, 192);}
+QPushButton::pressed{background-color: rgb(169, 169, 169);}
+
+QProgressBar{
+	text-align: center;border-style:none;border-radius:5px;background-color: rgb(235, 235, 235);height:3px;color: rgb(66, 66, 66);
+}
+QProgressBar::chunk{
+	border-radius:5px;
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(64, 183, 255, 255), stop:1 rgba(67, 146, 255, 255));
+}
+
+QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}
+/*设置垂直滚动条基本样式*/
+QScrollBar:vertical
+{
+    width:8px;
+    background:rgba(0,0,0,0%);
+    margin:0px,0px,0px,0px;
+    padding-top:9px;   /*留出9px给上面和下面的箭头*/
+    padding-bottom:9px;
+}
+QScrollBar::handle:vertical
+{
+    width:8px;
+    background: rgb(214, 214, 214);
+    border-radius:3px;   /*滚动条两端变成椭圆*/
+    min-height:;
+}
+QScrollBar::handle:vertical:hover
+{
+    width:8px;
+    background:rgb(192, 192, 192);   /* 鼠标放到滚动条上的时候，颜色变深*/
+    border-radius:4px;
+    min-height:;
+}
+QScrollBar::add-line:vertical   /*这个应该是设置下箭头的，3.png就是箭头*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-down_1.png);
+    subcontrol-position:bottom;
+}
+QScrollBar::sub-line:vertical   /*设置上箭头*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-up_1.png);
+    subcontrol-position:top;
+}
+QScrollBar::add-line:vertical:hover   /*当鼠标放到下箭头上的时候*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-down.png);
+    subcontrol-position:bottom;
+}
+QScrollBar::sub-line:vertical:hover  /*当鼠标放到下箭头上的时候*/
+{
+    height:9px;width:8px;
+    border-image:url(:/img/picture/caret-up.png);
+    subcontrol-position:top;
+}
+QScrollBar::sub-page:vertical,QScrollBar::add-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+{
+    background: rgba(235, 235, 235,150);
+    border-radius:4px;
+}
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚动的时候，上面的部分和下面的部分*/
+{
+    background: rgba(235, 235, 235,150);
+    border-radius:4px;
+}</string>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>537</width>
+        <height>172</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0" colspan="3">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>下载主文件</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="3">
+        <widget class="QProgressBar" name="progressBar">
+         <property name="minimum">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <number>110</number>
+         </property>
+         <property name="value">
+          <number>50</number>
+         </property>
+         <property name="textVisible">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="3">
+        <widget class="QProgressBar" name="progressBar_2">
+         <property name="value">
+          <number>5</number>
+         </property>
+         <property name="textVisible">
+          <bool>false</bool>
+         </property>
+         <property name="invertedAppearance">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>安装游戏</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="3">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>下载资源库</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0" colspan="3">
+        <widget class="QProgressBar" name="progressBar_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="value">
+          <number>5</number>
+         </property>
+         <property name="textVisible">
+          <bool>false</bool>
+         </property>
+         <property name="invertedAppearance">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>安装游戏</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
