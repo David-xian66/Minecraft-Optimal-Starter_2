@@ -76,6 +76,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.comboBox_8.currentIndexChanged.connect(self.click_comboBox_m_d_y)
         self.pushButton_43.clicked.connect(self.click_pushButton_m_d_y_b)
         self.pushButton_45.clicked.connect(self.click_pushButton_m_d_mod)
+        self.pushButton_46.clicked.connect(self.click_pushButton_m_d_mod_g)
 
         self.comboBox_gonggao_right.clear()
         self.listWidget.clear()
@@ -791,17 +792,30 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         item = QListWidgetItem(QIcon(q), n)
         self.listWidget_5.addItem(item)
 
-    def m_d_mod_sinOut_p(self):
-        pass
+    def m_d_mod_sinOut_p(self,l):
+        """获取mod图标"""
+        self.m_d_mod_p = m_d_mod_p(l)
+        self.m_d_mod_p.sinOut.connect(self.m_d_mod_sinOut_p_)
+        self.m_d_mod_p.start()
 
+    def m_d_mod_sinOut_p_(self,w,l):
+        """将获取到的图标显示在列表上
+            w：编号
+            l：图标路径
+        """
+        t = self.listWidget_5.item(int(w)).text()
+        self.listWidget_5.item(int(w)).setIcon(QIcon(l))
 
     def m_d_mod_sinOut_Ok(self):
         pass
 
     def click_pushButton_m_d_mod(self):
         """mod下载页的"下载"按钮点击后"""
+        self.listWidget_5.clear()
+        self.m_d_mod_i_q = 0
         t = self.lineEdit_5.text() #获取要搜索的内容
         l = self.comboBox_12.currentText() #获取排序方法
+        self.m_d_mod_i = 1 #页数
 
         if l =='创建日期':
             l_ = 'newest'
@@ -816,17 +830,30 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
             """判断下载源用哪个"""
             url_ = ''
         else:
-            url_ = 'https://api.modrinth.com/v2/search?limit=30&index=' + l_ + '&facets=[["project_type:mod"]]'
+            #self.mod_url_ = 'https://api.modrinth.com/v2/search?limit=30&index=' + l_ + '&facets=[["project_type:mod"]]&offset='
             if t == '':
-                url = url_
+                self.mod_url_ = 'https://api.modrinth.com/v2/search?limit=30&index=' + l_ + '&facets=[["project_type:mod"]]&offset='
+                url = self.mod_url_ + str(self.m_d_mod_i)
             else:
-                url = url_ + '?query=' + t
+                self.mod_url_ = 'https://api.modrinth.com/v2/search?limit=30&index=' + l_ + '?query=' + t+  '&facets=[["project_type:mod"]]&offset='
+                url = self.mod_url_ + str(self.m_d_mod_i) + '?query=' + t
         print(url)
-        self.m_d_mod = m_d_mod(url)
+        self.m_d_mod = m_d_mod(self.m_d_mod_i_q,url)
         self.m_d_mod.sinOut.connect(self.m_d_mod_sinOut)
         self.m_d_mod.sinOut_p.connect(self.m_d_mod_sinOut_p)
         self.m_d_mod.sinOut_Ok.connect(self.m_d_mod_sinOut_Ok)
         self.m_d_mod.start()
+
+    def click_pushButton_m_d_mod_g(self):
+        self.m_d_mod_i += 1
+        a = self.mod_url_ + str(self.m_d_mod_i)
+        self.m_d_mod_i_q += 30
+        self.m_d_mod_g = m_d_mod(self.m_d_mod_i_q,a)
+        self.m_d_mod_g.sinOut.connect(self.m_d_mod_sinOut)
+        self.m_d_mod_g.sinOut_p.connect(self.m_d_mod_sinOut_p)
+        self.m_d_mod_g.sinOut_Ok.connect(self.m_d_mod_sinOut_Ok)
+        self.m_d_mod_g.start()
+
 
     def click_comboBox_shezhi(self):
         """设置页"""
@@ -1659,24 +1686,50 @@ class m_d_(QThread):
 
 class m_d_mod(QThread):
     sinOut = pyqtSignal(str)
-    sinOut_p = pyqtSignal(list)
+    sinOut_p = pyqtSignal(dict)
     sinOut_Ok = pyqtSignal()
 
-    def __init__(self,url):
+    def __init__(self,m_q,url):
         self.url = url
+        self.m_q = m_q
         super(m_d_mod, self).__init__()
     def run(self):
         headers = {'User-Agent': 'MOS/PyQt6'}
         r = requests.get(self.url, headers=headers)
         r_1 = r.json()['hits']
-        r_3 = []
+        r_3 = {}
+        a = -1
         for r_1_ in r_1:
+            a += 1
             r_2_n = r_1_['title']
             r_2_url = r_1_['icon_url']
             self.sinOut.emit(r_2_n)
-            r_3.append(r_2_url)
-        self.sinOut_Ok.emit()
+            r_3[str(a+self.m_q)] = r_2_url
         self.sinOut_p.emit(r_3)
+        self.sinOut_Ok.emit()
+
+
+class m_d_mod_p(QThread):
+    sinOut = pyqtSignal(str,str) #前 编号  后 图标路径
+    def __init__(self,l):
+        self.l = l
+        super(m_d_mod_p, self).__init__()
+    def run(self):
+        #print(self.l)
+        headers = {'User-Agent': 'MOS/PyQt6'}
+        import os
+        for l_1 in self.l.keys():
+            #l_1存储编号
+            print(l_1)
+            l_2 = str(self.l[l_1])
+            l_3_1 = l_2.split('https://cdn.modrinth.com/data/')[1]
+            l_3 = l_3_1.split('/')[0] + l_3_1.split('/')[1]
+            #print(l_3)
+            r = requests.get(l_2, headers=headers)
+            f = os.path.join(file_h(),'.MOS','Mod',l_3)
+            with open(f, 'wb') as f_:
+                f_.write(r.content)
+            self.sinOut.emit(str(l_1),str(f))
 
 
 class MOS_versions(QThread):
@@ -1802,6 +1855,9 @@ class MOS_file(QThread):
             os.makedirs(MOS_file_1, exist_ok=True)
 
             MOS_file_1 = os.path.join(file, ".MOS", "Download")
+            os.makedirs(MOS_file_1, exist_ok=True)
+
+            MOS_file_1 = os.path.join(file, ".MOS", "Mod")
             os.makedirs(MOS_file_1, exist_ok=True)
 
             MOS_file_1 = os.path.join(file, ".MOS", "Logs")
