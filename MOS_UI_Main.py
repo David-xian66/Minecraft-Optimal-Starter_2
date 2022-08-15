@@ -803,8 +803,11 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
             w：编号
             l：图标路径
         """
-        t = self.listWidget_5.item(int(w)).text()
-        self.listWidget_5.item(int(w)).setIcon(QIcon(l))
+        try:
+            t = self.listWidget_5.item(int(w)).text()
+            self.listWidget_5.item(int(w)).setIcon(QIcon(l))
+        except AttributeError:
+            pass
 
     def m_d_mod_sinOut_Ok(self):
         pass
@@ -812,6 +815,15 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
     def click_pushButton_m_d_mod(self):
         """mod下载页的"下载"按钮点击后"""
         self.listWidget_5.clear()
+        try:
+            self.m_d_mod.terminate()
+            self.m_d_mod_g.terminate()
+            self.m_d_mod_p.terminate()
+            self.m_d_mod_p.wait()
+            self.m_d_mod_g.wait()
+            self.m_d_mod.wait()
+        except AttributeError:
+            pass
         self.m_d_mod_i_q = 0
         t = self.lineEdit_5.text() #获取要搜索的内容
         l = self.comboBox_12.currentText() #获取排序方法
@@ -835,8 +847,8 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
                 self.mod_url_ = 'https://api.modrinth.com/v2/search?limit=30&index=' + l_ + '&facets=[["project_type:mod"]]&offset='
                 url = self.mod_url_ + str(self.m_d_mod_i)
             else:
-                self.mod_url_ = 'https://api.modrinth.com/v2/search?limit=30&index=' + l_ + '?query=' + t+  '&facets=[["project_type:mod"]]&offset='
-                url = self.mod_url_ + str(self.m_d_mod_i) + '?query=' + t
+                self.mod_url_ = 'https://api.modrinth.com/v2/search?limit=30&index=' + l_ + '&query=' + t+  '&facets=[["project_type:mod"]]&offset='
+                url = self.mod_url_ + str(self.m_d_mod_i)
         print(url)
         self.m_d_mod = m_d_mod(self.m_d_mod_i_q,url)
         self.m_d_mod.sinOut.connect(self.m_d_mod_sinOut)
