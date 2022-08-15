@@ -2464,8 +2464,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>57</height>
+                    <width>808</width>
+                    <height>414</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2948,6 +2948,19 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                  <height>275</height>
                 </rect>
                </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	background-color: rgb(214, 214, 214);
+	border-style:none;
+	border-radius:15px;
+}
+QPushButton::hover{
+	background-color: rgb(229, 229, 229);
+}
+QPushButton::pressed{
+	background-color: rgb(198, 198, 198);
+}</string>
+               </property>
                <layout class="QVBoxLayout" name="verticalLayout_10">
                 <property name="spacing">
                  <number>0</number>
@@ -2965,10 +2978,23 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="QListWidget" name="listWidget_5"/>
+                 <widget class="QListWidget" name="listWidget_5">
+                  <property name="iconSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </widget>
                 </item>
                 <item>
                  <widget class="QPushButton" name="pushButton_46">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>加载更多……</string>
                   </property>

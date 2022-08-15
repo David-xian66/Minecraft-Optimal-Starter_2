@@ -2906,6 +2906,7 @@ class Ui_MOS(object):
         self.stackedWidget_mos_right.addWidget(self.page_6)
         self.horizontalLayout_4.addWidget(self.stackedWidget_mos_right)
         MOS.setCentralWidget(self.centralwidget)
+        self.listWidget_5.setIconSize(QtCore.QSize(40, 40))
 
         self.retranslateUi(MOS)
         self.stackedWidget_mos_right.setCurrentIndex(0)
