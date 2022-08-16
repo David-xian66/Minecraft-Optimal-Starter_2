@@ -55,7 +55,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         # 为字体选择控件 连接槽
         self.fontComboBox.currentIndexChanged.connect(self.setfont)
         self.listWidget.itemClicked.connect(self.click_lineEdit_youximululeibiao_check_leibiao)
-        #
+
         self.comboBox.currentIndexChanged.connect(self.click_comboBox_shezhi)
         self.pushButton_19.clicked.connect(self.click_pushButton_jianchagengxin)
         self.pushButton_22.clicked.connect(self.chick_pushButton_Java_check)
@@ -80,10 +80,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.pushButton_46.clicked.connect(self.click_pushButton_m_d_mod_g)
         self.lineEdit_3.textChanged.connect(self.click_listWidget_c_m_b_b_w)
         self.pushButton_40.clicked.connect(self.click_pushButton_D_G_F)
-
-        self.comboBox_gonggao_right.clear()
-        self.listWidget.clear()
-        self.pushButton_18.setEnabled(False)
+        self.listWidget_4.itemClicked.connect(self.click_listWidget_D_G)
 
         # 页面渲染加速
         self.c = QTimer()  # 创建计时器对象
@@ -108,6 +105,24 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.a.sinOut_font.connect(self.MOS_file_return_font)
         self.a.sinOut_Java.connect(self.MOS_file_return_Java)
         self.a.start()
+
+        if self.comboBox_8.currentText() == '官方源 (速度可能慢 但是最新的)':
+            MOS_print('info', '选择下载源：官方源')
+            b = 'MC'
+            self.G_D_Y = str(b)
+            self.pushButton_43.setEnabled(False)
+        elif self.comboBox_8.currentText() == '镜像源 - BMCLAPI (速度快 但可能不是最新的)':
+            MOS_print('info', '选择下载源：镜像源 - BMCLAPI')
+            b = 'BMCLAPI'
+            self.G_D_Y = str(b)
+        elif self.comboBox_8.currentText() == '镜像源 - MCBBS (速度快 但可能不是最新的)':
+            MOS_print('info', '选择下载源：镜像源 - MCBBS')
+            b = 'MCBBS'
+            self.G_D_Y = str(b)
+        self.comboBox_gonggao_right.clear()
+        self.listWidget.clear()
+        self.pushButton_18.setEnabled(False)
+
 
     def Win_start(self):
         pass
@@ -793,21 +808,25 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.gif.start()
         self.comboBox_2.setEnabled(False)
 
-        self.m_d_t = m_d_()
+        self.m_d_t = m_d_(self.G_D_Y)
         self.m_d_t.sinOut.connect(self.m_d_sinOut)
         self.m_d_t.sinOut_Ok.connect(self.m_d_sinOut_Ok)
         self.m_d_t.start()
 
-    def m_d_sinOut(self,  a,  b):
-        """在获取版本列表线程启动后 获取之后传数据 原版,快照版 (为了防止页面卡顿 需一个一个进行传递)"""
+    def m_d_sinOut(self,  a,  b, c):
+        """在获取版本列表线程启动后 获取之后传数据 原版,快照版 ,远古版 (为了防止页面卡顿 需一个一个进行传递)"""
         icon1 = os.path.join("picture", "grass.png")
         icon2 = os.path.join("picture", "grass.png")
+        icon3 = os.path.join("picture", "minecraft.png")
         if a != '':
             item = QListWidgetItem(QIcon(icon1), a)
             self.listWidget_4.addItem(item)
-        else:
+        elif b != '':
             item = QListWidgetItem(QIcon(icon2), b)
             self.listWidget_8.addItem(item)
+        elif c != '':
+            item = QListWidgetItem(QIcon(icon3), c)
+            self.listWidget_9.addItem(item)
 
 
     def m_d_sinOut_Ok(self):
@@ -885,6 +904,27 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.m_d_mod.sinOut_Ok.connect(self.m_d_mod_sinOut_Ok)
         self.m_d_mod.start()
 
+    def click_listWidget_D_G(self):
+        """在点击游戏列表中的某一项后"""
+        a = self.listWidget_4.selectedItems()[0].text()
+        self.groupBox_2.setTitle(str('安装新游戏——') + a)
+        self.stackedWidget_2.setCurrentIndex(1)
+        self.comboBox_3.clear()
+
+        # 加载动图
+        gif_file = os.path.join("picture", "loading.gif")
+        self.gif_D_G = QtGui.QMovie(gif_file)
+        self.label_52.setMovie(self.gif)
+        self.label_53.setMovie(self.gif)
+        self.label_54.setMovie(self.gif)
+        self.label_55.setMovie(self.gif)
+        self.gif_D_G.start()
+
+        self.D_G_Forge_ = D_G_Forge(a,self.G_D_Y)
+        self.D_G_Forge_.sinOut.connect(self.D_G_Forge_sinOut)
+        self.D_G_Forge_.sinOut_Ok.connect(self.D_G_Forge_sinOut_Ok)
+        self.D_G_Forge_.start()
+
     def click_pushButton_m_d_mod_g(self):
         self.m_d_mod_i += 1
         a = self.mod_url_ + str(self.m_d_mod_i)
@@ -895,6 +935,13 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.m_d_mod_g.sinOut_Ok.connect(self.m_d_mod_sinOut_Ok)
         self.m_d_mod_g.start()
 
+    def D_G_Forge_sinOut(self,l):
+        self.comboBox_3.addItems(l)
+        self.label_52.setPixmap(QtGui.QPixmap(os.path.join("picture", "yes.png")))
+
+
+    def D_G_Forge_sinOut_Ok(self):
+        pass
 
     def click_comboBox_shezhi(self):
         """设置页"""
@@ -909,13 +956,16 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         if self.comboBox_8.currentText() == '官方源 (速度可能慢 但是最新的)':
             MOS_print('info', '选择下载源：官方源')
             b = 'MC'
+            self.G_D_Y = str(b)
             self.pushButton_43.setEnabled(False)
         elif self.comboBox_8.currentText() == '镜像源 - BMCLAPI (速度快 但可能不是最新的)':
             MOS_print('info', '选择下载源：镜像源 - BMCLAPI')
             b = 'BMCLAPI'
+            self.G_D_Y = str(b)
         elif self.comboBox_8.currentText() == '镜像源 - MCBBS (速度快 但可能不是最新的)':
             MOS_print('info', '选择下载源：镜像源 - MCBBS')
             b = 'MCBBS'
+            self.G_D_Y = str(b)
         self.pushButton_43.setEnabled(False)
         self.pushButton_43.setText('正在设置 请稍后……')
         a = MOS_json_read(All='Yes')
@@ -1714,31 +1764,41 @@ class gonggao(QThread):
 
 
 class m_d_(QThread):
-    sinOut = pyqtSignal(str, str)
+    """获取游戏版本 Y=下载源"""
+    sinOut = pyqtSignal(str, str, str)
     sinOut_Ok = pyqtSignal()
 
-    def __init__(self):
+    def __init__(self,Y):
+        if Y == 'MC':
+            self.url = 'https://launchermeta.mojang.com/mc/game/version_manifest_v2.json'
+        elif Y == 'MCBBS':
+            self.url = 'https://download.mcbbs.net/mc/game/version_manifest_v2.json'
+        elif Y == 'BMCLAPI':
+            self.url = 'https://bmclapi2.bangbang93.com/mc/game/version_manifest_v2.json'
         super(m_d_, self).__init__()
 
     def run(self):
 
-        url = 'https://bmclapi2.bangbang93.com/mc/game/version_manifest_v2.json'
         headers = {'User-Agent': 'MOS/PyQt6'}
-        r = requests.get(url, headers=headers)
-        r_1 = r.json()['latest']['release']  # 发行版
-        r_2 = r.json()['latest']['snapshot']  # 快照版
-        r_3 = r.json()['versions']
+        r = requests.get(self.url, headers=headers)
+        #r_1 = r.json()['latest']['release']  # 发行版
+        #r_2 = r.json()['latest']['snapshot']  # 快照版
+        #r_3 = r.json()['latest']['old_alpha']  # 远古版
+        r_4 = r.json()['versions']
         ids_1 = []
         ids_2 = []
-        for r_3_1 in r_3:
+        for r_3_1 in r_4:
             if r_3_1['type'] == 'release':
-                self.sinOut.emit(r_3_1['id'],None)
-            else:
-                self.sinOut.emit(None,r_3_1['id'])
+                self.sinOut.emit(r_3_1['id'],None,None)
+            elif r_3_1['type'] == 'snapshot':
+                self.sinOut.emit(None,r_3_1['id'],None)
+            elif r_3_1['type'] == 'old_alpha':
+                self.sinOut.emit(None,None,r_3_1['id'])
         self.sinOut_Ok.emit()
 
 
 class m_d_mod(QThread):
+    """获取Mod"""
     sinOut = pyqtSignal(str)
     sinOut_p = pyqtSignal(dict)
     sinOut_Ok = pyqtSignal()
@@ -1784,6 +1844,32 @@ class m_d_mod_p(QThread):
             with open(f, 'wb') as f_:
                 f_.write(r.content)
             self.sinOut.emit(str(l_1),str(f))
+
+class D_G_Forge(QThread):
+    """获取游戏对应的Forge版本"""
+    sinOut = pyqtSignal(list)
+    sinOut_Ok = pyqtSignal()
+    def __init__(self,b,Y):
+        self.b = str(b) #游戏版本
+
+        if Y == 'MC':
+            self.url = 'https://download.mcbbs.net/forge/minecraft/'
+        elif Y == 'MCBBS':
+            self.url = 'https://download.mcbbs.net/forge/minecraft/'
+        elif Y == 'BMCLAPI':
+            self.url = 'https://bmclapi2.bangbang93.com/forge/minecraft/'
+
+        super(D_G_Forge, self).__init__()
+    def run(self):
+        url = self.url + self.b
+        headers = {'User-Agent': 'MOS/PyQt6'}
+        a = requests.get(url,headers=headers)
+        b = a.json()
+        c = []
+        for b_ in b:
+            b_1 = b_['version']
+            c.append(b_1)
+        self.sinOut.emit(c)
 
 
 class MOS_versions(QThread):

@@ -2449,7 +2449,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                     <x>0</x>
                     <y>0</y>
                     <width>808</width>
-                    <height>414</height>
+                    <height>380</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2473,8 +2473,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>57</height>
+                    <width>808</width>
+                    <height>380</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2483,6 +2483,23 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                   <layout class="QHBoxLayout" name="horizontalLayout_2">
                    <item>
                     <widget class="QListWidget" name="listWidget_8">
+                     <property name="iconSize">
+                      <size>
+                       <width>45</width>
+                       <height>45</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="page_27">
+                  <attribute name="label">
+                   <string>远古版</string>
+                  </attribute>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <item>
+                    <widget class="QListWidget" name="listWidget_9">
                      <property name="iconSize">
                       <size>
                        <width>45</width>
@@ -2506,390 +2523,14 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
 #pushButton_2{height:25px;border-radius: 5px;width:70px;border:2px solid rgb(169, 169, 169);}</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_26">
-            <item row="0" column="0" colspan="3">
-             <widget class="QWidget" name="widget_2" native="true">
+            <item row="1" column="2">
+             <widget class="QPushButton" name="pushButton_2">
               <property name="styleSheet">
-               <string notr="true">QWidget{border-radius: 23px;border:2px solid rgb(0, 150, 255);}
-QLabel{border-style:none;}
-QComboBox {
-    border: 2px solid rgb(169, 169, 169); /* border: 宽度 线类型 颜色 */
-    height:25px;
-    /*background-color: rgba(0, 150, 255, 150);*/
-    background-color: rgba(214, 214, 214,100);
-    border-radius:10px;
-}
-
-/*下拉框的样式*/
-QComboBox QAbstractItemView
-{
-    outline: 0px solid gray;  /*取消选中虚线*/
-    border: 1px solid rgb(31, 156, 255);
-    color: rgb(66, 66, 66);
-    background-color: rgb(255, 255, 255);
-    selection-background-color: rgb(0, 150, 255);
-    border-radius:5px;
-    height:35px;
-    border:None;
-}
-/*选中每一项的字体颜色和背景颜色*/
-QComboBox::item:selected 
-{
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 150, 255);
-    border-radius:5px;
-}
-/*右边*/
-QComboBox::drop-down{border: 2px solid rgba(0, 150, 255,0);}
-QComboBox::down-arrow
-{
-    image: url(:/img/back_blue_down.png);
-    width: 25px;
-    height: 35px;
-    right:6px;
-    border-left: 2px solid rgb(192, 192, 192);
-    border-right: 1px solid rgba(214, 214, 214,0);
-}
-QComboBox::down-arrow:on
-{
-    image: url(:/img/back_blue_up.png);
-    width: 25px;
-    height: 35px;
-    right:6px;
-    border-left: 2px solid rgb(192, 192, 192);
-    border-right: 1px solid rgba(214, 214, 214,0);
-}
-/*QComboBox::down-arrow::hover{}*
-
-/* QComboBox中的垂直滚动条 */
-QComboBox QAbstractScrollArea QScrollBar:vertical {
-    width: 10px;
-    height: 8px;
-    background-color: rgb(255, 64, 255);   /* 空白区域的背景色*/
-    border-style:none;
-}
-
-QComboBox QAbstractScrollArea QScrollBar::handle:vertical {
-    border-radius: 5px;   /* 圆角 */
-    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */
-}
-
-QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
-    background: rgb(255, 255, 255);   /* 越过小方块的背景色*/
-}</string>
+               <string notr="true">font-size: 13px;</string>
               </property>
-              <layout class="QGridLayout" name="gridLayout_25">
-               <item row="0" column="2" colspan="2">
-                <spacer name="horizontalSpacer_15">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Expanding</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>199</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="3" column="0">
-                <widget class="QPushButton" name="pushButton_8">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../../picture/quilt.png</normaloff>../../picture/quilt.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>50</width>
-                   <height>50</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="2" colspan="2">
-                <spacer name="horizontalSpacer_13">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="2" column="5">
-                <widget class="QComboBox" name="comboBox_5">
-                 <property name="minimumSize">
-                  <size>
-                   <width>120</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">font-size: 13px;</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2" colspan="2">
-                <spacer name="horizontalSpacer_14">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="3" column="1">
-                <widget class="QLabel" name="label_21">
-                 <property name="styleSheet">
-                  <string notr="true">font-size: 15px;</string>
-                 </property>
-                 <property name="text">
-                  <string>Quilt
-模组加载器</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QLabel" name="label_20">
-                 <property name="styleSheet">
-                  <string notr="true">font-size: 15px;</string>
-                 </property>
-                 <property name="text">
-                  <string>Optifine
-高清修复</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="4">
-                <widget class="QPushButton" name="pushButton_13">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../../picture/loading.gif</normaloff>../../picture/loading.gif</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>40</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="4">
-                <widget class="QPushButton" name="pushButton_14">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../../picture/loading.gif</normaloff>../../picture/loading.gif</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>40</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QPushButton" name="pushButton_5">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../../picture/forge.png</normaloff>../../picture/forge.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>50</width>
-                   <height>50</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_11">
-                 <property name="styleSheet">
-                  <string notr="true">font-size: 15px;</string>
-                 </property>
-                 <property name="text">
-                  <string>Forge
-模组加载器</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QPushButton" name="pushButton_7">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../../picture/optifine.png</normaloff>../../picture/optifine.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>50</width>
-                   <height>50</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="4">
-                <widget class="QPushButton" name="pushButton_15">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../../picture/loading.gif</normaloff>../../picture/loading.gif</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>40</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="5">
-                <widget class="QComboBox" name="comboBox_6">
-                 <property name="minimumSize">
-                  <size>
-                   <width>120</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">font-size: 13px;</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="label_19">
-                 <property name="styleSheet">
-                  <string notr="true">font-size: 15px;</string>
-                 </property>
-                 <property name="text">
-                  <string>Fabric
-模组加载器</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QComboBox" name="comboBox_3">
-                 <property name="minimumSize">
-                  <size>
-                   <width>210</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">font-size: 13px;</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QPushButton" name="pushButton_6">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../../picture/fabric.png</normaloff>../../picture/fabric.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>50</width>
-                   <height>50</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="4">
-                <widget class="QPushButton" name="pushButton_12">
-                 <property name="styleSheet">
-                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../../picture/loading.gif</normaloff>../../picture/loading.gif</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>40</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="5">
-                <widget class="QComboBox" name="comboBox_4">
-                 <property name="minimumSize">
-                  <size>
-                   <width>120</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">font-size: 13px;</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="2">
-                <spacer name="horizontalSpacer_12">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
+              <property name="text">
+               <string>安装</string>
+              </property>
              </widget>
             </item>
             <item row="1" column="0">
@@ -2924,14 +2565,296 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
               </property>
              </widget>
             </item>
-            <item row="1" column="2">
-             <widget class="QPushButton" name="pushButton_2">
-              <property name="styleSheet">
-               <string notr="true">font-size: 13px;</string>
+            <item row="0" column="0" colspan="3">
+             <widget class="QGroupBox" name="groupBox_2">
+              <property name="title">
+               <string>安装新游戏——</string>
               </property>
-              <property name="text">
-               <string>安装</string>
-              </property>
+              <layout class="QGridLayout" name="gridLayout_13">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="pushButton_5">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>../../picture/forge.png</normaloff>../../picture/forge.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>50</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_11">
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 15px;</string>
+                 </property>
+                 <property name="text">
+                  <string>Forge
+模组加载器</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <spacer name="horizontalSpacer_15">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Expanding</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>199</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_52">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../../picture/loading.gif</pixmap>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QComboBox" name="comboBox_3">
+                 <property name="minimumSize">
+                  <size>
+                   <width>210</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 13px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QPushButton" name="pushButton_6">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>../../picture/fabric.png</normaloff>../../picture/fabric.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>50</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_19">
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 15px;</string>
+                 </property>
+                 <property name="text">
+                  <string>Fabric
+模组加载器</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <spacer name="horizontalSpacer_14">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLabel" name="label_53">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../../picture/loading.gif</pixmap>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QComboBox" name="comboBox_4">
+                 <property name="minimumSize">
+                  <size>
+                   <width>120</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 13px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QPushButton" name="pushButton_7">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>../../picture/optifine.png</normaloff>../../picture/optifine.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>50</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="label_20">
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 15px;</string>
+                 </property>
+                 <property name="text">
+                  <string>Optifine
+高清修复</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <spacer name="horizontalSpacer_13">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="2" column="3">
+                <widget class="QLabel" name="label_54">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../../picture/loading.gif</pixmap>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="4">
+                <widget class="QComboBox" name="comboBox_5">
+                 <property name="minimumSize">
+                  <size>
+                   <width>120</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 13px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QPushButton" name="pushButton_8">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>../../picture/quilt.png</normaloff>../../picture/quilt.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>50</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="label_21">
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 15px;</string>
+                 </property>
+                 <property name="text">
+                  <string>Quilt
+模组加载器</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <spacer name="horizontalSpacer_12">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="3" column="3">
+                <widget class="QLabel" name="label_55">
+                 <property name="styleSheet">
+                  <string notr="true">border-style:none;width:50px;height:50px;border-radius: 23px;background-color: rgba(235, 235, 235, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../../picture/loading.gif</pixmap>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="4">
+                <widget class="QComboBox" name="comboBox_6">
+                 <property name="minimumSize">
+                  <size>
+                   <width>120</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 13px;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -2953,8 +2876,8 @@ QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>76</width>
-                 <height>63</height>
+                 <width>808</width>
+                 <height>275</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -4068,8 +3991,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>377</width>
-                 <height>1182</height>
+                 <width>832</width>
+                 <height>506</height>
                 </rect>
                </property>
                <property name="styleSheet">
