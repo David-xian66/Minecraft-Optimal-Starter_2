@@ -15,6 +15,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QIcon
 from Java_Downloader_ import Java_Downloader__
 from Java_Downloader_OK import Java_OK_UI
+from Delete_Game_F import Ui_Delete_Game_F_J
 from MOS_print_ import MOS_print, q_h
 from MOS_UI import Ui_MOS
 import MOS_rc
@@ -23,7 +24,7 @@ import MOS_rc
 # https://www.wenjuan.com/s/UZBZJvEm2uK/#《MOS ll 错误反馈》，快来参与吧。【问卷网提供支持】om PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
+class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, Ui_Delete_Game_F_J):
     def __init__(self):
         super(Ui_MOS_Main, self).__init__()
         self.setupUi(self)
@@ -77,6 +78,8 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         self.pushButton_43.clicked.connect(self.click_pushButton_m_d_y_b)
         self.pushButton_45.clicked.connect(self.click_pushButton_m_d_mod)
         self.pushButton_46.clicked.connect(self.click_pushButton_m_d_mod_g)
+        self.lineEdit_3.textChanged.connect(self.click_listWidget_c_m_b_b_w)
+        self.pushButton_40.clicked.connect(self.click_pushButton_D_G_F)
 
         self.comboBox_gonggao_right.clear()
         self.listWidget.clear()
@@ -598,6 +601,32 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
             icon2 = os.path.join("picture", "folder.png")
             item = QListWidgetItem(QIcon(icon2), name_1)
             self.listWidget.addItem(item)
+
+    def click_listWidget_c_m_b_b_w(self):
+        a = self.lineEdit_3.text()
+        if a != '':
+            self.pushButton_39.setEnabled(True)
+        else:
+            self.pushButton_39.setEnabled(False)
+
+    def click_pushButton_D_G_F(self):
+        self.D_G_F = Ui_Delete_Game_F_J()
+        self.xy_size = self.geometry()  # 获取主界面 初始坐标
+        self.D_G_F.move(self.xy_size.x() + 250, self.xy_size.y() + 150)  # 子界面移动到 居中
+
+        self.D_G_F.setWindowFlags(
+            QtCore.Qt.WindowType.WindowCloseButtonHint | QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint | QtCore.Qt.WindowType.WindowStaysOnTopHint | QtCore.Qt.WindowType.FramelessWindowHint | QtCore.Qt.WindowType.Tool)
+        self.D_G_F.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
+        self.D_G_F.pushButton.clicked.connect(self.click_pushButton_D_G_F_OK)
+
+        self.D_G_F_w = QTimer()  # 创建计时器对象
+        self.D_G_F_w.start(0)  # 开始计时器
+        self.D_G_F_w.timeout.connect(self.D_G_F_W)  # 要执行的槽
+        self.D_G_F.show()
+
+    def click_pushButton_D_G_F_OK(self):
+
+        self.a_F.quit()
 
     def click_pushButton_youximululeibiao_back(self):
         """当点击版本列表页面上方的“返回”按钮后……"""
@@ -1405,6 +1434,19 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI):
         except AttributeError:
             pass
 
+
+    def D_G_F_W(self):
+        """检测主窗口位置 并移动下载Java的窗口 到主窗口中央"""
+        self.xy_size = self.geometry()  # 获取主界面 初始坐标
+        try:
+            self.a_F.move(self.xy_size.x() + 250, self.xy_size.y() + 150)  # 子界面移动到 居中
+        except AttributeError:
+            pass
+
+        try:
+            self.a_F.move(self.xy_size.x() + 250, self.xy_size.y() + 150)  # 子界面移动到 居中
+        except AttributeError:
+            pass
     # =================================分割线===================================#
 
 

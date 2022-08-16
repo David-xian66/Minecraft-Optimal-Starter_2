@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Delete_Game_F_UI_J</class>
+ <widget class="QDialog" name="Delete_Game_F_UI_J">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>622</width>
+    <height>127</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>622</width>
+    <height>127</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>622</width>
+    <height>127</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{background-color: rgb(255, 255, 255);}
+#pushButton{border:2px solid rgba(235, 235, 235,0);height:25px;border-radius:5px;}
+#pushButton::hover{background-color: rgb(192, 192, 192);}
+#pushButton::pressed{background-color: rgb(169, 169, 169);}
+
+#pushButton_2{background-color: rgba(255, 255, 255, 0);}
+
+#pushButton_3{border:2px solid rgba(235, 235, 235,0);height:25px;border-radius:5px;}
+#pushButton_3::hover{background-color: rgb(192, 192, 192);}
+#pushButton_3::pressed{background-color: rgb(169, 169, 169);}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="4" colspan="3">
+    <widget class="QPushButton" name="pushButton">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>确定</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="6">
+    <widget class="QLabel" name="label_2">
+     <property name="styleSheet">
+      <string notr="true">font-size: 16px;</string>
+     </property>
+     <property name="text">
+      <string>警告</string>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <property name="indent">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" rowspan="2">
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="minimumSize">
+      <size>
+       <width>50</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>50</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../picture/trash_red.png</normaloff>../../picture/trash_red.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="3">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>434</width>
+       <height>27</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="1" colspan="6">
+    <widget class="QLabel" name="label">
+     <property name="styleSheet">
+      <string notr="true">font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>您确定要删除游戏文件夹吗 这将不会显示在您的游戏列表中 您可以重新添加</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3">
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>取消</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../qrc/Java_Dowmloader.qrc"/>
+ </resources>
+ <connections/>
+</ui>
