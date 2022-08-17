@@ -2525,6 +2525,9 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
            <layout class="QGridLayout" name="gridLayout_26">
             <item row="1" column="2">
              <widget class="QPushButton" name="pushButton_2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="styleSheet">
                <string notr="true">font-size: 13px;</string>
               </property>
