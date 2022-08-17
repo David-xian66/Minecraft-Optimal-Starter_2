@@ -2473,8 +2473,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>808</width>
-                    <height>380</height>
+                    <width>100</width>
+                    <height>57</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2494,6 +2494,14 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                   </layout>
                  </widget>
                  <widget class="QWidget" name="page_27">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>100</width>
+                    <height>57</height>
+                   </rect>
+                  </property>
                   <attribute name="label">
                    <string>远古版</string>
                   </attribute>
@@ -2632,6 +2640,9 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                  <property name="pixmap">
                   <pixmap>../../picture/loading.gif</pixmap>
                  </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
                 </widget>
                </item>
                <item row="0" column="4">
@@ -2701,6 +2712,9 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                  </property>
                  <property name="pixmap">
                   <pixmap>../../picture/loading.gif</pixmap>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -2772,6 +2786,9 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                  <property name="pixmap">
                   <pixmap>../../picture/loading.gif</pixmap>
                  </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
                 </widget>
                </item>
                <item row="2" column="4">
@@ -2840,12 +2857,18 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>../../picture/loading.gif</pixmap>
+                  <pixmap>../../picture/false.png</pixmap>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
                <item row="3" column="4">
                 <widget class="QComboBox" name="comboBox_6">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="minimumSize">
                   <size>
                    <width>120</width>
@@ -2855,6 +2878,11 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                  <property name="styleSheet">
                   <string notr="true">font-size: 13px;</string>
                  </property>
+                 <item>
+                  <property name="text">
+                   <string>由于政治原因 暂不支持</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
               </layout>
@@ -2879,8 +2907,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>808</width>
-                 <height>275</height>
+                 <width>100</width>
+                 <height>63</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -3994,8 +4022,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>832</width>
-                 <height>506</height>
+                 <width>377</width>
+                 <height>1182</height>
                 </rect>
                </property>
                <property name="styleSheet">

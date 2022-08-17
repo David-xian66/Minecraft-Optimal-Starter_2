@@ -922,10 +922,19 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
 
         self.D_G_Forge_ = D_G_Forge(a,self.G_D_Y)
         self.D_G_Forge_.sinOut.connect(self.D_G_Forge_sinOut)
-        self.D_G_Forge_.sinOut_Ok.connect(self.D_G_Forge_sinOut_Ok)
         self.D_G_Forge_.start()
 
+        self.D_G_Fabric_ = D_G_Fabric(a,self.G_D_Y)
+        self.D_G_Fabric_.sinOut.connect(self.D_G_Fabric_sinOut)
+        self.D_G_Fabric_.start()
+
+        self.D_G_Optifine_ = D_G_Optifine(a,self.G_D_Y)
+        self.D_G_Optifine_.sinOut.connect(self.D_G_Optifine_sinOut)
+        self.D_G_Optifine_.start()
+
+
     def click_pushButton_m_d_mod_g(self):
+        """当点击 Mod下载页面的"获取更多后" """
         self.m_d_mod_i += 1
         a = self.mod_url_ + str(self.m_d_mod_i)
         self.m_d_mod_i_q += 30
@@ -936,12 +945,20 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.m_d_mod_g.start()
 
     def D_G_Forge_sinOut(self,l):
+        l.insert(0,'不使用')
         self.comboBox_3.addItems(l)
         self.label_52.setPixmap(QtGui.QPixmap(os.path.join("picture", "yes.png")))
 
+    def D_G_Fabric_sinOut(self,l):
+        l.insert(0,'不使用')
+        self.comboBox_4.addItems(l)
+        self.label_53.setPixmap(QtGui.QPixmap(os.path.join("picture", "yes.png")))
 
-    def D_G_Forge_sinOut_Ok(self):
-        pass
+    def D_G_Optifine_sinOut(self,l):
+        l.insert(0,'不使用')
+        self.comboBox_5.addItems(l)
+        self.label_54.setPixmap(QtGui.QPixmap(os.path.join("picture", "yes.png")))
+
 
     def click_comboBox_shezhi(self):
         """设置页"""
@@ -1870,6 +1887,59 @@ class D_G_Forge(QThread):
             b_1 = b_['version']
             c.append(b_1)
         self.sinOut.emit(c)
+
+
+class D_G_Fabric(QThread):
+    """获取游戏对应的Fabric版本"""
+    sinOut = pyqtSignal(list)
+    sinOut_Ok = pyqtSignal()
+    def __init__(self,b,Y):
+        self.b = str(b) #游戏版本
+
+        if Y == 'MC':
+            self.url = 'https://meta.fabricmc.net/v2/versions/loader/'
+        elif Y == 'MCBBS':
+            self.url = 'https://download.mcbbs.net/fabric-meta/v2/versions/loader/'
+        elif Y == 'BMCLAPI':
+            self.url = 'https://bmclapi2.bangbang93.com/fabric-meta/v2/versions/loader/'
+
+        super(D_G_Fabric, self).__init__()
+    def run(self):
+        url = self.url + self.b
+        headers = {'User-Agent': 'MOS/PyQt6'}
+        a = requests.get(url,headers=headers)
+        b = a.json()
+        c = []
+        for b_ in b:
+            b_1 = b_['version']
+            c.append(b_1)
+        self.sinOut.emit(c)
+
+
+class D_G_Optifine(QThread):
+    """获取游戏对应的Optifine版本"""
+    sinOut = pyqtSignal(list)
+    sinOut_Ok = pyqtSignal()
+    def __init__(self,b,Y):
+        self.b = str(b) #游戏版本
+
+        if Y == 'MCBBS' or 'MC':
+            self.url = 'https://download.mcbbs.net/forge/optifine/'
+        elif Y == 'BMCLAPI':
+            self.url = 'https://bmclapi2.bangbang93.com/optifine/'
+
+        super(D_G_Optifine, self).__init__()
+    def run(self):
+        url = self.url + self.b
+        headers = {'User-Agent': 'MOS/PyQt6'}
+        a = requests.get(url,headers=headers)
+        b = a.json()
+        c = []
+        for b_ in b:
+            b_1 = b_['version']
+            c.append(b_1)
+        self.sinOut.emit(c)
+
 
 
 class MOS_versions(QThread):
