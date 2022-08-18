@@ -993,6 +993,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
 
         self.D_G_A.setWindowFlags(
             QtCore.Qt.WindowType.WindowCloseButtonHint | QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint | QtCore.Qt.WindowType.WindowStaysOnTopHint | QtCore.Qt.WindowType.FramelessWindowHint | QtCore.Qt.WindowType.Tool)
+
         self.D_G_A.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
 
         self.D_G_A.show()
