@@ -7,6 +7,8 @@ import webbrowser
 
 import requests
 
+import MC_Dowmloader_UI
+
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
 from PyQt6.QtCore import *
@@ -15,6 +17,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QIcon
 from Java_Downloader_ import Java_Downloader__
 from Java_Downloader_OK import Java_OK_UI
+from MC_Dowmloader import Ui_MOS_D_MC_Dialog_
 from Delete_Game_F import Ui_Delete_Game_F_J
 from MOS_print_ import MOS_print, q_h
 from MOS_UI import Ui_MOS
@@ -983,6 +986,20 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
             Optifine = None
         else:
             Optifine = self.comboBox_5.currentText()
+
+        self.D_G_A = Ui_MOS_D_MC_Dialog_()
+        self.xy_size = self.geometry()  # 获取主界面 初始坐标
+        self.D_G_A.move(self.xy_size.x() + 284, self.xy_size.y() + 177)  # 子界面移动到 居中
+
+        self.D_G_A.setWindowFlags(
+            QtCore.Qt.WindowType.WindowCloseButtonHint | QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint | QtCore.Qt.WindowType.WindowStaysOnTopHint | QtCore.Qt.WindowType.FramelessWindowHint | QtCore.Qt.WindowType.Tool)
+        self.D_G_A.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
+
+        self.D_G_A.show()
+        #self.D_G_A_w = QTimer()  # 创建计时器对象
+        #self.D_G_A_w.start(0)  # 开始计时器
+        #self.D_G_A_w.timeout.connect(self.a_w_)  # 要执行的槽
+
 
     def click_comboBox_shezhi(self):
         """设置页"""
