@@ -58,7 +58,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
 
         self.comboBox.currentIndexChanged.connect(self.click_comboBox_shezhi)
         self.pushButton_19.clicked.connect(self.click_pushButton_jianchagengxin)
-        self.pushButton_22.clicked.connect(self.chick_pushButton_Java_check)
+        self.pushButton_22.clicked.connect(self.chick_pushButton_Java_Check)
         self.pushButton_23.clicked.connect(self.chick_pushButton_Java_shezhi_xiazai)
         self.comboBox_2.currentIndexChanged.connect(self.click_comboBox_xiazai)
         self.pushButton_27.clicked.connect(self.click_pushButton_Gitee)
@@ -81,6 +81,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.lineEdit_3.textChanged.connect(self.click_listWidget_c_m_b_b_w)
         self.pushButton_40.clicked.connect(self.click_pushButton_D_G_F)
         self.listWidget_4.itemClicked.connect(self.click_listWidget_D_G)
+        self.pushButton_2.clicked.connect(self.click_pushButton_D_G_A)
 
         # 页面渲染加速
         self.c = QTimer()  # 创建计时器对象
@@ -104,6 +105,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.a.sinOut.connect(self.MOS_file_return)
         self.a.sinOut_font.connect(self.MOS_file_return_font)
         self.a.sinOut_Java.connect(self.MOS_file_return_Java)
+        self.a.sinOut_Game_Current_File.connect(self.MOS_file_return_Game_Current_File)
         self.a.start()
 
         if self.comboBox_8.currentText() == '官方源 (速度可能慢 但是最新的)':
@@ -695,14 +697,20 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.gif = QtGui.QMovie(gif_file)
         self.label_26.setMovie(self.gif)
         self.gif.start()
+
         # 开始检测对应的路径下的游戏
         file_name = item.text()
         name = MOS_json_read(MOS_game_dir='Yes', MOS_game_name_dir=file_name)
+
+        name_2 = MOS_json_read(All='Yes')
+        name_2['Game_Current_File'] = name
+
         self.game = game_first_initialize(file_versinons=name)
         self.game.sinOut_game_add.connect(self.game_first_initialize_add)
         self.game.sinOut_game_dir_add.connect(self.game_dir_add)
         self.game.sinOut_game_error.connect(self.game_first_initialize_add_error)
         self.game.start()
+        MOS_json_write(name_2)
 
     def Main_W(self):
         global Main_Window
@@ -725,11 +733,11 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
                 # 获取Json文件内容
                 a_1 = MOS_json_read(All="Yes")
                 # 提取名称列表
-                b_1 = a_1['game_file_name']
+                b_1 = a_1['Game_File_Name']
                 # 将新的名称加到提取出的名称表中
                 b_1.append(b)
                 # 将修改过的名称类表 “替换” 到原类表中
-                a_1['game_file_name'] = b_1
+                a_1['Game_File_Name'] = b_1
                 # 将对应的 路径 添加到 原类表中
                 a_1[b] = a
                 MOS_print("info", str(a_1))
@@ -808,7 +816,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.gif.start()
         self.comboBox_2.setEnabled(False)
 
-        self.m_d_t = m_d_(self.G_D_Y)
+        self.m_d_t = m_d_(self.G_D_Y,self.Game_Current_File)
         self.m_d_t.sinOut.connect(self.m_d_sinOut)
         self.m_d_t.sinOut_Ok.connect(self.m_d_sinOut_Ok)
         self.m_d_t.start()
@@ -959,6 +967,22 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.comboBox_5.addItems(l)
         self.label_54.setPixmap(QtGui.QPixmap(os.path.join("picture", "yes.png")))
 
+    def click_pushButton_D_G_A(self):
+        """点击游戏安装页面中的"安装"按钮后"""
+        if self.comboBox_3.currentText() == '不使用':
+            Forge = None
+        else:
+            Forge = self.comboBox_3.currentText()
+
+        if self.comboBox_4.currentText() == '不使用':
+            Fabric = None
+        else:
+            Fabric = self.comboBox_4.currentText()
+
+        if self.comboBox_5.currentText() == '不使用':
+            Optifine = None
+        else:
+            Optifine = self.comboBox_5.currentText()
 
     def click_comboBox_shezhi(self):
         """设置页"""
@@ -1085,14 +1109,14 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         a = self.comboBox_7.currentText()
         b = MOS_json_read(All='Yes')
         if a == '让MOS自动为您选择':
-            b['Java_c'] = 'None'
+            b['Java_C'] = 'None'
             MOS_print('info', str('选择了设置-Java Json文件改为：' + str(b)))
         else:
             a_1 = a.split(' ===>')
             print(a_1)
             try:
                 a_2 = a_1[1]
-                b['Java_c'] = a_2
+                b['Java_C'] = a_2
             except IndexError or UnboundLocalError:
                 pass
 
@@ -1119,7 +1143,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
             a['Java_add'] = a_1
             MOS_json_write(a)
 
-    def chick_pushButton_Java_check(self):
+    def chick_pushButton_Java_Check(self):
         """点击“刷新Java”按钮后"""
         MOS_print('info', '点击 刷新Java')
         self.pushButton_22.setEnabled(False)
@@ -1127,11 +1151,11 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.pushButton_22.setText("正在获取……")
         QApplication.processEvents()  # 刷新
 
-        self.j = Java_check()
-        self.j.sinOut.connect(self.chick_pushButton_Java_check_sinOut)
+        self.j = Java_Check()
+        self.j.sinOut.connect(self.chick_pushButton_Java_Check_sinOut)
         self.j.start()
 
-    def chick_pushButton_Java_check_sinOut(self, a):
+    def chick_pushButton_Java_Check_sinOut(self, a):
         """在检查Java的线程完成后"""
         MOS_print("info", a)
         self.comboBox_7.clear()
@@ -1393,6 +1417,10 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.comboBox_7.clear()
         l.insert(0, '让MOS自动为您选择')
         self.comboBox_7.addItems(l)
+
+    def MOS_file_return_Game_Current_File(self,file):
+        """在初始化线程返回当前使用的游戏目录后"""
+        self.Game_Current_File = file
 
     def json_error(self):
         a = QMessageBox.critical(None, "错误", "您是否删除了MOS启动器生成的JSON文件？请在删除后重启启动器 即将退出启动器", QMessageBox.StandardButton.Yes,
@@ -1785,7 +1813,8 @@ class m_d_(QThread):
     sinOut = pyqtSignal(str, str, str)
     sinOut_Ok = pyqtSignal()
 
-    def __init__(self,Y):
+    def __init__(self,Y,Game_Current_File):
+        self.Game_Current_File = Game_Current_File
         if Y == 'MC':
             self.url = 'https://launchermeta.mojang.com/mc/game/version_manifest_v2.json'
         elif Y == 'MCBBS':
@@ -1802,6 +1831,14 @@ class m_d_(QThread):
         #r_2 = r.json()['latest']['snapshot']  # 快照版
         #r_3 = r.json()['latest']['old_alpha']  # 远古版
         r_4 = r.json()['versions']
+
+        f = os.path.join(self.Game_Current_File,'versions','version.json')
+        with open(f, 'w+') as f_:
+            #print(r.json())
+            #a = json.loads(str(r.json()))
+            a = json.loads(str(r.text))
+            json.dump(a, f_, ensure_ascii=False, sort_keys=False, indent=4, separators=(',', ': '))
+
         ids_1 = []
         ids_2 = []
         for r_3_1 in r_4:
@@ -2049,6 +2086,7 @@ class MOS_file(QThread):
     sinOut_updates_no = pyqtSignal()
     sinOut_updates = pyqtSignal()
     sinOut_Java = pyqtSignal(list)
+    sinOut_Game_Current_File = pyqtSignal(str)
 
     def __init__(self):
         super(MOS_file, self).__init__()
@@ -2111,21 +2149,22 @@ class MOS_file(QThread):
                             'font': 'Microsoft Yahei UI',
                             'font_default': 'Yes',
                             'Automatically_checking_for_updates': 'True',
-                            'game_file_name': ['默认目录'],
+                            'Game_Current_File':MOS_file_1,
+                            'Game_File_Name': ['默认目录'],
                             '默认目录': MOS_file_1,
-                            'Java_c': 'None',
+                            'Java_C': 'None',
                             'Java_add': [],
                             'MC_Download': 'MC'
-
                         }
                     elif system_h() == 'darwin':
                         a = {
                             'font': 'PingFang SC',
                             'font_default': 'Yes',
                             'Automatically_checking_for_updates': 'True',
-                            'game_file_name': ['默认目录'],
+                            'Game_Current_File': MOS_file_1,
+                            'Game_File_Name': ['默认目录'],
                             '默认目录': MOS_file_1,
-                            'Java_c': 'None',
+                            'Java_C': 'None',
                             'Java_add': [],
                             'MC_Download':'MC'
                         }
@@ -2134,9 +2173,10 @@ class MOS_file(QThread):
                             'font': 'FangSong',
                             'font_default': 'Yes',
                             'Automatically_checking_for_updates': 'True',
-                            'game_file_name': ['默认目录'],
+                            'Game_Current_File': MOS_file_1,
+                            'Game_File_Name': ['默认目录'],
                             '默认目录': MOS_file_1,
-                            'Java_c': 'None',
+                            'Java_C': 'None',
                             'Java_add': [],
                             'MC_Download': 'MC'
                         }
@@ -2166,7 +2206,10 @@ class MOS_file(QThread):
                             c_1 = '默认字体：' + c
                             MOS_print("info", c_1)
                             self.sinOut_font.emit(c)
-                        MOS_game_dir_name = b['game_file_name']
+                        MOS_game_dir_name = b['Game_File_Name']
+                        MOS_game_current_file = b['Game_Current_File']
+                        MOS_print('info',str('当前选择目录：' + MOS_game_current_file))
+                        self.sinOut_Game_Current_File.emit(MOS_game_current_file)
                         MOS_print("info", '游戏版本列表(名称): ' + str(MOS_game_dir_name))
                         for MOS_game_dir_name_1 in MOS_game_dir_name:
                             """在json文件中，根据版本名称列表，读取在字典中对应的路径"""
@@ -2174,7 +2217,7 @@ class MOS_file(QThread):
                             MOS_print("info", MOS_game_dir_name_1 + ' 游戏目录的路径: ' + str(MOS_game_dir))
 
                         if len(b['Java_add']) > 0:
-                            print('11111' + str(b['Java_add']))
+                            MOS_print('info',str('Java路径：' + str(b['Java_add'])))
                             self.sinOut_Java.emit(b['Java'])
 
                     except KeyError:
@@ -2372,11 +2415,11 @@ class game_first_initialize(QThread):
             MOS_print("error", str("找不到" + file_1 + "没有游戏目录"))
 
 
-class Java_check(QThread):
+class Java_Check(QThread):
     sinOut = pyqtSignal(dict)
 
     def __init__(self):
-        super(Java_check, self).__init__()
+        super(Java_Check, self).__init__()
 
     def run(self):
         import subprocess
@@ -2471,10 +2514,10 @@ def MOS_json_read(All=None, MOS_game_dir=None, MOS_game_dir_name_or_dir=None, MO
                 pass
             if MOS_game_dir == 'Yes':
                 if MOS_game_dir_name_or_dir == 'name':
-                    MOS_game_dir_name_ = b['game_file_name']
+                    MOS_game_dir_name_ = b['Game_File_Name']
                     return MOS_game_dir_name_
                 elif MOS_game_dir_name_or_dir == 'dir':
-                    MOS_game_dir_name_ = b['game_file_name']
+                    MOS_game_dir_name_ = b['Game_File_Name']
                     MOS_game_dir_DirPrint = []
                     for MOS_game_dir_name_1 in MOS_game_dir_name_:
                         MOS_game_dir = b[MOS_game_dir_name_1]
@@ -2491,6 +2534,7 @@ def MOS_json_read(All=None, MOS_game_dir=None, MOS_game_dir_name_or_dir=None, MO
                     # 列表推导式
                     # b为整个Json数据 MOS_game_name_dir为路径
                     # 返回的是个类表
+                    del b['Game_Current_File']
                     k_2 = [k for k, v in b.items() if v == MOS_game_dir_to_name]
                     # 为了避免意外，对列表进行检查，检查是否只有一个值
                     if len(k_2) == 1:

@@ -2534,7 +2534,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
             <item row="1" column="2">
              <widget class="QPushButton" name="pushButton_2">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="styleSheet">
                <string notr="true">font-size: 13px;</string>
@@ -4022,8 +4022,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>377</width>
-                 <height>1182</height>
+                 <width>832</width>
+                 <height>506</height>
                 </rect>
                </property>
                <property name="styleSheet">
