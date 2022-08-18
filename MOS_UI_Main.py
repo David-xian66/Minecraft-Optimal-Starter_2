@@ -1841,6 +1841,7 @@ class m_d_mod(QThread):
 
 
 class m_d_mod_p(QThread):
+    """获取Mod列表的图片"""
     sinOut = pyqtSignal(str,str) #前 编号  后 图标路径
     def __init__(self,l):
         self.l = l
@@ -1865,7 +1866,6 @@ class m_d_mod_p(QThread):
 class D_G_Forge(QThread):
     """获取游戏对应的Forge版本"""
     sinOut = pyqtSignal(list)
-    sinOut_Ok = pyqtSignal()
     def __init__(self,b,Y):
         self.b = str(b) #游戏版本
 
@@ -1883,16 +1883,21 @@ class D_G_Forge(QThread):
         a = requests.get(url,headers=headers)
         b = a.json()
         c = []
-        for b_ in b:
-            b_1 = b_['version']
-            c.append(b_1)
-        self.sinOut.emit(c)
+        try:
+            for b_ in b:
+                b_1 = b_['version']
+                c.append(b_1)
+            self.sinOut.emit(c)
+        except KeyError:
+            MOS_print('info',str(a.url + '没有Forge'))
+            self.sinOut.emit([])  # 返回一个空列表
+            #break
+
 
 
 class D_G_Fabric(QThread):
     """获取游戏对应的Fabric版本"""
     sinOut = pyqtSignal(list)
-    sinOut_Ok = pyqtSignal()
     def __init__(self,b,Y):
         self.b = str(b) #游戏版本
 
@@ -1910,21 +1915,27 @@ class D_G_Fabric(QThread):
         a = requests.get(url,headers=headers)
         b = a.json()
         c = []
-        for b_ in b:
-            b_1 = b_['version']
-            c.append(b_1)
-        self.sinOut.emit(c)
+        try:
+            for b_ in b:
+                b_1 = b_['loader']['version']
+                c.append(b_1)
+            self.sinOut.emit(c)
+        except KeyError:
+            MOS_print('info',str(a.url + '没有Fabric'))
+            self.sinOut.emit([])  # 返回一个空列表
+            #break
+
+
 
 
 class D_G_Optifine(QThread):
     """获取游戏对应的Optifine版本"""
     sinOut = pyqtSignal(list)
-    sinOut_Ok = pyqtSignal()
     def __init__(self,b,Y):
         self.b = str(b) #游戏版本
 
         if Y == 'MCBBS' or 'MC':
-            self.url = 'https://download.mcbbs.net/forge/optifine/'
+            self.url = 'https://download.mcbbs.net/optifine/'
         elif Y == 'BMCLAPI':
             self.url = 'https://bmclapi2.bangbang93.com/optifine/'
 
@@ -1935,10 +1946,16 @@ class D_G_Optifine(QThread):
         a = requests.get(url,headers=headers)
         b = a.json()
         c = []
-        for b_ in b:
-            b_1 = b_['version']
-            c.append(b_1)
-        self.sinOut.emit(c)
+        print(url)
+        if b == []:
+            MOS_print('info',str(url + '没有Optifine'))
+            self.sinOut.emit([])  # 返回一个空列表
+        else:
+            for b_ in b:
+                b_1 = b_['type']
+                c.append(b_1)
+            self.sinOut.emit(c)
+
 
 
 
