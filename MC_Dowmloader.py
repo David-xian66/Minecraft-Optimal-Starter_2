@@ -1,6 +1,8 @@
 # coding=utf-8
 import json
 
+import requests
+
 from MC_Dowmloader_UI import Ui_MOS_D_MC_Dialog
 
 from PyQt6.QtWidgets import  QApplication, QLabel,QDialogButtonBox,QDialog
@@ -41,6 +43,8 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
                 json_url = b_1['url']
                 break
         print(json_url)
+        u = requests.get(json_url)
+        u_json = u.json()
 
     def clicked_pushButton_close(self):
         self.pushButton.setEnabled(False) #为了防止重复操作 直接禁用按钮
