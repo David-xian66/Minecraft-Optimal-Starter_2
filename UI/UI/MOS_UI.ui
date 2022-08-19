@@ -2473,8 +2473,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>57</height>
+                    <width>808</width>
+                    <height>380</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2498,8 +2498,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>57</height>
+                    <width>808</width>
+                    <height>380</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2907,8 +2907,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>63</height>
+                 <width>808</width>
+                 <height>275</height>
                 </rect>
                </property>
                <property name="styleSheet">

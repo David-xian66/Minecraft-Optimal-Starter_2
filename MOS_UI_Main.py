@@ -918,6 +918,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
     def click_listWidget_D_G(self):
         """在点击游戏列表中的某一项后"""
         a = self.listWidget_4.selectedItems()[0].text()
+        self.G_D_V = a
         self.groupBox_2.setTitle(str('安装新游戏——') + a)
         self.stackedWidget_2.setCurrentIndex(1)
         self.comboBox_3.clear()
@@ -986,8 +987,8 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
             Optifine = None
         else:
             Optifine = self.comboBox_5.currentText()
-
-        self.D_G_A = Ui_MOS_D_MC_Dialog_()
+        a = os.path.join(self.Game_Current_File,'versions','version.json')
+        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File,self.G_D_Y,a,self.G_D_V,Forge,Fabric,Optifine)
         self.xy_size = self.geometry()  # 获取主界面 初始坐标
         self.D_G_A.move(self.xy_size.x() + 284, self.xy_size.y() + 177)  # 子界面移动到 居中
 
@@ -995,7 +996,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
             QtCore.Qt.WindowType.WindowCloseButtonHint | QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint | QtCore.Qt.WindowType.WindowStaysOnTopHint | QtCore.Qt.WindowType.FramelessWindowHint | QtCore.Qt.WindowType.Tool)
 
         self.D_G_A.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
-
+        self.D_G_A.run()
         self.D_G_A.show()
         #self.D_G_A_w = QTimer()  # 创建计时器对象
         #self.D_G_A_w.start(0)  # 开始计时器
