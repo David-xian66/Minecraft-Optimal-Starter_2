@@ -123,32 +123,43 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             pass
         else:
             self.a_len_1 += 1
-        self.D_R()
+        asyncio.run(self.D_R())
 
-    def D_R(self):
+    async def D_R(self):
         try:
             while self.a_len_1:
                 self.a_len_s += self.a_len_s_
                 new_loop = asyncio.new_event_loop()
                 if self.a_len_1 - self.a_len_s < self.a_len_s_:
                     for pool_2 in self.pool[self.a_len_s:]:
-                        myCoroutine = self.startCoroutine()
-                        asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
-                        asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), myCoroutine)
+                        self.queue = asyncio.Queue(maxsize=50) #新建队列
+                        self.queue.put_nowait(pool_2)
+                        #myCoroutine = self.startCoroutine()
+                        #asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+                        #asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), myCoroutine)
                         # asyncio.run(self.D_X_S(pool_2))
                 else:
                     for pool_2 in self.pool[self.a_len_s:self.a_len_s + self.a_len_s_]:
-                        myCoroutine = self.startCoroutine()
-                        asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
-                        asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), myCoroutine)
-                        # asyncio.run(self.D_X_S(pool_2))
+                        queue = asyncio.Queue() #新建队列
+                        queue.put(pool_2)
+                        #myCoroutine = self.startCoroutine()
+                        #asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+                        #asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), myCoroutine)
+                        asyncio.run(self.D_X_S(queue))
                 # self.myLoop.close()
         except:
             traceback.print_exc()
 
-    async def D_X_S(self, a):
+    async def D_X_S(self,queue):
         try:
-            await self.D_X(a)
+            while True:
+                print(121)
+                if queue.empty() == True:
+                    # 如果队列为空
+                    break
+                a = await queue.get()
+                await self.D_X(a)
+                queue.task_done()
         except:
             traceback.print_exc()
 
