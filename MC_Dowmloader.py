@@ -21,7 +21,7 @@ import uvloop
 from MC_Dowmloader_UI import Ui_MOS_D_MC_Dialog
 
 from PyQt6.QtWidgets import QApplication, QLabel, QDialogButtonBox, QDialog
-from PyQt6.QtCore import QPropertyAnimation, QTimer, QThread, pyqtSignal
+from PyQt6.QtCore import QPropertyAnimation, QTimer, QThread, pyqtSignal,QThreadPool
 from PyQt6 import QtWidgets, QtCore
 
 
@@ -115,80 +115,24 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             self.pool.append(a)
 
         self.a_len = len(self.pool)
-        self.a_len_s_ = 70
-        self.a_len_s = -self.a_len_s_
-        self.a_len_1 = self.a_len // self.a_len_s_
-        if self.a_len % self.a_len_s_ == 0:
-            # 如果正好整除
-            pass
-        else:
+        self.a_len_s_1 = 70 #每个线程任务量
+        self.a_len_s_2 = -self.a_len_s_1
+        self.a_len_1 = self.a_len // self.a_len_s_1
+        if self.a_len % self.a_len_s_1 != 0:
+            # 如果不能整除
             self.a_len_1 += 1
-        self.D_R()
+        while True:
+            self.a_len_s_2 += self.a_len_s_1
+            if self.a_len - self.a_len_s_2 < self.a_len_s_1:
+                pool_2 = self.pool[self.a_len_s_2:]
+                print(str(self.a_len_s_2) + ' : ~')
+                break
+            else:
+                pool_2 = self.pool[self.a_len_s_2:self.a_len_s_2 + self.a_len_s_1 - 1]
+                print(str(self.a_len_s_2) + ' : ' + str(self.a_len_s_2 + self.a_len_s_1 - 1))
 
-    def D_R(self):
-        T_pool = ProcessPoolExecutor(max_workers=self.a_len_1)
-        try:
-            while self.a_len_1:
-                print(99)
-                self.a_len_s += self.a_len_s_
-                if self.a_len_1 - self.a_len_s < self.a_len_s_:
-                    print(666)
-                    pool_2 = self.pool[self.a_len_s:]
-                    T_pool.submit(self.D_R_2,pool_2)
-                    break
-                    # asyncio.run(self.D_X_S(pool_2))
-                else:
-                    pool_2 = self.pool[self.a_len_s:self.a_len_s + self.a_len_s_ -1]
-                    T_pool.submit(self.D_R_2,pool_2)
-                    print(self.a_len_s)
-                    # asyncio.run(self.D_X_S(pool_2))
-                # self.myLoop.close()
-        except:
-            traceback.print_exc()
-
-
-    def D_R_2(self,pool_2):
-        print(88)
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(asyncio.wait(self.D_X_S(pool_2)))
-
-    async def D_X_S(self, a):
-        try:
-            await self.D_X(a)
-        except:
-            traceback.print_exc()
-
-    async def D_X(self, pool_2):
-        """下载"""
-        for pool_3 in pool_2:
-            while True:
-                try:
-                    print(999)
-                    a = requests.get(pool_3[0], stream=True)
-                    os.makedirs(pool_3[1], exist_ok=True)
-                    with open(pool_3[2], 'wb') as f:
-                        f.write(a.content)
-                        f.flush()
-                        f.close()
-                    break
-                except OSError:
-                    print('存储异常 重试')
-                    time.sleep(0.1)
-                except requests.exceptions.ConnectionError:
-                    print('链接失败 重试')
-                except:
-                    traceback.print_exc()
-            while True:
-                try:
-                    print(pool_3[2])
-                    self.pool.remove(pool_3)
-                    print(len(self.pool))
-                    if len(self.pool) == 0:
-                        self.loop.stop()
-                        self.loop.close()
-                    break
-                except:
-                    traceback.print_exc()
+            D = M_D_(pool_2)
+            D.start()
 
     def clicked_pushButton_close(self):
         self.pushButton.setEnabled(False)  # 为了防止重复操作 直接禁用按钮
@@ -201,3 +145,20 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
 
     def close_(self):
         self.close()
+
+
+class M_D_(QThread):
+    def __init__(self, l):
+        self.l = l
+        super(M_D_, self).__init__()
+
+    def run(self):
+        for l_2 in l:
+            url = l_2[0]
+            os.makedirs(l_2[1], exist_ok=True)
+            a = requests.get(url, stream=True)
+            with open(l_2[2], 'wb') as f:
+                f.write(a.content)
+                f.flush()
+                f.close()
+            print(l_2[2])

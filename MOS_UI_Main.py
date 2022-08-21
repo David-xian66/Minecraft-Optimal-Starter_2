@@ -2618,7 +2618,7 @@ def system_h():
 
 
 def versions():
-    versions = '2.0.5'
+    versions = '2.0.6'
     return versions
 
 
