@@ -1,6 +1,8 @@
 # coding=utf-8
 
 #from gevent import monkey
+import nest_asyncio
+nest_asyncio.apply()
 
 import json
 import os.path
@@ -12,6 +14,8 @@ from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 
 import requests
 import asyncio
+
+import uvloop
 
 from MC_Dowmloader_UI import Ui_MOS_D_MC_Dialog
 
@@ -107,24 +111,30 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             pass
         else:
             self.a_len_1 += 1
-        self.D_R()
+        future = asyncio.ensure_future(self.D_R())
+        future.add_done_callback(self.run)
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(future)
 
 
-    def D_R(self):
+    async def D_R(self):
 
         while self.a_len_1:
             self.a_len_s += 30
             new_loop = asyncio.new_event_loop()
             if self.a_len_1 - self.a_len_s < 30:
                 for pool_2 in self.pool[self.a_len_s:]:
-                    self.startCoroutine()
-                    #self.myLoop.run_until_complete(lambda response: asyncio.ensure_future(self.D_X_S(pool_2)))  # 添加协程
-                    asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), new_loop)
+                    #loop = asyncio.get_event_loop()
+                    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+                    #await loop.run_until_complete(self.D_X_S(pool_2))
+                    asyncio.run(self.D_X_S(pool_2))
             else:
                 for pool_2 in self.pool[self.a_len_s:self.a_len_s+30]:
-                    loop = asyncio.get_event_loop()
-                    loop.run_until_complete(self.D_X_S(pool_2))
-            self.myLoop.close()
+                    #loop = asyncio.get_event_loop()
+                    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+                    #await loop.run_until_complete(self.D_X_S(pool_2))
+                    asyncio.run(self.D_X_S(pool_2))
+            #self.myLoop.close()
 
 
     async def D_X_S(self,a):
