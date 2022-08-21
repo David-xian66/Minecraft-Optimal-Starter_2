@@ -987,8 +987,9 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
             Optifine = None
         else:
             Optifine = self.comboBox_5.currentText()
+        MC_Name = self.lineEdit.text()
         a = os.path.join(self.Game_Current_File,'versions','version.json')
-        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File,self.G_D_Y,a,self.G_D_V,Forge,Fabric,Optifine)
+        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File,self.G_D_Y,a,self.G_D_V,MC_Name,Forge,Fabric,Optifine)
         self.xy_size = self.geometry()  # 获取主界面 初始坐标
         self.D_G_A.move(self.xy_size.x() + 284, self.xy_size.y() + 177)  # 子界面移动到 居中
 
@@ -996,8 +997,9 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
             QtCore.Qt.WindowType.WindowCloseButtonHint | QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint | QtCore.Qt.WindowType.WindowStaysOnTopHint | QtCore.Qt.WindowType.FramelessWindowHint | QtCore.Qt.WindowType.Tool)
 
         self.D_G_A.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
-        self.D_G_A.run()
+
         self.D_G_A.show()
+        self.D_G_A.run()
         #self.D_G_A_w = QTimer()  # 创建计时器对象
         #self.D_G_A_w.start(0)  # 开始计时器
         #self.D_G_A_w.timeout.connect(self.a_w_)  # 要执行的槽
