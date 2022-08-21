@@ -124,31 +124,33 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         else:
             self.a_len_1 += 1
         self.D_R()
-        with ProcessPoolExecutor(max_workers=self.a_len_1) as pool:
-            pool.submit(self.D_R())
 
     def D_R(self):
+        T_pool = ProcessPoolExecutor(max_workers=self.a_len_1)
         try:
             while self.a_len_1:
+                print(99)
                 self.a_len_s += self.a_len_s_
-                new_loop = asyncio.new_event_loop()
                 if self.a_len_1 - self.a_len_s < self.a_len_s_:
+                    print(666)
                     pool_2 = self.pool[self.a_len_s:]
-                    myCoroutine = self.startCoroutine()
-                    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
-                    asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), myCoroutine)
+                    T_pool.submit(self.D_R_2,pool_2)
                     break
                     # asyncio.run(self.D_X_S(pool_2))
                 else:
                     pool_2 = self.pool[self.a_len_s:self.a_len_s + self.a_len_s_ -1]
-                    myCoroutine = self.startCoroutine()
-                    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
-                    asyncio.run_coroutine_threadsafe(self.D_X(pool_2), myCoroutine)
+                    T_pool.submit(self.D_R_2,pool_2)
                     print(self.a_len_s)
                     # asyncio.run(self.D_X_S(pool_2))
                 # self.myLoop.close()
         except:
             traceback.print_exc()
+
+
+    def D_R_2(self,pool_2):
+        print(88)
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(asyncio.wait(self.D_X_S(pool_2)))
 
     async def D_X_S(self, a):
         try:
