@@ -50,16 +50,9 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
 
     def startCoroutine(self) -> asyncio.events.AbstractEventLoop:
         """
-        创建并开始协程。返回 loop 实体
+        创建协程。
         """
-        def startLoop(loop):
-            self.loop = loop
-            asyncio.set_event_loop(loop)
-            loop.run_forever()
-        self.myLoop = asyncio.new_event_loop()  # 获得事件循环
-        myThread = Thread(target=startLoop, args=(self.myLoop,))  # 将 loop 装入线程。参数中的逗号是必要的
-        myThread.start()  # 开启线程
-        return self.myLoop
+        self.myLoop = asyncio.get_event_loop()  # 创建一个事件循环
 
     def run(self):
         with open(self.Json_File,'r',encoding='utf_8') as f:
@@ -106,26 +99,49 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             a = [url,file_first,file]
             self.pool.append(a)
 
-        for pool_2 in self.pool[:50]:
-            myCoroutine = self.startCoroutine()
-            asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), myCoroutine)  # 添加协程
+        self.a_len = len(self.pool)
+        self.a_len_s = -30
+        self.a_len_1 = self.a_len//30
+        if self.a_len % 30 == 0:
+            # 如果正好整除
+            pass
+        else:
+            self.a_len_1 += 1
+        self.D_R()
 
-        for pool_2 in self.pool[51:100]:
-            myCoroutine = self.startCoroutine()
-            asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), myCoroutine)  # 添加协程
+
+    def D_R(self):
+
+        while self.a_len_1:
+            self.a_len_s += 30
+            new_loop = asyncio.new_event_loop()
+            if self.a_len_1 - self.a_len_s < 30:
+                for pool_2 in self.pool[self.a_len_s:]:
+                    self.startCoroutine()
+                    #self.myLoop.run_until_complete(lambda response: asyncio.ensure_future(self.D_X_S(pool_2)))  # 添加协程
+                    asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), new_loop)
+            else:
+                for pool_2 in self.pool[self.a_len_s:self.a_len_s+30]:
+                    loop = asyncio.get_event_loop()
+                    loop.run_until_complete(self.D_X_S(pool_2))
+            self.myLoop.close()
 
 
-    async def D_X_S(self, url, file_first, file):
+    async def D_X_S(self,a):
         try:
-            await self.D_X(url, file_first, file)
+            await self.D_X(a)
         except:
             traceback.print_exc()
 
     async def D_X(self,pool_2):
         """下载"""
         try:
-            print(len(self.pool))
-            a = requests.get(pool_2[0],stream=True)
+            while True:
+                try:
+                    a = requests.get(pool_2[0],stream=True)
+                    break
+                except requests.exceptions.ConnectionError:
+                    print('链接失败 重试')
             #print(file)
             os.makedirs(pool_2[1], exist_ok=True)
             with open(pool_2[2], 'wb') as f:
@@ -133,10 +149,13 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
                 f.flush()
                 f.close()
             print(pool_2[2])
-            self.pool.remove(pool_2[2])
+            self.pool.remove(pool_2)
+            print(len(self.pool))
             if len(self.pool) == 0:
                 self.loop.stop()
                 self.loop.close()
+        except requests.exceptions.ConnectionError:
+            print('链接失败 重试')
         except:
             traceback.print_exc()
 
