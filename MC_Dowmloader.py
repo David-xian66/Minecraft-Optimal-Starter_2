@@ -115,7 +115,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             self.pool.append(a)
 
         self.a_len = len(self.pool)
-        self.a_len_s_ = 500
+        self.a_len_s_ = 70
         self.a_len_s = -self.a_len_s_
         self.a_len_1 = self.a_len // self.a_len_s_
         if self.a_len % self.a_len_s_ == 0:
@@ -123,77 +123,70 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             pass
         else:
             self.a_len_1 += 1
-        asyncio.run(self.D_R())
+        self.D_R()
+        with ProcessPoolExecutor(max_workers=self.a_len_1) as pool:
+            pool.submit(self.D_R())
 
-    async def D_R(self):
+    def D_R(self):
         try:
             while self.a_len_1:
                 self.a_len_s += self.a_len_s_
                 new_loop = asyncio.new_event_loop()
                 if self.a_len_1 - self.a_len_s < self.a_len_s_:
-                    for pool_2 in self.pool[self.a_len_s:]:
-                        self.queue = asyncio.Queue(maxsize=50) #新建队列
-                        self.queue.put_nowait(pool_2)
-                        #myCoroutine = self.startCoroutine()
-                        #asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
-                        #asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), myCoroutine)
-                        # asyncio.run(self.D_X_S(pool_2))
+                    pool_2 = self.pool[self.a_len_s:]
+                    myCoroutine = self.startCoroutine()
+                    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+                    asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), myCoroutine)
+                    break
+                    # asyncio.run(self.D_X_S(pool_2))
                 else:
-                    for pool_2 in self.pool[self.a_len_s:self.a_len_s + self.a_len_s_]:
-                        queue = asyncio.Queue() #新建队列
-                        queue.put(pool_2)
-                        #myCoroutine = self.startCoroutine()
-                        #asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
-                        #asyncio.run_coroutine_threadsafe(self.D_X_S(pool_2), myCoroutine)
-                        asyncio.run(self.D_X_S(queue))
+                    pool_2 = self.pool[self.a_len_s:self.a_len_s + self.a_len_s_ -1]
+                    myCoroutine = self.startCoroutine()
+                    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+                    asyncio.run_coroutine_threadsafe(self.D_X(pool_2), myCoroutine)
+                    print(self.a_len_s)
+                    # asyncio.run(self.D_X_S(pool_2))
                 # self.myLoop.close()
         except:
             traceback.print_exc()
 
-    async def D_X_S(self,queue):
+    async def D_X_S(self, a):
         try:
-            while True:
-                print(121)
-                if queue.empty() == True:
-                    # 如果队列为空
-                    break
-                a = await queue.get()
-                await self.D_X(a)
-                queue.task_done()
+            await self.D_X(a)
         except:
             traceback.print_exc()
 
     async def D_X(self, pool_2):
         """下载"""
-        try:
+        for pool_3 in pool_2:
             while True:
-                while True:
-                    try:
-                        a = requests.get(pool_2[0], stream=True)
-                        os.makedirs(pool_2[1], exist_ok=True)
-                        with open(pool_2[2], 'wb') as f:
-                            f.write(a.content)
-                            f.flush()
-                            f.close()
-                        break
-                    except OSError:
-                        print('存储异常 重试')
-                        time.sleep(0.1)
-                    except requests.exceptions.ConnectionError:
-                        print('链接失败 重试')
-                    except:
-                        traceback.print_exc()
-
-            print(pool_2[2])
-            self.pool.remove(pool_2)
-            print(len(self.pool))
-            if len(self.pool) == 0:
-                self.loop.stop()
-                self.loop.close()
-        except requests.exceptions.ConnectionError:
-            print('链接失败 重试')
-        except:
-            traceback.print_exc()
+                try:
+                    print(999)
+                    a = requests.get(pool_3[0], stream=True)
+                    os.makedirs(pool_3[1], exist_ok=True)
+                    with open(pool_3[2], 'wb') as f:
+                        f.write(a.content)
+                        f.flush()
+                        f.close()
+                    break
+                except OSError:
+                    print('存储异常 重试')
+                    time.sleep(0.1)
+                except requests.exceptions.ConnectionError:
+                    print('链接失败 重试')
+                except:
+                    traceback.print_exc()
+            while True:
+                try:
+                    print(pool_3[2])
+                    self.pool.remove(pool_3)
+                    print(len(self.pool))
+                    if len(self.pool) == 0:
+                        self.loop.stop()
+                        self.loop.close()
+                    break
+                except:
+                    traceback.print_exc()
 
     def clicked_pushButton_close(self):
         self.pushButton.setEnabled(False)  # 为了防止重复操作 直接禁用按钮
