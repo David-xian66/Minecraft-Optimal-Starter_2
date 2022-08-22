@@ -101,7 +101,8 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             json.dump(u_ziyuan_json_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
 
         # 下载资源索引文件
-        self.pool = []
+        global pool
+        pool = self.pool = []
         file_1 = os.path.join(self.Game_Current_File, 'assets', 'objects')
 
         for u_ziyuan_1, u_ziyuan_2 in u_ziyuan_json_get_json['objects'].items():
@@ -115,12 +116,13 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             self.pool.append(a)
 
         self.a_len = len(self.pool)
-        self.a_len_s_1 = 70 #每个线程任务量
+        self.a_len_s_1 = 100 #每个线程任务量
         self.a_len_s_2 = -self.a_len_s_1
         self.a_len_1 = self.a_len // self.a_len_s_1
         if self.a_len % self.a_len_s_1 != 0:
             # 如果不能整除
             self.a_len_1 += 1
+        self.pool_ = ProcessPoolExecutor()
         while True:
             self.a_len_s_2 += self.a_len_s_1
             if self.a_len - self.a_len_s_2 < self.a_len_s_1:
@@ -131,8 +133,12 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
                 pool_2 = self.pool[self.a_len_s_2:self.a_len_s_2 + self.a_len_s_1 - 1]
                 print(str(self.a_len_s_2) + ' : ' + str(self.a_len_s_2 + self.a_len_s_1 - 1))
 
-            D = M_D_(pool_2)
-            D.start()
+            #D = M_D_(pool_2)
+            #D.start()
+            a = self.pool_.submit(M_D_Run,pool_2)
+            #b = a.result()
+            print('qqqqq')
+        self.pool_.shutdown()
 
     def clicked_pushButton_close(self):
         self.pushButton.setEnabled(False)  # 为了防止重复操作 直接禁用按钮
@@ -146,13 +152,17 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
     def close_(self):
         self.close()
 
+    def pool_h(self):
+        return self.pool
 
-class M_D_(QThread):
-    def __init__(self, l):
-        self.l = l
-        super(M_D_, self).__init__()
+    def pool_d(self,t):
+        self.pool.remove(t)
 
-    def run(self):
+
+
+def M_D_Run(l):
+    try:
+        print('RUN ! ! ! ! ')
         for l_2 in l:
             url = l_2[0]
             os.makedirs(l_2[1], exist_ok=True)
@@ -161,4 +171,7 @@ class M_D_(QThread):
                 f.write(a.content)
                 f.flush()
                 f.close()
-            print(l_2[2])
+            Ui_MOS_D_MC_Dialog_.pool_d(l_2)
+            print(l_2[2] + '\n' + str(len(Ui_MOS_D_MC_Dialog_.pool_h())))
+    except:
+        traceback.print_exc()
