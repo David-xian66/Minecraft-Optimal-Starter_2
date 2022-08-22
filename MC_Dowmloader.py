@@ -1,29 +1,29 @@
 # coding=utf-8
-
+# https://mp.weixin.qq.com/s/kxWmO6Q_VYt749OhAoTEUA
 # from gevent import monkey
+import threading
+
+import aiohttp
 import nest_asyncio
 
 nest_asyncio.apply()
 
 import json
 import os.path
-import queue
 import time
 import traceback
-from threading import Thread
-from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 
 import requests
 import asyncio
 
-import uvloop
-
 from MC_Dowmloader_UI import Ui_MOS_D_MC_Dialog
 
 from PyQt6.QtWidgets import QApplication, QLabel, QDialogButtonBox, QDialog
-from PyQt6.QtCore import QPropertyAnimation, QTimer, QThread, pyqtSignal,QThreadPool
+from PyQt6.QtCore import QPropertyAnimation, QTimer, QThread, pyqtSignal
 from PyQt6 import QtWidgets, QtCore
 
+pool = []
+time_1 = ''
 
 class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
     """下载&安装游戏"""
@@ -43,6 +43,9 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         super(Ui_MOS_D_MC_Dialog_, self).__init__()
         self.setupUi(self)
 
+        global pool
+        pool = []
+
         self.Game_Current_File = Game_Current_File
         self.G_D_Y = G_D_Y
         self.Json_File = Json_File
@@ -54,20 +57,6 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
 
         self.pushButton.clicked.connect(self.clicked_pushButton_close)
         self.show()
-
-    def startCoroutine(self) -> asyncio.events.AbstractEventLoop:
-        """
-        创建并开始协程。返回 loop 实体
-        """
-
-        def startLoop(loop):
-            asyncio.set_event_loop(loop)
-            loop.run_forever()
-
-        myLoop = asyncio.new_event_loop()  # 获得事件循环
-        myThread = Thread(target=startLoop, args=(myLoop,))  # 将 loop 装入线程。参数中的逗号是必要的
-        myThread.start()  # 开启线程
-        return myLoop
 
     def run(self):
         with open(self.Json_File, 'r', encoding='utf_8') as f:
@@ -101,8 +90,6 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             json.dump(u_ziyuan_json_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
 
         # 下载资源索引文件
-        global pool
-        pool = self.pool = []
         file_1 = os.path.join(self.Game_Current_File, 'assets', 'objects')
 
         for u_ziyuan_1, u_ziyuan_2 in u_ziyuan_json_get_json['objects'].items():
@@ -113,32 +100,48 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             file_first = os.path.join(file_1, hash_2)
             file = os.path.join(file_first, hash)
             a = [url, file_first, file]
-            self.pool.append(a)
+            pool.append(a)
 
-        self.a_len = len(self.pool)
-        self.a_len_s_1 = 100 #每个线程任务量
+        self.a_len = int(len(pool))
+        self.a_len_s_1 = 25 #每个线程任务量
         self.a_len_s_2 = -self.a_len_s_1
         self.a_len_1 = self.a_len // self.a_len_s_1
         if self.a_len % self.a_len_s_1 != 0:
-            # 如果不能整除
+            # 如果正好整除
+            pass
+        else:
             self.a_len_1 += 1
-        self.pool_ = ProcessPoolExecutor()
-        while True:
-            self.a_len_s_2 += self.a_len_s_1
-            if self.a_len - self.a_len_s_2 < self.a_len_s_1:
-                pool_2 = self.pool[self.a_len_s_2:]
-                print(str(self.a_len_s_2) + ' : ~')
-                break
-            else:
-                pool_2 = self.pool[self.a_len_s_2:self.a_len_s_2 + self.a_len_s_1 - 1]
-                print(str(self.a_len_s_2) + ' : ' + str(self.a_len_s_2 + self.a_len_s_1 - 1))
+        asyncio.run(self.D_R_Start())
 
-            #D = M_D_(pool_2)
-            #D.start()
-            a = self.pool_.submit(M_D_Run,pool_2)
-            #b = a.result()
-            print('qqqqq')
-        self.pool_.shutdown()
+    async def D_R_Start(self):
+        await asyncio.gather(self.D_R())
+
+
+    async def D_R(self):
+        try:
+            a = []
+            s = 0
+            while self.a_len_1:
+                s += 1
+                self.a_len_s_2 += self.a_len_s_1
+                if self.a_len - self.a_len_s_2 < self.a_len_s_1:
+                    pool_2 = pool[self.a_len_s_2:]
+                    a.append(D_X(pool_2))
+                    break
+                else:
+                    pool_2 = pool[self.a_len_s_2:self.a_len_s_2 + self.a_len_s_1]
+                    a.append(asyncio.ensure_future(D_X(pool_2)))
+                    print(str(self.a_len_s_2) + ' : ' + str(self.a_len_s_2 + self.a_len_s_1))
+
+            await asyncio.wait([D_X_Start(a)])
+
+            global time_2,time_1
+            time_2 = time.perf_counter()
+            print(time_2 - time_1)
+
+        except:
+            traceback.print_exc()
+
 
     def clicked_pushButton_close(self):
         self.pushButton.setEnabled(False)  # 为了防止重复操作 直接禁用按钮
@@ -152,26 +155,52 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
     def close_(self):
         self.close()
 
-    def pool_h(self):
-        return self.pool
-
-    def pool_d(self,t):
-        self.pool.remove(t)
 
 
-
-def M_D_Run(l):
+async def D_X_Start(a):
+    """创建"""
     try:
-        print('RUN ! ! ! ! ')
-        for l_2 in l:
-            url = l_2[0]
-            os.makedirs(l_2[1], exist_ok=True)
-            a = requests.get(url, stream=True)
-            with open(l_2[2], 'wb') as f:
-                f.write(a.content)
-                f.flush()
-                f.close()
-            Ui_MOS_D_MC_Dialog_.pool_d(l_2)
-            print(l_2[2] + '\n' + str(len(Ui_MOS_D_MC_Dialog_.pool_h())))
+        global time_1
+        time_1 = time.perf_counter()
+        await asyncio.wait(a)
     except:
         traceback.print_exc()
+
+
+async def D_X(pool_2):
+    """下载"""
+    global pool
+    #await asyncio.sleep(0)
+    for pool_3 in pool_2:
+        while True:
+            try:
+                #a = requests.get(pool_3[0], stream=True)
+                os.makedirs(pool_3[1], exist_ok=True)
+                #with open(pool_3[2], 'wb') as f:
+                #    f.write(a.content)
+                #    f.flush()
+                #    f.close()
+                async with aiohttp.ClientSession() as session:
+                    async with session.post(pool_3[0]) as resp:
+                        with open(pool_3[2], 'wb') as fd:
+                            # iter_chunked() 设置每次保存文件内容大小，单位bytes
+                            async for chunk in resp.content.iter_chunked(8192):
+                                fd.write(chunk)
+                break
+            except OSError:
+                print('存储异常 重试')
+                time.sleep(0.1)
+            except requests.exceptions.ConnectionError:
+                print('链接失败 重试')
+            except:
+                traceback.print_exc()
+        while True:
+            try:
+                print(pool_3[2])
+                pool.remove(pool_3)
+                print(len(pool))
+                break
+            except:
+                traceback.print_exc()
+                print(pool)
+                break
