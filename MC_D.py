@@ -142,12 +142,11 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
                 self.a_len_s_2 += self.a_len_s_1
                 if self.a_len - self.a_len_s_2 < self.a_len_s_1:
                     pool_2 = pool[self.a_len_s_2:]
-                    a.append(D_X(pool_2))
+                    a[s] = D_X(pool_2)
                     break
-                    # asyncio.run(self.D_X_S(pool_2))
                 else:
                     pool_2 = pool[self.a_len_s_2:self.a_len_s_2 + self.a_len_s_1 - 1]
-                    a.append(D_X(pool_2))
+                    a[s] = D_X(pool_2)
                     print(str(self.a_len_s_2) + ' : ' + str(self.a_len_s_2 + self.a_len_s_1 - 1))
 
             await asyncio.wait([D_X_Start_2(a)])
@@ -172,11 +171,8 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
 
 async def D_X_Start_2(a):
     try:
-        b = []
-        for a_1 in a[:3]:
-            b.append(a_1)
-        for a_1 in a[4:]:
-            b.append(a_1)
+        for a_1 in a.values():
+            pass
         await asyncio.wait(b)
     except:
         traceback.print_exc()
