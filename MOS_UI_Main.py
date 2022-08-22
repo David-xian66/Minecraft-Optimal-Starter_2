@@ -17,7 +17,8 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QIcon
 from Java_Downloader_ import Java_Downloader__
 from Java_Downloader_OK import Java_OK_UI
-from MC_Dowmloader import Ui_MOS_D_MC_Dialog_
+#from MC_Dowmloader import Ui_MOS_D_MC_Dialog_
+from MC_D import Ui_MOS_D_MC_Dialog_
 from Delete_Game_F import Ui_Delete_Game_F_J
 from MOS_print_ import MOS_print, q_h
 from MOS_UI import Ui_MOS
