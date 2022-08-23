@@ -35,7 +35,7 @@ class Dowmloader():
     def __init__(self, url, nums, file):
         self.url = url      # url链接
         self.num = nums     # 线程数
-        self.name = file    # 文件名字
+        self.name = file    # 文件名字(路径)
         self.getSize = 0    # 大小
         self.info = {
             'main': {

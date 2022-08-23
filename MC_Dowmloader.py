@@ -1,5 +1,9 @@
 # coding=utf-8
+
 # https://mp.weixin.qq.com/s/kxWmO6Q_VYt749OhAoTEUA
+# https://blog.csdn.net/bluehawksky/article/details/106283636
+# http://t.zoukankan.com/qiu-hua-p-12862576.html
+
 # from gevent import monkey
 import threading
 
@@ -17,11 +21,10 @@ import requests
 import asyncio
 
 from MC_Dowmloader_UI import Ui_MOS_D_MC_Dialog
-
 from PyQt6.QtWidgets import QApplication, QLabel, QDialogButtonBox, QDialog
 from PyQt6.QtCore import QPropertyAnimation, QTimer, QThread, pyqtSignal
 from PyQt6 import QtWidgets, QtCore
-
+from MOS_Dowmloader import Dowmloader
 pool = []
 time_1 = ''
 
@@ -70,7 +73,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         u = requests.get(json_url)
         u_get_json = u.json()
 
-        # 解析为json格式 并存储
+        # 解析为json格式 并存储 (版本的json文件)
         u_text_file = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, os.path.basename(json_url))
         # 创建文件夹
         u_text_file_c = os.path.join(self.Game_Current_File, 'versions', self.MC_Name)
@@ -84,10 +87,17 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         u_ziyuan_json_get = requests.get(u_ziyuan_json_1)
         u_ziyuan_json_get_json = u_ziyuan_json_get.json()
 
-        # 解析为json格式 并存储
+        # 解析为json格式 并存储 (资源文件)
         u_ziyuan_file = os.path.join(self.Game_Current_File, 'assets', 'indexes', os.path.basename(u_ziyuan_json_1))
         with open(u_ziyuan_file, 'w+', encoding='utf-8') as f:
             json.dump(u_ziyuan_json_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
+
+        # 下载游戏主文件
+        file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name,str(self.MC_Name + '.jar'))
+        u_mc_z = u_get_json['downloads']['client']
+        self.u_mc_z_s = D_MC(u_mc_z,file_1)
+        self.u_mc_z_s.start()
+
 
         # 下载资源索引文件
         file_1 = os.path.join(self.Game_Current_File, 'assets', 'objects')
@@ -103,7 +113,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             pool.append(a)
 
         self.a_len = int(len(pool))
-        self.a_len_s_1 = 25 #每个线程任务量
+        self.a_len_s_1 = 25 #每个协程任务量
         self.a_len_s_2 = -self.a_len_s_1
         self.a_len_1 = self.a_len // self.a_len_s_1
         if self.a_len % self.a_len_s_1 != 0:
@@ -111,11 +121,10 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             pass
         else:
             self.a_len_1 += 1
-        asyncio.run(self.D_R_Start())
+        asyncio.run(asyncio.gather(self.D_R()))
 
     async def D_R_Start(self):
         await asyncio.gather(self.D_R())
-
 
     async def D_R(self):
         try:
@@ -181,16 +190,16 @@ async def D_X(pool_2):
                 #    f.flush()
                 #    f.close()
                 async with aiohttp.ClientSession() as session:
+                    # aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
                     async with session.post(pool_3[0]) as resp:
                         with open(pool_3[2], 'wb') as fd:
                             # iter_chunked() 设置每次保存文件内容大小，单位bytes
-                            async for chunk in resp.content.iter_chunked(8192):
+                            async for chunk in resp.content.iter_chunked(3172):
                                 fd.write(chunk)
                 break
             except OSError:
                 print('存储异常 重试')
-                time.sleep(0.1)
-            except requests.exceptions.ConnectionError:
+            except aiohttp.client_exceptions.ServerDisconnectedError:
                 print('链接失败 重试')
             except:
                 traceback.print_exc()
@@ -204,3 +213,24 @@ async def D_X(pool_2):
                 traceback.print_exc()
                 print(pool)
                 break
+
+
+
+class D_MC(QThread):
+    def __init__(self,l,file):
+        self.l = l
+        self.file = file
+        super(D_MC, self).__init__()
+    def run(self):
+        shal = self.l['sha1']
+        size = self.l['size']
+        url = self.l['url']
+        Dowmloader(url,50,self.file).run()
+        #
+        #r = requests.get(url, stream=True)
+        #with open(self.file, 'wb') as fp:
+        #    for item in r.iter_content(102400):
+        #        # 10240表示每次会写入10240个字节，即10KB
+        #        fp.write(item)
+        #
+        print('###############################################')
