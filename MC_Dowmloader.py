@@ -73,9 +73,10 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         # 下载版本的json文件
         u = requests.get(json_url)
         u_get_json = u.json()
+        u_get_json['id'] = self.MC_Name
 
         # 解析为json格式 并存储 (版本的json文件)
-        u_text_file = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, os.path.basename(json_url))
+        u_text_file = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.json'))
         # 创建文件夹
         u_text_file_c = os.path.join(self.Game_Current_File, 'versions', self.MC_Name)
         os.makedirs(u_text_file_c, exist_ok=True)
@@ -462,6 +463,19 @@ class D_MC_YL(QThread):
         except:
             traceback.print_exc()
 
+
+class D_MC_Q(QThread):
+    def __init__(self,u_get_json):
+        """下载其他文件"""
+        self.json = u_get_json
+        super(D_MC_Q, self).__init__()
+    def run(self):
+        try:
+            logging_ = self.json['logging']
+        except KeyError:
+            pass
+        except:
+            traceback.print_exc()
 
 
 def system_h():
