@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>561</width>
-    <height>249</height>
+    <width>560</width>
+    <height>245</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>560</width>
+    <height>245</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>561</width>
+    <height>245</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
@@ -21,40 +33,15 @@ QPushButton{border:2px solid rgba(235, 235, 235,0);height:25px;border-radius:5px
 QPushButton::hover{background-color: rgb(192, 192, 192);}
 QPushButton::pressed{background-color: rgb(169, 169, 169);}</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="2" column="1">
-    <widget class="QPushButton" name="pushButton">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>150</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>150</width>
-       <height>30</height>
-      </size>
-     </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
      <property name="text">
-      <string>取消</string>
+      <string>安装游戏</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_5">
-     <property name="text">
-      <string>0 MB/S - 正在准备下载</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0" colspan="2">
+   <item row="1" column="0" rowspan="2" colspan="2">
     <widget class="QScrollArea" name="scrollArea">
      <property name="styleSheet">
       <string notr="true">QScrollArea{border-style:none;background-color: rgba(255, 255, 255, 0);}
@@ -137,22 +124,22 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>537</width>
-        <height>172</height>
+        <width>536</width>
+        <height>222</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0" colspan="3">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
         <widget class="QLabel" name="label_2">
          <property name="text">
           <string>下载主文件</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="0" colspan="3">
+       <item>
         <widget class="QProgressBar" name="progressBar">
          <property name="minimum">
           <number>0</number>
@@ -168,7 +155,14 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
          </property>
         </widget>
        </item>
-       <item row="4" column="0" colspan="3">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>下载资源库文件</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QProgressBar" name="progressBar_2">
          <property name="value">
           <number>5</number>
@@ -181,21 +175,14 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
          </property>
         </widget>
        </item>
-       <item row="5" column="0">
+       <item>
         <widget class="QLabel" name="label_4">
          <property name="text">
           <string>安装游戏</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="0" colspan="3">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>下载资源库</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0" colspan="3">
+       <item>
         <widget class="QProgressBar" name="progressBar_3">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -214,14 +201,59 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>下载资源库文件</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar_4">
+         <property name="value">
+          <number>5</number>
+         </property>
+         <property name="textVisible">
+          <bool>false</bool>
+         </property>
+         <property name="invertedAppearance">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </widget>
    </item>
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="label">
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_5">
      <property name="text">
-      <string>安装游戏</string>
+      <string>0 MB/S - 正在准备下载</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QPushButton" name="pushButton">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>150</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>取消</string>
      </property>
     </widget>
    </item>

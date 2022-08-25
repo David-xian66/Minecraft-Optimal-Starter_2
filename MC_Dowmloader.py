@@ -5,6 +5,7 @@
 # http://t.zoukankan.com/qiu-hua-p-12862576.html
 
 # from gevent import monkey
+import sys
 
 import aiohttp
 import nest_asyncio
@@ -25,6 +26,7 @@ from PyQt6.QtCore import QPropertyAnimation, QTimer, QThread, pyqtSignal
 from PyQt6 import QtWidgets, QtCore
 from MOS_Dowmloader import Dowmloader
 pool = []
+pool_2 = []
 time_1 = ''
 
 class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
@@ -95,6 +97,10 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.D_MC_ZY_.sinOut.connect(self.D_MC_ZY_sinOut)
         self.D_MC_ZY_.start()
 
+        # 下载资源索引文件
+        self.D_MC_YL_ = D_MC_YL(u_get_json,self.Game_Current_File)
+        self.D_MC_YL_.start()
+
 
     def D_MC_ZY_sinOut(self):
         self.label.setText('11111111111111')
@@ -110,8 +116,6 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
 
     def close_(self):
         self.close()
-
-
 
 
 
@@ -185,9 +189,8 @@ class D_MC_ZY(QThread):
 
             await asyncio.wait([self.D_X_Start(a)])
 
-            global time_2,time_1
-            time_2 = time.perf_counter()
-            print(time_2 - self.time_1)
+            self.time_2 = time.perf_counter()
+            print(self.time_2 - self.time_1)
         except:
             traceback.print_exc()
 
@@ -202,16 +205,10 @@ class D_MC_ZY(QThread):
     async def D_X(self,pool_2):
         """下载"""
         global pool
-        # await asyncio.sleep(0)
         for pool_3 in pool_2:
             while True:
                 try:
-                    # a = requests.get(pool_3[0], stream=True)
                     os.makedirs(pool_3[1], exist_ok=True)
-                    # with open(pool_3[2], 'wb') as f:
-                    #    f.write(a.content)
-                    #    f.flush()
-                    #    f.close()
                     async with aiohttp.ClientSession() as session:
                         # aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
                         async with session.post(pool_3[0]) as resp:
@@ -258,3 +255,222 @@ class D_MC_Z(QThread):
         #        fp.write(item)
         #
         print('###############################################')
+
+
+class D_MC_YL(QThread):
+    def __init__(self,u_get_json,Game_Current_File):
+        """下载依赖库文件"""
+        self.u_get_json = u_get_json
+        self.Game_Current_File = Game_Current_File
+        super(D_MC_YL, self).__init__()
+    def run(self):
+        # 遍历json中的资源文件部分
+        a = self.u_get_json['libraries']
+        global pool_2
+        for a_ in a:
+            a_1 = a_['downloads']
+            try:
+                try:
+                    m = a_1['rules']['os']
+                    s = system_h()
+
+                    if s == 'win32' or 'cygwin':
+                        sy = 'windows'
+                    elif s == 'darwin':
+                        sy = 'osx'
+                    else:
+                        sy = 'linux'
+
+                    if sy == m:
+                        path_1 = a_1['artifact']['path']
+                        sha1 = a_1['artifact']['sha1']
+                        size = a_1['artifact']['size']
+                        url = a_1['artifact']['url']
+
+                except KeyError:
+                    path_1 = a_1['artifact']['path']
+                    sha1 = a_1['artifact']['sha1']
+                    size = a_1['artifact']['size']
+                    url = a_1['artifact']['url']
+
+                path = os.path.join(self.Game_Current_File, 'libraries', path_1)
+                path_q = path.split(os.path.basename(path))[0]
+                c = [url, path, path_q, size]
+                pool_2.append(c)
+
+            except KeyError:
+                try:
+                    # natives文件
+                    s = system_h()
+                    if s == 'win32' or 'cygwin':
+                        sy = 'natives-windows'
+                    elif s == 'darwin':
+                        sy = 'natives-osx'
+                    else:
+                        sy = 'natives-linux'
+
+                    path_1 = a_1['classifiers'][sy]['path']
+                    sha1 = a_1['classifiers'][sy]['sha1']
+                    size = a_1['classifiers'][sy]['size']
+                    url = a_1['classifiers'][sy]['url']
+
+                    path = os.path.join(self.Game_Current_File, 'libraries', path_1)
+                    path_q = path.split(os.path.basename(path))[0]
+                    c = [url, path, path_q, size]
+                    pool_2.append(c)
+
+                except KeyError:
+                    s = system_h()
+                    c = ['natives-windows','natives-osx','natives-macos','natives-linux']
+                    if s == 'win32' or 'cygwin':
+                        sy = ['natives-windows']
+                    elif s == 'darwin':
+                        sy = ['natives-osx','natives-macos']
+                    else:
+                        sy = ['natives-linux']
+
+                    classifiers_ = a_1['classifiers']
+
+                    try:
+                        for b_1 in sy:
+                            try:
+                                c.remove(b_1)
+                            except KeyError:
+                                pass
+                        for b_2 in sy:
+                            try:
+                                del classifiers_[b_2]
+                            except KeyError:
+                                pass
+
+                        for a_2 in classifiers_.keys():
+                            path_1 = a_1['classifiers'][a_2]['path']
+                            sha1 = a_1['classifiers'][a_2]['sha1']
+                            size = a_1['classifiers'][a_2]['size']
+                            url = a_1['classifiers'][a_2]['url']
+                            path = os.path.join(self.Game_Current_File, 'libraries', path_1)
+                            path_q = path.split(os.path.basename(path))[0]
+                            a = [url, path, path_q, size]
+                            pool_2.append(a)
+
+                    except KeyError:
+                        for a_2 in a_1['classifiers'].keys():
+                            path_1 = a_1['classifiers'][a_2]['path']
+                            sha1 = a_1['classifiers'][a_2]['sha1']
+                            size = a_1['classifiers'][a_2]['size']
+                            url = a_1['classifiers'][a_2]['url']
+                            path = os.path.join(self.Game_Current_File, 'libraries', path_1)
+                            path_q = path.split(os.path.basename(path))[0]
+                            a = [url, path, path_q, size]
+                            pool_2.append(a)
+
+
+                        path_1 = a_1['artifact']['path']
+                        sha1 = a_1['artifact']['sha1']
+                        size = a_1['artifact']['size']
+                        url = a_1['artifact']['url']
+
+                        path = os.path.join(self.Game_Current_File, 'libraries', path_1)
+                        path_q = path.split(os.path.basename(path))[0]
+                        c = [url, path, path_q, size]
+                        pool_2.append(c)
+
+
+        self.a_len = int(len(pool_2))
+        self.a_len_s_1 = 2 #每个协程任务量
+        self.a_len_s_2 = -self.a_len_s_1
+        self.a_len_1 = self.a_len // self.a_len_s_1
+        if self.a_len % self.a_len_s_1 != 0:
+            # 如果正好整除
+            pass
+        else:
+            self.a_len_1 += 1
+        print(self.a_len_1)
+
+        new_loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(new_loop)
+        asyncio.run(asyncio.gather(self.D_R()))
+
+
+    async def D_R(self):
+        try:
+            self.a = []
+            s = 0
+            global pool_2
+            while self.a_len_1:
+                s += 1
+                self.a_len_s_2 += self.a_len_s_1
+                print(111111111111111111)
+                if self.a_len - self.a_len_s_2 < self.a_len_s_1:
+                    pool_3 = pool_2[self.a_len_s_2:]
+                    self.a.append(self.D_X(pool_3))
+                    break
+                else:
+                    pool_3 = pool_2[self.a_len_s_2:self.a_len_s_2 + self.a_len_s_1]
+                    self.a.append(asyncio.ensure_future(self.D_X(pool_3)))
+                    print(str(self.a_len_s_2) + ' : ' + str(self.a_len_s_2 + self.a_len_s_1) + 'ZY')
+
+            await asyncio.wait([self.D_X_Start(self.a)])
+
+            self.time_2 = time.perf_counter()
+            print(self.time_2 - self.time_1)
+        except:
+            traceback.print_exc()
+
+
+    async def D_X_Start(self,a):
+        """创建"""
+        try:
+            self.time_1 = time.perf_counter()
+            print(a)
+            await asyncio.wait(a)
+        except:
+            traceback.print_exc()
+
+    async def D_X(self,pool_3):
+        """下载"""
+        try:
+            global pool_2
+            for pool_4 in pool_3:
+                while True:
+                    try:
+                        os.makedirs(pool_4[2], exist_ok=True)
+                        async with aiohttp.ClientSession() as session:
+                            async with session.post(pool_4[0]) as resp:
+                                with open(pool_4[1], 'wb') as fd:
+                                    # iter_chunked() 设置每次保存文件内容大小，单位bytes
+                                    async for chunk in resp.content.iter_chunked(3172):
+                                        fd.write(chunk)
+                        break
+
+                    except aiohttp.client_exceptions.ServerDisconnectedError:
+                        print('链接失败 重试')
+                    except OSError:
+                        print('存储异常 重试')
+
+                    except:
+                        traceback.print_exc()
+                while True:
+                    try:
+                        pool_2.remove(pool_4)
+                        print(str(len(pool_2)) + 'pppppp')
+                        break
+                    except:
+                        traceback.print_exc()
+                        print(pool)
+                        break
+        except:
+            traceback.print_exc()
+
+
+
+def system_h():
+    """
+        'win32':Windows
+        'cygwin':Windows/Cygwin
+        'darwin':macOS
+        'aix':AIX
+        'linux':Linux
+    """
+    a = str(sys.platform)
+    return a
