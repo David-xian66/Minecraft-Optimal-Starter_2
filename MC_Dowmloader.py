@@ -5,7 +5,6 @@
 # http://t.zoukankan.com/qiu-hua-p-12862576.html
 
 # from gevent import monkey
-import threading
 
 import aiohttp
 import nest_asyncio
@@ -45,6 +44,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         """
         super(Ui_MOS_D_MC_Dialog_, self).__init__()
         self.setupUi(self)
+        self.show()
 
         global pool
         pool = []
@@ -59,7 +59,6 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.Optifine = Optifine
 
         self.pushButton.clicked.connect(self.clicked_pushButton_close)
-        self.show()
 
     def run(self):
         with open(self.Json_File, 'r', encoding='utf_8') as f:
@@ -82,27 +81,67 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         with open(u_text_file, 'w+', encoding='utf-8') as f:
             json.dump(u_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
 
-        # 获取 存储资源文件的json文件
-        u_ziyuan_json_1 = u_get_json['assetIndex']['url']  # 获取资源文件链接
-        u_ziyuan_json_get = requests.get(u_ziyuan_json_1)
-        u_ziyuan_json_get_json = u_ziyuan_json_get.json()
 
-        # 解析为json格式 并存储 (资源文件)
-        u_ziyuan_file = os.path.join(self.Game_Current_File, 'assets', 'indexes', os.path.basename(u_ziyuan_json_1))
-        with open(u_ziyuan_file, 'w+', encoding='utf-8') as f:
-            json.dump(u_ziyuan_json_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
 
         # 下载游戏主文件
         file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name,str(self.MC_Name + '.jar'))
         u_mc_z = u_get_json['downloads']['client']
-        self.u_mc_z_s = D_MC(u_mc_z,file_1)
+        self.u_mc_z_s = D_MC_Z(u_mc_z,file_1)
         self.u_mc_z_s.start()
 
 
         # 下载资源索引文件
+        self.D_MC_ZY_ = D_MC_ZY(u_get_json,self.Game_Current_File)
+        self.D_MC_ZY_.sinOut.connect(self.D_MC_ZY_sinOut)
+        self.D_MC_ZY_.start()
+
+
+    def D_MC_ZY_sinOut(self):
+        self.label.setText('11111111111111')
+
+    def clicked_pushButton_close(self):
+        self.pushButton.setEnabled(False)  # 为了防止重复操作 直接禁用按钮
+        self.anim = QPropertyAnimation(self, b"windowOpacity")  # 设置动画对象
+        self.anim.setDuration(300)  # 设置动画时长
+        self.anim.setStartValue(1)  # 设置初始属性，1.0为不透明
+        self.anim.setEndValue(0)  # 设置结束属性，0为完全透明
+        self.anim.finished.connect(self.close_)  # 动画结束时，关闭窗口
+        self.anim.start()  # 开始动画
+
+    def close_(self):
+        self.close()
+
+
+
+
+
+
+
+class D_MC_ZY(QThread):
+    sinOut = pyqtSignal()
+
+    def __init__(self,u_get_json,Game_Current_File):
+        """下载资源文件"""
+        self.u_get_json = u_get_json
+        self.Game_Current_File = Game_Current_File
+        super(D_MC_ZY, self).__init__()
+    def run(self):
+
+        # 获取 存储资源文件的json文件
+        self.u_ziyuan_json_1 = self.u_get_json['assetIndex']['url']  # 获取资源文件链接
+        self.u_ziyuan_json_get = requests.get(self.u_ziyuan_json_1)
+        self.u_ziyuan_json_get_json = self.u_ziyuan_json_get.json()
+
+
+        # 解析为json格式 并存储 (资源文件)
+        self.u_ziyuan_file = os.path.join(self.Game_Current_File, 'assets', 'indexes', os.path.basename(self.u_ziyuan_json_1))
+        with open(self.u_ziyuan_file, 'w+', encoding='utf-8') as f:
+            json.dump(self.u_ziyuan_json_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
+
+
         file_1 = os.path.join(self.Game_Current_File, 'assets', 'objects')
 
-        for u_ziyuan_1, u_ziyuan_2 in u_ziyuan_json_get_json['objects'].items():
+        for u_ziyuan_1, u_ziyuan_2 in self.u_ziyuan_json_get_json['objects'].items():
             hash = u_ziyuan_2['hash']
             hash_2 = hash[:2]
             size = u_ziyuan_2['size']
@@ -121,10 +160,12 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             pass
         else:
             self.a_len_1 += 1
-        asyncio.run(asyncio.gather(self.D_R()))
 
-    async def D_R_Start(self):
-        await asyncio.gather(self.D_R())
+        self.sinOut.emit()
+
+        new_loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(new_loop)
+        asyncio.run(asyncio.gather(self.D_R()))
 
     async def D_R(self):
         try:
@@ -135,92 +176,75 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
                 self.a_len_s_2 += self.a_len_s_1
                 if self.a_len - self.a_len_s_2 < self.a_len_s_1:
                     pool_2 = pool[self.a_len_s_2:]
-                    a.append(D_X(pool_2))
+                    a.append(self.D_X(pool_2))
                     break
                 else:
                     pool_2 = pool[self.a_len_s_2:self.a_len_s_2 + self.a_len_s_1]
-                    a.append(asyncio.ensure_future(D_X(pool_2)))
+                    a.append(asyncio.ensure_future(self.D_X(pool_2)))
                     print(str(self.a_len_s_2) + ' : ' + str(self.a_len_s_2 + self.a_len_s_1))
 
-            await asyncio.wait([D_X_Start(a)])
+            await asyncio.wait([self.D_X_Start(a)])
 
             global time_2,time_1
             time_2 = time.perf_counter()
-            print(time_2 - time_1)
-
+            print(time_2 - self.time_1)
         except:
             traceback.print_exc()
 
+    async def D_X_Start(self,a):
+        """创建"""
+        try:
+            self.time_1 = time.perf_counter()
+            await asyncio.wait(a)
+        except:
+            traceback.print_exc()
 
-    def clicked_pushButton_close(self):
-        self.pushButton.setEnabled(False)  # 为了防止重复操作 直接禁用按钮
-        self.anim = QPropertyAnimation(self, b"windowOpacity")  # 设置动画对象
-        self.anim.setDuration(300)  # 设置动画时长
-        self.anim.setStartValue(1)  # 设置初始属性，1.0为不透明
-        self.anim.setEndValue(0)  # 设置结束属性，0为完全透明
-        self.anim.finished.connect(self.close_)  # 动画结束时，关闭窗口
-        self.anim.start()  # 开始动画
-
-    def close_(self):
-        self.close()
-
-
-
-async def D_X_Start(a):
-    """创建"""
-    try:
-        global time_1
-        time_1 = time.perf_counter()
-        await asyncio.wait(a)
-    except:
-        traceback.print_exc()
-
-
-async def D_X(pool_2):
-    """下载"""
-    global pool
-    #await asyncio.sleep(0)
-    for pool_3 in pool_2:
-        while True:
-            try:
-                #a = requests.get(pool_3[0], stream=True)
-                os.makedirs(pool_3[1], exist_ok=True)
-                #with open(pool_3[2], 'wb') as f:
-                #    f.write(a.content)
-                #    f.flush()
-                #    f.close()
-                async with aiohttp.ClientSession() as session:
-                    # aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
-                    async with session.post(pool_3[0]) as resp:
-                        with open(pool_3[2], 'wb') as fd:
-                            # iter_chunked() 设置每次保存文件内容大小，单位bytes
-                            async for chunk in resp.content.iter_chunked(3172):
-                                fd.write(chunk)
-                break
-            except OSError:
-                print('存储异常 重试')
-            except aiohttp.client_exceptions.ServerDisconnectedError:
-                print('链接失败 重试')
-            except:
-                traceback.print_exc()
-        while True:
-            try:
-                print(pool_3[2])
-                pool.remove(pool_3)
-                print(len(pool))
-                break
-            except:
-                traceback.print_exc()
-                print(pool)
-                break
+    async def D_X(self,pool_2):
+        """下载"""
+        global pool
+        # await asyncio.sleep(0)
+        for pool_3 in pool_2:
+            while True:
+                try:
+                    # a = requests.get(pool_3[0], stream=True)
+                    os.makedirs(pool_3[1], exist_ok=True)
+                    # with open(pool_3[2], 'wb') as f:
+                    #    f.write(a.content)
+                    #    f.flush()
+                    #    f.close()
+                    async with aiohttp.ClientSession() as session:
+                        # aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+                        async with session.post(pool_3[0]) as resp:
+                            with open(pool_3[2], 'wb') as fd:
+                                # iter_chunked() 设置每次保存文件内容大小，单位bytes
+                                async for chunk in resp.content.iter_chunked(3172):
+                                    fd.write(chunk)
+                    break
+                except OSError:
+                    print('存储异常 重试')
+                except aiohttp.client_exceptions.ServerDisconnectedError:
+                    print('链接失败 重试')
+                except:
+                    traceback.print_exc()
+            while True:
+                try:
+                    print(pool_3[2])
+                    pool.remove(pool_3)
+                    print(len(pool))
+                    break
+                except:
+                    traceback.print_exc()
+                    print(pool)
+                    break
 
 
 
-class D_MC(QThread):
+class D_MC_Z(QThread):
     def __init__(self,l,file):
+        """下载jar文件"""
         self.l = l
         self.file = file
-        super(D_MC, self).__init__()
+        super(D_MC_Z, self).__init__()
     def run(self):
         shal = self.l['sha1']
         size = self.l['size']
