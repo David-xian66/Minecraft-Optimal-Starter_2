@@ -162,13 +162,13 @@ class D_MC_ZY(QThread):
         elif len(pool) <= 1000:
             self.a_len_s_1 = 10  # 每个协程任务量
         elif len(pool) <= 1500:
-            self.a_len_s_1 = 13  # 每个协程任务量
+            self.a_len_s_1 = 5  # 每个协程任务量
         elif len(pool) <= 2000:
             self.a_len_s_1 = 17  # 每个协程任务量
         elif len(pool) <= 3000:
-            self.a_len_s_1 = 20  # 每个协程任务量
+            self.a_len_s_1 = 10  # 每个协程任务量
         elif len(pool) <= 4000:
-            self.a_len_s_1 = 25  # 每个协程任务量
+            self.a_len_s_1 = 10  # 每个协程任务量
         else:
             self.a_len_s_1 = 25  # 每个协程任务量
 
@@ -231,7 +231,7 @@ class D_MC_ZY(QThread):
                         async with session.get(pool_3[0]) as resp:
                             with open(pool_3[2], 'wb') as fd:
                                 # iter_chunked() 设置每次保存文件内容大小，单位bytes
-                                async for chunk in resp.content.iter_chunked(8388608):
+                                async for chunk in resp.content.iter_chunked(102400):
                                     fd.write(chunk)
                 except OSError:
                     print('存储异常 重试')
@@ -265,7 +265,7 @@ class D_MC_Z(QThread):
         shal = self.l['sha1']
         size = self.l['size']
         url = self.l['url']
-        Dowmloader(url, 50, self.file).run()
+        Dowmloader(url, 40, self.file).run()
         #
         # r = requests.get(url, stream=True)
         # with open(self.file, 'wb') as fp:
@@ -319,7 +319,7 @@ class D_MC_YL(QThread):
                 pass
 
         self.a_len = int(len(pool_2))
-        self.a_len_s_1 = 2  # 每个协程任务量
+        self.a_len_s_1 = 3  # 每个协程任务量
         self.a_len_s_2 = -self.a_len_s_1
         self.a_len_1 = self.a_len // self.a_len_s_1
         if self.a_len % self.a_len_s_1 != 0:
@@ -378,9 +378,7 @@ class D_MC_YL(QThread):
                             async with session.get(pool_4[0]) as resp:
                                 with open(pool_4[1], 'wb') as fd:
                                     # iter_chunked() 设置每次保存文件内容大小，单位bytes
-                                    async for chunk in resp.content.iter_chunked(8388608):
-                                        print(pool_4[1])
-                                        print('00000000000000')
+                                    async for chunk in resp.content.iter_chunked(102400):
                                         fd.write(chunk)
                     except aiohttp.client_exceptions.ServerDisconnectedError:
                         print('链接失败 重试')
