@@ -1853,6 +1853,7 @@ class m_d_(QThread):
         #r_3 = r.json()['latest']['old_alpha']  # 远古版
         r_4 = r.json()['versions']
 
+        os.makedirs(os.path.join(self.Game_Current_File,'versions'), exist_ok=True)
         f = os.path.join(self.Game_Current_File,'versions','version.json')
         with open(f, 'w+') as f_:
             #print(r.json())
@@ -2360,6 +2361,7 @@ class game_first_initialize(QThread):
                 all_file = os.path.join(all_2, "versions")
                 # 开始遍历
                 # all_file_2是versions文件夹的路径
+                os.makedirs(all_file, exist_ok=True)
                 all_file_2 = os.listdir(all_file)
                 for all_file_3 in all_file_2:
                     # 开始一个一个进行分析

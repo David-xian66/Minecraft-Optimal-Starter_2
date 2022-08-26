@@ -25,9 +25,11 @@ from PyQt6.QtWidgets import QApplication, QLabel, QDialogButtonBox, QDialog
 from PyQt6.QtCore import QPropertyAnimation, QTimer, QThread, pyqtSignal
 from PyQt6 import QtWidgets, QtCore
 from MOS_Dowmloader import Dowmloader
+
 pool = []
 pool_2 = []
 time_1 = ''
+
 
 class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
     """下载&安装游戏"""
@@ -84,24 +86,20 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         with open(u_text_file, 'w+', encoding='utf-8') as f:
             json.dump(u_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
 
-
-
         # 下载游戏主文件
-        file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name,str(self.MC_Name + '.jar'))
+        file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
         u_mc_z = u_get_json['downloads']['client']
-        self.u_mc_z_s = D_MC_Z(u_mc_z,file_1)
+        self.u_mc_z_s = D_MC_Z(u_mc_z, file_1)
         self.u_mc_z_s.start()
 
-
         # 下载资源索引文件
-        self.D_MC_ZY_ = D_MC_ZY(u_get_json,self.Game_Current_File)
+        self.D_MC_ZY_ = D_MC_ZY(u_get_json, self.Game_Current_File)
         self.D_MC_ZY_.sinOut.connect(self.D_MC_ZY_sinOut)
         self.D_MC_ZY_.start()
 
         # 下载资源索引文件
-        self.D_MC_YL_ = D_MC_YL(u_get_json,self.Game_Current_File)
+        self.D_MC_YL_ = D_MC_YL(u_get_json, self.Game_Current_File)
         self.D_MC_YL_.start()
-
 
     def D_MC_ZY_sinOut(self):
         self.label.setText('11111111111111')
@@ -119,17 +117,15 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.close()
 
 
-
-
-
 class D_MC_ZY(QThread):
     sinOut = pyqtSignal()
 
-    def __init__(self,u_get_json,Game_Current_File):
+    def __init__(self, u_get_json, Game_Current_File):
         """下载资源文件"""
         self.u_get_json = u_get_json
         self.Game_Current_File = Game_Current_File
         super(D_MC_ZY, self).__init__()
+
     def run(self):
 
         # 获取 存储资源文件的json文件
@@ -137,12 +133,14 @@ class D_MC_ZY(QThread):
         self.u_ziyuan_json_get = requests.get(self.u_ziyuan_json_1)
         self.u_ziyuan_json_get_json = self.u_ziyuan_json_get.json()
 
-
         # 解析为json格式 并存储 (资源文件)
-        self.u_ziyuan_file = os.path.join(self.Game_Current_File, 'assets', 'indexes', os.path.basename(self.u_ziyuan_json_1))
-        with open(self.u_ziyuan_file, 'w+', encoding='utf-8') as f:
-            json.dump(self.u_ziyuan_json_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
+        self.u_ziyuan_file_ = os.path.join(self.Game_Current_File, 'assets', 'indexes')
 
+        self.u_ziyuan_file = os.path.join(self.u_ziyuan_file_, os.path.basename(self.u_ziyuan_json_1))
+        os.makedirs(self.u_ziyuan_file_, exist_ok=True)
+        with open(self.u_ziyuan_file, 'w+', encoding='utf-8') as f:
+            json.dump(self.u_ziyuan_json_get_json, f, ensure_ascii=False, sort_keys=True, indent=4,
+                      separators=(',', ': '))
 
         file_1 = os.path.join(self.Game_Current_File, 'assets', 'objects')
 
@@ -157,7 +155,25 @@ class D_MC_ZY(QThread):
             pool.append(a)
 
         self.a_len = int(len(pool))
-        self.a_len_s_1 = 25 #每个协程任务量
+
+        print(len(pool))
+        if len(pool) <= 500:
+            self.a_len_s_1 = 5  # 每个协程任务量
+        elif len(pool) <= 1000:
+            self.a_len_s_1 = 10  # 每个协程任务量
+        elif len(pool) <= 1500:
+            self.a_len_s_1 = 13  # 每个协程任务量
+        elif len(pool) <= 2000:
+            self.a_len_s_1 = 17  # 每个协程任务量
+        elif len(pool) <= 3000:
+            self.a_len_s_1 = 20  # 每个协程任务量
+        elif len(pool) <= 4000:
+            self.a_len_s_1 = 25  # 每个协程任务量
+        else:
+            self.a_len_s_1 = 25  # 每个协程任务量
+
+        print(self.a_len_s_1)
+
         self.a_len_s_2 = -self.a_len_s_1
         self.a_len_1 = self.a_len // self.a_len_s_1
         if self.a_len % self.a_len_s_1 != 0:
@@ -195,7 +211,7 @@ class D_MC_ZY(QThread):
         except:
             traceback.print_exc()
 
-    async def D_X_Start(self,a):
+    async def D_X_Start(self, a):
         """创建"""
         try:
             self.time_1 = time.perf_counter()
@@ -203,7 +219,7 @@ class D_MC_ZY(QThread):
         except:
             traceback.print_exc()
 
-    async def D_X(self,pool_2):
+    async def D_X(self, pool_2):
         """下载"""
         global pool
         for pool_3 in pool_2:
@@ -212,45 +228,47 @@ class D_MC_ZY(QThread):
                     os.makedirs(pool_3[1], exist_ok=True)
                     async with aiohttp.ClientSession() as session:
                         # aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
-                        async with session.post(pool_3[0]) as resp:
+                        async with session.get(pool_3[0]) as resp:
                             with open(pool_3[2], 'wb') as fd:
                                 # iter_chunked() 设置每次保存文件内容大小，单位bytes
-                                async for chunk in resp.content.iter_chunked(3172):
+                                async for chunk in resp.content.iter_chunked(8388608):
                                     fd.write(chunk)
-                    break
                 except OSError:
                     print('存储异常 重试')
                 except aiohttp.client_exceptions.ServerDisconnectedError:
                     print('链接失败 重试')
                 except:
                     traceback.print_exc()
-            while True:
-                try:
-                    print(pool_3[2])
-                    pool.remove(pool_3)
-                    print(len(pool))
-                    break
-                except:
-                    traceback.print_exc()
-                    print(pool)
-                    break
+
+                while True:
+                    try:
+                        print(pool_3)
+                        pool.remove(pool_3)
+                        print(len(pool))
+                        break
+                    except:
+                        traceback.print_exc()
+                        #print(pool)
+                        break
+                break
 
 
 
 class D_MC_Z(QThread):
-    def __init__(self,l,file):
+    def __init__(self, l, file):
         """下载jar文件"""
         self.l = l
         self.file = file
         super(D_MC_Z, self).__init__()
+
     def run(self):
         shal = self.l['sha1']
         size = self.l['size']
         url = self.l['url']
-        Dowmloader(url,50,self.file).run()
+        Dowmloader(url, 50, self.file).run()
         #
-        #r = requests.get(url, stream=True)
-        #with open(self.file, 'wb') as fp:
+        # r = requests.get(url, stream=True)
+        # with open(self.file, 'wb') as fp:
         #    for item in r.iter_content(102400):
         #        # 10240表示每次会写入10240个字节，即10KB
         #        fp.write(item)
@@ -258,6 +276,151 @@ class D_MC_Z(QThread):
         print('###############################################')
 
 
+class D_MC_YL(QThread):
+    def __init__(self, u_get_json, Game_Current_File):
+        """下载依赖库文件"""
+        self.u_get_json = u_get_json
+        self.Game_Current_File = Game_Current_File
+        super(D_MC_YL, self).__init__()
+
+    def run(self):
+        # 遍历json中的资源文件部分
+        a = self.u_get_json['libraries']
+        global pool_2
+        for a_ in a:
+            try:
+                a_1 = a_['downloads']
+                path_1 = a_1['artifact']['path']
+                sha1 = a_1['artifact']['sha1']
+                size = a_1['artifact']['size']
+                url = a_1['artifact']['url']
+
+                path = os.path.join(self.Game_Current_File, 'libraries', path_1)
+                path_q = path.split(os.path.basename(path))[0]
+                c = [url, path, path_q, size]
+                pool_2.append(c)
+
+            except KeyError:
+                pass
+
+            try:
+                a_1 = a_['downloads']
+                for b_ in a_1['classifiers'].keys():
+                    path_1 = a_1['classifiers'][b_]['path']
+                    sha1 = a_1['classifiers'][b_]['sha1']
+                    size = a_1['classifiers'][b_]['size']
+                    url = a_1['classifiers'][b_]['url']
+
+                    path = os.path.join(self.Game_Current_File, 'libraries', path_1)
+                    path_q = path.split(os.path.basename(path))[0]
+                    c = [url, path, path_q, size]
+                    pool_2.append(c)
+            except KeyError:
+                pass
+
+        self.a_len = int(len(pool_2))
+        self.a_len_s_1 = 2  # 每个协程任务量
+        self.a_len_s_2 = -self.a_len_s_1
+        self.a_len_1 = self.a_len // self.a_len_s_1
+        if self.a_len % self.a_len_s_1 != 0:
+            # 如果正好整除
+            pass
+        else:
+            self.a_len_1 += 1
+        print(self.a_len_1)
+
+        new_loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(new_loop)
+        asyncio.run(asyncio.gather(self.D_R()))
+
+    async def D_R(self):
+        try:
+            self.a = []
+            s = 0
+            global pool_2
+            while self.a_len_1:
+                s += 1
+                self.a_len_s_2 += self.a_len_s_1
+                if self.a_len - self.a_len_s_2 < self.a_len_s_1:
+                    pool_3 = pool_2[self.a_len_s_2:]
+                    self.a.append(self.D_X(pool_3))
+                    break
+                else:
+                    pool_3 = pool_2[self.a_len_s_2:self.a_len_s_2 + self.a_len_s_1]
+                    self.a.append(asyncio.ensure_future(self.D_X(pool_3)))
+                    print(str(self.a_len_s_2) + ' : ' + str(self.a_len_s_2 + self.a_len_s_1) + 'ZY')
+
+            await asyncio.wait([self.D_X_Start(self.a)])
+
+            self.time_2 = time.perf_counter()
+            print(self.time_2 - self.time_1)
+        except:
+            traceback.print_exc()
+
+    async def D_X_Start(self, a):
+        """创建"""
+        try:
+            self.time_1 = time.perf_counter()
+            print(a)
+            await asyncio.wait(a)
+        except:
+            traceback.print_exc()
+
+    async def D_X(self, pool_3):
+        """下载"""
+        try:
+            global pool_2
+            for pool_4 in pool_3:
+                while True:
+                    try:
+                        os.makedirs(pool_4[2], exist_ok=True)
+                        async with aiohttp.ClientSession() as session:
+                            async with session.get(pool_4[0]) as resp:
+                                with open(pool_4[1], 'wb') as fd:
+                                    # iter_chunked() 设置每次保存文件内容大小，单位bytes
+                                    async for chunk in resp.content.iter_chunked(8388608):
+                                        print(pool_4[1])
+                                        print('00000000000000')
+                                        fd.write(chunk)
+                    except aiohttp.client_exceptions.ServerDisconnectedError:
+                        print('链接失败 重试')
+                    except OSError:
+                        print('存储异常 重试')
+                    except:
+                        traceback.print_exc()
+
+                    while True:
+                        try:
+                            pool_2.remove(pool_4)
+                            print(str(len(pool_2)) + 'pppppp')
+                            break
+                        except:
+                            traceback.print_exc()
+                            #print(pool)
+                            break
+                    break
+        except:
+            traceback.print_exc()
+
+
+def system_h():
+    """
+        'win32':Windows
+        'cygwin':Windows/Cygwin
+        'darwin':macOS
+        'aix':AIX
+        'linux':Linux
+    """
+    a = str(sys.platform)
+    return a
+
+
+
+
+
+
+
+'''
 class D_MC_YL(QThread):
     def __init__(self,u_get_json,Game_Current_File):
         """下载依赖库文件"""
@@ -462,29 +625,4 @@ class D_MC_YL(QThread):
                         break
         except:
             traceback.print_exc()
-
-
-class D_MC_Q(QThread):
-    def __init__(self,u_get_json):
-        """下载其他文件"""
-        self.json = u_get_json
-        super(D_MC_Q, self).__init__()
-    def run(self):
-        try:
-            logging_ = self.json['logging']
-        except KeyError:
-            pass
-        except:
-            traceback.print_exc()
-
-
-def system_h():
-    """
-        'win32':Windows
-        'cygwin':Windows/Cygwin
-        'darwin':macOS
-        'aix':AIX
-        'linux':Linux
-    """
-    a = str(sys.platform)
-    return a
+'''
