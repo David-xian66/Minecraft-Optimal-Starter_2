@@ -989,7 +989,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
             Optifine = self.comboBox_5.currentText()
         MC_Name = self.lineEdit.text()
         a = os.path.join(self.Game_Current_File,'versions','version.json')
-        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File,self.G_D_Y,a,self.G_D_V,MC_Name,Forge,Fabric,Optifine)
+        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File,self.G_D_Y,a,self.G_D_V,MC_Name,Forge,Fabric,Optifine,15)
         self.xy_size = self.geometry()  # 获取主界面 初始坐标
         self.D_G_A.move(self.xy_size.x() + 284, self.xy_size.y() + 177)  # 子界面移动到 居中
 
@@ -1000,9 +1000,6 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
 
         self.D_G_A.show()
         self.D_G_A.run()
-        #self.D_G_A_w = QTimer()  # 创建计时器对象
-        #self.D_G_A_w.start(0)  # 开始计时器
-        #self.D_G_A_w.timeout.connect(self.a_w_)  # 要执行的槽
 
 
     def click_comboBox_shezhi(self):
@@ -2087,7 +2084,7 @@ class MOS_versions(QThread):
         except:
             error = traceback.print_exc()
             MOS_print("error", error)
-            # 因为“TypeError: native Qt signal is not callable”所以 不传error内容
+            # 因为“TypeError: native Qt signal is not callable”所以 不传error内容 # 8.27:其实是我当时写错了。。但不想改了
             self.sinOut_versions_error.emit('', t)
 
 

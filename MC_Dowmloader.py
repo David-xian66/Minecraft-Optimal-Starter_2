@@ -24,17 +24,16 @@ from MC_Dowmloader_UI import Ui_MOS_D_MC_Dialog
 from PyQt6.QtWidgets import QApplication, QLabel, QDialogButtonBox, QDialog
 from PyQt6.QtCore import QPropertyAnimation, QTimer, QThread, pyqtSignal
 from PyQt6 import QtWidgets, QtCore
-from MOS_Dowmloader import Dowmloader,j_h,w_h,s_h
+import MOS_Dowmloader
 
 pool = []
 pool_2 = []
-time_1 = ''
 
 
 class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
     """下载&安装游戏"""
 
-    def __init__(self, Game_Current_File, G_D_Y, Json_File, MC, MC_Name, Forge, Fabric, Optifine):
+    def __init__(self, Game_Current_File, G_D_Y, Json_File, MC, MC_Name, Forge, Fabric, Optifine,TimeOut):
         """
             需要的参数：
                 Game_Current_File: 游戏目录
@@ -45,6 +44,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
                  Forge: Forge版本
                  Fabric: Fabric版本
                  Optifine: Optifine版本
+                 TimeOut: 请求超时时间
         """
         super(Ui_MOS_D_MC_Dialog_, self).__init__()
         self.setupUi(self)
@@ -61,6 +61,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.Forge = Forge
         self.Fabric = Fabric
         self.Optifine = Optifine
+        self.TimeOut = TimeOut
 
         self.pushButton.clicked.connect(self.clicked_pushButton_close)
 
@@ -75,16 +76,16 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
 
         if self.G_D_Y == 'MC':
             self.url_q_ = 'https://launchermeta.mojang.com/'
-            self.url_q_l = 'https://libraries.minecraft.net/' # 依赖
-            self.url_q_zy = 'http://resources.download.minecraft.net/' # 资源文件
+            self.url_q_l = 'https://libraries.minecraft.net/'  # 依赖
+            self.url_q_zy = 'http://resources.download.minecraft.net/'  # 资源文件
         elif self.G_D_Y == 'MCBBS':
-            self.url_q_ = 'https://download.mcbbs.net/' # json文件
-            self.url_q_l = 'https://download.mcbbs.net/maven/' # 依赖
-            self.url_q_zy = 'https://download.mcbbs.net/assets/' # 资源文件
+            self.url_q_ = 'https://download.mcbbs.net/'  # json文件
+            self.url_q_l = 'https://download.mcbbs.net/maven/'  # 依赖
+            self.url_q_zy = 'https://download.mcbbs.net/assets/'  # 资源文件
         else:
             self.url_q_ = 'https://bmclapi2.bangbang93.com/'  # json文件
-            self.url_q_l = 'https://bmclapi2.bangbang93.com/maven/' # 依赖
-            self.url_q_zy = 'https://bmclapi2.bangbang93.com/assets/' # 资源文件
+            self.url_q_l = 'https://bmclapi2.bangbang93.com/maven/'  # 依赖
+            self.url_q_zy = 'https://bmclapi2.bangbang93.com/assets/'  # 资源文件
 
         if self.G_D_Y != 'MC':
             json_url = self.url_q_ + 'version/' + self.MC + '/json'
@@ -106,81 +107,128 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         with open(u_text_file, 'w+', encoding='utf-8') as f:
             json.dump(u_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
 
-
-        self.size_all = 0 # 安装需要下载的总大小
-        self.ziyuan_s = 0 # 资源文件总数量
-        self.yilai_s = 0 # 依赖库总速度
-
+        self.size_all = 0  # 安装需要下载的总大小
+        self.ws_d = 0  # 网速
+        self.ziyuan_s = 0  # 资源文件总数量
+        self.yilai_s = 0  # 依赖库总速度
 
         # 下载游戏主文件
         file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
         u_mc_z = u_get_json['downloads']['client']
-        self.u_mc_z_s = D_MC_Z(u_mc_z, file_1,self.MC,self.G_D_Y)
-        self.u_mc_z_s.sinOut_size.connect(self.D_MC_Z_sinOut_size)    # 大小
-        self.u_mc_z_s.sinOut_j.connect(self.D_MC_Z_sinOut_j)    # 进度
-        self.u_mc_z_s.sinOut_s.connect(self.D_MC_Z_sinOut_s)    # 网速
+        self.u_mc_z_s = D_MC_Z(u_mc_z, file_1, self.MC, self.G_D_Y)
+        self.u_mc_z_s.sinOut_s.connect(self.D_MC_Z_sinOut_s)  # 网速
         self.u_mc_z_s.start()
 
         # 下载资源索引文件
-        self.D_MC_ZY_ = D_MC_ZY(u_get_json, self.Game_Current_File,self.G_D_Y,self.url_q_zy, self.url_q_)
-        self.D_MC_ZY_.sinOut_size.connect(self.D_MC_ZY_sinOut_size)    # 数量
-        self.D_MC_ZY_.sinOut_j.connect(self.D_MC_ZY_sinOut_j)    # 进度
-        self.D_MC_ZY_.sinOut_s.connect(self.D_MC_ZY_sinOut_s)    # 网速
+        self.D_MC_ZY_ = D_MC_ZY(u_get_json, self.Game_Current_File, self.G_D_Y, self.url_q_zy, self.url_q_,self.TimeOut)
+        self.D_MC_ZY_.sinOut_size.connect(self.D_MC_ZY_sinOut_size)  # 数量
+        self.D_MC_ZY_.sinOut_j.connect(self.D_MC_ZY_sinOut_j)  # 进度
+        self.D_MC_ZY_.sinOut_s.connect(self.D_MC_ZY_sinOut_s)  # 网速
         self.D_MC_ZY_.start()
 
         # 下载依赖库文件
-        self.D_MC_YL_ = D_MC_YL(u_get_json, self.Game_Current_File,self.url_q_l)
-        self.D_MC_YL_.sinOut_size.connect(self.D_MC_YL_sinOut_size)    # 数量
-        self.D_MC_YL_.sinOut_j.connect(self.D_MC_YL_sinOut_j)    # 进度
-        self.D_MC_YL_.sinOut_s.connect(self.D_MC_YL_sinOut_s)    # 网速
+        self.D_MC_YL_ = D_MC_YL(u_get_json, self.Game_Current_File, self.url_q_l,self.TimeOut)
+        self.D_MC_YL_.sinOut_size.connect(self.D_MC_YL_sinOut_size)  # 数量
+        self.D_MC_YL_.sinOut_j.connect(self.D_MC_YL_sinOut_j)  # 进度
+        self.D_MC_YL_.sinOut_s.connect(self.D_MC_YL_sinOut_s)  # 网速
         self.D_MC_YL_.start()
 
-    def D_MC_ZY_sinOut(self):
-        self.label.setText('11111111111111')
+        # 在UI上显示总下载速度(网速)
+        self.ws_ui_ = QTimer()
+        self.ws_ui_.start(1000)
+        self.ws_ui_.timeout.connect(self.ws_ui)
 
-    def D_MC_Z_sinOut_size(self,size):
+        # 在UI上显示总共要下载的大小
+        self.ds_ui_ = QTimer()
+        self.ds_ui_.start(500)
+        self.ds_ui_.timeout.connect(self.ds_ui)
+
+        # 获取大小(jar文件)
+        self.s_h_ = QTimer()  # 创建计时器对象
+        self.s_h_.start(500)  # 开始计时器
+        self.s_h_.timeout.connect(self.h_size)  # 要执行的槽
+
+        # 获取进度(jar文件)
+        self.j_h_ = QTimer()  # 创建计时器对象
+        self.j_h_.start(1000)  # 开始计时器
+        self.j_h_.timeout.connect(self.h_j)  # 要执行的槽
+
+    def D_MC_Z_sinOut_size(self, size):
         """主文件总文件大小"""
-        self.size_all += size
+        self.size_all += int(size)
 
-    def D_MC_Z_sinOut_j(self,j):
+    def D_MC_Z_sinOut_j(self, j):
         """设置 主文件下载进度"""
-        pass
+        self.progressBar.setValue(int(j))
 
-    def D_MC_Z_sinOut_s(self):
+    def D_MC_Z_sinOut_s(self, w):
         """主文件下载网速"""
         # 需要识别后缀
-        pass
+        j_ = w.split(' ')
+        j_1 = j_[1]
+        if j_1 == 'MB/s':
+            j_2 = j_[0] * 1024 * 1024
+        else:
+            j_2 = j_[0] * 1024
+        self.ws_d += j_2
 
-    def D_MC_ZY_sinOut_size(self,size):
+    def D_MC_ZY_sinOut_size(self, size):
         """资源文件大小"""
         self.size_all += size
         self.ziyuan_s += 1
         self.progressBar_2.setMaximum(self.ziyuan_s)
 
-
     def D_MC_ZY_sinOut_j(self):
         """设置 资源文件下载进度 (完成一个就调用一次)"""
         a = self.progressBar_2.value()
-        self.progressBar_2.setValue(a+1)
+        self.progressBar_2.setValue(a + 1)
 
-    def D_MC_ZY_sinOut_s(self):
+    def D_MC_ZY_sinOut_s(self, size):
         """资源文件下载网速"""
-        pass
+        self.ws_d += size
 
-    def D_MC_YL_sinOut_size(self,size):
+    def D_MC_YL_sinOut_size(self, size):
         """依赖文件大小(size)"""
-        self.size_all += size
+        self.size_all += int(size)
         self.yilai_s += 1
         self.progressBar_4.setMaximum(self.yilai_s)
 
     def D_MC_YL_sinOut_j(self):
         """设置 依赖文件下载进度 (完成一个就调用一次)"""
         a = self.progressBar_4.value()
-        self.progressBar_4.setValue(a+1)
+        self.progressBar_4.setValue(a + 1)
 
-    def D_MC_YL_sinOut_s(self):
+    def D_MC_YL_sinOut_s(self, size):
         """依赖下载网速"""
-        pass
+        self.ws_d += size
+
+    def ws_ui(self):
+        """总网速显示"""
+        self.label_5.setText(str(self.ws_d))
+        self.ws_d = 0
+
+    def ds_ui(self):
+        """需要下载的总大小显示"""
+        size_1 = self.size_all / 1024
+        if size_1 > 1024:
+            size = str(round(size_1 / 1024,2)) + ' MB'
+        else:
+            size = str(size_1) + ' KB'
+        self.label.setText('安装游戏 ' + size)
+
+    def h_size(self):
+        """获取大小(jar文件)"""
+        size = MOS_Dowmloader.s_h()
+        if size != 0:
+            self.s_h_.stop()
+            self.D_MC_Z_sinOut_size(size)
+
+    def h_j(self):
+        """获取进度(jar文件)"""
+        print(time.time())
+        j = MOS_Dowmloader.j_h()
+        if j != 0:
+            self.D_MC_Z_sinOut_j(j)
 
     def clicked_pushButton_close(self):
         self.pushButton.setEnabled(False)  # 为了防止重复操作 直接禁用按钮
@@ -200,13 +248,14 @@ class D_MC_ZY(QThread):
     sinOut_j = pyqtSignal()
     sinOut_s = pyqtSignal(int)
 
-    def __init__(self, u_get_json, Game_Current_File, G_D_Y, url_q_zy, url_q_):
+    def __init__(self, u_get_json, Game_Current_File, G_D_Y, url_q_zy, url_q_,timeout):
         """下载资源文件"""
         self.u_get_json = u_get_json
         self.Game_Current_File = Game_Current_File
         self.url_q_zy = url_q_zy
         self.G_D_Y = G_D_Y
         self.url_q_ = url_q_
+        self.timeout = timeout
         super(D_MC_ZY, self).__init__()
 
     def run(self):
@@ -214,14 +263,12 @@ class D_MC_ZY(QThread):
         # 获取 存储资源文件的json文件
         u_ziyuan_json_1_ = self.u_get_json['assetIndex']['url']  # 获取资源文件链接
         if self.G_D_Y != 'MC':
-            print('开')
             try:
                 self.u_ziyuan_json_1 = self.url_q_ + u_ziyuan_json_1_.split('https://launcher.mojang.com/')[1]
             except IndexError:
                 self.u_ziyuan_json_1 = self.url_q_ + u_ziyuan_json_1_.split('https://launchermeta.mojang.com/')[1]
         else:
             self.u_ziyuan_json_1 = u_ziyuan_json_1_
-        print(self.u_ziyuan_json_1 +'lllllll')
         while True:
             try:
                 self.u_ziyuan_json_get = requests.get(self.u_ziyuan_json_1)
@@ -249,26 +296,27 @@ class D_MC_ZY(QThread):
             url = self.url_q_zy + str(hash_2) + '/' + str(hash)
             file_first = os.path.join(file_1, hash_2)
             file = os.path.join(file_first, hash)
-            a = [url, file_first, file]
+            a = [url, file_first, file, size]
             pool.append(a)
+            self.sinOut_size.emit(size)
 
         self.a_len = int(len(pool))
 
         print(len(pool))
         if len(pool) <= 500:
-            self.a_len_s_1 = 5  # 每个协程任务量
+            self.a_len_s_1 = 1  # 每个协程任务量
         elif len(pool) <= 1000:
-            self.a_len_s_1 = 10  # 每个协程任务量
+            self.a_len_s_1 = 1  # 每个协程任务量
         elif len(pool) <= 1500:
-            self.a_len_s_1 = 10  # 每个协程任务量
+            self.a_len_s_1 = 2  # 每个协程任务量
         elif len(pool) <= 2000:
-            self.a_len_s_1 = 17  # 每个协程任务量
+            self.a_len_s_1 = 2  # 每个协程任务量
         elif len(pool) <= 3000:
-            self.a_len_s_1 = 10  # 每个协程任务量
+            self.a_len_s_1 = 2  # 每个协程任务量
         elif len(pool) <= 4000:
-            self.a_len_s_1 = 10  # 每个协程任务量
+            self.a_len_s_1 = 3  # 每个协程任务量
         else:
-            self.a_len_s_1 = 25  # 每个协程任务量
+            self.a_len_s_1 = 3  # 每个协程任务量
 
         print(self.a_len_s_1)
 
@@ -324,15 +372,19 @@ class D_MC_ZY(QThread):
                     os.makedirs(pool_3[1], exist_ok=True)
                     async with aiohttp.ClientSession() as session:
                         # aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
-                        async with session.get(pool_3[0]) as resp:
+                        async with session.get(pool_3[0],timeout=self.timeout) as resp:
                             with open(pool_3[2], 'wb') as fd:
                                 # iter_chunked() 设置每次保存文件内容大小，单位bytes
                                 async for chunk in resp.content.iter_chunked(102400):
                                     fd.write(chunk)
+                    self.sinOut_j.emit()
+                    self.sinOut_s.emit(pool_3[3])
                 except OSError:
                     print('存储异常 重试')
                 except aiohttp.client_exceptions.ServerDisconnectedError:
                     print('链接失败 重试')
+                except asyncio.exceptions.TimeoutError:
+                    print('超时重试')
                 except:
                     traceback.print_exc()
 
@@ -344,16 +396,14 @@ class D_MC_ZY(QThread):
                         break
                     except:
                         traceback.print_exc()
-                        #print(pool)
+                        # print(pool)
                         break
                 break
 
 
-
 class D_MC_Z(QThread):
-    sinOut_size = pyqtSignal(int)
-    sinOut_j = pyqtSignal(int)
-    sinOut_s = pyqtSignal(int)
+    sinOut_s = pyqtSignal(str)
+
     def __init__(self, l, file, MC, G_D_Y):
         """下载jar文件"""
         self.l = l
@@ -375,18 +425,7 @@ class D_MC_Z(QThread):
         else:
             url = url_1
 
-        # 获取大小
-        self.s_h_ = QTimer()  # 创建计时器对象
-        self.s_h_.start(0.5)  # 开始计时器
-        self.s_h_.timeout.connect(self.h_size)  # 要执行的槽
-
-        # 获取大小
-        self.j_h_ = QTimer()  # 创建计时器对象
-        self.j_h_.start(0.5)  # 开始计时器
-        self.j_h_.timeout.connect(self.h_j)  # 要执行的槽
-
-
-        Dowmloader(url, 40, self.file).run()
+        MOS_Dowmloader.Dowmloader(url, 40, self.file).run()
         #
         # r = requests.get(url, stream=True)
         # with open(self.file, 'wb') as fp:
@@ -396,30 +435,17 @@ class D_MC_Z(QThread):
         #
         print('###############################################')
 
-    def h_size(self):
-        """获取大小"""
-        size = s_h()
-        if size != 0:
-            self.s_h_.stop()
-            self.sinOut_size.emit(size)
-
-    def h_j(self):
-        """获取进度"""
-        j = j_h()
-        if j != 0:
-            self.j_h_.stop()
-            self.sinOut_j.emit(j)
-
-
 class D_MC_YL(QThread):
     sinOut_size = pyqtSignal(int)
     sinOut_j = pyqtSignal()
     sinOut_s = pyqtSignal(int)
-    def __init__(self, u_get_json, Game_Current_File,url_q_l):
+
+    def __init__(self, u_get_json, Game_Current_File, url_q_l,timeout):
         """下载依赖库文件"""
         self.u_get_json = u_get_json
         self.Game_Current_File = Game_Current_File
         self.url_q_l = url_q_l
+        self.timeout = timeout
         super(D_MC_YL, self).__init__()
 
     def run(self):
@@ -485,11 +511,11 @@ class D_MC_YL(QThread):
 
                 except KeyError:
                     s = system_h()
-                    c = ['natives-windows','natives-osx','natives-macos','natives-linux']
+                    c = ['natives-windows', 'natives-osx', 'natives-macos', 'natives-linux']
                     if s == 'win32' or 'cygwin':
                         sy = ['natives-windows']
                     elif s == 'darwin':
-                        sy = ['natives-osx','natives-macos']
+                        sy = ['natives-osx', 'natives-macos']
                     else:
                         sy = ['natives-linux']
 
@@ -531,7 +557,6 @@ class D_MC_YL(QThread):
                             pool_2.append(a)
                             self.sinOut_size.emit(size)
 
-
                         path_1 = a_1['artifact']['path']
                         sha1 = a_1['artifact']['sha1']
                         size = a_1['artifact']['size']
@@ -543,9 +568,8 @@ class D_MC_YL(QThread):
                         pool_2.append(c)
                         self.sinOut_size.emit(size)
 
-
         self.a_len = int(len(pool_2))
-        self.a_len_s_1 = 3  # 每个协程任务量
+        self.a_len_s_1 = 2  # 每个协程任务量
         self.a_len_s_2 = -self.a_len_s_1
         self.a_len_1 = self.a_len // self.a_len_s_1
         if self.a_len % self.a_len_s_1 != 0:
@@ -601,16 +625,19 @@ class D_MC_YL(QThread):
                     try:
                         os.makedirs(pool_4[2], exist_ok=True)
                         async with aiohttp.ClientSession() as session:
-                            async with session.get(pool_4[0]) as resp:
+                            async with session.get(pool_4[0],timeout=self.timeout) as resp:
                                 with open(pool_4[1], 'wb') as fd:
                                     # iter_chunked() 设置每次保存文件内容大小，单位bytes
                                     async for chunk in resp.content.iter_chunked(102400):
                                         fd.write(chunk)
                         self.sinOut_j.emit()
+                        self.sinOut_s.emit(pool_4[3])
                     except aiohttp.client_exceptions.ServerDisconnectedError:
                         print('链接失败 重试')
                     except OSError:
                         print('存储异常 重试')
+                    except asyncio.exceptions.TimeoutError:
+                        print('超时重试')
                     except:
                         traceback.print_exc()
 
@@ -621,7 +648,7 @@ class D_MC_YL(QThread):
                             break
                         except:
                             traceback.print_exc()
-                            #print(pool)
+                            # print(pool)
                             break
                     break
         except:
@@ -638,216 +665,3 @@ def system_h():
     """
     a = str(sys.platform)
     return a
-
-
-
-
-
-
-
-'''
-class D_MC_YL(QThread):
-    def __init__(self,u_get_json,Game_Current_File):
-        """下载依赖库文件"""
-        self.u_get_json = u_get_json
-        self.Game_Current_File = Game_Current_File
-        super(D_MC_YL, self).__init__()
-    def run(self):
-        # 遍历json中的资源文件部分
-        a = self.u_get_json['libraries']
-        global pool_2
-        for a_ in a:
-            a_1 = a_['downloads']
-            try:
-                try:
-                    m = a_1['rules']['os']
-                    s = system_h()
-
-                    if s == 'win32' or 'cygwin':
-                        sy = 'windows'
-                    elif s == 'darwin':
-                        sy = 'osx'
-                    else:
-                        sy = 'linux'
-
-                    if sy == m:
-                        path_1 = a_1['artifact']['path']
-                        sha1 = a_1['artifact']['sha1']
-                        size = a_1['artifact']['size']
-                        url = a_1['artifact']['url']
-
-                except KeyError:
-                    path_1 = a_1['artifact']['path']
-                    sha1 = a_1['artifact']['sha1']
-                    size = a_1['artifact']['size']
-                    url = a_1['artifact']['url']
-
-                path = os.path.join(self.Game_Current_File, 'libraries', path_1)
-                path_q = path.split(os.path.basename(path))[0]
-                c = [url, path, path_q, size]
-                pool_2.append(c)
-
-            except KeyError:
-                try:
-                    # natives文件
-                    s = system_h()
-                    if s == 'win32' or 'cygwin':
-                        sy = 'natives-windows'
-                    elif s == 'darwin':
-                        sy = 'natives-osx'
-                    else:
-                        sy = 'natives-linux'
-
-                    path_1 = a_1['classifiers'][sy]['path']
-                    sha1 = a_1['classifiers'][sy]['sha1']
-                    size = a_1['classifiers'][sy]['size']
-                    url = a_1['classifiers'][sy]['url']
-
-                    path = os.path.join(self.Game_Current_File, 'libraries', path_1)
-                    path_q = path.split(os.path.basename(path))[0]
-                    c = [url, path, path_q, size]
-                    pool_2.append(c)
-
-                except KeyError:
-                    s = system_h()
-                    c = ['natives-windows','natives-osx','natives-macos','natives-linux']
-                    if s == 'win32' or 'cygwin':
-                        sy = ['natives-windows']
-                    elif s == 'darwin':
-                        sy = ['natives-osx','natives-macos']
-                    else:
-                        sy = ['natives-linux']
-
-                    classifiers_ = a_1['classifiers']
-
-                    try:
-                        for b_1 in sy:
-                            try:
-                                c.remove(b_1)
-                            except KeyError:
-                                pass
-                        for b_2 in sy:
-                            try:
-                                del classifiers_[b_2]
-                            except KeyError:
-                                pass
-
-                        for a_2 in classifiers_.keys():
-                            path_1 = a_1['classifiers'][a_2]['path']
-                            sha1 = a_1['classifiers'][a_2]['sha1']
-                            size = a_1['classifiers'][a_2]['size']
-                            url = a_1['classifiers'][a_2]['url']
-                            path = os.path.join(self.Game_Current_File, 'libraries', path_1)
-                            path_q = path.split(os.path.basename(path))[0]
-                            a = [url, path, path_q, size]
-                            pool_2.append(a)
-
-                    except KeyError:
-                        for a_2 in a_1['classifiers'].keys():
-                            path_1 = a_1['classifiers'][a_2]['path']
-                            sha1 = a_1['classifiers'][a_2]['sha1']
-                            size = a_1['classifiers'][a_2]['size']
-                            url = a_1['classifiers'][a_2]['url']
-                            path = os.path.join(self.Game_Current_File, 'libraries', path_1)
-                            path_q = path.split(os.path.basename(path))[0]
-                            a = [url, path, path_q, size]
-                            pool_2.append(a)
-
-
-                        path_1 = a_1['artifact']['path']
-                        sha1 = a_1['artifact']['sha1']
-                        size = a_1['artifact']['size']
-                        url = a_1['artifact']['url']
-
-                        path = os.path.join(self.Game_Current_File, 'libraries', path_1)
-                        path_q = path.split(os.path.basename(path))[0]
-                        c = [url, path, path_q, size]
-                        pool_2.append(c)
-
-
-        self.a_len = int(len(pool_2))
-        self.a_len_s_1 = 2 #每个协程任务量
-        self.a_len_s_2 = -self.a_len_s_1
-        self.a_len_1 = self.a_len // self.a_len_s_1
-        if self.a_len % self.a_len_s_1 != 0:
-            # 如果正好整除
-            pass
-        else:
-            self.a_len_1 += 1
-        print(self.a_len_1)
-
-        new_loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(new_loop)
-        asyncio.run(asyncio.gather(self.D_R()))
-
-
-    async def D_R(self):
-        try:
-            self.a = []
-            s = 0
-            global pool_2
-            while self.a_len_1:
-                s += 1
-                self.a_len_s_2 += self.a_len_s_1
-                print(111111111111111111)
-                if self.a_len - self.a_len_s_2 < self.a_len_s_1:
-                    pool_3 = pool_2[self.a_len_s_2:]
-                    self.a.append(self.D_X(pool_3))
-                    break
-                else:
-                    pool_3 = pool_2[self.a_len_s_2:self.a_len_s_2 + self.a_len_s_1]
-                    self.a.append(asyncio.ensure_future(self.D_X(pool_3)))
-                    print(str(self.a_len_s_2) + ' : ' + str(self.a_len_s_2 + self.a_len_s_1) + 'ZY')
-
-            await asyncio.wait([self.D_X_Start(self.a)])
-
-            self.time_2 = time.perf_counter()
-            print(self.time_2 - self.time_1)
-        except:
-            traceback.print_exc()
-
-
-    async def D_X_Start(self,a):
-        """创建"""
-        try:
-            self.time_1 = time.perf_counter()
-            print(a)
-            await asyncio.wait(a)
-        except:
-            traceback.print_exc()
-
-    async def D_X(self,pool_3):
-        """下载"""
-        try:
-            global pool_2
-            for pool_4 in pool_3:
-                while True:
-                    try:
-                        os.makedirs(pool_4[2], exist_ok=True)
-                        async with aiohttp.ClientSession() as session:
-                            async with session.post(pool_4[0]) as resp:
-                                with open(pool_4[1], 'wb') as fd:
-                                    # iter_chunked() 设置每次保存文件内容大小，单位bytes
-                                    async for chunk in resp.content.iter_chunked(3172):
-                                        fd.write(chunk)
-                        break
-
-                    except aiohttp.client_exceptions.ServerDisconnectedError:
-                        print('链接失败 重试')
-                    except OSError:
-                        print('存储异常 重试')
-
-                    except:
-                        traceback.print_exc()
-                while True:
-                    try:
-                        pool_2.remove(pool_4)
-                        print(str(len(pool_2)) + 'pppppp')
-                        break
-                    except:
-                        traceback.print_exc()
-                        print(pool)
-                        break
-        except:
-            traceback.print_exc()
-'''

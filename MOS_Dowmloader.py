@@ -33,6 +33,7 @@ def j_h():
 
 def s_h():
     """大小获取 没有开始的时候 为0 """
+    return size
 
 class Dowmloader():
     def __init__(self, url, nums, file):
@@ -107,7 +108,7 @@ class Dowmloader():
             time.sleep(0.5)
             speed = int((self.getSize - speed) * 2 / 1024)
             if speed > 1024:
-                speed = f"{round(speed / 1024, 2)} MB/s"
+                speed = f"{round(speed / 1024, 2)} MB/s" # round() 方法返回浮点数四舍五入值
             else:
                 speed = f"{speed} KB/s"
             progress = round(self.getSize / self.size * 100, 2)

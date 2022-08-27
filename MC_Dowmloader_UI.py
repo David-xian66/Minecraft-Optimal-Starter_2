@@ -113,7 +113,7 @@ class Ui_MOS_D_MC_Dialog(object):
         self.verticalLayout.addWidget(self.label_2)
         self.progressBar = QtWidgets.QProgressBar(self.scrollAreaWidgetContents)
         self.progressBar.setMinimum(0)
-        self.progressBar.setMaximum(0)
+        self.progressBar.setMaximum(101)
         self.progressBar.setProperty("value", 0)
         self.progressBar.setTextVisible(False)
         self.progressBar.setObjectName("progressBar")

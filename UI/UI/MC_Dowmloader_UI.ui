@@ -160,7 +160,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
           <number>0</number>
          </property>
          <property name="maximum">
-          <number>0</number>
+          <number>101</number>
          </property>
          <property name="value">
           <number>0</number>
