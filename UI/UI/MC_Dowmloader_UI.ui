@@ -34,6 +34,18 @@ QPushButton::hover{background-color: rgb(192, 192, 192);}
 QPushButton::pressed{background-color: rgb(169, 169, 169);}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>12</number>
+   </property>
+   <property name="topMargin">
+    <number>12</number>
+   </property>
+   <property name="rightMargin">
+    <number>12</number>
+   </property>
+   <property name="bottomMargin">
+    <number>12</number>
+   </property>
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
@@ -116,6 +128,9 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
     border-radius:4px;
 }</string>
      </property>
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
@@ -145,10 +160,10 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
           <number>0</number>
          </property>
          <property name="maximum">
-          <number>110</number>
+          <number>0</number>
          </property>
          <property name="value">
-          <number>50</number>
+          <number>0</number>
          </property>
          <property name="textVisible">
           <bool>false</bool>
@@ -164,8 +179,34 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
        </item>
        <item>
         <widget class="QProgressBar" name="progressBar_2">
+         <property name="maximum">
+          <number>0</number>
+         </property>
          <property name="value">
-          <number>5</number>
+          <number>0</number>
+         </property>
+         <property name="textVisible">
+          <bool>false</bool>
+         </property>
+         <property name="invertedAppearance">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>下载依赖库文件</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar_4">
+         <property name="maximum">
+          <number>0</number>
+         </property>
+         <property name="value">
+          <number>0</number>
          </property>
          <property name="textVisible">
           <bool>false</bool>
@@ -190,28 +231,11 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="maximum">
+          <number>0</number>
+         </property>
          <property name="value">
-          <number>5</number>
-         </property>
-         <property name="textVisible">
-          <bool>false</bool>
-         </property>
-         <property name="invertedAppearance">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>下载资源库文件</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QProgressBar" name="progressBar_4">
-         <property name="value">
-          <number>5</number>
+          <number>0</number>
          </property>
          <property name="textVisible">
           <bool>false</bool>

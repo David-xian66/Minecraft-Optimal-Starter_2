@@ -24,7 +24,7 @@ from MC_Dowmloader_UI import Ui_MOS_D_MC_Dialog
 from PyQt6.QtWidgets import QApplication, QLabel, QDialogButtonBox, QDialog
 from PyQt6.QtCore import QPropertyAnimation, QTimer, QThread, pyqtSignal
 from PyQt6 import QtWidgets, QtCore
-from MOS_Dowmloader import Dowmloader
+from MOS_Dowmloader import Dowmloader,j_h,w_h,s_h
 
 pool = []
 pool_2 = []
@@ -69,8 +69,28 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             b = json.load(f)
         for b_1 in b['versions']:
             if b_1['id'] == self.MC:
-                json_url = b_1['url']
+                json_url_1 = b_1['url']
                 break
+        print(json_url_1)
+
+        if self.G_D_Y == 'MC':
+            self.url_q_ = 'https://launchermeta.mojang.com/'
+            self.url_q_l = 'https://libraries.minecraft.net/' # 依赖
+            self.url_q_zy = 'http://resources.download.minecraft.net/' # 资源文件
+        elif self.G_D_Y == 'MCBBS':
+            self.url_q_ = 'https://download.mcbbs.net/' # json文件
+            self.url_q_l = 'https://download.mcbbs.net/maven/' # 依赖
+            self.url_q_zy = 'https://download.mcbbs.net/assets/' # 资源文件
+        else:
+            self.url_q_ = 'https://bmclapi2.bangbang93.com/'  # json文件
+            self.url_q_l = 'https://bmclapi2.bangbang93.com/maven/' # 依赖
+            self.url_q_zy = 'https://bmclapi2.bangbang93.com/assets/' # 资源文件
+
+        if self.G_D_Y != 'MC':
+            json_url = self.url_q_ + 'version/' + self.MC + '/json'
+        else:
+            json_url = json_url_1
+
         print(json_url)
         # 下载版本的json文件
         u = requests.get(json_url)
@@ -86,23 +106,81 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         with open(u_text_file, 'w+', encoding='utf-8') as f:
             json.dump(u_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
 
+
+        self.size_all = 0 # 安装需要下载的总大小
+        self.ziyuan_s = 0 # 资源文件总数量
+        self.yilai_s = 0 # 依赖库总速度
+
+
         # 下载游戏主文件
         file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
         u_mc_z = u_get_json['downloads']['client']
-        self.u_mc_z_s = D_MC_Z(u_mc_z, file_1)
+        self.u_mc_z_s = D_MC_Z(u_mc_z, file_1,self.MC,self.G_D_Y)
+        self.u_mc_z_s.sinOut_size.connect(self.D_MC_Z_sinOut_size)    # 大小
+        self.u_mc_z_s.sinOut_j.connect(self.D_MC_Z_sinOut_j)    # 进度
+        self.u_mc_z_s.sinOut_s.connect(self.D_MC_Z_sinOut_s)    # 网速
         self.u_mc_z_s.start()
 
         # 下载资源索引文件
-        self.D_MC_ZY_ = D_MC_ZY(u_get_json, self.Game_Current_File)
-        self.D_MC_ZY_.sinOut.connect(self.D_MC_ZY_sinOut)
+        self.D_MC_ZY_ = D_MC_ZY(u_get_json, self.Game_Current_File,self.G_D_Y,self.url_q_zy, self.url_q_)
+        self.D_MC_ZY_.sinOut_size.connect(self.D_MC_ZY_sinOut_size)    # 数量
+        self.D_MC_ZY_.sinOut_j.connect(self.D_MC_ZY_sinOut_j)    # 进度
+        self.D_MC_ZY_.sinOut_s.connect(self.D_MC_ZY_sinOut_s)    # 网速
         self.D_MC_ZY_.start()
 
-        # 下载资源索引文件
-        self.D_MC_YL_ = D_MC_YL(u_get_json, self.Game_Current_File)
+        # 下载依赖库文件
+        self.D_MC_YL_ = D_MC_YL(u_get_json, self.Game_Current_File,self.url_q_l)
+        self.D_MC_YL_.sinOut_size.connect(self.D_MC_YL_sinOut_size)    # 数量
+        self.D_MC_YL_.sinOut_j.connect(self.D_MC_YL_sinOut_j)    # 进度
+        self.D_MC_YL_.sinOut_s.connect(self.D_MC_YL_sinOut_s)    # 网速
         self.D_MC_YL_.start()
 
     def D_MC_ZY_sinOut(self):
         self.label.setText('11111111111111')
+
+    def D_MC_Z_sinOut_size(self,size):
+        """主文件总文件大小"""
+        self.size_all += size
+
+    def D_MC_Z_sinOut_j(self,j):
+        """设置 主文件下载进度"""
+        pass
+
+    def D_MC_Z_sinOut_s(self):
+        """主文件下载网速"""
+        # 需要识别后缀
+        pass
+
+    def D_MC_ZY_sinOut_size(self,size):
+        """资源文件大小"""
+        self.size_all += size
+        self.ziyuan_s += 1
+        self.progressBar_2.setMaximum(self.ziyuan_s)
+
+
+    def D_MC_ZY_sinOut_j(self):
+        """设置 资源文件下载进度 (完成一个就调用一次)"""
+        a = self.progressBar_2.value()
+        self.progressBar_2.setValue(a+1)
+
+    def D_MC_ZY_sinOut_s(self):
+        """资源文件下载网速"""
+        pass
+
+    def D_MC_YL_sinOut_size(self,size):
+        """依赖文件大小(size)"""
+        self.size_all += size
+        self.yilai_s += 1
+        self.progressBar_4.setMaximum(self.yilai_s)
+
+    def D_MC_YL_sinOut_j(self):
+        """设置 依赖文件下载进度 (完成一个就调用一次)"""
+        a = self.progressBar_4.value()
+        self.progressBar_4.setValue(a+1)
+
+    def D_MC_YL_sinOut_s(self):
+        """依赖下载网速"""
+        pass
 
     def clicked_pushButton_close(self):
         self.pushButton.setEnabled(False)  # 为了防止重复操作 直接禁用按钮
@@ -118,19 +196,39 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
 
 
 class D_MC_ZY(QThread):
-    sinOut = pyqtSignal()
+    sinOut_size = pyqtSignal(int)
+    sinOut_j = pyqtSignal()
+    sinOut_s = pyqtSignal(int)
 
-    def __init__(self, u_get_json, Game_Current_File):
+    def __init__(self, u_get_json, Game_Current_File, G_D_Y, url_q_zy, url_q_):
         """下载资源文件"""
         self.u_get_json = u_get_json
         self.Game_Current_File = Game_Current_File
+        self.url_q_zy = url_q_zy
+        self.G_D_Y = G_D_Y
+        self.url_q_ = url_q_
         super(D_MC_ZY, self).__init__()
 
     def run(self):
 
         # 获取 存储资源文件的json文件
-        self.u_ziyuan_json_1 = self.u_get_json['assetIndex']['url']  # 获取资源文件链接
-        self.u_ziyuan_json_get = requests.get(self.u_ziyuan_json_1)
+        u_ziyuan_json_1_ = self.u_get_json['assetIndex']['url']  # 获取资源文件链接
+        if self.G_D_Y != 'MC':
+            print('开')
+            try:
+                self.u_ziyuan_json_1 = self.url_q_ + u_ziyuan_json_1_.split('https://launcher.mojang.com/')[1]
+            except IndexError:
+                self.u_ziyuan_json_1 = self.url_q_ + u_ziyuan_json_1_.split('https://launchermeta.mojang.com/')[1]
+        else:
+            self.u_ziyuan_json_1 = u_ziyuan_json_1_
+        print(self.u_ziyuan_json_1 +'lllllll')
+        while True:
+            try:
+                self.u_ziyuan_json_get = requests.get(self.u_ziyuan_json_1)
+                break
+            except requests.exceptions.ConnectionError:
+                print('资源文件Json 请求异常')
+
         self.u_ziyuan_json_get_json = self.u_ziyuan_json_get.json()
 
         # 解析为json格式 并存储 (资源文件)
@@ -148,7 +246,7 @@ class D_MC_ZY(QThread):
             hash = u_ziyuan_2['hash']
             hash_2 = hash[:2]
             size = u_ziyuan_2['size']
-            url = 'http://resources.download.minecraft.net/' + str(hash_2) + '/' + str(hash)
+            url = self.url_q_zy + str(hash_2) + '/' + str(hash)
             file_first = os.path.join(file_1, hash_2)
             file = os.path.join(file_first, hash)
             a = [url, file_first, file]
@@ -162,7 +260,7 @@ class D_MC_ZY(QThread):
         elif len(pool) <= 1000:
             self.a_len_s_1 = 10  # 每个协程任务量
         elif len(pool) <= 1500:
-            self.a_len_s_1 = 5  # 每个协程任务量
+            self.a_len_s_1 = 10  # 每个协程任务量
         elif len(pool) <= 2000:
             self.a_len_s_1 = 17  # 每个协程任务量
         elif len(pool) <= 3000:
@@ -181,8 +279,6 @@ class D_MC_ZY(QThread):
             pass
         else:
             self.a_len_1 += 1
-
-        self.sinOut.emit()
 
         new_loop = asyncio.new_event_loop()
         asyncio.set_event_loop(new_loop)
@@ -255,16 +351,41 @@ class D_MC_ZY(QThread):
 
 
 class D_MC_Z(QThread):
-    def __init__(self, l, file):
+    sinOut_size = pyqtSignal(int)
+    sinOut_j = pyqtSignal(int)
+    sinOut_s = pyqtSignal(int)
+    def __init__(self, l, file, MC, G_D_Y):
         """下载jar文件"""
         self.l = l
         self.file = file
+        self.MC = MC
+        self.G_D_Y = G_D_Y
         super(D_MC_Z, self).__init__()
 
     def run(self):
         shal = self.l['sha1']
         size = self.l['size']
-        url = self.l['url']
+        url_1 = self.l['url']
+
+        if self.G_D_Y != 'MC':
+            if self.G_D_Y == 'MCBBS':
+                url = 'https://download.mcbbs.net/' + url_1.split('https://launcher.mojang.com/')[1]
+            else:
+                url = 'https://bmclapi2.bangbang93.com/' + url_1.split('https://launcher.mojang.com/')[1]
+        else:
+            url = url_1
+
+        # 获取大小
+        self.s_h_ = QTimer()  # 创建计时器对象
+        self.s_h_.start(0.5)  # 开始计时器
+        self.s_h_.timeout.connect(self.h_size)  # 要执行的槽
+
+        # 获取大小
+        self.j_h_ = QTimer()  # 创建计时器对象
+        self.j_h_.start(0.5)  # 开始计时器
+        self.j_h_.timeout.connect(self.h_j)  # 要执行的槽
+
+
         Dowmloader(url, 40, self.file).run()
         #
         # r = requests.get(url, stream=True)
@@ -275,48 +396,153 @@ class D_MC_Z(QThread):
         #
         print('###############################################')
 
+    def h_size(self):
+        """获取大小"""
+        size = s_h()
+        if size != 0:
+            self.s_h_.stop()
+            self.sinOut_size.emit(size)
+
+    def h_j(self):
+        """获取进度"""
+        j = j_h()
+        if j != 0:
+            self.j_h_.stop()
+            self.sinOut_j.emit(j)
+
 
 class D_MC_YL(QThread):
-    def __init__(self, u_get_json, Game_Current_File):
+    sinOut_size = pyqtSignal(int)
+    sinOut_j = pyqtSignal()
+    sinOut_s = pyqtSignal(int)
+    def __init__(self, u_get_json, Game_Current_File,url_q_l):
         """下载依赖库文件"""
         self.u_get_json = u_get_json
         self.Game_Current_File = Game_Current_File
+        self.url_q_l = url_q_l
         super(D_MC_YL, self).__init__()
 
     def run(self):
         # 遍历json中的资源文件部分
         a = self.u_get_json['libraries']
         global pool_2
+        a = self.u_get_json['libraries']
+        global pool_2
         for a_ in a:
+            a_1 = a_['downloads']
             try:
-                a_1 = a_['downloads']
-                path_1 = a_1['artifact']['path']
-                sha1 = a_1['artifact']['sha1']
-                size = a_1['artifact']['size']
-                url = a_1['artifact']['url']
+                try:
+                    m = a_1['rules']['os']
+                    s = system_h()
+
+                    if s == 'win32' or 'cygwin':
+                        sy = 'windows'
+                    elif s == 'darwin':
+                        sy = 'osx'
+                    else:
+                        sy = 'linux'
+
+                    if sy == m:
+                        path_1 = a_1['artifact']['path']
+                        sha1 = a_1['artifact']['sha1']
+                        size = a_1['artifact']['size']
+                        url = a_1['artifact']['url']
+
+                except KeyError:
+                    path_1 = a_1['artifact']['path']
+                    sha1 = a_1['artifact']['sha1']
+                    size = a_1['artifact']['size']
+                    url = a_1['artifact']['url']
 
                 path = os.path.join(self.Game_Current_File, 'libraries', path_1)
                 path_q = path.split(os.path.basename(path))[0]
+                url_ = self.url_q_l + url.split('https://libraries.minecraft.net/')[1]
                 c = [url, path, path_q, size]
                 pool_2.append(c)
+                self.sinOut_size.emit(size)
 
             except KeyError:
-                pass
+                try:
+                    # natives文件
+                    s = system_h()
+                    if s == 'win32' or 'cygwin':
+                        sy = 'natives-windows'
+                    elif s == 'darwin':
+                        sy = 'natives-osx'
+                    else:
+                        sy = 'natives-linux'
 
-            try:
-                a_1 = a_['downloads']
-                for b_ in a_1['classifiers'].keys():
-                    path_1 = a_1['classifiers'][b_]['path']
-                    sha1 = a_1['classifiers'][b_]['sha1']
-                    size = a_1['classifiers'][b_]['size']
-                    url = a_1['classifiers'][b_]['url']
+                    path_1 = a_1['classifiers'][sy]['path']
+                    sha1 = a_1['classifiers'][sy]['sha1']
+                    size = a_1['classifiers'][sy]['size']
+                    url = a_1['classifiers'][sy]['url']
 
                     path = os.path.join(self.Game_Current_File, 'libraries', path_1)
                     path_q = path.split(os.path.basename(path))[0]
                     c = [url, path, path_q, size]
                     pool_2.append(c)
-            except KeyError:
-                pass
+                    self.sinOut_size.emit(size)
+
+                except KeyError:
+                    s = system_h()
+                    c = ['natives-windows','natives-osx','natives-macos','natives-linux']
+                    if s == 'win32' or 'cygwin':
+                        sy = ['natives-windows']
+                    elif s == 'darwin':
+                        sy = ['natives-osx','natives-macos']
+                    else:
+                        sy = ['natives-linux']
+
+                    classifiers_ = a_1['classifiers']
+
+                    try:
+                        for b_1 in sy:
+                            try:
+                                c.remove(b_1)
+                            except KeyError:
+                                pass
+                        for b_2 in sy:
+                            try:
+                                del classifiers_[b_2]
+                            except KeyError:
+                                pass
+
+                        for a_2 in classifiers_.keys():
+                            path_1 = a_1['classifiers'][a_2]['path']
+                            sha1 = a_1['classifiers'][a_2]['sha1']
+                            size = a_1['classifiers'][a_2]['size']
+                            url = a_1['classifiers'][a_2]['url']
+                            path = os.path.join(self.Game_Current_File, 'libraries', path_1)
+                            path_q = path.split(os.path.basename(path))[0]
+                            a = [url, path, path_q, size]
+                            pool_2.append(a)
+                            self.sinOut_size.emit(size)
+
+                    except KeyError:
+                        for a_2 in a_1['classifiers'].keys():
+                            path_1 = a_1['classifiers'][a_2]['path']
+                            sha1 = a_1['classifiers'][a_2]['sha1']
+                            size = a_1['classifiers'][a_2]['size']
+                            url = a_1['classifiers'][a_2]['url']
+
+                            path = os.path.join(self.Game_Current_File, 'libraries', path_1)
+                            path_q = path.split(os.path.basename(path))[0]
+                            a = [url, path, path_q, size]
+                            pool_2.append(a)
+                            self.sinOut_size.emit(size)
+
+
+                        path_1 = a_1['artifact']['path']
+                        sha1 = a_1['artifact']['sha1']
+                        size = a_1['artifact']['size']
+                        url = a_1['artifact']['url']
+
+                        path = os.path.join(self.Game_Current_File, 'libraries', path_1)
+                        path_q = path.split(os.path.basename(path))[0]
+                        c = [url, path, path_q, size]
+                        pool_2.append(c)
+                        self.sinOut_size.emit(size)
+
 
         self.a_len = int(len(pool_2))
         self.a_len_s_1 = 3  # 每个协程任务量
@@ -380,6 +606,7 @@ class D_MC_YL(QThread):
                                     # iter_chunked() 设置每次保存文件内容大小，单位bytes
                                     async for chunk in resp.content.iter_chunked(102400):
                                         fd.write(chunk)
+                        self.sinOut_j.emit()
                     except aiohttp.client_exceptions.ServerDisconnectedError:
                         print('链接失败 重试')
                     except OSError:

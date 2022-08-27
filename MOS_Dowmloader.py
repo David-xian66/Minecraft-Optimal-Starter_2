@@ -19,17 +19,20 @@ from concurrent.futures import ThreadPoolExecutor,wait
 
 j = 0 #进度
 w = "0 KB/s - 正在准备下载" #网速
-
+size = 0
 
 #网速获取和 进度获取
 
 def w_h():
+    """网速获取"""
     return w
 
 def j_h():
+    """进度获取"""
     return j
 
-
+def s_h():
+    """大小获取 没有开始的时候 为0 """
 
 class Dowmloader():
     def __init__(self, url, nums, file):
@@ -51,9 +54,11 @@ class Dowmloader():
         # 状态码显示302则迭代寻找文件
         while r.status_code == 302:
             self.url = r.headers['Location']
-            print("此url已重定向至{}".format(self.url))
+            print("此url已重定向至" + format(self.url))
             r = head(self.url)
         self.size = int(r.headers['Content-Length'])
+        global size
+        size = self.size
         print('该文件大小为: {} bytes'.format(self.size))
 
     # ************************************************** #

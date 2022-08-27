@@ -1972,17 +1972,23 @@ class D_G_Fabric(QThread):
         url = self.url + self.b
         headers = {'User-Agent': 'MOS/PyQt6'}
         a = requests.get(url,headers=headers)
-        b = a.json()
-        c = []
         try:
+            b = a.json()
+            c = []
             for b_ in b:
                 b_1 = b_['loader']['version']
                 c.append(b_1)
             self.sinOut.emit(c)
+        except requests.exceptions.JSONDecodeError:
+            b = []
+            MOS_print('info',str(a.url + '没有Fabric'))
         except KeyError:
             MOS_print('info',str(a.url + '没有Fabric'))
             self.sinOut.emit([])  # 返回一个空列表
             #break
+        except TypeError:
+            MOS_print('info',str(a.url + '没有Fabric'))
+            self.sinOut.emit([])  # 返回一个空列表
 
 
 
