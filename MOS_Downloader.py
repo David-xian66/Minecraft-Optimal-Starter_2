@@ -35,7 +35,7 @@ def s_h():
     """大小获取 没有开始的时候 为0 """
     return size
 
-class Dowmloader():
+class Downloader():
     def __init__(self, url, nums, file):
         self.url = url      # url链接
         self.num = nums     # 线程数
@@ -67,7 +67,7 @@ class Dowmloader():
         """
             url=地址 thread_num=线程数量 file=保存路径(要写全)
         """
-        down = Dowmloader(url, thread_num, file)
+        down = Downloader(url, thread_num, file)
         a = down.run()
         return a
 
@@ -192,12 +192,12 @@ if __name__ == '__main__':
         #url = 'https://visualstudio.microsoft.com/aabf4bb0-b5f4-4e42-8aae-6ad17ec46db2'
         #url = 'https://file.skyworldstudio.top/d/SoftwareRelease/MOS/Publish/2.0.4-alpha/2.0.4-alpha-win.zip'
         #url = 'https://download.visualstudio.microsoft.com/download/pr/ca7c7580-dd29-42d8-a0b1-3223e61f1623/b38739f51587806a5751419435d6c4ad/visualstudioformacinstaller-17.0.4.5.dmg'
-        down = Dowmloader(url, 8, os.path.basename(url))
+        down = Downloader(url, 8, os.path.basename(url))
     else:
         # 命令行执行方式
         url = sys.argv[1]       # 下载链接
         file = sys.argv[2]      # 默认保存在项目路径下,文件的名字以文件格式结尾
         thread_num = int(sys.argv[3])  # 使用的线程数量
-        down = Dowmloader(url, thread_num, file)
+        down = Downloader(url, thread_num, file)
     down.run()
 

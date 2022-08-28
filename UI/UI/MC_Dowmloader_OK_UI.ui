@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog_2</class>
- <widget class="QDialog" name="Dialog_2">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,6 +9,12 @@
     <width>505</width>
     <height>120</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>120</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
@@ -56,46 +62,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="2" colspan="2">
-    <widget class="QLabel" name="label_2">
-     <property name="styleSheet">
-      <string notr="true">font-size: 16px;</string>
-     </property>
-     <property name="text">
-      <string>提示</string>
-     </property>
-     <property name="margin">
-      <number>0</number>
-     </property>
-     <property name="indent">
-      <number>2</number>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="2" colspan="2">
-    <widget class="QLabel" name="label">
-     <property name="styleSheet">
-      <string notr="true">font-size: 14px;</string>
-     </property>
-     <property name="text">
-      <string>下载&amp;配置Java完成</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1" colspan="2">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="0" column="1" rowspan="2">
+   <item row="0" column="0" rowspan="2">
     <widget class="QPushButton" name="pushButton_2">
      <property name="minimumSize">
       <size>
@@ -123,6 +90,45 @@
       </size>
      </property>
     </widget>
+   </item>
+   <item row="1" column="1" colspan="3">
+    <widget class="QLabel" name="label">
+     <property name="styleSheet">
+      <string notr="true">font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>下载&amp;配置游戏完成</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="3">
+    <widget class="QLabel" name="label_2">
+     <property name="styleSheet">
+      <string notr="true">font-size: 16px;</string>
+     </property>
+     <property name="text">
+      <string>提示</string>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <property name="indent">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>254</width>
+       <height>27</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>

@@ -7,14 +7,14 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
+import MOS_rc
 
 class Ui_MOS_D_MC_Dialog(object):
     def setupUi(self, MOS_D_MC_Dialog):
         MOS_D_MC_Dialog.setObjectName("MOS_D_MC_Dialog")
         MOS_D_MC_Dialog.resize(560, 245)
         MOS_D_MC_Dialog.setMinimumSize(QtCore.QSize(560, 245))
-        MOS_D_MC_Dialog.setMaximumSize(QtCore.QSize(561, 245))
+        MOS_D_MC_Dialog.setMaximumSize(QtCore.QSize(560, 245))
         MOS_D_MC_Dialog.setStyleSheet("QDialog{background-color: rgb(255, 255, 255);}\n"
 "\n"
 "QScrollArea{border-style:none;}\n"
@@ -113,9 +113,10 @@ class Ui_MOS_D_MC_Dialog(object):
         self.verticalLayout.addWidget(self.label_2)
         self.progressBar = QtWidgets.QProgressBar(self.scrollAreaWidgetContents)
         self.progressBar.setMinimum(0)
-        self.progressBar.setMaximum(101)
+        self.progressBar.setMaximum(105)
         self.progressBar.setProperty("value", 0)
-        self.progressBar.setTextVisible(False)
+        self.progressBar.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.progressBar.setTextVisible(True)
         self.progressBar.setObjectName("progressBar")
         self.verticalLayout.addWidget(self.progressBar)
         self.label_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
@@ -124,7 +125,8 @@ class Ui_MOS_D_MC_Dialog(object):
         self.progressBar_2 = QtWidgets.QProgressBar(self.scrollAreaWidgetContents)
         self.progressBar_2.setMaximum(0)
         self.progressBar_2.setProperty("value", 0)
-        self.progressBar_2.setTextVisible(False)
+        self.progressBar_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.progressBar_2.setTextVisible(True)
         self.progressBar_2.setInvertedAppearance(False)
         self.progressBar_2.setObjectName("progressBar_2")
         self.verticalLayout.addWidget(self.progressBar_2)
@@ -134,6 +136,7 @@ class Ui_MOS_D_MC_Dialog(object):
         self.progressBar_4 = QtWidgets.QProgressBar(self.scrollAreaWidgetContents)
         self.progressBar_4.setMaximum(0)
         self.progressBar_4.setProperty("value", 0)
+        self.progressBar_4.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.progressBar_4.setTextVisible(False)
         self.progressBar_4.setInvertedAppearance(False)
         self.progressBar_4.setObjectName("progressBar_4")
@@ -149,7 +152,8 @@ class Ui_MOS_D_MC_Dialog(object):
         self.progressBar_3.setSizePolicy(sizePolicy)
         self.progressBar_3.setMaximum(0)
         self.progressBar_3.setProperty("value", 0)
-        self.progressBar_3.setTextVisible(False)
+        self.progressBar_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.progressBar_3.setTextVisible(True)
         self.progressBar_3.setInvertedAppearance(False)
         self.progressBar_3.setObjectName("progressBar_3")
         self.verticalLayout.addWidget(self.progressBar_3)
@@ -178,7 +182,10 @@ class Ui_MOS_D_MC_Dialog(object):
         self.label.setText(_translate("MOS_D_MC_Dialog", "安装游戏"))
         self.label_2.setText(_translate("MOS_D_MC_Dialog", "下载主文件"))
         self.label_3.setText(_translate("MOS_D_MC_Dialog", "下载资源库文件"))
+        self.progressBar_2.setFormat(_translate("MOS_D_MC_Dialog", "%v/%m"))
         self.label_6.setText(_translate("MOS_D_MC_Dialog", "下载依赖库文件"))
+        self.progressBar_4.setFormat(_translate("MOS_D_MC_Dialog", "%v/%m"))
         self.label_4.setText(_translate("MOS_D_MC_Dialog", "安装游戏"))
+        self.progressBar_3.setFormat(_translate("MOS_D_MC_Dialog", "%p%"))
         self.label_5.setText(_translate("MOS_D_MC_Dialog", "0 MB/S - 正在准备下载"))
         self.pushButton.setText(_translate("MOS_D_MC_Dialog", "取消"))

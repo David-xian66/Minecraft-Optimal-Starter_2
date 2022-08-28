@@ -1,4 +1,3 @@
-from telnetlib import DO
 import traceback
 
 import requests
@@ -19,6 +18,7 @@ class Java_Downloader__(QDialog, Ui_Java_Dowmloader):
         self.url = url
         self.file = file
         self.setupUi(self)
+        self.show()
 
         # 添加阴影
         self.effect_shadow = QtWidgets.QGraphicsDropShadowEffect(self)
@@ -41,8 +41,8 @@ class Java_Downloader__(QDialog, Ui_Java_Dowmloader):
 
     def J_D_stop(self):
         """暂停&取消下载"""
-        from MOS_Dowmloader import Dowmloader
-        Dowmloader.q_()
+        from MOS_Downloader import Downloader
+        Downloader.q_()
         self.d.terminate()  # 强行终止
         self.d.wait()
         self.clicked_pushButton_close()
@@ -95,7 +95,7 @@ class Java_Downloader__(QDialog, Ui_Java_Dowmloader):
             self.clicked_pushButton_close()
 
     def Java_d_j(self):
-        import MOS_Dowmloader
+        import MOS_Downloader
         a = MOS_Dowmloader.j_h()
         b = MOS_Dowmloader.w_h()
         self.progressBar.setValue(a)
@@ -114,10 +114,10 @@ class Java_d(QThread):
         self.file = file
 
     def run(self):
-        from MOS_Dowmloader import Dowmloader
+        from MOS_Downloader import Downloader
         from multiprocessing import Process
         try:
-            a = Dowmloader(self.url, 100, self.file)
+            a = Downloader(self.url, 100, self.file)
         except requests.exceptions.MissingSchema:
             pass
         self.sinOut_d_j.emit("D")  # 告诉槽 已经开始下载

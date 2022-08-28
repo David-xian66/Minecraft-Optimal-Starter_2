@@ -1,3 +1,4 @@
+# coding=utf-8
 import json
 import os
 import sys
@@ -7,8 +8,6 @@ import webbrowser
 
 import requests
 
-import MC_Dowmloader_UI
-
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = r'.\site-packages\PyQt6\Qt6\plugins'  #### 这一行是新增的。用的是相对路径。
 
 from PyQt6.QtCore import *
@@ -17,10 +16,12 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QIcon
 from Java_Downloader_ import Java_Downloader__
 from Java_Downloader_OK import Java_OK_UI
+from MC_Dowmloader_OK import MC_D_OK
 from MC_Dowmloader import Ui_MOS_D_MC_Dialog_
 from Delete_Game_F import Ui_Delete_Game_F_J
 from MOS_print_ import MOS_print, q_h
 from MOS_UI import Ui_MOS
+from MC_Dowmloader_OK_UI import Ui_Dialog as MC_D_OK_
 import MOS_rc
 
 
@@ -988,19 +989,48 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         else:
             Optifine = self.comboBox_5.currentText()
         MC_Name = self.lineEdit.text()
-        a = os.path.join(self.Game_Current_File,'versions','version.json')
-        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File,self.G_D_Y,a,self.G_D_V,MC_Name,Forge,Fabric,Optifine,15)
+        a = os.path.join(self.Game_Current_File, 'versions', 'version.json')
+        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File, self.G_D_Y, a, self.G_D_V, MC_Name, Forge, Fabric,
+                                         Optifine, 15)
         self.xy_size = self.geometry()  # 获取主界面 初始坐标
         self.D_G_A.move(self.xy_size.x() + 284, self.xy_size.y() + 177)  # 子界面移动到 居中
 
         self.D_G_A.setWindowFlags(
-            QtCore.Qt.WindowType.WindowCloseButtonHint | QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint | QtCore.Qt.WindowType.WindowStaysOnTopHint | QtCore.Qt.WindowType.FramelessWindowHint | QtCore.Qt.WindowType.Tool)
+            QtCore.Qt.WindowType.WindowCloseButtonHint |
+            QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint |
+            QtCore.Qt.WindowType.WindowStaysOnTopHint |
+            QtCore.Qt.WindowType.FramelessWindowHint |
+            QtCore.Qt.WindowType.Tool
+        )
 
         self.D_G_A.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
-
+        self.D_G_A.sinOut_OK.connect(self.MC_D_OK)
         self.D_G_A.show()
         self.D_G_A.run()
 
+    def MC_D_OK(self):
+        """游戏下载&安装完成后显示完成页面"""
+        self.D_G_A.close()
+        self.D_G_OK = MC_D_OK()
+        self.xy_size = self.geometry()  # 获取主界面 初始坐标
+        self.D_G_OK.move(self.xy_size.x() + 284, self.xy_size.y() + 177)  # 子界面移动到 居中
+
+        self.D_G_OK.setWindowFlags(
+            QtCore.Qt.WindowType.WindowCloseButtonHint |
+            QtCore.Qt.WindowType.MSWindowsFixedSizeDialogHint |
+            QtCore.Qt.WindowType.WindowStaysOnTopHint |
+            QtCore.Qt.WindowType.FramelessWindowHint |
+            QtCore.Qt.WindowType.Tool
+        )
+
+        self.D_G_OK.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
+        self.D_G_OK.sinOut.connect(self.MC_D_OK_S)
+        self.D_G_OK.show()
+
+    def MC_D_OK_S(self):
+        """在下载&安装游戏完成的弹框中点 “好的” 后暂停计时器"""
+        #self.a_w.stop()
+        pass
 
     def click_comboBox_shezhi(self):
         """设置页"""
@@ -2103,7 +2133,6 @@ class MOS_versions_Downloader(QThread):
         a.run()
         self.sinOut_versions_d.emit()
 
-
 class MOS_file(QThread):
     """初始化文件/设置"""
     sinOut = pyqtSignal(str)
@@ -2539,6 +2568,16 @@ def MOS_json_read(All=None, MOS_game_dir=None, MOS_game_dir_name_or_dir=None, MO
             else:
                 pass
             if MOS_game_dir == 'Yes':
+                """
+                    Traceback (most recent call last):
+                      File "/Users/xyj/.npm/ssh/MOS_UI_Main.py", line 2575, in MOS_json_read
+                        MOS_game_dir_name_ = b['Game_File_Name']
+                    UnboundLocalError: local variable 'b' referenced before assignment
+                    Traceback (most recent call last):
+                      File "/Users/xyj/.npm/ssh/MOS_UI_Main.py", line 2392, in run
+                        for all_2 in all_1:
+                    TypeError: 'NoneType' object is not iterable
+                """
                 if MOS_game_dir_name_or_dir == 'name':
                     MOS_game_dir_name_ = b['Game_File_Name']
                     return MOS_game_dir_name_

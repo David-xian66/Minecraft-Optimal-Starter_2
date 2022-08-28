@@ -24,7 +24,7 @@ from MC_Dowmloader_UI import Ui_MOS_D_MC_Dialog
 from PyQt6.QtWidgets import QApplication, QLabel, QDialogButtonBox, QDialog
 from PyQt6.QtCore import QPropertyAnimation, QTimer, QThread, pyqtSignal
 from PyQt6 import QtWidgets, QtCore
-import MOS_Dowmloader
+import MOS_Downloader
 
 pool = []
 pool_2 = []
@@ -32,6 +32,7 @@ pool_2 = []
 
 class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
     """下载&安装游戏"""
+    sinOut_OK = pyqtSignal()
 
     def __init__(self, Game_Current_File, G_D_Y, Json_File, MC, MC_Name, Forge, Fabric, Optifine,TimeOut):
         """
@@ -48,7 +49,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         """
         super(Ui_MOS_D_MC_Dialog_, self).__init__()
         self.setupUi(self)
-        self.show()
+
 
         global pool
         pool = []
@@ -108,15 +109,18 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             json.dump(u_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
 
         self.size_all = 0  # 安装需要下载的总大小
+        self.size_all_ok = 0  # 目前下载完成的总大小
         self.ws_d = 0  # 网速
         self.ziyuan_s = 0  # 资源文件总数量
         self.yilai_s = 0  # 依赖库总速度
+        self.ws_s = 0  # 资源库总数
 
         # 下载游戏主文件
         file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
         u_mc_z = u_get_json['downloads']['client']
         self.u_mc_z_s = D_MC_Z(u_mc_z, file_1, self.MC, self.G_D_Y)
-        self.u_mc_z_s.sinOut_s.connect(self.D_MC_Z_sinOut_s)  # 网速
+        self.u_mc_z_s.sinOut_start.connect(self.D_MC_Z_sinOut_start)  # 网速
+        self.u_mc_z_s.sinOut_ok.connect(self.D_MC_Z_sinOut_ok)  # 完成后通知
         self.u_mc_z_s.start()
 
         # 下载资源索引文件
@@ -143,15 +147,11 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.ds_ui_.start(500)
         self.ds_ui_.timeout.connect(self.ds_ui)
 
-        # 获取大小(jar文件)
-        self.s_h_ = QTimer()  # 创建计时器对象
-        self.s_h_.start(500)  # 开始计时器
-        self.s_h_.timeout.connect(self.h_size)  # 要执行的槽
 
-        # 获取进度(jar文件)
-        self.j_h_ = QTimer()  # 创建计时器对象
-        self.j_h_.start(1000)  # 开始计时器
-        self.j_h_.timeout.connect(self.h_j)  # 要执行的槽
+    def MC_D_OK_C(self):
+        """检查是否全部完成"""
+        if self.progressBar_4.value() == self.progressBar_4.maximum() and self.progressBar_2.value() == self.progressBar_2.maximum() and self.progressBar.value() == 105:
+            self.clicked_pushButton_close()
 
     def D_MC_Z_sinOut_size(self, size):
         """主文件总文件大小"""
@@ -159,6 +159,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
 
     def D_MC_Z_sinOut_j(self, j):
         """设置 主文件下载进度"""
+        # self.size_all_ok += size
         self.progressBar.setValue(int(j))
 
     def D_MC_Z_sinOut_s(self, w):
@@ -172,6 +173,25 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             j_2 = j_[0] * 1024
         self.ws_d += j_2
 
+    def D_MC_Z_sinOut_start(self):
+        """Jar下载开始后"""
+        # 获取大小(jar文件)
+        self.s_h_ = QTimer()  # 创建计时器对象
+        self.s_h_.start(800)  # 开始计时器
+        self.s_h_.timeout.connect(self.h_size)  # 要执行的槽
+
+        # 获取进度(jar文件)
+        self.j_h_ = QTimer()  # 创建计时器对象
+        self.j_h_.start(1000)  # 开始计时器
+        self.j_h_.timeout.connect(self.h_j)  # 要执行的槽
+
+    def D_MC_Z_sinOut_ok(self):
+        """Jar下载完成后"""
+        self.progressBar.setValue(105)
+        self.j_h_.stop()
+        self.s_h_.stop()
+        self.MC_D_OK_C()
+
     def D_MC_ZY_sinOut_size(self, size):
         """资源文件大小"""
         self.size_all += size
@@ -182,10 +202,13 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         """设置 资源文件下载进度 (完成一个就调用一次)"""
         a = self.progressBar_2.value()
         self.progressBar_2.setValue(a + 1)
+        if self.progressBar_2.value() == self.progressBar_2.maximum():
+            self.MC_D_OK_C()
 
     def D_MC_ZY_sinOut_s(self, size):
         """资源文件下载网速"""
         self.ws_d += size
+        self.ws_s += 1
 
     def D_MC_YL_sinOut_size(self, size):
         """依赖文件大小(size)"""
@@ -197,6 +220,10 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         """设置 依赖文件下载进度 (完成一个就调用一次)"""
         a = self.progressBar_4.value()
         self.progressBar_4.setValue(a + 1)
+        if self.progressBar_4.maximum() == self.progressBar_4.value():
+            self.MC_D_OK_C()
+
+
 
     def D_MC_YL_sinOut_s(self, size):
         """依赖下载网速"""
@@ -204,8 +231,14 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
 
     def ws_ui(self):
         """总网速显示"""
-        self.label_5.setText(str(self.ws_d))
+        ws_d_1 = int(self.ws_d) / 1024
         self.ws_d = 0
+        if ws_d_1 > 1024:
+            ws_d = str(round(ws_d_1 / 1024,2)) + 'MB/s'
+        else:
+            ws_d = str(round(ws_d_1,2)) + 'KB/s'
+        self.label_5.setText(ws_d)
+
 
     def ds_ui(self):
         """需要下载的总大小显示"""
@@ -214,11 +247,12 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             size = str(round(size_1 / 1024,2)) + ' MB'
         else:
             size = str(size_1) + ' KB'
-        self.label.setText('安装游戏 ' + size)
+        #self.label.setText('安装游戏 ' + '(' +str(self.size_all_ok) + '/' + size + ')')
+        self.label.setText('安装游戏 ' + '(' + size + ')')
 
     def h_size(self):
         """获取大小(jar文件)"""
-        size = MOS_Dowmloader.s_h()
+        size = MOS_Downloader.s_h()
         if size != 0:
             self.s_h_.stop()
             self.D_MC_Z_sinOut_size(size)
@@ -226,7 +260,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
     def h_j(self):
         """获取进度(jar文件)"""
         print(time.time())
-        j = MOS_Dowmloader.j_h()
+        j = MOS_Downloader.j_h()
         if j != 0:
             self.D_MC_Z_sinOut_j(j)
 
@@ -240,6 +274,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.anim.start()  # 开始动画
 
     def close_(self):
+        self.sinOut_OK.emit()
         self.close()
 
 
@@ -379,30 +414,35 @@ class D_MC_ZY(QThread):
                                     fd.write(chunk)
                     self.sinOut_j.emit()
                     self.sinOut_s.emit(pool_3[3])
+                    break
                 except OSError:
                     print('存储异常 重试')
                 except aiohttp.client_exceptions.ServerDisconnectedError:
                     print('链接失败 重试')
                 except asyncio.exceptions.TimeoutError:
                     print('超时重试')
+                except aiohttp.client_exceptions.ClientPayloadError:
+                    print('客户端负载出错')
+                    asyncio.sleep(0)
                 except:
                     traceback.print_exc()
 
-                while True:
-                    try:
-                        print(pool_3)
-                        pool.remove(pool_3)
-                        print(len(pool))
-                        break
-                    except:
-                        traceback.print_exc()
-                        # print(pool)
-                        break
-                break
+            while True:
+                try:
+                    print(pool_3)
+                    pool.remove(pool_3)
+                    print(len(pool))
+                    break
+                except:
+                    traceback.print_exc()
+                    # print(pool)
+                    break
 
 
 class D_MC_Z(QThread):
-    sinOut_s = pyqtSignal(str)
+    sinOut_start = pyqtSignal()
+    sinOut_ok = pyqtSignal()
+
 
     def __init__(self, l, file, MC, G_D_Y):
         """下载jar文件"""
@@ -425,15 +465,11 @@ class D_MC_Z(QThread):
         else:
             url = url_1
 
-        MOS_Dowmloader.Dowmloader(url, 40, self.file).run()
-        #
-        # r = requests.get(url, stream=True)
-        # with open(self.file, 'wb') as fp:
-        #    for item in r.iter_content(102400):
-        #        # 10240表示每次会写入10240个字节，即10KB
-        #        fp.write(item)
-        #
-        print('###############################################')
+        self.sinOut_start.emit()
+        MOS_Downloader.Downloader(url, 40, self.file).run()
+        self.sinOut_ok.emit()
+
+        print('Jar文件下载完成')
 
 class D_MC_YL(QThread):
     sinOut_size = pyqtSignal(int)
@@ -632,25 +668,28 @@ class D_MC_YL(QThread):
                                         fd.write(chunk)
                         self.sinOut_j.emit()
                         self.sinOut_s.emit(pool_4[3])
+                        break
                     except aiohttp.client_exceptions.ServerDisconnectedError:
                         print('链接失败 重试')
                     except OSError:
                         print('存储异常 重试')
                     except asyncio.exceptions.TimeoutError:
                         print('超时重试')
+                    except aiohttp.client_exceptions.ClientPayloadError:
+                        print('客户端负载出错')
+                        asyncio.sleep(0)
                     except:
                         traceback.print_exc()
 
-                    while True:
-                        try:
-                            pool_2.remove(pool_4)
-                            print(str(len(pool_2)) + 'pppppp')
-                            break
-                        except:
-                            traceback.print_exc()
-                            # print(pool)
-                            break
-                    break
+                while True:
+                    try:
+                        pool_2.remove(pool_4)
+                        print(str(len(pool_2)) + 'pppppp')
+                        break
+                    except:
+                        traceback.print_exc()
+                        # print(pool)
+                        break
         except:
             traceback.print_exc()
 
