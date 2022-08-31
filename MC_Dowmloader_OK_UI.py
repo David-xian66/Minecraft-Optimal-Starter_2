@@ -7,7 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
+import MOS_rc
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):

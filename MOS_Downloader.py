@@ -20,6 +20,7 @@ from concurrent.futures import ThreadPoolExecutor,wait
 j = 0 #进度
 w = "0 KB/s - 正在准备下载" #网速
 size = 0
+pool = ''
 
 #网速获取和 进度获取
 
@@ -34,6 +35,9 @@ def j_h():
 def s_h():
     """大小获取 没有开始的时候 为0 """
     return size
+
+def stop():
+    pool.shutdown(wait=False)
 
 class Downloader():
     def __init__(self, url, nums, file):
@@ -156,6 +160,7 @@ class Downloader():
         start_time = time.time()
         fp.close()
         part = self.size // self.num
+        global pool
         pool = ThreadPoolExecutor(max_workers=self.num + 1)
         futures = []
         for i in range(self.num):
@@ -181,6 +186,8 @@ class Downloader():
 
         end_time_1 = time.perf_counter()
         print("用时" + str(end_time_1))
+
+
 
 
 

@@ -935,6 +935,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
 
         self.D_G_Forge_ = D_G_Forge(a,self.G_D_Y)
         self.D_G_Forge_.sinOut.connect(self.D_G_Forge_sinOut)
+        self.D_G_Forge_.sinOut_json.connect(self.D_G_Forge_sinOut_json)
         self.D_G_Forge_.start()
 
         self.D_G_Fabric_ = D_G_Fabric(a,self.G_D_Y)
@@ -961,6 +962,9 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         l.insert(0,'不使用')
         self.comboBox_3.addItems(l)
         self.label_52.setPixmap(QtGui.QPixmap(os.path.join("picture", "yes.png")))
+
+    def D_G_Forge_sinOut_json(self,json_):
+        self.Forge_json = json_
 
     def D_G_Fabric_sinOut(self,l):
         l.insert(0,'不使用')
@@ -990,7 +994,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
             Optifine = self.comboBox_5.currentText()
         MC_Name = self.lineEdit.text()
         a = os.path.join(self.Game_Current_File, 'versions', 'version.json')
-        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File, self.G_D_Y, a, self.G_D_V, MC_Name, Forge, Fabric,
+        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File, self.G_D_Y, a, self.G_D_V, MC_Name, Forge,self.Forge_json, Fabric,
                                          Optifine, 15)
         self.xy_size = self.geometry()  # 获取主界面 初始坐标
         self.D_G_A.move(self.xy_size.x() + 284, self.xy_size.y() + 177)  # 子界面移动到 居中
@@ -1031,6 +1035,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         """在下载&安装游戏完成的弹框中点 “好的” 后暂停计时器"""
         #self.a_w.stop()
         pass
+
 
     def click_comboBox_shezhi(self):
         """设置页"""
@@ -1952,6 +1957,7 @@ class m_d_mod_p(QThread):
 class D_G_Forge(QThread):
     """获取游戏对应的Forge版本"""
     sinOut = pyqtSignal(list)
+    sinOut_json = pyqtSignal(list)  # API返回的json是个大列表
     def __init__(self,b,Y):
         self.b = str(b) #游戏版本
 
@@ -1968,6 +1974,7 @@ class D_G_Forge(QThread):
         headers = {'User-Agent': 'MOS/PyQt6'}
         a = requests.get(url,headers=headers)
         b = a.json()
+        self.sinOut_json.emit(b)
         c = []
         try:
             for b_ in b:
