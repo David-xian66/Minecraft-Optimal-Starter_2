@@ -117,7 +117,12 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.ws_s = 0  # 资源库总数
 
         if self.Forge != None:
-            pass
+            # 下载Forge主文件
+            #file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
+            self.u_mc_f_z = D_MC_F_D(self.Game_Current_File, self.MC, self.G_D_Y,self.Forge,self.Forge_json)
+            #self.u_mc_f_z.sinOut_start.connect(self.D_MC_f_d_sinOut_start)  # 网速
+            #self.u_mc_f_z.sinOut_ok.connect(self.D_MC_f_d_sinOut_ok)  # 完成后通知
+            self.u_mc_f_z.start()
 
         global run_
         run_ = True
@@ -751,6 +756,25 @@ class D_MC_YL(QThread):
                     break
         except:
             traceback.print_exc()
+
+
+class D_MC_F_D(QThread):
+    sinOut_start = pyqtSignal()
+    sinOut_ok = pyqtSignal()
+    def __init__(self,file, MC, G_D_Y, f_v,json):
+        super(D_MC_F_D, self).__init__()
+        self.file = file
+        self.MC = MC
+        self.G_D_Y = G_D_Y
+        self.F_V = f_v
+        self.Json = json
+    def run(self):
+        for json_2 in self.Json:
+            if json_2['version'] == self.F_V:
+                url_q = 'https://bmclapi2.bangbang93.com/maven/net/minecraftforge/forge/' + self.MC + '-' + self.F_V + '/forge-' + self.MC + '-' + self.F_V + '-' + 'installer.jar'
+                print(url_q)
+                break
+
 
 
 def system_h():
