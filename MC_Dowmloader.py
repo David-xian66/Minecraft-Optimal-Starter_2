@@ -6,6 +6,7 @@
 
 # from gevent import monkey
 import sys
+import zipfile
 
 import aiohttp
 import nest_asyncio
@@ -35,18 +36,19 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
     """下载&安装游戏"""
     sinOut_OK = pyqtSignal()
 
-    def __init__(self, Game_Current_File, G_D_Y, Json_File, MC, MC_Name, Forge, Forge_json,Fabric, Optifine, TimeOut):
+    def __init__(self, Game_Current_File, MC_File, G_D_Y, Json_File, MC, MC_Name, Forge, Forge_json,Fabric, Optifine, TimeOut):
         """
             需要的参数：
                 Game_Current_File: 游戏目录
-                 G_D_Y: 下载源
-                 Json_File: 这个版本Json的地址
-                 MC: 版本
-                 MC_Name: 游戏名
-                 Forge: Forge版本
-                 Fabric: Fabric版本
-                 Optifine: Optifine版本
-                 TimeOut: 请求超时时间
+                MC_File: MC文件夹目录
+                G_D_Y: 下载源
+                Json_File: 这个版本Json的地址
+                MC: 版本
+                MC_Name: 游戏名
+                Forge: Forge版本
+                Fabric: Fabric版本
+                Optifine: Optifine版本
+                TimeOut: 请求超时时间
         """
         super(Ui_MOS_D_MC_Dialog_, self).__init__()
         self.setupUi(self)
@@ -55,6 +57,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         pool = []
 
         self.Game_Current_File = Game_Current_File
+        self.MC_File = MC_File
         self.G_D_Y = G_D_Y
         self.Json_File = Json_File
         self.MC = MC
@@ -77,17 +80,17 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         print(json_url_1)
 
         if self.G_D_Y == 'MC':
-            self.url_q_ = 'https://launchermeta.mojang.com/'
-            self.url_q_l = 'https://libraries.minecraft.net/'  # 依赖
+            self.url_q_ = 'http://launchermeta.mojang.com/'
+            self.url_q_l = 'http://libraries.minecraft.net/'  # 依赖
             self.url_q_zy = 'http://resources.download.minecraft.net/'  # 资源文件
         elif self.G_D_Y == 'MCBBS':
-            self.url_q_ = 'https://download.mcbbs.net/'  # json文件
-            self.url_q_l = 'https://download.mcbbs.net/maven/'  # 依赖
-            self.url_q_zy = 'https://download.mcbbs.net/assets/'  # 资源文件
+            self.url_q_ = 'http://download.mcbbs.net/'  # json文件
+            self.url_q_l = 'http://download.mcbbs.net/maven/'  # 依赖
+            self.url_q_zy = 'http://download.mcbbs.net/assets/'  # 资源文件
         else:
-            self.url_q_ = 'https://bmclapi2.bangbang93.com/'  # json文件
-            self.url_q_l = 'https://bmclapi2.bangbang93.com/maven/'  # 依赖
-            self.url_q_zy = 'https://bmclapi2.bangbang93.com/assets/'  # 资源文件
+            self.url_q_ = 'http://bmclapi2.bangbang93.com/'  # json文件
+            self.url_q_l = 'http://bmclapi2.bangbang93.com/maven/'  # 依赖
+            self.url_q_zy = 'http://bmclapi2.bangbang93.com/assets/'  # 资源文件
 
         if self.G_D_Y != 'MC':
             json_url = self.url_q_ + 'version/' + self.MC + '/json'
@@ -105,7 +108,8 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         # 创建文件夹
         u_text_file_c = os.path.join(self.Game_Current_File, 'versions', self.MC_Name)
         os.makedirs(u_text_file_c, exist_ok=True)
-
+        u_text_file_2 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name)
+        os.makedirs(u_text_file_2, exist_ok=True)
         with open(u_text_file, 'w+', encoding='utf-8') as f:
             json.dump(u_get_json, f, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
 
@@ -115,14 +119,6 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.ziyuan_s = 0  # 资源文件总数量
         self.yilai_s = 0  # 依赖库总速度
         self.ws_s = 0  # 资源库总数
-
-        if self.Forge != None:
-            # 下载Forge主文件
-            #file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
-            self.u_mc_f_z = D_MC_F_D(self.Game_Current_File, self.MC, self.G_D_Y,self.Forge,self.Forge_json)
-            #self.u_mc_f_z.sinOut_start.connect(self.D_MC_f_d_sinOut_start)  # 网速
-            #self.u_mc_f_z.sinOut_ok.connect(self.D_MC_f_d_sinOut_ok)  # 完成后通知
-            self.u_mc_f_z.start()
 
         global run_
         run_ = True
@@ -150,6 +146,14 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.D_MC_YL_.sinOut_s.connect(self.D_MC_YL_sinOut_s)  # 网速
         self.D_MC_YL_.start()
 
+        if self.Forge != None:
+            # 下载Forge主文件
+            #file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
+            self.u_mc_f_z = D_MC_F_D(self.Game_Current_File, self.MC_File, self.MC, self.G_D_Y,self.Forge,self.Forge_json)
+            #self.u_mc_f_z.sinOut_start.connect(self.D_MC_f_d_sinOut_start)  # 网速
+            #self.u_mc_f_z.sinOut_ok.connect(self.D_MC_f_d_sinOut_ok)  # 完成后通知
+            self.u_mc_f_z.start()
+
         # 在UI上显示总下载速度(网速)
         self.ws_ui_ = QTimer()
         self.ws_ui_.start(1000)
@@ -162,8 +166,9 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
 
     def MC_D_OK_C(self):
         """检查是否全部完成"""
-        if self.progressBar_4.value() == self.progressBar_4.maximum() and self.progressBar_2.value() == self.progressBar_2.maximum() and self.progressBar.value() == 105:
-            self.clicked_pushButton_close()
+        if self.progressBar_4.maximum() and self.progressBar_2.maximum() != 0:
+            if self.progressBar_4.value() == self.progressBar_4.maximum() and self.progressBar_2.value() == self.progressBar_2.maximum() and self.progressBar.value() == 105:
+                self.clicked_pushButton_close()
 
     def D_MC_Z_sinOut_size(self, size):
         """主文件总文件大小"""
@@ -203,6 +208,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.j_h_.stop()
         self.s_h_.stop()
         self.MC_D_OK_C()
+
 
     def D_MC_ZY_sinOut_size(self, size):
         """资源文件大小"""
@@ -434,40 +440,51 @@ class D_MC_ZY(QThread):
     async def D_X(self, pool_2):
         """下载"""
         global pool, run_
+        header = {
+            'Proxy-Connection': 'keep-alive',
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'}  # 伪装浏览器
         if run_ == True:
             for pool_3 in pool_2:
+                print(pool_3[0])
                 while True:
                     try:
                         os.makedirs(pool_3[1], exist_ok=True)
                         if run_ == True:
-                            async with aiohttp.ClientSession() as session:
+                            async with aiohttp.ClientSession(timeout = aiohttp.ClientTimeout(connect=30)) as session:
                                 # aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
                                 if run_ == True:
-                                    async with session.get(pool_3[0], timeout=self.timeout) as resp:
+                                    file = await session.get(pool_3[0], headers=header, ssl=False)
+                                    file_code = await file.read()
+
+                                    with open(pool_3[2], 'wb') as f:
+                                        f.write(file_code)
+
+                                    '''
+                                    async with session.get(pool_3[0], headers=header, ssl=False) as resp:
                                         if run_ == True:
                                             with open(pool_3[2], 'wb') as fd:
                                                 # iter_chunked() 设置每次保存文件内容大小，单位bytes
                                                 if run_ == True:
-                                                    async for chunk in resp.content.iter_chunked(102400):
+                                                    async for chunk in resp.content.iter_chunked(10240000000):
                                                         fd.write(chunk)
                                                 else:
                                                     break
                                         else:
                                             break
+                                    '''
                                 else:
                                     break
                         self.sinOut_j.emit()
                         self.sinOut_s.emit(pool_3[3])
                         break
                     except OSError:
-                        print('存储异常 重试')
+                        print('存储异常 重试(资源)')
                     except aiohttp.client_exceptions.ServerDisconnectedError:
-                        print('链接失败 重试')
+                        print('链接失败 重试(资源)')
                     except asyncio.exceptions.TimeoutError:
-                        print('超时重试')
+                        print('超时重试(资源)')
                     except aiohttp.client_exceptions.ClientPayloadError:
-                        print('客户端负载出错')
-                        asyncio.sleep(0)
+                        print('客户端负载出错(资源)')
                     except:
                         traceback.print_exc()
             if run_ == True:
@@ -504,9 +521,16 @@ class D_MC_Z(QThread):
 
         if self.G_D_Y != 'MC':
             if self.G_D_Y == 'MCBBS':
-                url = 'https://download.mcbbs.net/' + url_1.split('https://launcher.mojang.com/')[1]
+                print(str(url_1) + 'asdaksdnkaskdlnsdlknasl')
+                try:
+                    url = 'http://download.mcbbs.net/' + url_1.split('https://launcher.mojang.com/')[1]
+                except IndexError:
+                    url = 'http://download.mcbbs.net/' + url_1.split('https://piston-data.mojang.com/')[1]
             else:
-                url = 'https://bmclapi2.bangbang93.com/' + url_1.split('https://launcher.mojang.com/')[1]
+                try:
+                    url = 'http://bmclapi2.bangbang93.com/' + url_1.split('https://launcher.mojang.com/')[1]
+                except IndexError:
+                    url = 'http://bmclapi2.bangbang93.com/' + url_1.split('https://piston-data.mojang.com/')[1]
         else:
             url = url_1
 
@@ -704,20 +728,23 @@ class D_MC_YL(QThread):
         """下载"""
         try:
             global pool_2, run_
+            header = {
+                'Proxy-Connection': 'keep-alive','User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'}  # 伪装浏览器
             if run_ == True:
                 for pool_4 in pool_3:
+                    print(pool_4[0])
                     while True:
                         try:
                             os.makedirs(pool_4[2], exist_ok=True)
                             if run_ == True:
-                                async with aiohttp.ClientSession() as session:
+                                async with aiohttp.ClientSession(timeout = aiohttp.ClientTimeout(connect=20)) as session:
                                     if run_ == True:
-                                        async with session.get(pool_4[0], timeout=self.timeout) as resp:
+                                        async with session.get(pool_4[0], headers=header, ssl=False) as resp:
                                             if run_ == True:
                                                 with open(pool_4[1], 'wb') as fd:
                                                     # iter_chunked() 设置每次保存文件内容大小，单位bytes
                                                     if run_ == True:
-                                                        async for chunk in resp.content.iter_chunked(102400):
+                                                        async for chunk in resp.content.iter_chunked(10240000000):
                                                             fd.write(chunk)
                                                     else:
                                                         break
@@ -731,14 +758,13 @@ class D_MC_YL(QThread):
                             self.sinOut_s.emit(pool_4[3])
                             break
                         except aiohttp.client_exceptions.ServerDisconnectedError:
-                            print('链接失败 重试')
+                            print('链接失败 重试(依赖)')
                         except OSError:
-                            print('存储异常 重试')
+                            print('存储异常 重试(依赖)')
                         except asyncio.exceptions.TimeoutError:
-                            print('超时重试')
+                            print('超时重试(依赖)')
                         except aiohttp.client_exceptions.ClientPayloadError:
-                            print('客户端负载出错')
-                            asyncio.sleep(0)
+                            print('客户端负载出错(依赖)')
                         except:
                             traceback.print_exc()
                     if run_ == True:
@@ -746,6 +772,7 @@ class D_MC_YL(QThread):
                             try:
                                 pool_2.remove(pool_4)
                                 print(str(len(pool_2)) + 'pppppp')
+                                print(pool_2)
                                 break
                             except UnboundLocalError:
                                 break
@@ -753,7 +780,6 @@ class D_MC_YL(QThread):
                                 traceback.print_exc()
                                 # print(pool)
                                 break
-                    break
         except:
             traceback.print_exc()
 
@@ -761,9 +787,10 @@ class D_MC_YL(QThread):
 class D_MC_F_D(QThread):
     sinOut_start = pyqtSignal()
     sinOut_ok = pyqtSignal()
-    def __init__(self,file, MC, G_D_Y, f_v,json):
+    def __init__(self,file, MC_file,MC, G_D_Y, f_v,json):
         super(D_MC_F_D, self).__init__()
         self.file = file
+        self.MC_File = MC_file  # MC文件夹目录
         self.MC = MC
         self.G_D_Y = G_D_Y
         self.F_V = f_v
@@ -771,9 +798,17 @@ class D_MC_F_D(QThread):
     def run(self):
         for json_2 in self.Json:
             if json_2['version'] == self.F_V:
-                url_q = 'https://bmclapi2.bangbang93.com/maven/net/minecraftforge/forge/' + self.MC + '-' + self.F_V + '/forge-' + self.MC + '-' + self.F_V + '-' + 'installer.jar'
-                print(url_q)
+                url = 'http://bmclapi2.bangbang93.com/maven/net/minecraftforge/forge/' + self.MC + '-' + self.F_V + '/forge-' + self.MC + '-' + self.F_V + '-' + 'installer.jar'
+                print(url)
                 break
+        file_q = os.path.join(self.MC_File,'MOS_Cache',str(time.time()))
+        file_d = os.path.join(file_q,'F.jar')
+        os.makedirs(file_q, exist_ok=True)
+        MOS_Downloader.Downloader(url, 40, file_d).run()
+        f = zipfile.ZipFile(file_d, 'r')
+        path_j = os.path.join(file_q,'F')
+        for file in f.namelist():
+            f.extract(file, path_j)
 
 
 

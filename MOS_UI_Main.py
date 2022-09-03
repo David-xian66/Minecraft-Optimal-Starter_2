@@ -994,8 +994,9 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
             Optifine = self.comboBox_5.currentText()
         MC_Name = self.lineEdit.text()
         a = os.path.join(self.Game_Current_File, 'versions', 'version.json')
-        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File, self.G_D_Y, a, self.G_D_V, MC_Name, Forge,self.Forge_json, Fabric,
-                                         Optifine, 15)
+        b = MOS_json_read(All="Yes")
+        self.D_G_A = Ui_MOS_D_MC_Dialog_(self.Game_Current_File, b['Game_Current_File'],self.G_D_Y, a, self.G_D_V, MC_Name, Forge,self.Forge_json, Fabric,
+                                         Optifine, 60)
         self.xy_size = self.geometry()  # 获取主界面 初始坐标
         self.D_G_A.move(self.xy_size.x() + 284, self.xy_size.y() + 177)  # 子界面移动到 居中
 
