@@ -55,12 +55,16 @@ class Downloader():
                 'stat': [1 for i in range(nums)]         # 下载状态
             }
         }
-        r = head(self.url)
+        r = head(self.url, allow_redirects=False)  # 禁止自动重定向
         # 状态码显示302则迭代寻找文件
-        while r.status_code == 302:
-            self.url = r.headers['Location']
-            print("此url已重定向至" + format(self.url))
-            r = head(self.url)
+        try:
+            while r.status_code == 302 or r.status_code == 301:
+                print(r.headers)
+                self.url = r.headers['Location']
+                print("此url已重定向至" + format(self.url))
+                r = head(self.url,allow_redirects=False)  # 禁止自动重定向
+        except KeyError:
+            print('状态码为' + str(r.status_code) + ' 但请求头内无location值 重定向失败')
         self.size = int(r.headers['Content-Length'])
         global size
         size = self.size

@@ -123,6 +123,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         global run_
         run_ = True
 
+        '''
         # 下载游戏主文件
         file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
         u_mc_z = u_get_json['downloads']['client']
@@ -145,14 +146,18 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.D_MC_YL_.sinOut_j.connect(self.D_MC_YL_sinOut_j)  # 进度
         self.D_MC_YL_.sinOut_s.connect(self.D_MC_YL_sinOut_s)  # 网速
         self.D_MC_YL_.start()
+        
+        '''
 
         if self.Forge != None:
             # 下载Forge主文件
-            #file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
-            self.u_mc_f_z = D_MC_F_D(self.Game_Current_File, self.MC_File, self.MC, self.G_D_Y,self.Forge,self.Forge_json)
-            #self.u_mc_f_z.sinOut_start.connect(self.D_MC_f_d_sinOut_start)  # 网速
-            #self.u_mc_f_z.sinOut_ok.connect(self.D_MC_f_d_sinOut_ok)  # 完成后通知
+            # file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
+            self.u_mc_f_z = D_MC_F_D(self.Game_Current_File, self.MC_File, self.MC, self.G_D_Y, self.Forge,
+                                     self.Forge_json)
+            # self.u_mc_f_z.sinOut_start.connect(self.D_MC_f_d_sinOut_start)  # 网速
+            # self.u_mc_f_z.sinOut_ok.connect(self.D_MC_f_d_sinOut_ok)  # 完成后通知
             self.u_mc_f_z.start()
+
 
         # 在UI上显示总下载速度(网速)
         self.ws_ui_ = QTimer()
@@ -804,11 +809,14 @@ class D_MC_F_D(QThread):
         file_q = os.path.join(self.MC_File,'MOS_Cache',str(time.time()))
         file_d = os.path.join(file_q,'F.jar')
         os.makedirs(file_q, exist_ok=True)
-        MOS_Downloader.Downloader(url, 40, file_d).run()
+        print('fffffffffffffffffffffffffffffffffffffff')
+        MOS_Downloader.Downloader(url, 5, file_d).run()
+        print('okokokokok')
         f = zipfile.ZipFile(file_d, 'r')
         path_j = os.path.join(file_q,'F')
         for file in f.namelist():
             f.extract(file, path_j)
+        print('zip-ok')
 
 
 
