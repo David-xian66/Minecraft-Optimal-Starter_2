@@ -868,6 +868,7 @@ class D_MC_F_D(QThread):
         new_loop = asyncio.new_event_loop()
         asyncio.set_event_loop(new_loop)
         asyncio.run(asyncio.gather(self.D_R()))
+        print('776769698698986896868698689689689689698689')
 
     async def D_R(self):
         try:
