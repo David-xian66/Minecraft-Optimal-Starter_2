@@ -37,7 +37,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
     """下载&安装游戏"""
     sinOut_OK = pyqtSignal()
 
-    def __init__(self, Game_Current_File, MC_File, G_D_Y, Json_File, MC, MC_Name, Forge, Forge_json,Fabric, Optifine, TimeOut):
+    def __init__(self, Game_Current_File, MC_File, G_D_Y, Json_File, MC, MC_Name, Forge, Forge_json,Fabric, Optifine, TimeOut, MOS_File):
         """
             需要的参数：
                 Game_Current_File: 游戏目录
@@ -50,6 +50,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
                 Fabric: Fabric版本
                 Optifine: Optifine版本
                 TimeOut: 请求超时时间
+                MOS_File: MOS缓存目录
         """
         super(Ui_MOS_D_MC_Dialog_, self).__init__()
         self.setupUi(self)
@@ -68,6 +69,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.Fabric = Fabric
         self.Optifine = Optifine
         self.TimeOut = TimeOut
+        self.MOS_File = MOS_File
 
         self.pushButton.clicked.connect(self.clicked_pushButton_close_q)
 
@@ -154,7 +156,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
             # 下载Forge主文件
             # file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
             self.u_mc_f_z = D_MC_F_D(self.Game_Current_File, self.MC_File, self.MC, self.G_D_Y, self.Forge,
-                                     self.Forge_json, self.Game_Current_File)
+                                     self.Forge_json, self.Game_Current_File, self.MOS_File)
             # self.u_mc_f_z.sinOut_start.connect(self.D_MC_f_d_sinOut_start)  # 网速
             # self.u_mc_f_z.sinOut_ok.connect(self.D_MC_f_d_sinOut_ok)  # 完成后通知
             self.u_mc_f_z.start()
@@ -793,7 +795,7 @@ class D_MC_YL(QThread):
 class D_MC_F_D(QThread):
     sinOut_start = pyqtSignal()
     sinOut_ok = pyqtSignal()
-    def __init__(self,file, MC_file,MC, G_D_Y, f_v,json, Game_Current_File):
+    def __init__(self,file, MC_file,MC, G_D_Y, f_v,json, Game_Current_File, MOS_File):
         super(D_MC_F_D, self).__init__()
         self.file = file
         self.MC_File = MC_file  # MC文件夹目录
@@ -802,6 +804,7 @@ class D_MC_F_D(QThread):
         self.F_V = f_v
         self.Json = json
         self.Game_Current_File = Game_Current_File
+        self.MOS_File = MOS_File
         global pool_f
     def run(self):
         for json_2 in self.Json:
@@ -868,7 +871,14 @@ class D_MC_F_D(QThread):
         new_loop = asyncio.new_event_loop()
         asyncio.set_event_loop(new_loop)
         asyncio.run(asyncio.gather(self.D_R()))
-        print('776769698698986896868698689689689689698689')
+
+        jar_f_iniatll_path = os.path.join(self.MOS_File,'.MOS','Forge_install',;'install.jar')
+        if os.path.exists(jar_f_iniatll_path):
+            #如果文件存在
+            pass
+        else:
+            url = ''
+
 
     async def D_R(self):
         try:
