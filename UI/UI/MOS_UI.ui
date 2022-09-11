@@ -2448,8 +2448,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>808</width>
-                    <height>380</height>
+                    <width>100</width>
+                    <height>57</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2473,8 +2473,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>808</width>
-                    <height>380</height>
+                    <width>100</width>
+                    <height>57</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2498,8 +2498,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>808</width>
-                    <height>380</height>
+                    <width>100</width>
+                    <height>57</height>
                    </rect>
                   </property>
                   <attribute name="label">
@@ -2907,8 +2907,8 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   /*当滚动条滚�
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>808</width>
-                 <height>275</height>
+                 <width>100</width>
+                 <height>63</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -4122,7 +4122,7 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                     <widget class="QComboBox" name="comboBox_8">
                      <item>
                       <property name="text">
-                       <string>官方源 (速度可能慢 但是最新的)</string>
+                       <string>镜像源 - MCBBS (速度快 但可能不是最新的)</string>
                       </property>
                      </item>
                      <item>
@@ -4132,7 +4132,7 @@ QPushButton::pressed{background-color: rgba(255, 0, 0, 100);}</string>
                      </item>
                      <item>
                       <property name="text">
-                       <string>镜像源 - MCBBS (速度快 但可能不是最新的)</string>
+                       <string>官方源 (速度可能慢 但是最新的)</string>
                       </property>
                      </item>
                     </widget>

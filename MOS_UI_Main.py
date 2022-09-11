@@ -110,6 +110,7 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         self.a.sinOut_font.connect(self.MOS_file_return_font)
         self.a.sinOut_Java.connect(self.MOS_file_return_Java)
         self.a.sinOut_Game_Current_File.connect(self.MOS_file_return_Game_Current_File)
+        self.a.sinOut_D_Y.connect(self.MOS_file_return_D_Y)
         self.a.start()
 
         if self.comboBox_8.currentText() == '官方源 (速度可能慢 但是最新的)':
@@ -1476,6 +1477,15 @@ class Ui_MOS_Main(QtWidgets.QMainWindow, Ui_MOS, Java_Downloader__, Java_OK_UI, 
         """在初始化线程返回当前使用的游戏目录后"""
         self.Game_Current_File = file
 
+    def MOS_file_return_D_Y(self,Y):
+        """初始化"选择下载源"菜单"""
+        if Y == 'MC':
+            self.comboBox_8.setCurrentIndex(2)
+        elif Y == 'MCBBS':
+            self.comboBox_8.setCurrentIndex(0)
+        elif Y == 'BMCLAPI':
+            self.comboBox_8.setCurrentIndex(1)
+
     def json_error(self):
         a = QMessageBox.critical(None, "错误", "您是否删除了MOS启动器生成的JSON文件？请在删除后重启启动器 即将退出启动器", QMessageBox.StandardButton.Yes,
                                  QMessageBox.StandardButton.Yes)
@@ -2149,6 +2159,7 @@ class MOS_file(QThread):
     sinOut_updates = pyqtSignal()
     sinOut_Java = pyqtSignal(list)
     sinOut_Game_Current_File = pyqtSignal(str)
+    sinOut_D_Y = pyqtSignal(str)
 
     def __init__(self):
         super(MOS_file, self).__init__()
@@ -2268,6 +2279,11 @@ class MOS_file(QThread):
                             c_1 = '默认字体：' + c
                             MOS_print("info", c_1)
                             self.sinOut_font.emit(c)
+
+                        D_Y = b['MC_Download']
+                        if D_Y != 'MCBBS':
+                            self.sinOut_D_Y.emit(D_Y)
+
                         MOS_game_dir_name = b['Game_File_Name']
                         MOS_game_current_file = b['Game_Current_File']
                         MOS_print('info',str('当前选择目录：' + MOS_game_current_file))
