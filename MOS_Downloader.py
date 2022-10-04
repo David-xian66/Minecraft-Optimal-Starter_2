@@ -64,7 +64,7 @@ class Downloader():
                 try:
                     self.url = r.headers['Location']
                 except KeyError:
-                    print('状态码为' + str(r.status_code) + ' 但请求头内无location值 重定向失败')
+                    print('状态码为' + str(r.status_code) + ' 请求头内无location值 重定向失败')
                     break
 
                 print("此url已重定向至 " + format(self.url))

@@ -1,5 +1,5 @@
 # coding=utf-8
-
+import subprocess
 # https://mp.weixin.qq.com/s/kxWmO6Q_VYt749OhAoTEUA
 # https://blog.csdn.net/bluehawksky/article/details/106283636
 # http://t.zoukankan.com/qiu-hua-p-12862576.html
@@ -126,7 +126,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         global run_
         run_ = True
 
-        '''
+
         # 下载游戏主文件
         file_1 = os.path.join(self.Game_Current_File, 'versions', self.MC_Name, str(self.MC_Name + '.jar'))
         u_mc_z = u_get_json['downloads']['client']
@@ -150,7 +150,7 @@ class Ui_MOS_D_MC_Dialog_(QDialog, Ui_MOS_D_MC_Dialog):
         self.D_MC_YL_.sinOut_s.connect(self.D_MC_YL_sinOut_s)  # 网速
         self.D_MC_YL_.start()
         
-        '''
+
 
         if self.Forge != None:
             # 下载Forge主文件
@@ -488,7 +488,7 @@ class D_MC_ZY(QThread):
                     except OSError:
                         print('存储异常 重试(资源)')
                     except aiohttp.client_exceptions.ServerDisconnectedError:
-                        print('链接失败 重试(资源)')
+                        print('连接失败 重试(资源)')
                     except asyncio.exceptions.TimeoutError:
                         print('超时重试(资源)')
                     except aiohttp.client_exceptions.ClientPayloadError:
@@ -766,7 +766,7 @@ class D_MC_YL(QThread):
                             self.sinOut_s.emit(pool_4[3])
                             break
                         except aiohttp.client_exceptions.ServerDisconnectedError:
-                            print('链接失败 重试(依赖)')
+                            print('连接失败 重试(依赖)')
                         except OSError:
                             print('存储异常 重试(依赖)')
                         except asyncio.exceptions.TimeoutError:
@@ -872,12 +872,21 @@ class D_MC_F_D(QThread):
         asyncio.set_event_loop(new_loop)
         asyncio.run(asyncio.gather(self.D_R()))
 
-        jar_f_iniatll_path = os.path.join(self.MOS_File,'.MOS','Forge_install',;'install.jar')
-        if os.path.exists(jar_f_iniatll_path):
-            #如果文件存在
-            pass
-        else:
-            url = ''
+        jar_f_iniatll_path = os.path.join(self.MOS_File,'.MOS','Forge_install','install.jar')
+        jar_f_iniatll_path_q = os.path.join(self.MOS_File, '.MOS', 'Forge_install')
+        if os.path.exists(jar_f_iniatll_path) == False:
+            # 如果文件不存在
+            print('F安装程序 开始下载')
+            url = 'https://cdn.jsdelivr.net/gh/xianyongjian080402/Minecraft-Optimal-Starter_2@master/librarys/forge-install-bootstrapper.jar-mos'
+            os.makedirs(jar_f_iniatll_path_q, exist_ok=True)
+            MOS_Downloader.Downloader(url, 1, jar_f_iniatll_path).run()
+            print('安装程序下载完成')
+        print('开始执行安装命令')
+        m = 'java -cp ' + jar_f_iniatll_path + ' com.bangbang93.ForgeInstaller ' + self.MC_File
+        a = subprocess.getoutput(m)
+        print(m)
+        print('-------------')
+        print(a)
 
 
     async def D_R(self):
@@ -927,8 +936,6 @@ class D_MC_F_D(QThread):
                 'Proxy-Connection': 'keep-alive','User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'}  # 伪装浏览器
             if run_ == True:
                 for pool_4 in pool_3:
-                    print(pool_3)
-                    print(str(pool_4[0]) + 'ppppppppppppplllllllllllll')
                     while True:
                         try:
                             os.makedirs(pool_4[2], exist_ok=True)
@@ -954,7 +961,7 @@ class D_MC_F_D(QThread):
                             #self.sinOut_s.emit(pool_4[3])
                             break
                         except aiohttp.client_exceptions.ServerDisconnectedError:
-                            print('链接失败 重试(F-依赖)')
+                            print('连接失败 重试(F-依赖)')
                         except OSError:
                             print('存储异常 重试(F-依赖)')
                         except asyncio.exceptions.TimeoutError:
@@ -967,8 +974,7 @@ class D_MC_F_D(QThread):
                         while True:
                             try:
                                 pool_f.remove(pool_4)
-                                print(str(len(pool_2)) + ' F-L')
-                                print(pool_2)
+                                print(str(len(pool_f)) + ' F-L')
                                 break
                             except UnboundLocalError:
                                 break

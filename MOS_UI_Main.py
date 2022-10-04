@@ -2495,6 +2495,7 @@ class game_first_initialize(QThread):
 
 
 class Java_Check(QThread):
+    '''检查系统内的Java'''
     sinOut = pyqtSignal(dict)
 
     def __init__(self):
