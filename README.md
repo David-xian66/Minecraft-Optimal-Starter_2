@@ -1,4 +1,4 @@
-# 此版本因为某些原因而弃用，请移步至新版本👉👉[MOS3](https://github.com/xianyongjian080402/Minecraft-Optimal-Starter_3)👈👈
+# MOS2已停止开发，请移步[SkyWorldStudio/Minecraft-Optimal-Starter_3](https://github.com/SkyWorldStudio/Minecraft-Optimal-Starter_3)
 
 
 <div align="center">
